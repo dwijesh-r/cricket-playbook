@@ -1855,7 +1855,7 @@
     <div class="bg-grid"></div>
 
     <!-- Mobile Schema Browser Toggle -->
-    <button type="button" class="schema-toggle-btn" id="schema-toggle-btn" onclick="toggleSchemaSidebar()" title="Toggle Schema Browser">&#9776;</button>
+    <button type="button" class="schema-toggle-btn" id="schema-toggle-btn" onclick="toggleSchemaSidebar()" title="Toggle Schema Browser" aria-label="Toggle schema panel">&#9776;</button>
     <div class="schema-overlay" id="schema-overlay" onclick="toggleSchemaSidebar()"></div>
 
     <!-- Loading Overlay (TKT-173 will wire up actual logic) -->
@@ -1867,7 +1867,7 @@
             <div class="loading-progress-bar">
                 <div class="loading-progress-fill" id="loading-progress" style="width: 0%"></div>
             </div>
-            <div class="loading-progress-text" id="loading-progress-text">Coach is grabbing the remote...</div>
+            <div class="loading-progress-text" id="loading-progress-text" aria-live="polite">Coach is grabbing the remote...</div>
         </div>
         <div class="loading-steps">
             <div class="loading-step active" id="step-engine">
@@ -1928,7 +1928,7 @@
         </div>
     </div>
 
-    <main id="main-content" class="main" role="main">
+    <main id="main-content" class="main">
         <header class="page-header">
             <div class="typewriter-container">
                 <h1 class="page-title">🎬 The Film Room</h1>

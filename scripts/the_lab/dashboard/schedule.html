@@ -1141,18 +1141,18 @@
             </div>
 
             <!-- Team Filter Tabs -->
-            <div class="team-tabs" id="teamTabs" aria-label="Filter by team">
-                <button class="team-tab active" data-team="" onclick="filterByTeamTab('')">All</button>
-                <button class="team-tab" data-team="CSK" onclick="filterByTeamTab('CSK')">CSK</button>
-                <button class="team-tab" data-team="DC" onclick="filterByTeamTab('DC')">DC</button>
-                <button class="team-tab" data-team="GT" onclick="filterByTeamTab('GT')">GT</button>
-                <button class="team-tab" data-team="KKR" onclick="filterByTeamTab('KKR')">KKR</button>
-                <button class="team-tab" data-team="LSG" onclick="filterByTeamTab('LSG')">LSG</button>
-                <button class="team-tab" data-team="MI" onclick="filterByTeamTab('MI')">MI</button>
-                <button class="team-tab" data-team="PBKS" onclick="filterByTeamTab('PBKS')">PBKS</button>
-                <button class="team-tab" data-team="RCB" onclick="filterByTeamTab('RCB')">RCB</button>
-                <button class="team-tab" data-team="RR" onclick="filterByTeamTab('RR')">RR</button>
-                <button class="team-tab" data-team="SRH" onclick="filterByTeamTab('SRH')">SRH</button>
+            <div class="team-tabs" id="teamTabs" role="tablist" aria-label="Filter by team">
+                <button class="team-tab active" data-team="" onclick="filterByTeamTab('')" role="tab" aria-selected="true">All</button>
+                <button class="team-tab" data-team="CSK" onclick="filterByTeamTab('CSK')" role="tab" aria-selected="false">CSK</button>
+                <button class="team-tab" data-team="DC" onclick="filterByTeamTab('DC')" role="tab" aria-selected="false">DC</button>
+                <button class="team-tab" data-team="GT" onclick="filterByTeamTab('GT')" role="tab" aria-selected="false">GT</button>
+                <button class="team-tab" data-team="KKR" onclick="filterByTeamTab('KKR')" role="tab" aria-selected="false">KKR</button>
+                <button class="team-tab" data-team="LSG" onclick="filterByTeamTab('LSG')" role="tab" aria-selected="false">LSG</button>
+                <button class="team-tab" data-team="MI" onclick="filterByTeamTab('MI')" role="tab" aria-selected="false">MI</button>
+                <button class="team-tab" data-team="PBKS" onclick="filterByTeamTab('PBKS')" role="tab" aria-selected="false">PBKS</button>
+                <button class="team-tab" data-team="RCB" onclick="filterByTeamTab('RCB')" role="tab" aria-selected="false">RCB</button>
+                <button class="team-tab" data-team="RR" onclick="filterByTeamTab('RR')" role="tab" aria-selected="false">RR</button>
+                <button class="team-tab" data-team="SRH" onclick="filterByTeamTab('SRH')" role="tab" aria-selected="false">SRH</button>
             </div>
 
             <!-- Filter Bar -->
@@ -1186,7 +1186,7 @@
             <!-- Schedule Table -->
             <div class="schedule-table-container">
                 <div class="table-scroll-wrapper" id="tableWrapper">
-                    <table class="schedule-table" role="grid" aria-label="IPL 2026 match schedule">
+                    <table class="schedule-table" aria-label="IPL 2026 match schedule">
                         <thead>
                             <tr>
                                 <th scope="col" class="col-match-num">#</th>
@@ -1738,16 +1738,29 @@
 
                 var packId = 'match-pack-' + m.match;
                 tr.style.cursor = 'pointer';
-                tr.onclick = (function(pid, triggerRow) {
+                tr.setAttribute('tabindex', '0');
+                tr.setAttribute('role', 'button');
+                tr.setAttribute('aria-expanded', 'false');
+                var expandHandler = (function(pid, triggerRow) {
                     return function() {
                         var el = document.getElementById(pid);
                         if (el) {
                             var isOpen = el.style.display !== 'none';
                             el.style.display = isOpen ? 'none' : 'table-row';
                             triggerRow.classList.toggle('mp-expanded', !isOpen);
+                            triggerRow.setAttribute('aria-expanded', !isOpen);
                         }
                     };
                 })(packId, tr);
+                tr.onclick = expandHandler;
+                tr.onkeydown = (function(handler) {
+                    return function(e) {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            handler();
+                        }
+                    };
+                })(expandHandler);
 
                 tr.innerHTML =
                     '<td class="col-match-num">' + m.match + '</td>' +
@@ -1778,7 +1791,9 @@
             // Sync team tabs with dropdown
             var val = teamFilter.value;
             document.querySelectorAll('.team-tab').forEach(function(tab) {
-                tab.classList.toggle('active', tab.getAttribute('data-team') === val);
+                var isActive = tab.getAttribute('data-team') === val;
+                tab.classList.toggle('active', isActive);
+                tab.setAttribute('aria-selected', isActive);
             });
             renderSchedule();
         });
@@ -1789,7 +1804,9 @@
             venueFilter.value = '';
             // Reset team tabs
             document.querySelectorAll('.team-tab').forEach(function(tab) {
-                tab.classList.toggle('active', tab.getAttribute('data-team') === '');
+                var isActive = tab.getAttribute('data-team') === '';
+                tab.classList.toggle('active', isActive);
+                tab.setAttribute('aria-selected', isActive);
             });
             renderSchedule();
         });
@@ -1835,7 +1852,9 @@
     function filterByTeamTab(team) {
         // Update tab active states
         document.querySelectorAll('.team-tab').forEach(function(tab) {
-            tab.classList.toggle('active', tab.getAttribute('data-team') === team);
+            var isActive = tab.getAttribute('data-team') === team;
+            tab.classList.toggle('active', isActive);
+            tab.setAttribute('aria-selected', isActive);
         });
         // Sync the dropdown filter
         var teamFilter = document.getElementById('filterTeam');

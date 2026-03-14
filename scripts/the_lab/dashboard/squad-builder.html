@@ -927,7 +927,7 @@
             <img src="assets/logo/swirl-transparent.png" alt="" height="28">
             <img src="assets/logo/text-transparent.png" alt="Statsledge" height="16">
         </div>
-        <button class="mobile-menu-btn" onclick="toggleMobileMenu()" title="Menu" aria-label="Open navigation menu"><span></span><span></span><span></span></button>
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()" title="Menu" aria-label="Open navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
     <div class="mobile-nav-menu" id="mobile-nav-menu">
         <a href="index.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Home</a>
@@ -950,8 +950,8 @@
         </section>
 
         <!-- Tab Pills -->
-        <div class="tab-pills" role="tablist" aria-label="Fantasy sections">
-            <button class="tab-pill active" role="tab" aria-selected="true" data-tab="rankings" onclick="switchTab('rankings')">Fantasy Auction Rankings</button>
+        <div class="tab-pills" aria-label="Fantasy sections">
+            <button class="tab-pill active" aria-current="true" data-tab="rankings" onclick="switchTab('rankings')">Fantasy Auction Rankings</button>
         </div>
 
         <!-- Tab 1: Draft Rankings -->
@@ -1865,7 +1865,7 @@
 
             const rowId = 'player-' + idx;
 
-            html += `<tr class="player-row-expandable" onclick="togglePositionIntel('${rowId}')">
+            html += `<tr class="player-row-expandable" onclick="togglePositionIntel('${rowId}')" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}">
                 <td class="col-rank"><span class="expand-icon" id="icon-${rowId}">&#9654;</span>${idx + 1}</td>
                 <td class="col-player">${p.name}${captainBadge}${overseasBadge}${(() => {
                     if (typeof PLAYER_AVAILABILITY !== 'undefined' && PLAYER_AVAILABILITY[p.name]) {

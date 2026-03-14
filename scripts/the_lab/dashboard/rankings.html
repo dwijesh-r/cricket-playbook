@@ -2008,13 +2008,13 @@
 
         <!-- Scope Toggle -->
         <div class="scope-toggle-wrap">
-            <div class="scope-toggle" id="scopeToggle">
-                <button class="scope-btn" data-scope="since2023" onclick="setScope('since2023')">Since 2023</button>
-                <button class="scope-btn" data-scope="alltime" onclick="setScope('alltime')">All-Time</button>
-                <span style="width:1px;background:var(--border);margin:4px 2px;"></span>
-                <button class="scope-btn" data-scope="2023" onclick="setScope('2023')">2023</button>
-                <button class="scope-btn" data-scope="2024" onclick="setScope('2024')">2024</button>
-                <button class="scope-btn" data-scope="2025" onclick="setScope('2025')">2025</button>
+            <div class="scope-toggle" id="scopeToggle" role="tablist" aria-label="Data scope">
+                <button class="scope-btn" data-scope="since2023" onclick="setScope('since2023')" role="tab" aria-selected="false">Since 2023</button>
+                <button class="scope-btn" data-scope="alltime" onclick="setScope('alltime')" role="tab" aria-selected="false">All-Time</button>
+                <span style="width:1px;background:var(--border);margin:4px 2px;" role="separator"></span>
+                <button class="scope-btn" data-scope="2023" onclick="setScope('2023')" role="tab" aria-selected="false">2023</button>
+                <button class="scope-btn" data-scope="2024" onclick="setScope('2024')" role="tab" aria-selected="false">2024</button>
+                <button class="scope-btn" data-scope="2025" onclick="setScope('2025')" role="tab" aria-selected="false">2025</button>
             </div>
         </div>
 
@@ -2025,7 +2025,7 @@
         <div class="sample-size-bar" id="sampleSizeBar" style="display:none;"></div>
 
         <!-- Category Navigation -->
-        <div class="category-nav" id="categoryNav"></div>
+        <div class="category-nav" id="categoryNav" role="tablist" aria-label="Category"></div>
 
         <!-- Subcategory Navigation -->
         <div class="subcategory-nav" id="subcategoryNav"></div>
@@ -2042,7 +2042,7 @@
             <div class="filter-group" id="filterGroup">
                 <!-- Dynamic filters inserted here -->
             </div>
-            <button class="show-all-toggle" id="showAllToggle" onclick="toggleShowAll()" title="Show all players including those below qualification thresholds">
+            <button class="show-all-toggle" id="showAllToggle" onclick="toggleShowAll()" title="Show all players including those below qualification thresholds" role="switch" aria-checked="false">
                 <span class="show-all-toggle-switch"></span>
                 Show All Players
             </button>
@@ -2257,7 +2257,8 @@
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme) {
             document.documentElement.setAttribute('data-theme', savedTheme);
-            document.querySelector('.theme-toggle').textContent = savedTheme === 'dark' ? '\u{1F319}' : '\u{2600}\u{FE0F}';
+            const themeToggle = document.querySelector('.theme-toggle');
+            if (themeToggle) themeToggle.textContent = savedTheme === 'dark' ? '\u{1F319}' : '\u{2600}\u{FE0F}';
         }
 
         // Start clock
@@ -2276,7 +2277,7 @@
     }
 
     function updateScopeToggle() {
-        document.querySelectorAll('.scope-btn').forEach(btn => {
+        document.querySelectorAll('.scope-btn').forEach(btn => { btn.setAttribute('aria-selected', btn.getAttribute('data-scope') === state.currentScope ? 'true' : 'false');
             btn.classList.toggle('active', btn.getAttribute('data-scope') === state.currentScope);
         });
     }
@@ -2303,6 +2304,8 @@
         scopeData.categories.forEach((cat, i) => {
             const pill = document.createElement('button');
             pill.className = 'category-pill' + (i === 0 ? ' active' : '');
+            pill.setAttribute('role', 'tab');
+            pill.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
             pill.innerHTML = (CATEGORY_ICONS[cat.id] || '') + ' ' + (CATEGORY_SHORT_NAMES[cat.id] || cat.title);
             pill.onclick = () => selectCategory(i);
             nav.appendChild(pill);
@@ -2324,6 +2327,7 @@
         // Update active pill
         document.querySelectorAll('.category-pill').forEach((pill, i) => {
             pill.classList.toggle('active', i === index);
+            pill.setAttribute('aria-selected', i === index ? 'true' : 'false');
         });
 
         // Build subcategory nav
@@ -2808,6 +2812,7 @@
         state.showAll = !state.showAll;
         const btn = document.getElementById('showAllToggle');
         btn.classList.toggle('active', state.showAll);
+        btn.setAttribute('aria-checked', state.showAll ? 'true' : 'false');
         btn.title = state.showAll
             ? 'Currently showing all players. Click to show qualified only.'
             : 'Show all players including those below qualification thresholds';
@@ -2907,8 +2912,10 @@
         html.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
         const btn = document.querySelector('.theme-toggle');
-        btn.textContent = newTheme === 'dark' ? '\u{1F319}' : '\u{2600}\u{FE0F}';
-        btn.setAttribute('aria-label', newTheme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+        if (btn) {
+            btn.textContent = newTheme === 'dark' ? '\u{1F319}' : '\u{2600}\u{FE0F}';
+            btn.setAttribute('aria-label', newTheme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+        }
     }
 
     function toggleMobileMenu() {

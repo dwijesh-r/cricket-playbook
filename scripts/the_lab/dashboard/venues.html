@@ -313,7 +313,7 @@
             cursor: pointer; transition: border-color var(--transition-normal);
         }
         .sort-bar select:hover { border-color: var(--accent); }
-        .sort-bar select:focus { border-color: var(--accent); outline: none; }
+        .sort-bar select:focus { border-color: var(--accent); outline: 2px solid var(--accent); outline-offset: 2px; }
 
         /* ==================== VENUE GRID ==================== */
         .venue-grid {
@@ -492,7 +492,7 @@
             cursor: pointer; min-width: 280px; transition: border-color var(--transition-normal);
         }
         .venue-selector:hover { border-color: var(--accent); }
-        .venue-selector:focus { border-color: var(--accent); outline: none; }
+        .venue-selector:focus { border-color: var(--accent); outline: 2px solid var(--accent); outline-offset: 2px; }
         .vs-label {
             font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 800;
             color: var(--text-tertiary);
@@ -864,16 +864,16 @@
 
         <!-- Scope Toggle -->
         <div class="scope-toggle-wrap">
-            <div class="scope-toggle" id="scopeToggle">
-                <button class="scope-btn active" data-scope="since2023" onclick="setScope('since2023')">Since 2023</button>
-                <button class="scope-btn" data-scope="alltime" onclick="setScope('alltime')">All-Time</button>
+            <div class="scope-toggle" id="scopeToggle" role="tablist" aria-label="Data scope">
+                <button class="scope-btn active" data-scope="since2023" onclick="setScope('since2023')" role="tab" aria-selected="true">Since 2023</button>
+                <button class="scope-btn" data-scope="alltime" onclick="setScope('alltime')" role="tab" aria-selected="false">All-Time</button>
             </div>
         </div>
 
         <!-- View Tabs -->
-        <div class="view-tabs">
-            <button class="view-tab active" onclick="switchView('grid')">Venue Grid</button>
-            <button class="view-tab" onclick="switchView('compare')">Compare Venues</button>
+        <div class="view-tabs" role="tablist" aria-label="View mode">
+            <button class="view-tab active" onclick="switchView('grid', event)" role="tab" aria-selected="true">Venue Grid</button>
+            <button class="view-tab" onclick="switchView('compare', event)" role="tab" aria-selected="false">Compare Venues</button>
         </div>
 
         <!-- ==================== VENUE GRID VIEW ==================== -->
@@ -889,9 +889,9 @@
             </div>
 
             <!-- View Mode Toggle (Grid / List) -->
-            <div class="view-mode-toggle">
-                <button class="view-mode-btn active" id="grid-mode-btn" onclick="setViewMode('grid')" title="Grid view" aria-label="Grid view">&#9638;&#9638;</button>
-                <button class="view-mode-btn" id="list-mode-btn" onclick="setViewMode('list')" title="List view" aria-label="List view">&#9776;</button>
+            <div class="view-mode-toggle" role="tablist" aria-label="Display mode">
+                <button class="view-mode-btn active" id="grid-mode-btn" onclick="setViewMode('grid')" title="Grid view" aria-label="Grid view" role="tab" aria-selected="true">&#9638;&#9638;</button>
+                <button class="view-mode-btn" id="list-mode-btn" onclick="setViewMode('list')" title="List view" aria-label="List view" role="tab" aria-selected="false">&#9776;</button>
             </div>
 
             <!-- Venue Cards Grid -->
@@ -902,12 +902,12 @@
                 <table class="venue-list-table">
                     <thead>
                         <tr>
-                            <th onclick="sortListBy('name')">Venue <span class="sort-arrow"></span></th>
-                            <th onclick="sortListBy('city')">City <span class="sort-arrow"></span></th>
-                            <th onclick="sortListBy('character')">Character <span class="sort-arrow"></span></th>
-                            <th onclick="sortListBy('avgScore')">Avg 1st Inn <span class="sort-arrow"></span></th>
-                            <th onclick="sortListBy('chaseWinPct')">Chase Win % <span class="sort-arrow"></span></th>
-                            <th onclick="sortListBy('chaseFriendly')">Chase Friendly <span class="sort-arrow"></span></th>
+                            <th onclick="sortListBy('name')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();sortListBy('name')}" tabindex="0" role="button" aria-label="Sort by Venue">Venue <span class="sort-arrow"></span></th>
+                            <th onclick="sortListBy('city')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();sortListBy('city')}" tabindex="0" role="button" aria-label="Sort by City">City <span class="sort-arrow"></span></th>
+                            <th onclick="sortListBy('character')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();sortListBy('character')}" tabindex="0" role="button" aria-label="Sort by Character">Character <span class="sort-arrow"></span></th>
+                            <th onclick="sortListBy('avgScore')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();sortListBy('avgScore')}" tabindex="0" role="button" aria-label="Sort by Average 1st Innings">Avg 1st Inn <span class="sort-arrow"></span></th>
+                            <th onclick="sortListBy('chaseWinPct')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();sortListBy('chaseWinPct')}" tabindex="0" role="button" aria-label="Sort by Chase Win Percent">Chase Win % <span class="sort-arrow"></span></th>
+                            <th onclick="sortListBy('chaseFriendly')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();sortListBy('chaseFriendly')}" tabindex="0" role="button" aria-label="Sort by Chase Friendly">Chase Friendly <span class="sort-arrow"></span></th>
                         </tr>
                     </thead>
                     <tbody id="venue-list-body"></tbody>
@@ -997,7 +997,9 @@
 
     function updateScopeToggle() {
         document.querySelectorAll('.scope-btn').forEach(function(btn) {
-            btn.classList.toggle('active', btn.getAttribute('data-scope') === currentScope);
+            var isActive = btn.getAttribute('data-scope') === currentScope;
+            btn.classList.toggle('active', isActive);
+            btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
         });
     }
 
@@ -1015,10 +1017,10 @@
     });
 
     // ==================== VIEW SWITCHING ====================
-    function switchView(view) {
+    function switchView(view, evt) {
         currentView = view;
-        document.querySelectorAll('.view-tab').forEach(function(t) { t.classList.remove('active'); });
-        event.target.classList.add('active');
+        document.querySelectorAll('.view-tab').forEach(function(t) { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+        if (evt && evt.target) { evt.target.classList.add('active'); evt.target.setAttribute('aria-selected', 'true'); }
 
         document.getElementById('grid-view').classList.toggle('hidden', view !== 'grid');
         document.getElementById('detail-view').classList.toggle('hidden', view !== 'detail');
@@ -1070,7 +1072,11 @@
             var v = entry.data;
             var card = document.createElement('div');
             card.className = 'venue-card';
+            card.setAttribute('tabindex', '0');
+            card.setAttribute('role', 'button');
+            card.setAttribute('aria-label', 'View details for ' + v.venueName);
             card.onclick = function() { showVenueDetail(entry.key); };
+            card.onkeydown = function(e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); showVenueDetail(entry.key); } };
 
             var chaseIcon = v.chaseFriendly
                 ? '<span class="chase-indicator friendly">&#10003;</span>'
@@ -1123,7 +1129,9 @@
     function setViewMode(mode) {
         currentViewMode = mode;
         document.getElementById('grid-mode-btn').classList.toggle('active', mode === 'grid');
+        document.getElementById('grid-mode-btn').setAttribute('aria-selected', mode === 'grid' ? 'true' : 'false');
         document.getElementById('list-mode-btn').classList.toggle('active', mode === 'list');
+        document.getElementById('list-mode-btn').setAttribute('aria-selected', mode === 'list' ? 'true' : 'false');
         document.getElementById('venue-grid').classList.toggle('hidden', mode !== 'grid');
         document.getElementById('venue-list').classList.toggle('hidden', mode !== 'list');
         if (mode === 'list') renderVenueList();
@@ -1174,7 +1182,11 @@
                 : '<span class="chase-indicator not-friendly">&#10007;</span>';
 
             var tr = document.createElement('tr');
+            tr.setAttribute('tabindex', '0');
+            tr.setAttribute('role', 'button');
+            tr.setAttribute('aria-label', 'View details for ' + v.venueName);
             tr.onclick = function() { showVenueDetail(entry.key); };
+            tr.onkeydown = function(e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); showVenueDetail(entry.key); } };
             tr.innerHTML =
                 '<td><span class="venue-list-name">' + v.venueName + '</span></td>' +
                 '<td>' + (TEAM_CITIES[entry.key] || '') + '</td>' +
@@ -1265,7 +1277,7 @@
 
         container.innerHTML =
             '<div class="detail-header">' +
-                '<button class="detail-back" onclick="switchView(\'grid\')">&#8592; Back to Grid</button>' +
+                '<button class="detail-back" onclick="switchView(\'grid\', event)">&#8592; Back to Grid</button>' +
                 '<h2 class="detail-title">' + v.venueName + '</h2>' +
                 '<span class="character-badge ' + v.character + '">' + v.character + '</span>' +
             '</div>' +

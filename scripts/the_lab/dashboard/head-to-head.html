@@ -525,7 +525,7 @@
             <img src="assets/logo/swirl-transparent.png" alt="" height="28">
             <img src="assets/logo/text-transparent.png" alt="Statsledge" height="16">
         </div>
-        <button class="mobile-menu-btn" onclick="toggleMobileMenu()" title="Menu" aria-label="Open navigation menu"><span></span><span></span><span></span></button>
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()" title="Menu" aria-label="Open navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
     <div class="mobile-nav-menu" id="mobile-nav-menu">
         <a href="index.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Home</a>
@@ -549,9 +549,9 @@
 
         <!-- Scope Toggle -->
         <div class="scope-toggle-wrap">
-            <div class="scope-toggle" id="scopeToggle">
-                <button class="scope-btn active" data-scope="since2023" onclick="setH2HScope('since2023')">Since 2023</button>
-                <button class="scope-btn" data-scope="alltime" onclick="setH2HScope('alltime')">All-Time</button>
+            <div class="scope-toggle" id="scopeToggle" role="tablist" aria-label="Data scope">
+                <button class="scope-btn active" data-scope="since2023" onclick="setH2HScope('since2023')" role="tab" aria-selected="true">Since 2023</button>
+                <button class="scope-btn" data-scope="alltime" onclick="setH2HScope('alltime')" role="tab" aria-selected="false">All-Time</button>
             </div>
         </div>
 
@@ -637,7 +637,9 @@
         if (state.currentScope === scope) return;
         state.currentScope = scope;
         document.querySelectorAll('#scopeToggle .scope-btn').forEach(function(btn) {
-            btn.classList.toggle('active', btn.getAttribute('data-scope') === scope);
+            var isActive = btn.getAttribute('data-scope') === scope;
+            btn.classList.toggle('active', isActive);
+            btn.setAttribute('aria-selected', isActive);
         });
         renderH2H();
     };
@@ -886,7 +888,7 @@
 
         html += '<div class="career-stats-grid">';
         stats.forEach(s => {
-            var tipAttr = H2H_TOOLTIPS[s.label] ? ' class="h2h-stat-tooltip" data-tooltip="' + escapeHtml(H2H_TOOLTIPS[s.label]) + '"' : '';
+            var tipAttr = H2H_TOOLTIPS[s.label] ? ' class="h2h-stat-tooltip" data-tooltip="' + escapeHtml(H2H_TOOLTIPS[s.label]) + '" aria-hidden="true"' : '';
             html += '<div style="text-align: center; padding: var(--space-2); background: var(--bg-tertiary); border-radius: var(--radius-md); border: 1px solid var(--border);">';
             html += '<div style="font-size: var(--text-xs); color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.08em;"' + tipAttr + '>' + s.label + '</div>';
             html += '<div style="font-size: var(--text-xl); font-weight: 700; font-family: var(--font-mono); color: var(--text-primary); margin-top: 2px;">' + fmtVal(s.value) + '</div>';
@@ -1171,8 +1173,10 @@
         html.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
         const btn = document.querySelector('.theme-toggle');
-        btn.textContent = newTheme === 'dark' ? '\u{1F319}' : '\u{2600}\u{FE0F}';
-        btn.setAttribute('aria-label', newTheme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+        if (btn) {
+            btn.textContent = newTheme === 'dark' ? '\u{1F319}' : '\u{2600}\u{FE0F}';
+            btn.setAttribute('aria-label', newTheme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+        }
     };
 
     window.toggleMobileMenu = function() {
@@ -1200,7 +1204,8 @@
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme) {
             document.documentElement.setAttribute('data-theme', savedTheme);
-            document.querySelector('.theme-toggle').textContent = savedTheme === 'dark' ? '\u{1F319}' : '\u{2600}\u{FE0F}';
+            var themeBtn = document.querySelector('.theme-toggle');
+            if (themeBtn) themeBtn.textContent = savedTheme === 'dark' ? '\u{1F319}' : '\u{2600}\u{FE0F}';
         }
 
         // Clock

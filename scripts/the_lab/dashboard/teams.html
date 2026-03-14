@@ -4692,46 +4692,46 @@
         </section>
 
         <!-- Content Tabs -->
-        <div class="content-tabs">
-            <button class="content-tab active" data-tab="preview">Preview</button>
-            <button class="content-tab" data-tab="xi">Predicted XI</button>
-            <button class="content-tab" data-tab="squad">Full Squad</button>
-            <button class="content-tab" data-tab="depth">Depth Chart</button>
-            <button class="content-tab" data-tab="balance">Strategy Outlook</button>
-            <button class="content-tab" data-tab="pressure">Pressure</button>
-            <button class="content-tab" data-tab="compare">Compare</button>
-            <button class="content-tab" data-tab="schedule">Schedule</button>
-            <button class="content-tab" data-tab="buildxi">Build XI</button>
+        <div class="content-tabs" role="tablist" aria-label="Team content sections">
+            <button class="content-tab active" data-tab="preview" role="tab" aria-selected="true" aria-controls="panel-preview">Preview</button>
+            <button class="content-tab" data-tab="xi" role="tab" aria-selected="false" aria-controls="panel-xi">Predicted XI</button>
+            <button class="content-tab" data-tab="squad" role="tab" aria-selected="false" aria-controls="panel-squad">Full Squad</button>
+            <button class="content-tab" data-tab="depth" role="tab" aria-selected="false" aria-controls="panel-depth">Depth Chart</button>
+            <button class="content-tab" data-tab="balance" role="tab" aria-selected="false" aria-controls="panel-balance">Strategy Outlook</button>
+            <button class="content-tab" data-tab="pressure" role="tab" aria-selected="false" aria-controls="panel-pressure">Pressure</button>
+            <button class="content-tab" data-tab="compare" role="tab" aria-selected="false" aria-controls="panel-compare">Compare</button>
+            <button class="content-tab" data-tab="schedule" role="tab" aria-selected="false" aria-controls="panel-schedule">Schedule</button>
+            <button class="content-tab" data-tab="buildxi" role="tab" aria-selected="false" aria-controls="panel-buildxi">Build XI</button>
         </div>
 
         <!-- Content Panels -->
         <div class="content-panel">
-            <div class="panel active" id="panel-preview">
+            <div class="panel active" id="panel-preview" role="tabpanel" aria-labelledby="tab-preview">
                 <div id="preview-content"></div>
             </div>
-            <div class="panel" id="panel-xi">
+            <div class="panel" id="panel-xi" role="tabpanel" aria-labelledby="tab-xi">
                 <div class="xi-grid" id="xi-grid"></div>
                 <div class="impact-player" id="impact-player"></div>
             </div>
-            <div class="panel" id="panel-squad">
+            <div class="panel" id="panel-squad" role="tabpanel" aria-labelledby="tab-squad">
                 <div id="squad-content"></div>
             </div>
-            <div class="panel" id="panel-depth">
+            <div class="panel" id="panel-depth" role="tabpanel" aria-labelledby="tab-depth">
                 <div id="depth-content"></div>
             </div>
-            <div class="panel" id="panel-balance">
+            <div class="panel" id="panel-balance" role="tabpanel" aria-labelledby="tab-balance">
                 <div class="strategy-outlook" id="balance-content"></div>
             </div>
-            <div class="panel" id="panel-pressure">
+            <div class="panel" id="panel-pressure" role="tabpanel" aria-labelledby="tab-pressure">
                 <div id="pressure-content"></div>
             </div>
-            <div class="panel" id="panel-compare">
+            <div class="panel" id="panel-compare" role="tabpanel" aria-labelledby="tab-compare">
                 <div id="compare-content"></div>
             </div>
-            <div class="panel" id="panel-schedule">
+            <div class="panel" id="panel-schedule" role="tabpanel" aria-labelledby="tab-schedule">
                 <div id="schedule-content"></div>
             </div>
-            <div class="panel" id="panel-buildxi">
+            <div class="panel" id="panel-buildxi" role="tabpanel" aria-labelledby="tab-buildxi">
                 <div id="buildxi-content"></div>
             </div>
         </div>
@@ -6090,7 +6090,7 @@
             // Filter pill builder
             const pill = (filterType, value, label) => {
                 const isActive = pf[filterType] === value;
-                return `<span class="pressure-pill ${isActive ? 'active' : ''}" onclick="setPressureFilter('${filterType}', '${value}')">${label}</span>`;
+                return `<span class="pressure-pill ${isActive ? 'active' : ''}" role="button" tabindex="0" aria-pressed="${isActive}" onclick="setPressureFilter('${filterType}', '${value}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}">${label}</span>`;
             };
 
             // Build filter bar
@@ -6756,7 +6756,10 @@
         // Filter handlers
         function handleSquadSearch(event) {
             squadFilters.search = event.target.value;
-            renderSquadTable(TEAMS[currentTeam], SQUADS[currentTeam]);
+            clearTimeout(window._searchTimer);
+            window._searchTimer = setTimeout(() => {
+                renderSquadTable(TEAMS[currentTeam], SQUADS[currentTeam]);
+            }, 200);
         }
 
         function handleFilterChange() {
@@ -7063,7 +7066,7 @@
                 </div>`;
                 data.sections.forEach(sec => {
                     html += `<div class="preview-section" id="preview-sec-${sec.id}">
-                        <div class="preview-section-header" onclick="this.parentElement.classList.toggle('open')">
+                        <div class="preview-section-header" role="button" tabindex="0" aria-expanded="false" onclick="this.parentElement.classList.toggle('open'); this.setAttribute('aria-expanded', this.parentElement.classList.contains('open'))" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}">
                             <div>
                                 <div class="preview-section-title">${sec.title}</div>
                                 ${sec.summary ? `<div class="preview-section-summary">${sec.summary}</div>` : ''}
@@ -7445,9 +7448,13 @@
         // Tab switching
         document.querySelectorAll('.content-tab').forEach(tab => {
             tab.addEventListener('click', () => {
-                document.querySelectorAll('.content-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.content-tab').forEach(t => {
+                    t.classList.remove('active');
+                    t.setAttribute('aria-selected', 'false');
+                });
                 document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
                 tab.classList.add('active');
+                tab.setAttribute('aria-selected', 'true');
                 const tabId = tab.dataset.tab;
                 document.getElementById(`panel-${tabId}`).classList.add('active');
 
@@ -8292,7 +8299,7 @@
 
     <!-- Report Issue Modal -->
     <div class="report-overlay" id="report-overlay" onclick="closeReportModal(event)">
-        <div class="report-modal" onclick="event.stopPropagation()">
+        <div class="report-modal" role="dialog" aria-modal="true" aria-label="Report an issue" onclick="event.stopPropagation()">
             <button class="report-close" onclick="toggleReportModal()">&#10005;</button>
             <div class="report-header">
                 <h3>Report an Issue</h3>
@@ -8345,7 +8352,7 @@
 
     <!-- Player Profile Modal (TKT-200) -->
     <div class="player-profile-overlay" id="player-profile-overlay" onclick="closePlayerProfile(event)">
-        <div class="player-profile-modal" onclick="event.stopPropagation()">
+        <div class="player-profile-modal" role="dialog" aria-modal="true" aria-label="Player profile" onclick="event.stopPropagation()">
             <button class="player-profile-close" onclick="closePlayerProfile()">&#x2715;</button>
             <div id="player-profile-content"></div>
         </div>
@@ -8353,7 +8360,7 @@
 
     <!-- Navigation Guide Modal -->
     <div class="nav-guide-overlay" id="nav-guide-overlay" onclick="closeNavGuide(event)">
-        <div class="nav-guide-modal" onclick="event.stopPropagation()">
+        <div class="nav-guide-modal" role="dialog" aria-modal="true" aria-label="Navigation guide" onclick="event.stopPropagation()">
             <button class="nav-guide-close" onclick="toggleNavGuide()">✕</button>
             <div class="nav-guide-header">
                 <h3>The Playbook Rundown</h3>
@@ -8410,7 +8417,7 @@
 </button>
 
 <!-- Chat Panel -->
-<div class="chat-panel" id="chat-panel">
+<div class="chat-panel" id="chat-panel" role="dialog" aria-modal="true" aria-label="Chat with Richmond">
     <div class="chat-header">
         <div class="chat-header-left">
             <div class="chat-header-icon">

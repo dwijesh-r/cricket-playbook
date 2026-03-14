@@ -430,7 +430,7 @@
             margin-bottom: var(--space-1);
         }
         .team-filter-select:focus {
-            outline: none; border-color: var(--accent);
+            outline: 2px solid var(--accent); outline-offset: 2px; border-color: var(--accent);
             box-shadow: 0 0 0 3px var(--glow-accent);
         }
         .team-filter-select:hover { border-color: var(--accent); color: var(--text-primary); }
@@ -485,7 +485,7 @@
             cursor: pointer;
         }
         .search-input:focus {
-            outline: none; border-color: var(--accent);
+            outline: 2px solid var(--accent); outline-offset: 2px; border-color: var(--accent);
             box-shadow: 0 0 0 3px var(--glow-accent);
         }
         .search-input::placeholder { color: var(--text-tertiary); }
@@ -1576,7 +1576,8 @@
                 <button class="add-player-btn" id="addPlayerBtn" onclick="addPlayerSlot()" title="Add another player to compare">+ Add Player</button>
             </div>
             <div class="compare-btn-wrap">
-                <button class="compare-btn" id="compareBtn" onclick="triggerCompare()" disabled title="Select at least two players to compare">Compare Players</button>
+                <button class="compare-btn" id="compareBtn" onclick="triggerCompare()" disabled title="Select at least two players to compare" aria-disabled="true" aria-describedby="compareBtnHelper">Compare Players</button>
+                <span id="compareBtnHelper" class="sr-only">Select at least two players to enable comparison</span>
             </div>
         </div>
 
@@ -2915,8 +2916,10 @@
         var btn = document.getElementById('compareBtn');
         if (btn) {
             var count = getSelectedPlayers().length;
-            btn.disabled = count < 2;
-            btn.title = count < 2 ? 'Select at least two players to compare' : 'Click to compare ' + count + ' players';
+            var isDisabled = count < 2;
+            btn.disabled = isDisabled;
+            btn.setAttribute('aria-disabled', isDisabled ? 'true' : 'false');
+            btn.title = isDisabled ? 'Select at least two players to compare' : 'Click to compare ' + count + ' players';
         }
     }
 
@@ -3005,7 +3008,7 @@
             const pData = pool[id];
             const team = pData && pData.recentForm ? pData.recentForm.team : '';
             const teamAbbr = team ? team.split(' ').map(w => w[0]).join('') : '';
-            return '<div class="dropdown-item" role="option" data-name="' + escapeHtml(name) + '" data-id="' + id + '" onclick="selectPlayer(\'' + side + '\', \'' + escapeHtml(name).replace(/'/g, "\\'") + '\', \'' + id + '\')">' +
+            return '<div class="dropdown-item" role="option" tabindex="0" data-name="' + escapeHtml(name) + '" data-id="' + id + '" onclick="selectPlayer(\'' + side + '\', \'' + escapeHtml(name).replace(/'/g, "\\'") + '\', \'' + id + '\')" onkeydown="if(event.key===\'Enter\'||event.key===\' \'){event.preventDefault();selectPlayer(\'' + side + '\', \'' + escapeHtml(name).replace(/'/g, "\\'") + '\', \'' + id + '\')}">' +
                 '<span>' + escapeHtml(name) + '</span>' +
                 (teamAbbr ? '<span class="team-tag">' + escapeHtml(teamAbbr) + '</span>' : '') +
                 '</div>';
@@ -3177,8 +3180,10 @@
         html.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
         const btn = document.querySelector('.theme-toggle');
-        btn.textContent = newTheme === 'dark' ? '\u{1F319}' : '\u{2600}\u{FE0F}';
-        btn.setAttribute('aria-label', newTheme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+        if (btn) {
+            btn.textContent = newTheme === 'dark' ? '\u{1F319}' : '\u{2600}\u{FE0F}';
+            btn.setAttribute('aria-label', newTheme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+        }
     }
 
     function toggleMobileMenu() {
@@ -3212,7 +3217,8 @@
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme) {
             document.documentElement.setAttribute('data-theme', savedTheme);
-            document.querySelector('.theme-toggle').textContent = savedTheme === 'dark' ? '\u{1F319}' : '\u{2600}\u{FE0F}';
+            const themeToggle = document.querySelector('.theme-toggle');
+            if (themeToggle) themeToggle.textContent = savedTheme === 'dark' ? '\u{1F319}' : '\u{2600}\u{FE0F}';
         }
 
         // Wire up search inputs

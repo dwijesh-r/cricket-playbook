@@ -1044,8 +1044,10 @@
             html.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
             const btn = document.querySelector('.theme-toggle');
-            btn.textContent = newTheme === 'dark' ? '🌙' : '☀️';
-            btn.setAttribute('aria-label', newTheme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+            if (btn) {
+                btn.textContent = newTheme === 'dark' ? '🌙' : '☀️';
+                btn.setAttribute('aria-label', newTheme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+            }
         }
 
         function toggleMobileMenu() {
@@ -1068,7 +1070,7 @@
 
         const savedTheme = localStorage.getItem('theme') || 'dark';
         document.documentElement.setAttribute('data-theme', savedTheme);
-        document.querySelector('.theme-toggle').textContent = savedTheme === 'dark' ? '🌙' : '☀️';
+        const toggle = document.querySelector('.theme-toggle'); if (toggle) toggle.textContent = savedTheme === 'dark' ? '🌙' : '☀️';
 
         function populatePredictedXIIGrid() {
             const grid = document.getElementById('predicted-xii-grid');
@@ -1152,7 +1154,7 @@
 </script>
 
     <!-- Navigation Guide Button -->
-    <button class="nav-guide-btn" onclick="toggleNavGuide()" title="Quick Navigation Guide">❓</button>
+    <button class="nav-guide-btn" onclick="toggleNavGuide()" aria-label="Quick Navigation Guide">❓</button>
 
     <!-- Navigation Guide Modal -->
     <div class="nav-guide-overlay" id="nav-guide-overlay" onclick="closeNavGuide(event)">

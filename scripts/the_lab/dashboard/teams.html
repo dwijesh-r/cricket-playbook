@@ -1293,24 +1293,80 @@
             .clutch-grid { grid-template-columns: 1fr; }
         }
 
-        /* Impact Player */
-        .impact-player {
-            background: linear-gradient(135deg, rgba(191, 90, 242, 0.1) 0%, rgba(10, 132, 255, 0.1) 100%);
+        /* Impact Subs */
+        .impact-subs-container {
+            background: linear-gradient(135deg, rgba(191, 90, 242, 0.08) 0%, rgba(10, 132, 255, 0.08) 100%);
             border: 1px dashed var(--accent-purple);
             border-radius: var(--radius-lg);
             padding: var(--space-3);
             margin-top: var(--space-3);
+        }
+        .impact-subs-header {
             display: flex;
             align-items: center;
-            gap: var(--space-3);
+            gap: 8px;
+            margin-bottom: var(--space-2);
         }
         .impact-badge {
             background: linear-gradient(135deg, var(--accent-purple) 0%, var(--accent-pink) 100%);
-            padding: var(--space-2) 12px;
+            padding: 4px 10px;
             border-radius: var(--radius-sm);
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 700;
             color: white;
+            letter-spacing: 0.5px;
+        }
+        .impact-subs-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        .impact-subs-list {
+            display: flex;
+            gap: var(--space-2);
+            flex-wrap: wrap;
+        }
+        .impact-sub-card {
+            flex: 1;
+            min-width: 120px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 8px 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: border-color 0.2s;
+        }
+        .impact-sub-card:hover {
+            border-color: var(--accent-purple);
+        }
+        .impact-sub-icon {
+            display: flex;
+            align-items: center;
+            color: var(--accent-purple);
+        }
+        .impact-sub-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+            min-width: 0;
+        }
+        .impact-sub-name {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-primary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            cursor: pointer;
+        }
+        .impact-sub-name:hover {
+            color: var(--accent);
+        }
+        .impact-sub-role {
+            font-size: 10px;
+            color: var(--text-tertiary);
         }
 
         /* Depth Chart Panel : Tabular Redesign */
@@ -5094,19 +5150,33 @@
                 xiGrid.appendChild(card);
             });
 
-            // Impact Player
+            // Impact Subs (3 options)
             const impact = document.getElementById('impact-player');
-            const impactNat = squadNatLookup[predicted.impactPlayer.name] || 'IND';
-            const impactOverseas = impactNat !== 'IND';
+            const subs = predicted.impactSubs || [predicted.impactPlayer];
+            const roleToIcon = (role) => {
+                const r = role || '';
+                if (r.includes('Pace') || r === 'Bowler') return 'Bowler';
+                if (r.includes('Spin') || r === 'Spinner') return 'Bowler';
+                if (r.includes('All')) return 'All-rounder';
+                if (r.includes('Wicket') || r.includes('Keeper')) return 'Wicketkeeper';
+                return 'Batter';
+            };
             impact.innerHTML = `
-                <div class="impact-badge">⚡ IMPACT</div>
-                <div class="player-info">
-                    <div class="player-name player-clickable" onclick="openPlayerProfile('${predicted.impactPlayer.name.replace(/'/g, "\\\\'")}')">${predicted.impactPlayer.name}</div>
-                    <div class="player-role">${{'Wicketkeeper': '\u{1F9E4}', 'Batter': '\u{1F3CF}', 'Bowler': '\u{1F3AF}', 'All-rounder': '\u{1F4AA}'}[predicted.impactPlayer.role] || ''} ${predicted.impactPlayer.role}</div>
-                </div>
-                <div class="player-meta">
-                    <div class="player-price">₹${predicted.impactPlayer.price} Cr</div>
-                    ${impactOverseas ? `<div class="player-overseas">${getFlag(impactNat)} ${impactNat}</div>` : ''}
+                <div class="impact-subs-container">
+                    <div class="impact-subs-header">
+                        <span class="impact-badge">IMPACT SUB OPTIONS</span>
+                    </div>
+                    <div class="impact-subs-list">
+                        ${subs.map(s => `
+                            <div class="impact-sub-card">
+                                <div class="impact-sub-icon">${getRoleIcon(roleToIcon(s.role))}</div>
+                                <div class="impact-sub-info">
+                                    <div class="impact-sub-name player-clickable" onclick="openPlayerProfile('${s.name.replace(/'/g, "\\\\'")}')">${s.name}</div>
+                                    <div class="impact-sub-role">${s.role} · ₹${s.price} Cr</div>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
                 </div>
             `;
 

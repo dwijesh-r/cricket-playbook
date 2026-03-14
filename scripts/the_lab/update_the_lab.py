@@ -23,7 +23,10 @@ import json
 from datetime import datetime
 from pathlib import Path
 
-import duckdb
+try:
+    import duckdb
+except ImportError:
+    duckdb = None
 
 # Paths
 ROOT_DIR = Path(__file__).parent.parent.parent
@@ -468,7 +471,7 @@ def generate_full_squads_js():
     # Load all-time stats from DuckDB
     alltime_stats = {}
     duckdb_path = ROOT_DIR / "data" / "cricket_playbook.duckdb"
-    if duckdb_path.exists():
+    if duckdb_path.exists() and duckdb is not None:
         con = duckdb.connect(str(duckdb_path), read_only=True)
         # Batting all-time
         bat_rows = con.execute(

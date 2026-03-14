@@ -1058,6 +1058,23 @@
             border-bottom-color: var(--accent);
         }
 
+        .t20-fallback-row {
+            opacity: 0.75;
+        }
+        .t20-tag {
+            display: inline-block;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            padding: 1px 5px;
+            border-radius: 3px;
+            background: var(--accent-teal);
+            color: #000;
+            margin-left: 6px;
+            vertical-align: middle;
+            cursor: help;
+        }
+
         .player-secondary {
             font-weight: 500;
             color: var(--text-secondary);
@@ -2522,22 +2539,28 @@
         const isMatchup = cat.id === 'player_matchups';
 
         pageRows.forEach((row, rowIdx) => {
+            // Detect T20 fallback rows (extra true flag beyond headers)
+            const isFallback = row.length > headers.length && row[row.length - 1] === true;
             // Build tooltip data for this row (all stats except Rank and Player name)
             const tooltipParts = [];
             const playerIdx = nameIdx;
             const playerName = playerIdx >= 0 ? String(row[playerIdx]) : '';
             const playerTeam = getPlayerTeam(playerName);
             row.forEach((cell, i) => {
+                if (i >= headers.length) return; // skip fallback flag
                 if (i === rankIdx || i === playerIdx) return;
                 if (cell !== null && cell !== undefined && String(cell) !== '') {
                     tooltipParts.push(headers[i] + ': ' + formatValuePlain(cell, headers[i]));
                 }
             });
+            if (isFallback) tooltipParts.push('Source: All T20 since 2023');
             const tooltipData = escapeHtml(tooltipParts.join(' | '));
             const rowDataAttrs = ' data-row-idx="' + rowIdx + '" data-player="' + escapeHtml(playerName) + '"' + (playerTeam ? ' data-team="' + escapeHtml(playerTeam) + '"' : '');
+            const fallbackClass = isFallback ? ' class="t20-fallback-row"' : '';
 
-            bodyHtml += '<tr' + rowDataAttrs + ' data-tooltip-stats="' + tooltipData + '">';
+            bodyHtml += '<tr' + rowDataAttrs + ' data-tooltip-stats="' + tooltipData + '"' + fallbackClass + '>';
             row.forEach((cell, i) => {
+                if (i >= headers.length) return; // skip fallback flag
                 const header = headers[i];
                 const hideClass = keepSet.has(i) ? '' : ' class="col-hide-mobile"';
 
@@ -2545,10 +2568,11 @@
                     bodyHtml += '<td>' + renderRankBadge(cell) + '</td>';
                 } else if (header === 'Player' || header === 'Batter') {
                     const link = getPlayerLink(cell);
+                    const fallbackTag = isFallback ? ' <span class="t20-tag" title="Stats from all T20 since 2023">T20</span>' : '';
                     if (link) {
-                        bodyHtml += '<td><a href="' + link + '" class="player-name-link" title="View ' + escapeHtml(String(cell)) + ' on Teams page">' + escapeHtml(String(cell)) + '</a></td>';
+                        bodyHtml += '<td><a href="' + link + '" class="player-name-link" title="View ' + escapeHtml(String(cell)) + ' on Teams page">' + escapeHtml(String(cell)) + '</a>' + fallbackTag + '</td>';
                     } else {
-                        bodyHtml += '<td><span class="player-name">' + escapeHtml(String(cell)) + '</span></td>';
+                        bodyHtml += '<td><span class="player-name">' + escapeHtml(String(cell)) + '</span>' + fallbackTag + '</td>';
                     }
                 } else if (header === 'Bowler' && isMatchup) {
                     const link = getPlayerLink(cell);

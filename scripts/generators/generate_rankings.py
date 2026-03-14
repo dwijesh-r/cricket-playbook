@@ -125,6 +125,117 @@ def _format_num(val: Any, decimals: int = 1) -> Any:
     return round(f, decimals)
 
 
+def _get_all_squad_players(conn: duckdb.DuckDBPyConnection) -> Dict[str, str]:
+    """Return dict of {player_id: player_name} for all IPL 2026 squad players."""
+    rows = conn.execute("SELECT player_id, player_name FROM ipl_2026_squads").fetchall()
+    return {str(r[0]): r[1] for r in rows if r[0] is not None}
+
+
+def _get_missing_player_ids(squad: Dict[str, str], found_ids: set) -> Dict[str, str]:
+    """Return squad players not in found_ids: {player_id: player_name}."""
+    return {pid: name for pid, name in squad.items() if pid not in found_ids}
+
+
+# =============================================================================
+# T20 FALLBACK QUERY HELPERS
+# =============================================================================
+
+# T20 weight factor applied to fallback composite scores (0.0-1.0).
+# Discounts non-IPL data so fallback players don't rank above IPL-qualified ones.
+T20_FALLBACK_WEIGHT = 0.70
+
+
+def _query_t20_fallback_batter_phase(
+    conn: duckdb.DuckDBPyConnection, missing_ids: Dict[str, str], phase: str
+) -> List[list]:
+    """Query T20 since-2023 phase data for missing batters. Returns row lists."""
+    if not missing_ids:
+        return []
+    id_list = ", ".join(f"'{pid}'" for pid in missing_ids)
+    rows = conn.execute(f"""
+        SELECT player_id, player_name, runs, balls_faced,
+            strike_rate, batting_average, boundary_pct, dot_ball_pct
+        FROM analytics_t20_batter_phase_since2023
+        WHERE match_phase = '{phase}'
+          AND CAST(player_id AS VARCHAR) IN ({id_list})
+        ORDER BY strike_rate DESC
+    """).fetchall()
+    return rows
+
+
+def _query_t20_fallback_bowler_phase(
+    conn: duckdb.DuckDBPyConnection, missing_ids: Dict[str, str], phase: str
+) -> List[list]:
+    """Query T20 since-2023 phase data for missing bowlers."""
+    if not missing_ids:
+        return []
+    id_list = ", ".join(f"'{pid}'" for pid in missing_ids)
+    rows = conn.execute(f"""
+        SELECT player_id, player_name, balls_bowled, economy_rate, dot_ball_pct
+        FROM analytics_t20_bowler_phase_since2023
+        WHERE match_phase = '{phase}'
+          AND CAST(player_id AS VARCHAR) IN ({id_list})
+        ORDER BY economy_rate ASC
+    """).fetchall()
+    return rows
+
+
+def _query_t20_fallback_batter_career(
+    conn: duckdb.DuckDBPyConnection, missing_ids: Dict[str, str]
+) -> List[list]:
+    """Query all-T20 career batting data for missing batters."""
+    if not missing_ids:
+        return []
+    id_list = ", ".join(f"'{pid}'" for pid in missing_ids)
+    rows = conn.execute(f"""
+        SELECT player_id, player_name, innings, runs, balls_faced,
+            strike_rate, batting_average
+        FROM analytics_batting_career_since2023
+        WHERE CAST(player_id AS VARCHAR) IN ({id_list})
+          AND balls_faced >= 1
+        ORDER BY strike_rate DESC
+    """).fetchall()
+    return rows
+
+
+def _query_t20_fallback_bowler_career(
+    conn: duckdb.DuckDBPyConnection, missing_ids: Dict[str, str]
+) -> List[list]:
+    """Query all-T20 career bowling data for missing bowlers."""
+    if not missing_ids:
+        return []
+    id_list = ", ".join(f"'{pid}'" for pid in missing_ids)
+    rows = conn.execute(f"""
+        SELECT player_id, player_name, matches_bowled, balls_bowled,
+            wickets, economy_rate, bowling_average
+        FROM analytics_bowling_career_since2023
+        WHERE CAST(player_id AS VARCHAR) IN ({id_list})
+          AND balls_bowled >= 1
+        ORDER BY economy_rate ASC
+    """).fetchall()
+    return rows
+
+
+def _make_stub_batter_phase_row(rank: int, player_name: str) -> list:
+    """Create a stub row for a squad batter with no phase data at all."""
+    return [rank, player_name, 0, 0, None, None, None, None, True]
+
+
+def _make_stub_bowler_phase_row(rank: int, player_name: str) -> list:
+    """Create a stub row for a squad bowler with no phase data at all."""
+    return [rank, player_name, 0, None, None, True]
+
+
+def _make_stub_batter_composite_row(rank: int, player_name: str) -> list:
+    """Create a stub row for a squad batter with no career data."""
+    return [rank, player_name, 0, 0, 0, None, None, None, True]
+
+
+def _make_stub_bowler_composite_row(rank: int, player_name: str) -> list:
+    """Create a stub row for a squad bowler with no career data."""
+    return [rank, player_name, 0, 0, 0, None, None, None, True]
+
+
 def create_year_views(conn: duckdb.DuckDBPyConnection, year: int) -> None:
     """Create temporary per-year views for ranking queries.
 
@@ -476,21 +587,73 @@ def create_year_views(conn: duckdb.DuckDBPyConnection, year: int) -> None:
 
 
 def query_batter_phase_rankings(conn: duckdb.DuckDBPyConnection, suffix: str = "") -> List[Dict]:
-    """Category 1: Batter phase rankings (powerplay/middle/death)."""
+    """Category 1: Batter phase rankings (powerplay/middle/death).
+
+    Includes ALL IPL 2026 squad players. Players without IPL data
+    fall back to T20 since-2023 stats (marked is_t20_fallback: true).
+    """
     view = f"analytics_ipl_batter_phase_rankings{suffix}"
+    squad = _get_all_squad_players(conn)
     subcategories = []
     for phase in PHASE_ORDER:
-        rows = conn.execute(
+        # --- IPL-qualified rows ---
+        ipl_rows = conn.execute(
             f"""
             SELECT
                 phase_rank, player_name, runs, balls_faced, strike_rate,
-                batting_average, boundary_pct, dot_ball_pct
+                batting_average, boundary_pct, dot_ball_pct, player_id
             FROM {view}
             WHERE match_phase = ?
             ORDER BY phase_rank
             """,
             [phase],
         ).fetchall()
+
+        qualified_count = len(ipl_rows)
+        found_ids = {str(r[8]) for r in ipl_rows}
+
+        formatted_rows = [
+            [
+                int(r[0]),
+                r[1],
+                int(r[2]) if r[2] is not None else 0,
+                int(r[3]),
+                _format_num(r[4]),
+                _format_num(r[5]),
+                _format_num(r[6]),
+                _format_num(r[7]),
+            ]
+            for r in ipl_rows
+        ]
+
+        # --- T20 fallback for missing squad players ---
+        missing = _get_missing_player_ids(squad, found_ids)
+        if missing:
+            t20_rows = _query_t20_fallback_batter_phase(conn, missing, phase)
+            t20_found_ids = {str(r[0]) for r in t20_rows}
+            next_rank = qualified_count + 1
+
+            for r in t20_rows:
+                formatted_rows.append(
+                    [
+                        next_rank,
+                        r[1],
+                        int(r[2]) if r[2] is not None else 0,
+                        int(r[3]) if r[3] is not None else 0,
+                        _format_num(r[4]),
+                        _format_num(r[5]),
+                        _format_num(r[6]),
+                        _format_num(r[7]),
+                        True,  # is_t20_fallback
+                    ]
+                )
+                next_rank += 1
+
+            # Stub rows for players with no data at all
+            still_missing = {pid: name for pid, name in missing.items() if pid not in t20_found_ids}
+            for pid, name in sorted(still_missing.items(), key=lambda x: x[1]):
+                formatted_rows.append(_make_stub_batter_phase_row(next_rank, name))
+                next_rank += 1
 
         subcategories.append(
             {
@@ -506,23 +669,8 @@ def query_batter_phase_rankings(conn: duckdb.DuckDBPyConnection, suffix: str = "
                     "Boundary%",
                     "Dot%",
                 ],
-                "rows": [
-                    [
-                        int(r[0]),
-                        r[1],
-                        int(r[2]) if r[2] is not None else 0,
-                        int(r[3]),
-                        _format_num(r[4]),
-                        _format_num(r[5]),
-                        _format_num(r[6]),
-                        _format_num(r[7]),
-                    ]
-                    for r in rows
-                ],
-                "qualifiedCount": conn.execute(
-                    f"SELECT COUNT(*) FROM {view} WHERE match_phase = ?",
-                    [phase],
-                ).fetchone()[0],
+                "rows": formatted_rows,
+                "qualifiedCount": qualified_count,
             }
         )
 
@@ -530,15 +678,21 @@ def query_batter_phase_rankings(conn: duckdb.DuckDBPyConnection, suffix: str = "
 
 
 def query_bowler_phase_rankings(conn: duckdb.DuckDBPyConnection, suffix: str = "") -> List[Dict]:
-    """Category 2: Bowler phase rankings (powerplay/middle/death)."""
+    """Category 2: Bowler phase rankings (powerplay/middle/death).
+
+    Includes ALL IPL 2026 squad players. Players without IPL data
+    fall back to T20 since-2023 stats (marked is_t20_fallback: true).
+    """
     view = f"analytics_ipl_bowler_phase_rankings{suffix}"
+    squad = _get_all_squad_players(conn)
     subcategories = []
     for phase in PHASE_ORDER:
-        rows = conn.execute(
+        # --- IPL-qualified rows ---
+        ipl_rows = conn.execute(
             f"""
             SELECT
                 phase_rank, player_name, balls_bowled, economy_rate,
-                dot_ball_pct
+                dot_ball_pct, player_id
             FROM {view}
             WHERE match_phase = ?
             ORDER BY phase_rank
@@ -546,25 +700,53 @@ def query_bowler_phase_rankings(conn: duckdb.DuckDBPyConnection, suffix: str = "
             [phase],
         ).fetchall()
 
+        qualified_count = len(ipl_rows)
+        found_ids = {str(r[5]) for r in ipl_rows}
+
+        formatted_rows = [
+            [
+                int(r[0]),
+                r[1],
+                int(r[2]),
+                _format_num(r[3], 2),
+                _format_num(r[4]),
+            ]
+            for r in ipl_rows
+        ]
+
+        # --- T20 fallback for missing squad players ---
+        missing = _get_missing_player_ids(squad, found_ids)
+        if missing:
+            t20_rows = _query_t20_fallback_bowler_phase(conn, missing, phase)
+            t20_found_ids = {str(r[0]) for r in t20_rows}
+            next_rank = qualified_count + 1
+
+            for r in t20_rows:
+                formatted_rows.append(
+                    [
+                        next_rank,
+                        r[1],
+                        int(r[2]) if r[2] is not None else 0,
+                        _format_num(r[3], 2),
+                        _format_num(r[4]),
+                        True,  # is_t20_fallback
+                    ]
+                )
+                next_rank += 1
+
+            # Stub rows for players with no data at all
+            still_missing = {pid: name for pid, name in missing.items() if pid not in t20_found_ids}
+            for pid, name in sorted(still_missing.items(), key=lambda x: x[1]):
+                formatted_rows.append(_make_stub_bowler_phase_row(next_rank, name))
+                next_rank += 1
+
         subcategories.append(
             {
                 "id": phase,
                 "title": PHASE_TITLES[phase],
                 "headers": ["Rank", "Player", "Balls", "Econ", "Dot%"],
-                "rows": [
-                    [
-                        int(r[0]),
-                        r[1],
-                        int(r[2]),
-                        _format_num(r[3], 2),
-                        _format_num(r[4]),
-                    ]
-                    for r in rows
-                ],
-                "qualifiedCount": conn.execute(
-                    f"SELECT COUNT(*) FROM {view} WHERE match_phase = ?",
-                    [phase],
-                ).fetchone()[0],
+                "rows": formatted_rows,
+                "qualifiedCount": qualified_count,
             }
         )
 
@@ -572,8 +754,13 @@ def query_bowler_phase_rankings(conn: duckdb.DuckDBPyConnection, suffix: str = "
 
 
 def query_batter_vs_bowling_type(conn: duckdb.DuckDBPyConnection, suffix: str = "") -> List[Dict]:
-    """Category 3: Batter vs bowling type rankings."""
+    """Category 3: Batter vs bowling type rankings.
+
+    Includes ALL IPL 2026 squad batters. Players without IPL vs-type data
+    fall back to T20 since-2023 vs-type stats where available.
+    """
     view = f"analytics_ipl_batter_vs_bowling_type_rankings{suffix}"
+    squad = _get_all_squad_players(conn)
     subcategories = []
 
     # Only include types present in the data
@@ -590,11 +777,12 @@ def query_batter_vs_bowling_type(conn: duckdb.DuckDBPyConnection, suffix: str = 
     ordered_types += [t for t in available_types if t not in ordered_types and t != "Unknown"]
 
     for btype in ordered_types:
-        rows = conn.execute(
+        # --- IPL-qualified rows ---
+        ipl_rows = conn.execute(
             f"""
             SELECT
                 vs_type_rank, player_name, runs, balls, strike_rate,
-                average
+                average, player_id
             FROM {view}
             WHERE bowler_type = ?
             ORDER BY vs_type_rank
@@ -602,29 +790,74 @@ def query_batter_vs_bowling_type(conn: duckdb.DuckDBPyConnection, suffix: str = 
             [btype],
         ).fetchall()
 
-        if not rows:
+        if not ipl_rows:
             continue
+
+        qualified_count = len(ipl_rows)
+        found_ids = {str(r[6]) for r in ipl_rows}
+
+        formatted_rows = [
+            [
+                int(r[0]),
+                r[1],
+                int(r[2]),
+                int(r[3]),
+                _format_num(r[4]),
+                _format_num(r[5]),
+            ]
+            for r in ipl_rows
+        ]
+
+        # --- T20 fallback for missing squad players ---
+        missing = _get_missing_player_ids(squad, found_ids)
+        if missing:
+            # Try T20 vs bowling type view for missing players
+            id_list = ", ".join(f"'{pid}'" for pid in missing)
+            try:
+                t20_rows = conn.execute(
+                    f"""
+                    SELECT batter_id, batter_name, runs, balls, strike_rate,
+                        ROUND(runs * 1.0 / NULLIF(dismissals, 0), 2) as average
+                    FROM analytics_t20_batter_vs_bowler_type_since2023
+                    WHERE bowler_type = ?
+                      AND CAST(batter_id AS VARCHAR) IN ({id_list})
+                    ORDER BY strike_rate DESC
+                """,
+                    [btype],
+                ).fetchall()
+            except Exception:
+                t20_rows = []
+
+            t20_found_ids = {str(r[0]) for r in t20_rows}
+            next_rank = qualified_count + 1
+
+            for r in t20_rows:
+                formatted_rows.append(
+                    [
+                        next_rank,
+                        r[1],
+                        int(r[2]) if r[2] is not None else 0,
+                        int(r[3]) if r[3] is not None else 0,
+                        _format_num(r[4]),
+                        _format_num(r[5]),
+                        True,  # is_t20_fallback
+                    ]
+                )
+                next_rank += 1
+
+            # Stub rows for squad players with no data at all
+            still_missing = {pid: name for pid, name in missing.items() if pid not in t20_found_ids}
+            for pid, name in sorted(still_missing.items(), key=lambda x: x[1]):
+                formatted_rows.append([next_rank, name, 0, 0, None, None, True])
+                next_rank += 1
 
         subcategories.append(
             {
                 "id": btype.lower().replace(" ", "_").replace("-", "_"),
                 "title": f"vs {btype}",
                 "headers": ["Rank", "Player", "Runs", "Balls", "SR", "Avg"],
-                "rows": [
-                    [
-                        int(r[0]),
-                        r[1],
-                        int(r[2]),
-                        int(r[3]),
-                        _format_num(r[4]),
-                        _format_num(r[5]),
-                    ]
-                    for r in rows
-                ],
-                "qualifiedCount": conn.execute(
-                    f"SELECT COUNT(*) FROM {view} WHERE bowler_type = ?",
-                    [btype],
-                ).fetchone()[0],
+                "rows": formatted_rows,
+                "qualifiedCount": qualified_count,
             }
         )
 
@@ -632,21 +865,86 @@ def query_batter_vs_bowling_type(conn: duckdb.DuckDBPyConnection, suffix: str = 
 
 
 def query_bowler_vs_handedness(conn: duckdb.DuckDBPyConnection, suffix: str = "") -> List[Dict]:
-    """Category 4: Bowler vs batter handedness rankings."""
+    """Category 4: Bowler vs batter handedness rankings.
+
+    Includes ALL IPL 2026 squad bowlers. Players without IPL vs-hand data
+    fall back to T20 since-2023 stats where available.
+    """
     view = f"analytics_ipl_bowler_vs_handedness_rankings{suffix}"
+    squad = _get_all_squad_players(conn)
     subcategories = []
     for hand in ["Left-hand", "Right-hand"]:
-        rows = conn.execute(
+        # --- IPL-qualified rows ---
+        ipl_rows = conn.execute(
             f"""
             SELECT
                 vs_hand_rank, player_name, balls, wickets,
-                economy
+                economy, player_id
             FROM {view}
             WHERE batting_hand = ?
             ORDER BY vs_hand_rank
             """,
             [hand],
         ).fetchall()
+
+        qualified_count = len(ipl_rows)
+        found_ids = {str(r[5]) for r in ipl_rows}
+
+        formatted_rows = [
+            [
+                int(r[0]),
+                r[1],
+                int(r[2]),
+                int(r[3]),
+                _format_num(r[4], 2),
+            ]
+            for r in ipl_rows
+        ]
+
+        # --- T20 fallback for missing squad players ---
+        missing = _get_missing_player_ids(squad, found_ids)
+        if missing:
+            # Try T20 bowler vs handedness view for missing players
+            id_list = ", ".join(f"'{pid}'" for pid in missing)
+            try:
+                t20_rows = conn.execute(f"""
+                    SELECT player_id, player_name, balls_bowled, wickets, economy_rate
+                    FROM analytics_t20_bowler_phase_since2023
+                    WHERE CAST(player_id AS VARCHAR) IN ({id_list})
+                      AND balls_bowled >= 1
+                    ORDER BY economy_rate ASC
+                """).fetchall()
+            except Exception:
+                t20_rows = []
+
+            # Deduplicate by player_id (phase view has multiple rows per player)
+            seen_t20: set = set()
+            t20_deduped = []
+            for r in t20_rows:
+                pid = str(r[0])
+                if pid not in seen_t20:
+                    seen_t20.add(pid)
+                    t20_deduped.append(r)
+
+            next_rank = qualified_count + 1
+            for r in t20_deduped:
+                formatted_rows.append(
+                    [
+                        next_rank,
+                        r[1],
+                        int(r[2]) if r[2] is not None else 0,
+                        int(r[3]) if r[3] is not None else 0,
+                        _format_num(r[4], 2),
+                        True,  # is_t20_fallback
+                    ]
+                )
+                next_rank += 1
+
+            # Stub rows for players with no data at all
+            still_missing = {pid: name for pid, name in missing.items() if pid not in seen_t20}
+            for pid, name in sorted(still_missing.items(), key=lambda x: x[1]):
+                formatted_rows.append([next_rank, name, 0, 0, None, True])
+                next_rank += 1
 
         subcategories.append(
             {
@@ -659,20 +957,8 @@ def query_bowler_vs_handedness(conn: duckdb.DuckDBPyConnection, suffix: str = ""
                     "Wkts",
                     "Econ",
                 ],
-                "rows": [
-                    [
-                        int(r[0]),
-                        r[1],
-                        int(r[2]),
-                        int(r[3]),
-                        _format_num(r[4], 2),
-                    ]
-                    for r in rows
-                ],
-                "qualifiedCount": conn.execute(
-                    f"SELECT COUNT(*) FROM {view} WHERE batting_hand = ?",
-                    [hand],
-                ).fetchone()[0],
+                "rows": formatted_rows,
+                "qualifiedCount": qualified_count,
             }
         )
 
@@ -767,19 +1053,71 @@ def query_player_matchup_rankings(conn: duckdb.DuckDBPyConnection, suffix: str =
 def query_batter_composite_rankings(
     conn: duckdb.DuckDBPyConnection, suffix: str = ""
 ) -> List[Dict]:
-    """Category 6: Overall batter composite rankings."""
+    """Category 6: Overall batter composite rankings.
+
+    Includes ALL IPL 2026 squad players. Players without IPL career data
+    fall back to all-T20 career stats since 2023 (marked is_t20_fallback: true).
+    """
     view = f"analytics_ipl_batter_composite_rankings{suffix}"
-    rows = conn.execute(
+    squad = _get_all_squad_players(conn)
+
+    # --- IPL-qualified rows ---
+    ipl_rows = conn.execute(
         f"""
         SELECT
             overall_rank, player_name, innings, runs, balls_faced,
-            strike_rate, batting_average, boundary_pct
+            strike_rate, batting_average, boundary_pct, player_id
         FROM {view}
         ORDER BY overall_rank
         """,
     ).fetchall()
 
-    total = conn.execute(f"SELECT COUNT(*) FROM {view}").fetchone()[0]
+    qualified_count = len(ipl_rows)
+    found_ids = {str(r[8]) for r in ipl_rows}
+
+    formatted_rows = [
+        [
+            int(r[0]),
+            r[1],
+            int(r[2]),
+            int(r[3]),
+            int(r[4]),
+            _format_num(r[5]),
+            _format_num(r[6]),
+            _format_num(r[7]),
+        ]
+        for r in ipl_rows
+    ]
+
+    # --- T20 fallback for missing squad players ---
+    missing = _get_missing_player_ids(squad, found_ids)
+    if missing:
+        t20_rows = _query_t20_fallback_batter_career(conn, missing)
+        t20_found_ids = {str(r[0]) for r in t20_rows}
+        next_rank = qualified_count + 1
+
+        for r in t20_rows:
+            # r: player_id, player_name, innings, runs, balls_faced, strike_rate, batting_average
+            formatted_rows.append(
+                [
+                    next_rank,
+                    r[1],
+                    int(r[2]) if r[2] is not None else 0,
+                    int(r[3]) if r[3] is not None else 0,
+                    int(r[4]) if r[4] is not None else 0,
+                    _format_num(r[5]),
+                    _format_num(r[6]),
+                    None,  # boundary_pct not in career view
+                    True,  # is_t20_fallback
+                ]
+            )
+            next_rank += 1
+
+        # Stub rows for players with no data at all
+        still_missing = {pid: name for pid, name in missing.items() if pid not in t20_found_ids}
+        for pid, name in sorted(still_missing.items(), key=lambda x: x[1]):
+            formatted_rows.append(_make_stub_batter_composite_row(next_rank, name))
+            next_rank += 1
 
     return [
         {
@@ -788,7 +1126,8 @@ def query_batter_composite_rankings(
             "description": (
                 "Composite score: Career SR+Avg (30%) + Phase Performance (30%) "
                 "+ Boundary% (20%) + Average (10%) + Dot Ball Discipline (10%). "
-                "Sample-size weighted. Min 500 balls."
+                "Sample-size weighted. Min 500 balls. "
+                "Players marked with T20 fallback use all-T20 data since 2023."
             ),
             "headers": [
                 "Rank",
@@ -800,20 +1139,8 @@ def query_batter_composite_rankings(
                 "Avg",
                 "Boundary%",
             ],
-            "rows": [
-                [
-                    int(r[0]),
-                    r[1],
-                    int(r[2]),
-                    int(r[3]),
-                    int(r[4]),
-                    _format_num(r[5]),
-                    _format_num(r[6]),
-                    _format_num(r[7]),
-                ]
-                for r in rows
-            ],
-            "qualifiedCount": total,
+            "rows": formatted_rows,
+            "qualifiedCount": qualified_count,
         }
     ]
 
@@ -821,19 +1148,73 @@ def query_batter_composite_rankings(
 def query_bowler_composite_rankings(
     conn: duckdb.DuckDBPyConnection, suffix: str = ""
 ) -> List[Dict]:
-    """Category 7: Overall bowler composite rankings."""
+    """Category 7: Overall bowler composite rankings.
+
+    Includes ALL IPL 2026 squad players. Players without IPL career data
+    fall back to all-T20 career stats since 2023 (marked is_t20_fallback: true).
+    """
     view = f"analytics_ipl_bowler_composite_rankings{suffix}"
-    rows = conn.execute(
+    squad = _get_all_squad_players(conn)
+
+    # --- IPL-qualified rows ---
+    ipl_rows = conn.execute(
         f"""
         SELECT
             overall_rank, player_name, balls_bowled, matches_bowled,
-            wickets, economy_rate, bowling_average, bowling_strike_rate
+            wickets, economy_rate, bowling_average, bowling_strike_rate,
+            player_id
         FROM {view}
         ORDER BY overall_rank
         """,
     ).fetchall()
 
-    total = conn.execute(f"SELECT COUNT(*) FROM {view}").fetchone()[0]
+    qualified_count = len(ipl_rows)
+    found_ids = {str(r[8]) for r in ipl_rows}
+
+    formatted_rows = [
+        [
+            int(r[0]),
+            r[1],
+            int(r[2]),
+            int(r[3]),
+            int(r[4]),
+            _format_num(r[5], 2),
+            _format_num(r[6]),
+            _format_num(r[7]),
+        ]
+        for r in ipl_rows
+    ]
+
+    # --- T20 fallback for missing squad players ---
+    missing = _get_missing_player_ids(squad, found_ids)
+    if missing:
+        t20_rows = _query_t20_fallback_bowler_career(conn, missing)
+        t20_found_ids = {str(r[0]) for r in t20_rows}
+        next_rank = qualified_count + 1
+
+        for r in t20_rows:
+            # r: player_id, player_name, matches_bowled, balls_bowled,
+            #    wickets, economy_rate, bowling_average
+            formatted_rows.append(
+                [
+                    next_rank,
+                    r[1],
+                    int(r[3]) if r[3] is not None else 0,  # balls_bowled
+                    int(r[2]) if r[2] is not None else 0,  # matches_bowled
+                    int(r[4]) if r[4] is not None else 0,  # wickets
+                    _format_num(r[5], 2),  # economy_rate
+                    _format_num(r[6]),  # bowling_average
+                    None,  # bowling_strike_rate (not in career view)
+                    True,  # is_t20_fallback
+                ]
+            )
+            next_rank += 1
+
+        # Stub rows for players with no data at all
+        still_missing = {pid: name for pid, name in missing.items() if pid not in t20_found_ids}
+        for pid, name in sorted(still_missing.items(), key=lambda x: x[1]):
+            formatted_rows.append(_make_stub_bowler_composite_row(next_rank, name))
+            next_rank += 1
 
     return [
         {
@@ -842,7 +1223,8 @@ def query_bowler_composite_rankings(
             "description": (
                 "Composite score: Career Econ+Avg (30%) + Phase Performance (30%) "
                 "+ Economy (20%) + Wicket-taking (10%) + Dot Ball% (10%). "
-                "Sample-size weighted. Min 300 balls."
+                "Sample-size weighted. Min 300 balls. "
+                "Players marked with T20 fallback use all-T20 data since 2023."
             ),
             "headers": [
                 "Rank",
@@ -854,20 +1236,8 @@ def query_bowler_composite_rankings(
                 "Avg",
                 "Bowl SR",
             ],
-            "rows": [
-                [
-                    int(r[0]),
-                    r[1],
-                    int(r[2]),
-                    int(r[3]),
-                    int(r[4]),
-                    _format_num(r[5], 2),
-                    _format_num(r[6]),
-                    _format_num(r[7]),
-                ]
-                for r in rows
-            ],
-            "qualifiedCount": total,
+            "rows": formatted_rows,
+            "qualifiedCount": qualified_count,
         }
     ]
 

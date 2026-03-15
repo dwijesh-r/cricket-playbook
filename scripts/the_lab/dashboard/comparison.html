@@ -2817,6 +2817,7 @@
         // Recompute percentiles for the new scope
         computePercentiles();
 
+        updateCompareBtn();
         renderComparison();
     }
 
@@ -2862,6 +2863,7 @@
 
         resetSlot('A');
         resetSlot('B');
+        updateCompareBtn();
         renderComparison();
     }
 

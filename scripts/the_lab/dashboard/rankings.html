@@ -2455,8 +2455,15 @@
         const sub = cat.subcategories[state.currentSubcategory];
         state.headers = sub.headers;
 
+        // Filter by qualification status (Show All toggle)
+        let rows;
+        if (!state.showAll && sub.qualifiedCount != null && sub.qualifiedCount < sub.rows.length) {
+            rows = sub.rows.slice(0, sub.qualifiedCount);
+        } else {
+            rows = sub.rows.slice();
+        }
+
         // Filter rows by search
-        let rows = sub.rows.slice();
         if (state.searchQuery) {
             const q = state.searchQuery.toLowerCase();
             rows = rows.filter(row => {

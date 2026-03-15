@@ -145,7 +145,7 @@
         .dropdown-item { padding: var(--space-2) var(--space-3); cursor: pointer; font-size: var(--text-sm); transition: background var(--transition-fast); display: flex; justify-content: space-between; }
         .dropdown-item:hover, .dropdown-item.highlighted { background: var(--bg-tertiary); color: var(--accent); }
         .dropdown-item .team-tag { font-size: var(--text-xs); color: var(--text-tertiary); }
-        .vs-badge { font-family: var(--font-display); font-size: var(--text-2xl); color: var(--accent-purple); font-weight: 700; flex-shrink: 0; }
+        .vs-badge { font-family: var(--font-display); font-size: var(--text-2xl); color: var(--accent-purple); font-weight: 700; flex-shrink: 0; align-self: center; text-align: center; min-width: 48px; }
 
         /* Stats table */
         .stats-table { width: 100%; border-collapse: collapse; font-size: var(--text-sm); }
@@ -860,13 +860,13 @@
         html += '<div class="section-title">' + (isAlltime ? 'All-Time' : 'Since 2023') + ' Summary</div>';
 
         // Player names header
-        html += '<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-3);">';
-        html += '<div style="font-size: var(--text-md); font-weight: 700; color: var(--player-a);">' + escapeHtml(matchup.batter.name) + ' <span style="font-size: var(--text-xs); color: var(--text-tertiary);">' + escapeHtml(matchup.batter.team) + '</span></div>';
-        html += '<div style="display: flex; align-items: center; gap: var(--space-2);">';
+        html += '<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-3); gap: var(--space-3); flex-wrap: wrap;">';
+        html += '<div style="flex: 1; font-size: var(--text-md); font-weight: 700; color: var(--player-a); text-align: left;">' + escapeHtml(matchup.batter.name) + ' <span style="font-size: var(--text-xs); color: var(--text-tertiary);">' + escapeHtml(matchup.batter.team) + '</span></div>';
+        html += '<div style="flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center;">';
         html += '<span class="verdict-badge ' + verdictClass + '">' + escapeHtml(dom.verdict || 'N/A') + '</span>';
         html += '<span class="sample-badge ' + sampleClass(balls) + '">' + sampleLabel(balls) + ' (' + balls + ' balls)</span>';
         html += '</div>';
-        html += '<div style="font-size: var(--text-md); font-weight: 700; color: var(--player-b);">' + escapeHtml(matchup.bowler.name) + ' <span style="font-size: var(--text-xs); color: var(--text-tertiary);">' + escapeHtml(matchup.bowler.team) + '</span></div>';
+        html += '<div style="flex: 1; font-size: var(--text-md); font-weight: 700; color: var(--player-b); text-align: right;">' + escapeHtml(matchup.bowler.name) + ' <span style="font-size: var(--text-xs); color: var(--text-tertiary);">' + escapeHtml(matchup.bowler.team) + '</span></div>';
         html += '</div>';
 
         // Stats grid

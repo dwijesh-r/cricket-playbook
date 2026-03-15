@@ -5881,7 +5881,7 @@
                     </div>` : '';
 
                 // Filter out vulnerabilities for categories with 0.0 rating (no players exist in category, not a real weakness)
-                const filteredVulns = (fullDepth.vulnerabilities || []).filter(v => !v.includes('rating 0.0') && !/wrist[\s_-]*spin/i.test(v) && !/left[\s_-]*arm[\s_-]*wrist/i.test(v) && !/^leg[\s_-]*spin/i.test(v));
+                const filteredVulns = (fullDepth.vulnerabilities || []).filter(v => !v.includes('rating 0.0') && !/wrist[\s_-]*spin/i.test(v) && !/left[\s_-]*arm[\s_-]*wrist/i.test(v));
                 const vulnerabilitiesHtml = filteredVulns.length > 0 ?
                     `<div class="strategy-section" style="margin-bottom: 20px;">
                         <div class="strategy-section-header" style="border-left-color: var(--accent-orange);">

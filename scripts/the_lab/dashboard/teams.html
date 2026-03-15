@@ -5158,7 +5158,8 @@
                 const nat = squadNatLookup[player.name] || (player.overseas ? 'OS' : 'IND');
                 const card = document.createElement('div');
                 card.className = 'player-card';
-                const xiRoleIcon = getRoleIcon(player.role);
+                const normalizeRole = (r) => { if (r === 'Pace Bowler' || r === 'Spinner') return 'Bowler'; return r; };
+                const xiRoleIcon = getRoleIcon(normalizeRole(player.role));
                 card.innerHTML = `
                     <div class="player-position">${player.position}</div>
                     <div class="player-info">
@@ -5257,7 +5258,7 @@
             const primePct = ((prime / totalAge) * 100).toFixed(0);
             const expPct = ((experienced / totalAge) * 100).toFixed(0);
             const vetPct = ((veteran / totalAge) * 100).toFixed(0);
-            const veterans50Plus = squad.filter(p => { const s = p.stats; const m = s && s[rosterScope] ? s[rosterScope].matches : 0; return ((m > 0 ? m : (s && s.since2023 ? s.since2023.matches : p.iplMatches) || 0)) >= 50; }).length;
+            const veterans50Plus = squad.filter(p => { const s = p.stats; const m = s && s[rosterScope] ? s[rosterScope].matches : 0; return (m > 0 ? m : (p.iplMatches || 0)) >= 50; }).length;
             const uncappedCount = squad.filter(p => p.isUncapped).length;
 
             // --- Venue Alignment ---
@@ -5850,7 +5851,7 @@
                     </div>` : '';
 
                 // Filter out vulnerabilities for categories with 0.0 rating (no players exist in category, not a real weakness)
-                const filteredVulns = (fullDepth.vulnerabilities || []).filter(v => !v.includes('rating 0.0') && !/left.arm.wrist.spin/i.test(v) && !v.includes('left_arm_wrist_spin'));
+                const filteredVulns = (fullDepth.vulnerabilities || []).filter(v => !v.includes('rating 0.0') && !/wrist[\s_-]*spin/i.test(v) && !/left[\s_-]*arm[\s_-]*wrist/i.test(v));
                 const vulnerabilitiesHtml = filteredVulns.length > 0 ?
                     `<div class="strategy-section" style="margin-bottom: 20px;">
                         <div class="strategy-section-header" style="border-left-color: var(--accent-orange);">
@@ -6727,7 +6728,7 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <span class="role-badge ${getRoleClass(player.role)}">${getRoleIcon(player.role)} ${player.role}</span>
+                                    <span class="role-badge ${getRoleClass(player.role)}" style="font-size:var(--text-xs);">${player.role}</span>
                                 </td>
                                 <td class="compact-cell">
                                     <span class="hand-badge ${batHand === 'L' ? 'left-hand' : ''}">${batHand}</span>
@@ -6745,7 +6746,7 @@
                                     <span class="age-cell ${getAgeClass(player.age)}">${player.age}</span>
                                 </td>
                                 <td class="compact-cell">
-                                    <span class="ipl-exp-badge ${player.isUncapped ? 'uncapped' : ((() => { const s = player.stats; const m = s && s[rosterScope] ? s[rosterScope].matches : 0; return (m > 0 ? m : (s && s.since2023 ? s.since2023.matches : player.iplMatches) || 0); })()) >= 30 ? 'veteran' : ''}">${player.isUncapped ? 'U' : (() => { const s = player.stats; const m = s && s[rosterScope] ? s[rosterScope].matches : 0; return (m > 0 ? m : (s && s.since2023 ? s.since2023.matches : player.iplMatches) || 0); })()}</span>
+                                    <span class="ipl-exp-badge ${player.isUncapped ? 'uncapped' : ((() => { const s = player.stats; const m = s && s[rosterScope] ? s[rosterScope].matches : 0; return m > 0 ? m : (player.iplMatches || 0); })()) >= 30 ? 'veteran' : ''}">${player.isUncapped ? 'U' : (() => { const s = player.stats; const m = s && s[rosterScope] ? s[rosterScope].matches : 0; return m > 0 ? m : (player.iplMatches || 0); })()}</span>
                                 </td>
                                 <td>
                                     <span class="nat-badge ${player.nationality !== 'IND' ? 'overseas' : ''}">
@@ -6772,19 +6773,19 @@
                         <h4>Squad Composition</h4>
                         <div class="summary-breakdown">
                             <div class="breakdown-row">
-                                <span class="breakdown-label"><span style="display:inline-flex;align-items:center;gap:4px;">${getRoleIcon('Batter')} Batters</span></span>
+                                <span class="breakdown-label">Batters</span>
                                 <span class="breakdown-value">${batters}</span>
                             </div>
                             <div class="breakdown-row">
-                                <span class="breakdown-label"><span style="display:inline-flex;align-items:center;gap:4px;">${getRoleIcon('Bowler')} Bowlers</span></span>
+                                <span class="breakdown-label">Bowlers</span>
                                 <span class="breakdown-value">${bowlers}</span>
                             </div>
                             <div class="breakdown-row">
-                                <span class="breakdown-label"><span style="display:inline-flex;align-items:center;gap:4px;">${getRoleIcon('All-rounder')} All-rounders</span></span>
+                                <span class="breakdown-label">All-rounders</span>
                                 <span class="breakdown-value">${allRounders}</span>
                             </div>
                             <div class="breakdown-row">
-                                <span class="breakdown-label"><span style="display:inline-flex;align-items:center;gap:4px;">${getRoleIcon('Wicketkeeper')} Wicketkeepers</span></span>
+                                <span class="breakdown-label">Wicketkeepers</span>
                                 <span class="breakdown-value">${keepers}</span>
                             </div>
                         </div>
@@ -6852,7 +6853,7 @@
                         <h4>IPL Experience${rosterScope === 'alltime' ? ' (All-Time)' : ' (Since 2023)'}</h4>
                         <div class="summary-breakdown">
                             ${(() => {
-                                const getMatches = (p) => { const s = p.stats; const m = s && s[rosterScope] ? s[rosterScope].matches : 0; return (m > 0 ? m : (s && s.since2023 ? s.since2023.matches : p.iplMatches) || 0); };
+                                const getMatches = (p) => { const s = p.stats; const m = s && s[rosterScope] ? s[rosterScope].matches : 0; return m > 0 ? m : (p.iplMatches || 0); };
                                 const experienced = squad.filter(p => getMatches(p) > 0).sort((a,b) => getMatches(b) - getMatches(a));
                                 const uncapped = squad.filter(p => p.isUncapped).length;
                                 const totalMatches = squad.reduce((sum, p) => sum + getMatches(p), 0);
@@ -7937,10 +7938,10 @@
                             packHtml += `</div>`;
 
                             // ── COL 2: Key Players to Watch ──
-                            packHtml += `<div style="flex:1.5;min-width:260px;">`;
+                            packHtml += `<div style="flex:1;min-width:220px;max-height:400px;overflow:hidden;">`;
                             packHtml += sectionHdr(`Key ${opponent} Threats`, '#ef4444');
                             if (keyPlayers.length > 0) {
-                                packHtml += keyPlayers.map(p => {
+                                packHtml += keyPlayers.slice(0, 3).map(p => {
                                     const statLine = [];
                                     if (p.iplRuns > 0) statLine.push(`${p.iplRuns}r @ ${p.iplSR} SR`);
                                     if (p.iplWickets > 0) statLine.push(`${p.iplWickets}w @ ${p.iplEconomy} econ`);
@@ -7969,7 +7970,7 @@
                             if (myKeyPlayers.length > 0) {
                                 packHtml += `<div style="margin-top:16px;">`;
                                 packHtml += sectionHdr(`Key ${team} Players`, '#22c55e');
-                                packHtml += myKeyPlayers.map(p => {
+                                packHtml += myKeyPlayers.slice(0, 3).map(p => {
                                     const statLine = [];
                                     if (p.iplRuns > 0) statLine.push(`${p.iplRuns}r @ ${p.iplSR} SR`);
                                     if (p.iplWickets > 0) statLine.push(`${p.iplWickets}w @ ${p.iplEconomy} econ`);
@@ -8042,7 +8043,7 @@
                             packHtml += `</div>`;
 
                             // ── COL 3: Scouting Intel (Vulnerabilities + Blueprint + Phase Battle) ──
-                            packHtml += `<div style="flex:1.3;min-width:220px;">`;
+                            packHtml += `<div style="flex:1;min-width:220px;">`;
 
                             // Team Vulnerabilities
                             if (oppPreview && oppPreview.scoutingReport && oppPreview.scoutingReport.vulnerabilities) {

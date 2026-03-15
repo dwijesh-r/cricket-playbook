@@ -1,7 +1,7 @@
 /**
  * Statsledge - Predicted XII Data
  * IPL 2026 Pre-Season Analytics
- * Auto-generated: 2026-03-15T04:31:30.134112
+ * Auto-generated: 2026-03-15T04:33:16.115275
  * Algorithm: SUPER SELECTOR
  */
 
@@ -64,7 +64,7 @@ const PREDICTED_XII = {
         impactPlayer: { name: "Anshul Kamboj", role: "Pace Bowler", price: 3.4 },
         impactSubs: [
             { name: "Anshul Kamboj", role: "Pace Bowler", price: 3.4 },
-            { name: "Ravichandran Ashwin", role: "Spinner", price: 0.3 },
+            { name: "Rahul Chahar", role: "Spinner", price: 0.3 },
             { name: "Sarfaraz Khan", role: "Batter", price: 0.3 }
         ],
         balance: { overseas: 4, bowlingOptions: 8, spinners: 4, pacers: 7, leftHandersTop6: 2 },
@@ -306,7 +306,7 @@ const PREDICTED_XII = {
 
 /**
  * Statsledge - Depth Chart Ratings
- * Auto-generated: 2026-03-15T04:31:30.134279
+ * Auto-generated: 2026-03-15T04:33:16.115446
  */
 
 const DEPTH_CHART_RATINGS = {

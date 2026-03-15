@@ -2061,8 +2061,10 @@ def _identify_vulnerabilities(positions: Dict[str, Position]) -> List[str]:
         if pos.overseas_count >= 3 and len(pos.players) <= 3:
             vulnerabilities.append(f"{pos.name}: overseas dependent")
 
-    # Check weak positions
+    # Check weak positions (skip left-arm wrist spin — it's a luxury, not a necessity)
     for pos_name, pos in positions.items():
+        if pos_name == "left_arm_wrist_spin":
+            continue
         if pos.rating < 5.0:
             vulnerabilities.append(f"{pos.name}: thin depth (rating {pos.rating})")
 

@@ -6,8 +6,7 @@
   "weakest_position": "Left-arm Wrist Spin",
   "vulnerabilities": [
     "Off Spin: thin depth (rating 3.7)",
-    "Leg Spin: thin depth (rating 4.7)",
-    "Left-arm Wrist Spin: thin depth (rating 0.0)"
+    "Leg Spin: thin depth (rating 4.7)"
   ],
   "positions": {
     "opener": {

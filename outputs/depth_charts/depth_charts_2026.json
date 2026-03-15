@@ -585,8 +585,7 @@
       "weakest_position": "Left-arm Wrist Spin",
       "vulnerabilities": [
         "Off Spin: thin depth (rating 3.7)",
-        "Leg Spin: thin depth (rating 4.7)",
-        "Left-arm Wrist Spin: thin depth (rating 0.0)"
+        "Leg Spin: thin depth (rating 4.7)"
       ],
       "positions": {
         "opener": {
@@ -1168,8 +1167,7 @@
       "weakest_position": "Left-arm Wrist Spin",
       "vulnerabilities": [
         "Left-arm Pace: thin depth (rating 4.7)",
-        "Off Spin: thin depth (rating 1.4)",
-        "Left-arm Wrist Spin: thin depth (rating 1.3)"
+        "Off Spin: thin depth (rating 1.4)"
       ],
       "positions": {
         "opener": {
@@ -1742,8 +1740,7 @@
         "Wicketkeeper: thin depth (rating 3.8)",
         "Left-arm Pace: thin depth (rating 0.0)",
         "Leg Spin: thin depth (rating 1.1)",
-        "Left-arm Orthodox: thin depth (rating 4.6)",
-        "Left-arm Wrist Spin: thin depth (rating 0.0)"
+        "Left-arm Orthodox: thin depth (rating 4.6)"
       ],
       "positions": {
         "opener": {
@@ -4002,8 +3999,7 @@
       "weakest_position": "Off Spin",
       "vulnerabilities": [
         "Off Spin: thin depth (rating 0.0)",
-        "Leg Spin: thin depth (rating 3.8)",
-        "Left-arm Wrist Spin: thin depth (rating 1.9)"
+        "Leg Spin: thin depth (rating 3.8)"
       ],
       "positions": {
         "opener": {
@@ -4562,8 +4558,7 @@
       "vulnerabilities": [
         "Middle Order #4-5: thin depth (rating 3.7)",
         "Left-arm Pace: thin depth (rating 1.3)",
-        "Left-arm Orthodox: thin depth (rating 3.5)",
-        "Left-arm Wrist Spin: thin depth (rating 0.0)"
+        "Left-arm Orthodox: thin depth (rating 3.5)"
       ],
       "positions": {
         "opener": {

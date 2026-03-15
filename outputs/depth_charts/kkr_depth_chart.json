@@ -1,7 +1,7 @@
 {
   "team": "KKR",
   "team_name": "Kolkata Knight Riders",
-  "overall_rating": 6.5,
+  "overall_rating": 7.0,
   "strongest_position": "#3 Batter",
   "weakest_position": "Left-arm Pace",
   "vulnerabilities": [
@@ -411,14 +411,6 @@
           "secondary_positions": []
         }
       ]
-    },
-    "left_arm_wrist_spin": {
-      "name": "Left-arm Wrist Spin",
-      "rating": 0.0,
-      "what_works": "No options available",
-      "what_doesnt": "No options",
-      "overseas_count": 0,
-      "players": []
     },
     "middle_overs_specialist": {
       "name": "Middle Overs Specialist",

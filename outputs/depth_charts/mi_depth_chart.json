@@ -1,7 +1,7 @@
 {
   "team": "MI",
   "team_name": "Mumbai Indians",
-  "overall_rating": 7.2,
+  "overall_rating": 7.8,
   "strongest_position": "#3 Batter",
   "weakest_position": "Off Spin",
   "vulnerabilities": [
@@ -434,14 +434,6 @@
           "secondary_positions": []
         }
       ]
-    },
-    "left_arm_wrist_spin": {
-      "name": "Left-arm Wrist Spin",
-      "rating": 0.0,
-      "what_works": "No options available",
-      "what_doesnt": "No options",
-      "overseas_count": 0,
-      "players": []
     },
     "middle_overs_specialist": {
       "name": "Middle Overs Specialist",

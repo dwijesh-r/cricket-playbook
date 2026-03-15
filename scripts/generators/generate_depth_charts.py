@@ -1901,7 +1901,7 @@ def _filter_off_spin(players: List[Player]) -> List[Player]:
 
 
 def _filter_leg_spin(players: List[Player]) -> List[Player]:
-    """Filter players who bowl leg-spin (right-arm wrist spin)"""
+    """Filter players who bowl wrist spin (includes left-arm wrist spinners like Kuldeep, Noor Ahmad)"""
     result = []
     for p in players:
         if p.role not in ("Bowler", "All-rounder"):
@@ -1909,7 +1909,7 @@ def _filter_leg_spin(players: List[Player]) -> List[Player]:
         if not p.bowling_type:
             continue
         bt = p.bowling_type
-        if bt in ("Leg-spin", "Wrist-spin", "Leg-break") and p.bowling_arm != "Left-arm":
+        if bt in ("Leg-spin", "Wrist-spin", "Leg-break"):
             result.append(p)
     return result
 
@@ -1924,20 +1924,6 @@ def _filter_left_arm_orthodox(players: List[Player]) -> List[Player]:
             continue
         bt_lower = p.bowling_type.lower()
         if any(kw in bt_lower for kw in ("orthodox", "slow")):
-            result.append(p)
-    return result
-
-
-def _filter_left_arm_wrist_spin(players: List[Player]) -> List[Player]:
-    """Filter players who are left-arm wrist spinners (Kuldeep, Noor Ahmad)"""
-    result = []
-    for p in players:
-        if p.role not in ("Bowler", "All-rounder"):
-            continue
-        if not p.bowling_type or p.bowling_arm != "Left-arm":
-            continue
-        bt_lower = p.bowling_type.lower()
-        if any(kw in bt_lower for kw in ("wrist", "leg")):
             result.append(p)
     return result
 
@@ -2061,10 +2047,8 @@ def _identify_vulnerabilities(positions: Dict[str, Position]) -> List[str]:
         if pos.overseas_count >= 3 and len(pos.players) <= 3:
             vulnerabilities.append(f"{pos.name}: overseas dependent")
 
-    # Check weak positions (skip left-arm wrist spin — it's a luxury, not a necessity)
+    # Check weak positions
     for pos_name, pos in positions.items():
-        if pos_name == "left_arm_wrist_spin":
-            continue
         if pos.rating < 5.0:
             vulnerabilities.append(f"{pos.name}: thin depth (rating {pos.rating})")
 
@@ -2122,7 +2106,6 @@ def _ensure_predicted_xii_coverage(
         ("off_spin", score_lead_spinner),
         ("leg_spin", score_lead_spinner),
         ("left_arm_orthodox", score_lead_spinner),
-        ("left_arm_wrist_spin", score_lead_spinner),
         ("middle_overs_specialist", score_middle_overs_specialist),
         ("allrounder_batting", score_batting_allrounder),
         ("allrounder_bowling", score_bowling_allrounder),
@@ -2268,14 +2251,6 @@ def generate_team_depth_chart(team: str, players: List[Player]) -> DepthChart:
         "Left-arm Orthodox",
         3,
     )
-    positions["left_arm_wrist_spin"] = _create_typed_bowling_position(
-        players,
-        _filter_left_arm_wrist_spin,
-        score_lead_spinner,
-        "Left-arm Wrist Spin",
-        "Left-arm Wrist Spin",
-        3,
-    )
     positions["middle_overs_specialist"] = _create_position(
         players,
         score_middle_overs_specialist,
@@ -2296,12 +2271,11 @@ def generate_team_depth_chart(team: str, players: List[Player]) -> DepthChart:
     team_abbrev = TEAM_ABBREV[team]
     _ensure_predicted_xii_coverage(positions, players, team_abbrev)
 
-    # Calculate overall metrics (exclude left-arm wrist spin — luxury, not necessity)
+    # Calculate overall metrics
     ratings = {k: v.rating for k, v in positions.items()}
-    ratings_for_ranking = {k: v for k, v in ratings.items() if k != "left_arm_wrist_spin"}
     avg_rating = sum(ratings.values()) / len(ratings) if ratings else 5.0
-    strongest = max(ratings_for_ranking, key=ratings_for_ranking.get)
-    weakest = min(ratings_for_ranking, key=ratings_for_ranking.get)
+    strongest = max(ratings, key=ratings.get)
+    weakest = min(ratings, key=ratings.get)
 
     # Identify vulnerabilities
     vulnerabilities = _identify_vulnerabilities(positions)
@@ -2376,10 +2350,10 @@ def generate_cross_team_comparison(
         ]
         avg_pace = round(sum(pace_ratings) / len(pace_ratings), 1) if pace_ratings else 0.0
 
-        # Compute average spin rating across off-spin, leg-spin, left-arm orthodox, left-arm wrist spin
+        # Compute average spin rating across off-spin, leg-spin, left-arm orthodox
         spin_ratings = [
             dc.positions[k].rating
-            for k in ("off_spin", "leg_spin", "left_arm_orthodox", "left_arm_wrist_spin")
+            for k in ("off_spin", "leg_spin", "left_arm_orthodox")
             if k in dc.positions and dc.positions[k].rating > 0
         ]
         avg_spin = round(sum(spin_ratings) / len(spin_ratings), 1) if spin_ratings else 0.0

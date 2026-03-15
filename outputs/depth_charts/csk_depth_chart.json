@@ -7,7 +7,6 @@
   "vulnerabilities": [
     "Left-arm Pace: thin depth (rating 4.0)",
     "Off Spin: thin depth (rating 2.4)",
-    "Leg Spin: thin depth (rating 4.1)",
     "Left-arm Orthodox: thin depth (rating 2.5)",
     "Allrounder (Bowling): thin depth (rating 4.2)"
   ],
@@ -350,13 +349,25 @@
     },
     "leg_spin": {
       "name": "Leg Spin",
-      "rating": 4.1,
-      "what_works": "Rahul chahar leads. shreyas gopal as backup",
-      "what_doesnt": "Weak backup option. no standout performer",
-      "overseas_count": 0,
+      "rating": 6.2,
+      "what_works": "Elite #1 in noor ahmad. rahul chahar as backup",
+      "what_doesnt": "Big gap between #1 and #2",
+      "overseas_count": 1,
       "players": [
         {
           "rank": 1,
+          "name": "Noor Ahmad",
+          "player_id": "efc04be7",
+          "score": 84.8,
+          "rationale": "Founder XII. Lead spinner",
+          "is_overseas": true,
+          "price_cr": 10.0,
+          "bowling_type": "Wrist-spin",
+          "bowling_arm": "Left-arm",
+          "secondary_positions": []
+        },
+        {
+          "rank": 2,
           "name": "Rahul Chahar",
           "player_id": "2ed569a0",
           "score": 49.0,
@@ -368,7 +379,7 @@
           "secondary_positions": []
         },
         {
-          "rank": 2,
+          "rank": 3,
           "name": "Shreyas Gopal",
           "player_id": "7a8bd078",
           "score": 26.4,
@@ -409,27 +420,6 @@
           "is_overseas": false,
           "price_cr": 14.2,
           "bowling_type": "LA Orthodox",
-          "bowling_arm": "Left-arm",
-          "secondary_positions": []
-        }
-      ]
-    },
-    "left_arm_wrist_spin": {
-      "name": "Left-arm Wrist Spin",
-      "rating": 8.5,
-      "what_works": "Elite #1 in noor ahmad",
-      "what_doesnt": "Only one option",
-      "overseas_count": 1,
-      "players": [
-        {
-          "rank": 1,
-          "name": "Noor Ahmad",
-          "player_id": "efc04be7",
-          "score": 84.8,
-          "rationale": "Founder XII. Lead spinner",
-          "is_overseas": true,
-          "price_cr": 10.0,
-          "bowling_type": "Wrist-spin",
           "bowling_arm": "Left-arm",
           "secondary_positions": []
         }

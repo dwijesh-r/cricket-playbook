@@ -3495,8 +3495,9 @@
             text-align: center;
             padding: var(--space-3) 24px;
             border-radius: var(--radius-lg);
-            flex: 1;
-            max-width: 160px;
+            flex: 1 1 0%;
+            min-width: 0;
+            max-width: 220px;
             border: 1px solid var(--border);
             background: var(--bg-secondary);
             position: relative;
@@ -5162,7 +5163,7 @@
             // Injury Watch notice
             if (typeof PLAYER_AVAILABILITY !== 'undefined') {
                 const teamInjured = Object.entries(PLAYER_AVAILABILITY).filter(([name, info]) =>
-                    info.team === currentTeam && (info.status === 'injured' || info.status === 'unavailable' || info.status === 'partially_available')
+                    info.team === currentTeam && (info.status === 'injured' || info.status === 'unavailable' || info.status === 'partially_available' || info.status === 'doubtful')
                 );
                 if (teamInjured.length > 0) {
                     const injuryWatch = document.createElement('div');
@@ -5170,9 +5171,9 @@
                     injuryWatch.style.cssText = `border-left:3px solid ${borderColor};background:var(--bg-tertiary);padding:8px 12px;margin:0;font-size:12px;color:var(--text-secondary);`;
                     injuryWatch.innerHTML = `<div style="font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;color:${borderColor};">⚠ Injury Watch</div>` +
                         teamInjured.map(([name, info]) => {
-                            const badgeLabels = { injured: 'INJ', unavailable: 'N/A', partially_available: 'PA' };
-                            const badgeColors = { injured: '#ef4444', unavailable: '#f97316', partially_available: '#f97316' };
-                            const badgeBgs = { injured: 'rgba(239,68,68,0.15)', unavailable: 'rgba(249,115,22,0.15)', partially_available: 'rgba(249,115,22,0.15)' };
+                            const badgeLabels = { injured: 'INJ', unavailable: 'N/A', partially_available: 'PA', doubtful: '?' };
+                            const badgeColors = { injured: '#ef4444', unavailable: '#f97316', partially_available: '#f97316', doubtful: '#eab308' };
+                            const badgeBgs = { injured: 'rgba(239,68,68,0.15)', unavailable: 'rgba(249,115,22,0.15)', partially_available: 'rgba(249,115,22,0.15)', doubtful: 'rgba(234,179,8,0.15)' };
                             const label = badgeLabels[info.status] || '?';
                             const color = badgeColors[info.status] || '#eab308';
                             const bg = badgeBgs[info.status] || 'rgba(234,179,8,0.15)';
@@ -5880,7 +5881,7 @@
                     </div>` : '';
 
                 // Filter out vulnerabilities for categories with 0.0 rating (no players exist in category, not a real weakness)
-                const filteredVulns = (fullDepth.vulnerabilities || []).filter(v => !v.includes('rating 0.0') && !/wrist[\s_-]*spin/i.test(v) && !/left[\s_-]*arm[\s_-]*wrist/i.test(v));
+                const filteredVulns = (fullDepth.vulnerabilities || []).filter(v => !v.includes('rating 0.0') && !/wrist[\s_-]*spin/i.test(v) && !/left[\s_-]*arm[\s_-]*wrist/i.test(v) && !/^leg[\s_-]*spin/i.test(v));
                 const vulnerabilitiesHtml = filteredVulns.length > 0 ?
                     `<div class="strategy-section" style="margin-bottom: 20px;">
                         <div class="strategy-section-header" style="border-left-color: var(--accent-orange);">

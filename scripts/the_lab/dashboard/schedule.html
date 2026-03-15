@@ -750,15 +750,48 @@
             margin-bottom: 8px;
         }
 
-        /* Shared context row — venue + matchups + verdict */
-        .mp-shared-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1.2fr;
-            gap: 20px;
+        /* H2H row — always visible header area */
+        .mp-h2h-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
             font-size: 12px;
-            margin-bottom: 20px;
-            padding-bottom: 16px;
+            margin-bottom: 16px;
+            padding-bottom: 14px;
             border-bottom: 1px solid var(--border);
+        }
+        .mp-h2h-label {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-tertiary);
+            white-space: nowrap;
+        }
+        .mp-h2h-record {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .mp-h2h-team {
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--text-primary);
+        }
+        .mp-h2h-wins {
+            font-size: 18px;
+            font-weight: 800;
+            font-family: var(--font-mono);
+            color: var(--accent);
+        }
+        .mp-h2h-dash {
+            color: var(--text-tertiary);
+            font-size: 14px;
+        }
+        .mp-h2h-scope {
+            font-size: 10px;
+            color: var(--text-tertiary);
+            margin-left: auto;
         }
 
         /* Team tabs */
@@ -780,43 +813,39 @@
             background: transparent;
             color: var(--text-tertiary);
             transition: color var(--transition-fast), border-color var(--transition-fast);
+            position: relative;
+            z-index: 1;
+        }
+        .pack-tab-btn:hover {
+            color: var(--text-primary);
         }
         .pack-tab-btn.active {
             color: var(--accent);
             border-bottom-color: var(--accent);
         }
 
-        /* Team panel grid */
-        .mp-team-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
+        /* Team panel sections */
+        .mp-team-sections {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
         }
-        .mp-team-grid > div {
-            min-width: 0;
+        .mp-section {
+            padding-bottom: 14px;
+            border-bottom: 1px solid color-mix(in oklch, var(--border), transparent 50%);
+        }
+        .mp-section:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
         }
 
-        .mp-venue-name {
-            color: var(--text-primary);
-            font-weight: 600;
-            font-size: 13px;
+        /* Section grid for side-by-side items */
+        .mp-section-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
         }
-        .mp-venue-bias {
-            font-size: 11px;
-            font-weight: 600;
-            margin-top: 2px;
-        }
-        .mp-venue-desc {
-            color: var(--text-secondary);
-            font-size: 11px;
-            margin-top: 6px;
-            line-height: 1.6;
-        }
-        .mp-venue-home {
-            color: var(--text-tertiary);
-            font-size: 10px;
-            margin-top: 6px;
-        }
+        .mp-section-grid > div { min-width: 0; }
 
         .mp-player-list {
             display: flex;
@@ -827,15 +856,6 @@
             line-height: 1.5;
             font-size: 12px;
         }
-        .mp-player-name {
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-        .mp-player-stat {
-            color: var(--text-tertiary);
-            font-size: 10px;
-            margin-left: 4px;
-        }
 
         .mp-matchup-list {
             display: flex;
@@ -843,6 +863,7 @@
             gap: 6px;
             color: var(--text-secondary);
             line-height: 1.5;
+            font-size: 12px;
         }
 
         .mp-strength {
@@ -850,16 +871,38 @@
             line-height: 1.6;
             font-size: 12px;
         }
-        .mp-projected {
-            color: var(--text-tertiary);
-            font-size: 10px;
-            margin-top: 6px;
-            font-weight: 600;
-        }
 
-        .mp-trend-line {
+        .mp-venue-record-table {
+            width: 100%;
+            font-size: 11px;
+            border-collapse: collapse;
+        }
+        .mp-venue-record-table th {
+            text-align: left;
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-tertiary);
+            padding: 4px 8px 4px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .mp-venue-record-table td {
+            padding: 4px 8px 4px 0;
             color: var(--text-secondary);
-            line-height: 1.5;
+            border-bottom: 1px solid color-mix(in oklch, var(--border), transparent 60%);
+        }
+        .mp-venue-record-table td:first-child {
+            color: var(--text-primary);
+            font-weight: 500;
+            max-width: 180px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .mp-venue-record-table .mp-win-cell {
+            color: var(--accent-green);
+            font-weight: 600;
         }
 
         .mp-verdict-box {
@@ -867,6 +910,28 @@
             font-size: 12px;
             font-weight: 500;
             line-height: 1.6;
+        }
+        .mp-favor-badge {
+            display: inline-block;
+            margin-top: 8px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            padding: 3px 8px;
+            border-radius: 3px;
+        }
+        .mp-favor-badge.home-favor {
+            background: rgba(34,197,94,0.1);
+            color: var(--accent-green);
+        }
+        .mp-favor-badge.away-favor {
+            background: rgba(249,115,22,0.1);
+            color: var(--accent-orange);
+        }
+        .mp-favor-badge.even-matchup {
+            background: rgba(100,116,139,0.12);
+            color: var(--text-secondary);
         }
 
         /* Expand arrow on table rows */
@@ -951,29 +1016,6 @@
             margin-top: 2px;
         }
 
-        /* Matchup favor badge */
-        .mp-favor-badge {
-            display: inline-block;
-            padding: 3px 10px;
-            border-radius: var(--radius-full);
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 0.04em;
-            margin-top: 8px;
-        }
-        .mp-favor-badge.home-favor {
-            background: rgba(34, 197, 94, 0.12);
-            color: var(--accent-green);
-        }
-        .mp-favor-badge.away-favor {
-            background: rgba(239, 68, 68, 0.12);
-            color: var(--accent-red);
-        }
-        .mp-favor-badge.even-matchup {
-            background: var(--glass);
-            color: var(--text-tertiary);
-        }
-
         /* ==================== SCHEDULE TABLE MOBILE COLUMNS ==================== */
         .col-match-num, .col-venue, .col-city { /* default: visible */ }
 
@@ -999,8 +1041,8 @@
             .venue-legend { gap: var(--space-3); }
 
             /* Match Pack tablet adjustments */
-            .mp-shared-row { grid-template-columns: 1fr 1fr; gap: 14px; }
-            .mp-team-grid { grid-template-columns: 1fr; gap: 14px; }
+            .mp-section-grid { grid-template-columns: 1fr; gap: 12px; }
+            .mp-h2h-row { flex-wrap: wrap; gap: 8px; }
             .match-pack { padding: 14px 16px; margin: 4px 4px 8px; }
         }
 
@@ -1032,17 +1074,14 @@
 
             /* Match Pack: single-column stacked layout */
             .match-pack { padding: 12px; margin: 2px; }
-            .mp-shared-row { grid-template-columns: 1fr; gap: 12px; }
-            .mp-team-grid { grid-template-columns: 1fr; gap: 12px; }
+            .mp-section-grid { grid-template-columns: 1fr; gap: 10px; }
+            .mp-h2h-row { flex-direction: column; gap: 6px; align-items: flex-start; }
             .mp-team-tabs { overflow-x: auto; }
             .pack-tab-btn { white-space: nowrap; padding: 8px 16px; font-size: 13px; }
             .mp-section-header { font-size: 10px; }
             .mp-player-line { font-size: 13px; }
-            .mp-venue-name { font-size: 14px; }
-            .mp-venue-desc { font-size: 12px; }
             .mp-matchup-list { font-size: 13px; }
             .mp-strength { font-size: 13px; }
-            .mp-trend-line { font-size: 13px; }
             .mp-expand-arrow { font-size: 14px; }
         }
 
@@ -1263,6 +1302,7 @@
     <script src="data/full_squads.js"></script>
     <script src="data/season_previews.js"></script>
     <script src="data/historic_trends.js"></script>
+    <script src="data/team_h2h_records.js"></script>
     <script>
     (function() {
         'use strict';
@@ -1515,64 +1555,89 @@
             return verdict;
         }
 
-        function switchPackTab(matchIdx, teamIdx) {
+        // Expose switchPackTab globally so onclick handlers in dynamic HTML can call it
+        window.switchPackTab = function(matchIdx, teamIdx) {
             var pack = document.getElementById('pack-' + matchIdx);
             if (!pack) return;
-            pack.querySelectorAll('.pack-team-panel').forEach(function(p, i) {
-                p.style.display = i === teamIdx ? 'block' : 'none';
-            });
-            pack.querySelectorAll('.pack-tab-btn').forEach(function(b, i) {
-                if (i === teamIdx) {
-                    b.classList.add('active');
-                } else {
-                    b.classList.remove('active');
+            var panels = pack.querySelectorAll('.pack-team-panel');
+            var btns = pack.querySelectorAll('.pack-tab-btn');
+            for (var i = 0; i < panels.length; i++) {
+                panels[i].style.display = (i === teamIdx) ? 'block' : 'none';
+            }
+            for (var j = 0; j < btns.length; j++) {
+                if (j === teamIdx) btns[j].classList.add('active');
+                else btns[j].classList.remove('active');
+            }
+        };
+
+        // Get H2H record between two teams
+        function getH2HRecord(team1, team2) {
+            if (typeof TEAM_H2H === 'undefined') return null;
+            var key = team1 + '_vs_' + team2;
+            if (TEAM_H2H[key]) return TEAM_H2H[key];
+            key = team2 + '_vs_' + team1;
+            if (TEAM_H2H[key]) return TEAM_H2H[key];
+            return null;
+        }
+
+        // Get venue record for a team at a specific venue
+        function getTeamVenueRecord(team, venueName, city) {
+            if (typeof TEAM_VENUE_RECORDS === 'undefined' || !TEAM_VENUE_RECORDS[team]) return null;
+            var result = { since2023: null, alltime: null };
+            function findVenue(scope) {
+                var records = TEAM_VENUE_RECORDS[team][scope];
+                if (!records) return null;
+                if (records[venueName]) return records[venueName];
+                // Partial match on venue name words
+                var venueWords = venueName.toLowerCase().split(/[\s,]+/).filter(function(w) { return w.length > 3; });
+                for (var dbVenue in records) {
+                    var dbLower = dbVenue.toLowerCase();
+                    var matchCount = 0;
+                    venueWords.forEach(function(w) { if (dbLower.indexOf(w) !== -1) matchCount++; });
+                    if (matchCount >= 2) return records[dbVenue];
                 }
-            });
+                // Fallback: match on city name
+                if (city) {
+                    var cityLower = city.toLowerCase();
+                    for (var dbV in records) {
+                        if (dbV.toLowerCase().indexOf(cityLower) !== -1) return records[dbV];
+                    }
+                }
+                return null;
+            }
+            result.since2023 = findVenue('since2023');
+            result.alltime = findVenue('alltime');
+            return result;
         }
 
         function buildMatchPack(m, bias, isWeekend, isDoubleHeader) {
             var biasLabel = bias === 'pace' ? 'Pace-friendly' : bias === 'spin' ? 'Spin-friendly' : 'Balanced';
             var biasColor = bias === 'pace' ? '#22c55e' : bias === 'spin' ? '#f97316' : '#64748b';
             var biasIcon = bias === 'pace' ? '&#9889;' : bias === 'spin' ? '&#10047;' : '&#9673;';
-            var biasClass = bias === 'pace' ? 'bias-pace' : bias === 'spin' ? 'bias-spin' : '';
             var venueData = SCHEDULE_VENUES[m.venue] || {};
 
             var homeTeam = m.home;
             var awayTeam = m.away;
 
-            // Key players
+            // Gather data
             var homePlayers = getKeyPlayers(homeTeam, 4);
             var awayPlayers = getKeyPlayers(awayTeam, 4);
-
-            // Matchup insights
             var matchups = buildMatchupInsights(homeTeam, awayTeam, bias);
-
-            // Strengths & vulnerabilities
             var homeInfo = getTeamStrengthsVulnerabilities(homeTeam);
             var awayInfo = getTeamStrengthsVulnerabilities(awayTeam);
-
-            // Trends
-            var homeTrend = getTeamTrend(homeTeam);
-            var awayTrend = getTeamTrend(awayTeam);
-
-            // Quick verdict
             var verdict = buildQuickVerdict(homeTeam, awayTeam, bias);
-
-            // Keys to Victory
             var keysToVictory = buildKeysToVictory(homeTeam, awayTeam, bias);
-
-            // Matchup Favor
             var favor = getMatchupFavor(homeTeam, awayTeam, bias);
+            var h2h = getH2HRecord(homeTeam, awayTeam);
 
             var sectionHeader = function(title) {
                 return '<div class="mp-section-header">' + title + '</div>';
             };
 
             var matchIdx = m.match;
-
             var html = '<div class="match-pack" id="pack-' + matchIdx + '">';
 
-            // Header
+            // ── Header ──
             html += '<div class="match-pack-header">' +
                 '<span class="match-pack-title">Match Pack</span>' +
                 '<span class="match-pack-number">#' + matchIdx + '</span>' +
@@ -1581,86 +1646,100 @@
                 (isDoubleHeader ? '<span class="match-pack-badge double-header">DOUBLE HEADER</span>' : '') +
             '</div>';
 
-            // Shared context row — Venue / Matchups / Verdict (always visible)
-            html += '<div class="mp-shared-row">' +
-                '<div>' +
-                    sectionHeader('Venue') +
-                    '<div class="mp-venue-name">' + m.venue + '</div>' +
-                    '<div class="mp-venue-bias" style="color:' + biasColor + ';">' + biasIcon + ' ' + biasLabel + '</div>' +
-                    '<div class="mp-venue-desc">' +
-                        (bias === 'pace' ? 'Seam movement early. Premium on fast bowling.' :
-                         bias === 'spin' ? 'Turn from mid-innings. Spin-heavy attacks favored.' :
-                         'Even contest between bat and ball.') +
+            // ── H2H Record (always visible, shared) ──
+            if (h2h) {
+                var h2hAt = h2h.alltime || {};
+                var h2hS23 = h2h.since2023 || {};
+                var homeWinsAt = h2hAt[homeTeam] || 0;
+                var awayWinsAt = h2hAt[awayTeam] || 0;
+                var homeWinsS23 = h2hS23[homeTeam] || 0;
+                var awayWinsS23 = h2hS23[awayTeam] || 0;
+
+                html += '<div class="mp-h2h-row">' +
+                    '<div class="mp-h2h-label">Head to Head</div>' +
+                    '<div class="mp-h2h-record">' +
+                        '<span class="mp-h2h-team">' + homeTeam + '</span>' +
+                        '<span class="mp-h2h-wins">' + homeWinsS23 + '</span>' +
+                        '<span class="mp-h2h-dash">&ndash;</span>' +
+                        '<span class="mp-h2h-wins">' + awayWinsS23 + '</span>' +
+                        '<span class="mp-h2h-team">' + awayTeam + '</span>' +
                     '</div>' +
-                    '<div class="mp-venue-home"><span class="team-abbrev team-' + m.home + '" style="font-size:9px;">' + m.home + '</span> at home</div>' +
-                '</div>' +
-                '<div>' +
-                    sectionHeader('Key Matchups') +
-                    '<div class="mp-matchup-list">';
-            matchups.forEach(function(ins) { html += '<div>' + ins + '</div>'; });
-            html += '</div></div>' +
-                '<div>' +
-                    sectionHeader('Verdict') +
-                    '<div class="mp-verdict-box">' + verdict + '</div>' +
-                    '<div class="mp-favor-badge ' + favor.cls + '">' + favor.label + '</div>' +
-                '</div>' +
-            '</div>';
+                    '<span class="mp-h2h-scope">Since 2023</span>' +
+                    '<div class="mp-h2h-record" style="opacity:0.6;">' +
+                        '<span style="font-size:11px;color:var(--text-secondary);">' + homeWinsAt + '</span>' +
+                        '<span class="mp-h2h-dash" style="font-size:11px;">&ndash;</span>' +
+                        '<span style="font-size:11px;color:var(--text-secondary);">' + awayWinsAt + '</span>' +
+                    '</div>' +
+                    '<span class="mp-h2h-scope">All-time</span>' +
+                '</div>';
+            }
 
-            // Team tabs — underline style
+            // ── Team tabs ──
             html += '<div class="mp-team-tabs">' +
-                '<button class="pack-tab-btn active" onclick="event.stopPropagation();switchPackTab(' + matchIdx + ',0);">' + homeTeam + '</button>' +
-                '<button class="pack-tab-btn" onclick="event.stopPropagation();switchPackTab(' + matchIdx + ',1);">' + awayTeam + '</button>' +
+                '<button type="button" class="pack-tab-btn active" onclick="event.stopPropagation();switchPackTab(' + matchIdx + ',0);">' + homeTeam + '</button>' +
+                '<button type="button" class="pack-tab-btn" onclick="event.stopPropagation();switchPackTab(' + matchIdx + ',1);">' + awayTeam + '</button>' +
             '</div>';
 
-            // Build team panel helper
-            function buildTeamPanel(teamName, players, info, trend, isVisible) {
+            // ── Build team panel ──
+            function buildTeamPanel(teamName, oppTeam, players, info, isHome, isVisible) {
                 var p = '<div class="pack-team-panel" style="display:' + (isVisible ? 'block' : 'none') + ';">';
-                p += '<div class="mp-team-grid">';
+                p += '<div class="mp-team-sections">';
 
-                // Left column: Key Players + Season Form
-                p += '<div>';
-                p += sectionHeader(teamName + ' Key Players');
+                // Section 1: Key Players
+                p += '<div class="mp-section">';
+                p += sectionHeader('Key Players');
                 p += '<div class="mp-player-list">';
                 players.forEach(function(pl) { p += '<div class="mp-player-line">' + formatPlayerLine(pl) + '</div>'; });
                 p += '</div>';
-                if (trend) {
-                    p += '<div style="margin-top:16px;">';
-                    p += sectionHeader('Season Form');
-                    p += '<div class="mp-trend-line">' + trend + '</div>';
-                    p += '</div>';
+                p += '</div>';
+
+                // Section 2: Match-Ups (vs team + vs opp player insights)
+                p += '<div class="mp-section">';
+                p += sectionHeader('Match-Ups');
+                p += '<div class="mp-matchup-list">';
+                matchups.forEach(function(ins) { p += '<div>' + ins + '</div>'; });
+                p += '</div>';
+                p += '</div>';
+
+                // Section 3: Venue Record for this team
+                var venueRec = getTeamVenueRecord(teamName, m.venue, m.city);
+                p += '<div class="mp-section">';
+                p += sectionHeader(teamName + ' at ' + (m.city || m.venue));
+                if (venueRec && (venueRec.since2023 || venueRec.alltime)) {
+                    p += '<table class="mp-venue-record-table"><thead><tr><th>Scope</th><th>W</th><th>L</th><th>Total</th></tr></thead><tbody>';
+                    if (venueRec.since2023) {
+                        p += '<tr><td>Since 2023</td><td class="mp-win-cell">' + venueRec.since2023.w + '</td><td>' + venueRec.since2023.l + '</td><td>' + venueRec.since2023.total + '</td></tr>';
+                    }
+                    if (venueRec.alltime) {
+                        p += '<tr><td>All-time</td><td class="mp-win-cell">' + venueRec.alltime.w + '</td><td>' + venueRec.alltime.l + '</td><td>' + venueRec.alltime.total + '</td></tr>';
+                    }
+                    p += '</tbody></table>';
+                    // Venue character
+                    p += '<div style="margin-top:8px;font-size:11px;color:var(--text-tertiary);">' +
+                        biasIcon + ' ' + biasLabel + ' &mdash; ' +
+                        (bias === 'pace' ? 'Seam movement early, premium on fast bowling' :
+                         bias === 'spin' ? 'Turn from mid-innings, spin-heavy attacks favored' :
+                         'Even contest between bat and ball') +
+                    '</div>';
+                } else {
+                    p += '<div style="color:var(--text-tertiary);font-size:11px;">No venue record available</div>';
                 }
                 p += '</div>';
 
-                // Right column: Profile + Keys to Victory
-                p += '<div>';
-                p += sectionHeader(teamName + ' Profile');
-                if (info && info.strengths.length) {
-                    info.strengths.forEach(function(s) {
-                        p += '<div class="mp-strength"><span style="color:var(--accent-green);font-size:10px;">&#9650;</span> ' + truncateStr(s, 100) + '</div>';
-                    });
-                }
-                if (info && info.vulnerabilities.length) {
-                    info.vulnerabilities.forEach(function(v) {
-                        p += '<div class="mp-strength"><span style="color:var(--accent-red);font-size:10px;">&#9660;</span> ' + truncateStr(v, 100) + '</div>';
-                    });
-                }
-                if (info && info.projected) p += '<div class="mp-projected">Projected: ' + info.projected + '</div>';
-
-                p += '<div style="margin-top:16px;">';
-                p += sectionHeader('Keys to Victory');
-                keysToVictory.forEach(function(k) {
-                    p += '<div class="mp-key-item"><span class="mp-key-icon">' + k.icon + '</span><span>' + k.text + '</span></div>';
-                });
+                // Section 4: Verdict (shared but shown in context)
+                p += '<div class="mp-section">';
+                p += sectionHeader('Verdict');
+                p += '<div class="mp-verdict-box">' + verdict + '</div>';
+                p += '<div class="mp-favor-badge ' + favor.cls + '">' + favor.label + '</div>';
                 p += '</div>';
 
-                p += '</div>'; // end right col
-                p += '</div>'; // end mp-team-grid
+                p += '</div>'; // end mp-team-sections
                 p += '</div>'; // end pack-team-panel
                 return p;
             }
 
-            html += buildTeamPanel(homeTeam, homePlayers, homeInfo, homeTrend, true);
-            html += buildTeamPanel(awayTeam, awayPlayers, awayInfo, awayTrend, false);
+            html += buildTeamPanel(homeTeam, awayTeam, homePlayers, homeInfo, true, true);
+            html += buildTeamPanel(awayTeam, homeTeam, awayPlayers, awayInfo, false, false);
 
             html += '</div>'; // end match pack
             return html;

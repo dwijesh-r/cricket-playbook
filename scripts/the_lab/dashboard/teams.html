@@ -5303,7 +5303,8 @@
             const overseasBenchClass = overseasBench.length >= 4 ? 'strong' : overseasBench.length >= 2 ? 'adequate' : 'thin';
 
             // --- Vulnerabilities from Depth Chart ---
-            const vulns = depthData && depthData.vulnerabilities ? depthData.vulnerabilities : [];
+            const vulnsRaw = depthData && depthData.vulnerabilities ? depthData.vulnerabilities : [];
+            const vulns = vulnsRaw.filter(v => !v.includes('rating 0.0') && !/wrist[\s_-]*spin/i.test(v) && !/left[\s_-]*arm[\s_-]*wrist/i.test(v));
 
             // --- Venue Data (new data source) ---
             let venueData = null;
@@ -7214,7 +7215,7 @@
                         </div>
                         <div class="preview-scout-col vuln">
                             <h4>Structural Vulnerabilities</h4>
-                            <ul>${sr.vulnerabilities.map(v => `<li>${v}</li>`).join('')}</ul>
+                            <ul>${sr.vulnerabilities.filter(v => !/wrist[\s_-]*spin/i.test(v) && !/left[\s_-]*arm[\s_-]*wrist/i.test(v)).map(v => `<li>${v}</li>`).join('')}</ul>
                         </div>
                     </div>
                     <div class="preview-scout-blueprint">
@@ -8078,7 +8079,7 @@
                             // Team Vulnerabilities
                             if (oppPreview && oppPreview.scoutingReport && oppPreview.scoutingReport.vulnerabilities) {
                                 packHtml += sectionHdr(`${opponent} Vulnerabilities`, '#f97316');
-                                const vulns = oppPreview.scoutingReport.vulnerabilities.slice(0, 4);
+                                const vulns = oppPreview.scoutingReport.vulnerabilities.filter(v => !/wrist[\s_-]*spin/i.test(v) && !/left[\s_-]*arm[\s_-]*wrist/i.test(v)).slice(0, 4);
                                 packHtml += vulns.map(v => `<div style="font-size:var(--text-xs);color:var(--text-secondary);padding:3px 0;padding-left:10px;border-left:2px solid rgba(249,115,22,0.3);margin-bottom:2px;">${v}</div>`).join('');
                             }
 

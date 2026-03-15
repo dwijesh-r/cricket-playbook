@@ -7,7 +7,9 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/logo/favicon-32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/logo/apple-touch-icon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;800&family=Inter:wght@400;600;700&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
     <style>
         :root {
             /* === FONTS === */
@@ -1353,7 +1355,7 @@
 
     <aside class="sidebar" aria-label="Site navigation">
         <div class="sidebar-brand">
-            <a href="index.html" style="display:flex;align-items:center;gap:8px;text-decoration:none;"><img src="assets/logo/swirl-transparent.png" alt="" height="32"><img src="assets/logo/text-transparent.png" alt="Statsledge" height="20"></a>
+            <a href="index.html" style="display:flex;align-items:center;gap:8px;text-decoration:none;"><img src="assets/logo/swirl-transparent.png" alt="" height="32"><img src="assets/logo/text-transparent.png" alt="Statsledge" height="20" loading="lazy"></a>
         </div>
         <div class="sidebar-section-label">Navigate</div>
         <nav class="sidebar-nav">
@@ -1373,8 +1375,8 @@
     </aside>
     <div class="mobile-topbar">
         <div style="display:flex;align-items:center;gap:10px;">
-            <img src="assets/logo/swirl-transparent.png" alt="" height="28">
-            <img src="assets/logo/text-transparent.png" alt="Statsledge" height="16">
+            <img src="assets/logo/swirl-transparent.png" alt="" height="28" loading="lazy">
+            <img src="assets/logo/text-transparent.png" alt="Statsledge" height="16" loading="lazy">
         </div>
         <button class="mobile-menu-btn" onclick="toggleMobileMenu()" title="Menu" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav-menu">
             <span></span><span></span><span></span>
@@ -1495,6 +1497,8 @@
     </main>
 
     <script>
+        function throttle(fn, ms) { let last = 0; return function() { const now = Date.now(); if (now - last >= ms) { last = now; fn.apply(this, arguments); } }; }
+
         function toggleTheme() {
             const html = document.documentElement;
             const newTheme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
@@ -1535,12 +1539,12 @@
 
     // TKT-278: Table scroll indicators
     document.querySelectorAll('.table-scroll-wrapper').forEach(function(wrapper) {
-        wrapper.addEventListener('scroll', function() {
+        wrapper.addEventListener('scroll', throttle(function() {
             var atStart = this.scrollLeft > 10;
             var atEnd = this.scrollLeft + this.clientWidth >= this.scrollWidth - 10;
             this.classList.toggle('scrolled-start', atStart);
             this.classList.toggle('scrolled-end', atEnd);
-        });
+        }, 50));
     });
 
     // TKT-273: Keyboard navigation for tabs and menus

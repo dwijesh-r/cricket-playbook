@@ -1,6 +1,8 @@
 // Statsledge Shared JavaScript
 // Theme toggle, mobile nav, clock
 
+function throttle(fn, ms) { let last = 0; return function() { const now = Date.now(); if (now - last >= ms) { last = now; fn.apply(this, arguments); } }; }
+
 function toggleTheme() {
     const html = document.documentElement;
     const newTheme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';

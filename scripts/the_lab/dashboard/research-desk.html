@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Film Room - Statsledge</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
     <style>
         /* ==================== THEME SYSTEM ==================== */
         :root {
@@ -2734,7 +2736,7 @@ LIMIT 20;</textarea>
                             const countResult = await conn.query(`SELECT count(*) AS cnt FROM ${tableName}`);
                             const rows = Number(countResult.toArray()[0].cnt);
                             totalRowsLoaded += rows;
-                            console.log(`📱 ${tableName}: remote Parquet via httpfs (${rows} rows)`);
+                            // Table loaded via httpfs
                         } else {
                             // Desktop (all tables) + Mobile (small tables): full load into memory
                             const response = await fetch(filePath);
@@ -2801,7 +2803,7 @@ LIMIT 20;</textarea>
                 updateStatusBarStats(viewsCreated);
                 document.getElementById('run-button').disabled = false;
 
-                console.log(`The Film Room ready: ${TABLE_FILES.length} tables, ${viewsCreated} views, ${formatRowCount(totalRowsLoaded)} rows`);
+                // Film Room initialization complete
                 if (viewsFailed > 0) console.warn(`${viewsFailed} views failed to create`);
 
             } catch (err) {
@@ -7084,7 +7086,7 @@ LIMIT 20;</textarea>
         async function loadAndInitDuckDB() {
             try {
                 duckdb = await importWithTimeout('https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@1.29.0/+esm', 15000);
-                console.log('DuckDB-WASM loaded successfully');
+                // DuckDB-WASM loaded
                 await initDuckDB();
             } catch (err) {
                 console.error('DuckDB-WASM failed to load:', err);

@@ -695,18 +695,20 @@
 
         /* ==================== MATCH PACK CSS ==================== */
         .match-pack {
-            padding: 16px 18px;
-            background: var(--bg-tertiary);
-            border-left: 3px solid var(--text-tertiary);
+            padding: 20px 24px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            margin: 4px 8px 8px;
         }
-        .match-pack.bias-pace { border-left-color: #22c55e; }
-        .match-pack.bias-spin { border-left-color: #f97316; }
 
         .match-pack-header {
             display: flex;
             align-items: center;
             gap: 8px;
-            margin-bottom: 14px;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
         }
         .match-pack-title {
             font-size: 11px;
@@ -740,31 +742,59 @@
         }
 
         .mp-section-header {
-            font-size: 11px;
-            font-weight: 800;
+            font-size: 10px;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: var(--accent);
+            letter-spacing: 0.1em;
+            color: var(--text-tertiary);
             margin-bottom: 8px;
-            padding-bottom: 4px;
+        }
+
+        /* Shared context row — venue + matchups + verdict */
+        .mp-shared-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1.2fr;
+            gap: 20px;
+            font-size: 12px;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
             border-bottom: 1px solid var(--border);
         }
 
-        .mp-row {
+        /* Team tabs */
+        .mp-team-tabs {
             display: flex;
-            flex-wrap: wrap;
-            gap: 14px;
-            font-size: 12px;
-            margin-bottom: 14px;
+            gap: 0;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--border);
         }
-        .mp-row:last-child { margin-bottom: 0; }
+        .pack-tab-btn {
+            padding: 10px 24px;
+            border: none;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -2px;
+            cursor: pointer;
+            font-family: var(--font-body);
+            font-size: var(--text-sm);
+            font-weight: 600;
+            background: transparent;
+            color: var(--text-tertiary);
+            transition: color var(--transition-fast), border-color var(--transition-fast);
+        }
+        .pack-tab-btn.active {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
 
-        .mp-section-venue { flex: 0 0 200px; min-width: 160px; }
-        .mp-section-players { flex: 1; min-width: 200px; }
-        .mp-section-matchups { flex: 1; min-width: 220px; }
-        .mp-section-profile { flex: 1; min-width: 200px; }
-        .mp-section-form { flex: 1; min-width: 200px; }
-        .mp-section-verdict { flex: 2; min-width: 260px; }
+        /* Team panel grid */
+        .mp-team-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .mp-team-grid > div {
+            min-width: 0;
+        }
 
         .mp-venue-name {
             color: var(--text-primary);
@@ -779,19 +809,19 @@
         .mp-venue-desc {
             color: var(--text-secondary);
             font-size: 11px;
-            margin-top: 4px;
-            line-height: 1.5;
+            margin-top: 6px;
+            line-height: 1.6;
         }
         .mp-venue-home {
             color: var(--text-tertiary);
             font-size: 10px;
-            margin-top: 4px;
+            margin-top: 6px;
         }
 
         .mp-player-list {
             display: flex;
             flex-direction: column;
-            gap: 4px;
+            gap: 6px;
         }
         .mp-player-line {
             line-height: 1.5;
@@ -810,19 +840,21 @@
         .mp-matchup-list {
             display: flex;
             flex-direction: column;
-            gap: 4px;
+            gap: 6px;
             color: var(--text-secondary);
             line-height: 1.5;
         }
 
         .mp-strength {
             color: var(--text-secondary);
-            line-height: 1.5;
+            line-height: 1.6;
+            font-size: 12px;
         }
         .mp-projected {
             color: var(--text-tertiary);
             font-size: 10px;
-            margin-top: 4px;
+            margin-top: 6px;
+            font-weight: 600;
         }
 
         .mp-trend-line {
@@ -834,11 +866,7 @@
             color: var(--text-primary);
             font-size: 12px;
             font-weight: 500;
-            line-height: 1.5;
-            padding: 8px 12px;
-            background: rgba(232,115,74,0.06);
-            border-radius: 4px;
-            border: 1px solid rgba(232,115,74,0.12);
+            line-height: 1.6;
         }
 
         /* Expand arrow on table rows */
@@ -908,15 +936,7 @@
             background: rgba(232, 115, 74, 0.04);
         }
 
-        .match-pack {
-            transition: box-shadow var(--transition-normal);
-        }
-        .match-pack:hover {
-            box-shadow: inset 0 0 0 1px var(--border-accent);
-        }
-
         /* Keys to Victory section */
-        .mp-section-keys { flex: 1; min-width: 220px; }
         .mp-key-item {
             display: flex;
             align-items: flex-start;
@@ -934,27 +954,24 @@
         /* Matchup favor badge */
         .mp-favor-badge {
             display: inline-block;
-            padding: 2px 8px;
-            border-radius: var(--radius-sm);
+            padding: 3px 10px;
+            border-radius: var(--radius-full);
             font-size: 10px;
             font-weight: 700;
             letter-spacing: 0.04em;
-            margin-top: 6px;
+            margin-top: 8px;
         }
         .mp-favor-badge.home-favor {
             background: rgba(34, 197, 94, 0.12);
             color: var(--accent-green);
-            border: 1px solid rgba(34, 197, 94, 0.3);
         }
         .mp-favor-badge.away-favor {
             background: rgba(239, 68, 68, 0.12);
             color: var(--accent-red);
-            border: 1px solid rgba(239, 68, 68, 0.3);
         }
         .mp-favor-badge.even-matchup {
             background: var(--glass);
             color: var(--text-tertiary);
-            border: 1px solid var(--border);
         }
 
         /* ==================== SCHEDULE TABLE MOBILE COLUMNS ==================== */
@@ -982,9 +999,9 @@
             .venue-legend { gap: var(--space-3); }
 
             /* Match Pack tablet adjustments */
-            .mp-section-venue { flex: 0 0 180px; }
-            .mp-section-verdict { flex: 1; min-width: 200px; }
-            .match-pack { padding: 14px 16px; }
+            .mp-shared-row { grid-template-columns: 1fr 1fr; gap: 14px; }
+            .mp-team-grid { grid-template-columns: 1fr; gap: 14px; }
+            .match-pack { padding: 14px 16px; margin: 4px 4px 8px; }
         }
 
         @media (max-width: 640px) {
@@ -1014,39 +1031,18 @@
             }
 
             /* Match Pack: single-column stacked layout */
-            .match-pack {
-                padding: 12px;
-                font-size: 13px;
-            }
-            .mp-row {
-                flex-direction: column;
-                gap: 10px;
-            }
-            .mp-section-venue,
-            .mp-section-players,
-            .mp-section-matchups,
-            .mp-section-profile,
-            .mp-section-form,
-            .mp-section-verdict {
-                flex: none;
-                width: 100%;
-                min-width: 0;
-            }
-            .mp-section-header {
-                font-size: 11px;
-                margin-bottom: 6px;
-                padding-bottom: 3px;
-            }
+            .match-pack { padding: 12px; margin: 2px; }
+            .mp-shared-row { grid-template-columns: 1fr; gap: 12px; }
+            .mp-team-grid { grid-template-columns: 1fr; gap: 12px; }
+            .mp-team-tabs { overflow-x: auto; }
+            .pack-tab-btn { white-space: nowrap; padding: 8px 16px; font-size: 13px; }
+            .mp-section-header { font-size: 10px; }
             .mp-player-line { font-size: 13px; }
             .mp-venue-name { font-size: 14px; }
             .mp-venue-desc { font-size: 12px; }
-            .mp-venue-bias { font-size: 12px; }
             .mp-matchup-list { font-size: 13px; }
             .mp-strength { font-size: 13px; }
-            .mp-verdict-box { font-size: 13px; padding: 10px 12px; }
             .mp-trend-line { font-size: 13px; }
-
-            /* Make expand arrow more visible on mobile */
             .mp-expand-arrow { font-size: 14px; }
         }
 
@@ -1063,10 +1059,11 @@
             .team-abbrev { padding: 3px 8px; font-size: 10px; min-width: 40px; }
 
             /* Match Pack phone adjustments */
-            .match-pack { padding: 10px; }
+            .match-pack { padding: 10px; margin: 2px; }
             .match-pack-header { margin-bottom: 10px; }
-            .mp-row { gap: 8px; margin-bottom: 10px; }
+            .mp-shared-row { gap: 10px; }
             .mp-section-header { font-size: 10px; }
+            .pack-tab-btn { padding: 8px 14px; }
         }
         [data-animate] {
             opacity: 0;
@@ -1526,13 +1523,9 @@
             });
             pack.querySelectorAll('.pack-tab-btn').forEach(function(b, i) {
                 if (i === teamIdx) {
-                    b.style.background = 'var(--accent)';
-                    b.style.color = '#fff';
-                    b.style.fontWeight = '600';
+                    b.classList.add('active');
                 } else {
-                    b.style.background = 'var(--bg-tertiary)';
-                    b.style.color = 'var(--text-secondary)';
-                    b.style.fontWeight = '500';
+                    b.classList.remove('active');
                 }
             });
         }
@@ -1577,7 +1570,7 @@
 
             var matchIdx = m.match;
 
-            var html = '<div class="match-pack ' + biasClass + '" id="pack-' + matchIdx + '">';
+            var html = '<div class="match-pack" id="pack-' + matchIdx + '">';
 
             // Header
             html += '<div class="match-pack-header">' +
@@ -1588,136 +1581,88 @@
                 (isDoubleHeader ? '<span class="match-pack-badge double-header">DOUBLE HEADER</span>' : '') +
             '</div>';
 
-            // Venue Intel (shared - always visible)
-            html += '<div class="mp-row">' +
-                '<div class="mp-section-venue">' +
-                sectionHeader(biasIcon + ' Venue Intel') +
-                '<div class="mp-venue-name">' + m.venue + '</div>' +
-                '<div class="mp-venue-bias" style="color:' + biasColor + ';">' + biasLabel + '</div>' +
-                '<div class="mp-venue-desc">' +
-                    (bias === 'pace' ? 'Seam movement early. Premium on fast bowling. Expect higher first-innings totals.' :
-                     bias === 'spin' ? 'Turn from mid-innings. Spin-heavy attacks favored. Low-scoring middle overs likely.' :
-                     'Even contest between bat and ball. All-round squads have the edge.') +
+            // Shared context row — Venue / Matchups / Verdict (always visible)
+            html += '<div class="mp-shared-row">' +
+                '<div>' +
+                    sectionHeader('Venue') +
+                    '<div class="mp-venue-name">' + m.venue + '</div>' +
+                    '<div class="mp-venue-bias" style="color:' + biasColor + ';">' + biasIcon + ' ' + biasLabel + '</div>' +
+                    '<div class="mp-venue-desc">' +
+                        (bias === 'pace' ? 'Seam movement early. Premium on fast bowling.' :
+                         bias === 'spin' ? 'Turn from mid-innings. Spin-heavy attacks favored.' :
+                         'Even contest between bat and ball.') +
+                    '</div>' +
+                    '<div class="mp-venue-home"><span class="team-abbrev team-' + m.home + '" style="font-size:9px;">' + m.home + '</span> at home</div>' +
                 '</div>' +
-                '<div class="mp-venue-home"><span class="team-abbrev team-' + m.home + '" style="font-size:9px;">' + m.home + '</span> at home</div>' +
-                '</div>' +
-                '<div class="mp-section-matchups">' +
-                sectionHeader('&#9876; Key Matchups') +
-                '<div class="mp-matchup-list">';
+                '<div>' +
+                    sectionHeader('Key Matchups') +
+                    '<div class="mp-matchup-list">';
             matchups.forEach(function(ins) { html += '<div>' + ins + '</div>'; });
             html += '</div></div>' +
-                '<div class="mp-section-verdict">' +
-                sectionHeader('&#9881; Quick Verdict') +
-                '<div class="mp-verdict-box">' + verdict + '</div>' +
-                '<div class="mp-favor-badge ' + favor.cls + '">' + favor.label + '</div>' +
+                '<div>' +
+                    sectionHeader('Verdict') +
+                    '<div class="mp-verdict-box">' + verdict + '</div>' +
+                    '<div class="mp-favor-badge ' + favor.cls + '">' + favor.label + '</div>' +
                 '</div>' +
             '</div>';
 
-            // Team tabs
-            html += '<div style="display:flex;gap:4px;margin-bottom:12px;border-bottom:1px solid var(--border);padding-bottom:8px;">' +
-                '<button class="pack-tab-btn" onclick="event.stopPropagation();switchPackTab(' + matchIdx + ',0);" style="padding:6px 16px;border:none;border-radius:var(--radius-sm);cursor:pointer;font-family:var(--font-body);font-size:var(--text-sm);font-weight:600;background:var(--accent);color:#fff;">' + homeTeam + '</button>' +
-                '<button class="pack-tab-btn" onclick="event.stopPropagation();switchPackTab(' + matchIdx + ',1);" style="padding:6px 16px;border:none;border-radius:var(--radius-sm);cursor:pointer;font-family:var(--font-body);font-size:var(--text-sm);font-weight:500;background:var(--bg-tertiary);color:var(--text-secondary);">' + awayTeam + '</button>' +
+            // Team tabs — underline style
+            html += '<div class="mp-team-tabs">' +
+                '<button class="pack-tab-btn active" onclick="event.stopPropagation();switchPackTab(' + matchIdx + ',0);">' + homeTeam + '</button>' +
+                '<button class="pack-tab-btn" onclick="event.stopPropagation();switchPackTab(' + matchIdx + ',1);">' + awayTeam + '</button>' +
             '</div>';
 
-            // ---- Home team panel (visible by default) ----
-            html += '<div class="pack-team-panel" style="display:block;">';
+            // Build team panel helper
+            function buildTeamPanel(teamName, players, info, trend, isVisible) {
+                var p = '<div class="pack-team-panel" style="display:' + (isVisible ? 'block' : 'none') + ';">';
+                p += '<div class="mp-team-grid">';
 
-            // Key Players
-            html += '<div class="mp-row">' +
-                '<div class="mp-section-players">' +
-                sectionHeader('&#9733; ' + homeTeam + ' Key Players') +
-                '<div class="mp-player-list">';
-            homePlayers.forEach(function(p) { html += '<div class="mp-player-line">' + formatPlayerLine(p) + '</div>'; });
-            html += '</div></div>';
+                // Left column: Key Players + Season Form
+                p += '<div>';
+                p += sectionHeader(teamName + ' Key Players');
+                p += '<div class="mp-player-list">';
+                players.forEach(function(pl) { p += '<div class="mp-player-line">' + formatPlayerLine(pl) + '</div>'; });
+                p += '</div>';
+                if (trend) {
+                    p += '<div style="margin-top:16px;">';
+                    p += sectionHeader('Season Form');
+                    p += '<div class="mp-trend-line">' + trend + '</div>';
+                    p += '</div>';
+                }
+                p += '</div>';
 
-            // Team Profile
-            html += '<div class="mp-section-profile">' +
-                sectionHeader(homeTeam + ' Profile');
-            if (homeInfo && homeInfo.strengths.length) {
-                html += '<div style="margin-bottom:4px;">';
-                homeInfo.strengths.forEach(function(s) {
-                    html += '<div class="mp-strength"><span style="color:var(--accent-green);font-size:10px;">&#9650;</span> ' + truncateStr(s, 100) + '</div>';
+                // Right column: Profile + Keys to Victory
+                p += '<div>';
+                p += sectionHeader(teamName + ' Profile');
+                if (info && info.strengths.length) {
+                    info.strengths.forEach(function(s) {
+                        p += '<div class="mp-strength"><span style="color:var(--accent-green);font-size:10px;">&#9650;</span> ' + truncateStr(s, 100) + '</div>';
+                    });
+                }
+                if (info && info.vulnerabilities.length) {
+                    info.vulnerabilities.forEach(function(v) {
+                        p += '<div class="mp-strength"><span style="color:var(--accent-red);font-size:10px;">&#9660;</span> ' + truncateStr(v, 100) + '</div>';
+                    });
+                }
+                if (info && info.projected) p += '<div class="mp-projected">Projected: ' + info.projected + '</div>';
+
+                p += '<div style="margin-top:16px;">';
+                p += sectionHeader('Keys to Victory');
+                keysToVictory.forEach(function(k) {
+                    p += '<div class="mp-key-item"><span class="mp-key-icon">' + k.icon + '</span><span>' + k.text + '</span></div>';
                 });
-                html += '</div>';
+                p += '</div>';
+
+                p += '</div>'; // end right col
+                p += '</div>'; // end mp-team-grid
+                p += '</div>'; // end pack-team-panel
+                return p;
             }
-            if (homeInfo && homeInfo.vulnerabilities.length) {
-                homeInfo.vulnerabilities.forEach(function(v) {
-                    html += '<div class="mp-strength"><span style="color:var(--accent-red);font-size:10px;">&#9660;</span> ' + truncateStr(v, 100) + '</div>';
-                });
-            }
-            if (homeInfo && homeInfo.projected) html += '<div class="mp-projected">Projected: ' + homeInfo.projected + '</div>';
-            html += '</div>';
 
-            // Keys to Victory
-            html += '<div class="mp-section-keys">' +
-                sectionHeader('&#9881; Keys to Victory') +
-                '<div>';
-            keysToVictory.forEach(function(k) {
-                html += '<div class="mp-key-item"><span class="mp-key-icon">' + k.icon + '</span><span>' + k.text + '</span></div>';
-            });
-            html += '</div></div>';
+            html += buildTeamPanel(homeTeam, homePlayers, homeInfo, homeTrend, true);
+            html += buildTeamPanel(awayTeam, awayPlayers, awayInfo, awayTrend, false);
 
-            html += '</div>'; // end mp-row
-
-            // Season Form
-            html += '<div class="mp-row">' +
-                '<div class="mp-section-form">' +
-                sectionHeader('&#9670; Season Form');
-            if (homeTrend) html += '<div class="mp-trend-line"><span class="team-abbrev team-' + homeTeam + '" style="font-size:9px;">' + homeTeam + '</span> ' + homeTrend + '</div>';
-            html += '</div></div>';
-
-            html += '</div>'; // end home panel
-
-            // ---- Away team panel (hidden by default) ----
-            html += '<div class="pack-team-panel" style="display:none;">';
-
-            // Key Players
-            html += '<div class="mp-row">' +
-                '<div class="mp-section-players">' +
-                sectionHeader('&#9733; ' + awayTeam + ' Key Players') +
-                '<div class="mp-player-list">';
-            awayPlayers.forEach(function(p) { html += '<div class="mp-player-line">' + formatPlayerLine(p) + '</div>'; });
-            html += '</div></div>';
-
-            // Team Profile
-            html += '<div class="mp-section-profile">' +
-                sectionHeader(awayTeam + ' Profile');
-            if (awayInfo && awayInfo.strengths.length) {
-                html += '<div style="margin-bottom:4px;">';
-                awayInfo.strengths.forEach(function(s) {
-                    html += '<div class="mp-strength"><span style="color:var(--accent-green);font-size:10px;">&#9650;</span> ' + truncateStr(s, 100) + '</div>';
-                });
-                html += '</div>';
-            }
-            if (awayInfo && awayInfo.vulnerabilities.length) {
-                awayInfo.vulnerabilities.forEach(function(v) {
-                    html += '<div class="mp-strength"><span style="color:var(--accent-red);font-size:10px;">&#9660;</span> ' + truncateStr(v, 100) + '</div>';
-                });
-            }
-            if (awayInfo && awayInfo.projected) html += '<div class="mp-projected">Projected: ' + awayInfo.projected + '</div>';
-            html += '</div>';
-
-            // Keys to Victory (same for both tabs - contextual)
-            html += '<div class="mp-section-keys">' +
-                sectionHeader('&#9881; Keys to Victory') +
-                '<div>';
-            keysToVictory.forEach(function(k) {
-                html += '<div class="mp-key-item"><span class="mp-key-icon">' + k.icon + '</span><span>' + k.text + '</span></div>';
-            });
-            html += '</div></div>';
-
-            html += '</div>'; // end mp-row
-
-            // Season Form
-            html += '<div class="mp-row">' +
-                '<div class="mp-section-form">' +
-                sectionHeader('&#9670; Season Form');
-            if (awayTrend) html += '<div class="mp-trend-line"><span class="team-abbrev team-' + awayTeam + '" style="font-size:9px;">' + awayTeam + '</span> ' + awayTrend + '</div>';
-            html += '</div></div>';
-
-            html += '</div>'; // end away panel
-
-            html += '</div>'; // end match pack container
+            html += '</div>'; // end match pack
             return html;
         }
 

@@ -266,6 +266,7 @@
                 transition-duration: 0.01ms !important;
                 scroll-behavior: auto !important;
             }
+            .intro-overlay { display: none !important; }
         }
         .sr-only {
             position: absolute;
@@ -614,6 +615,16 @@
             background: rgba(232, 115, 74, 0.12);
         }
 
+        /* Legacy classes kept for compatibility */
+        .nav { display: none; }
+        .nav-tabs { display: none; }
+        .nav-tab { display: none; }
+        .nav-brand { display: none; }
+        .nav-actions { display: none; }
+        .nav-time { display: none; }
+        .theme-toggle { display: none; }
+        .nav-btn { display: none; }
+
         /* ==================== MAIN CONTENT ==================== */
         .main {
             margin-left: 240px;
@@ -621,9 +632,9 @@
             min-height: 100vh;
         }
 
-        /* ==================== HERO SECTION — EDITORIAL ==================== */
+        /* ==================== HERO SECTION ==================== */
         .hero {
-            padding: 100px 24px 0;
+            padding: 120px 24px 80px;
             text-align: center;
             position: relative;
         }
@@ -632,17 +643,17 @@
             display: inline-flex;
             align-items: center;
             gap: var(--space-2);
-            background: transparent;
+            background: var(--bg-tertiary);
             border: 1px solid var(--border);
-            padding: 6px 16px;
-            border-radius: 0;
-            font-family: var(--font-mono);
-            font-size: 11px;
-            font-weight: 500;
-            color: var(--text-tertiary);
-            margin-bottom: var(--space-5);
+            padding: 6px 14px;
+            border-radius: var(--radius-full);
+            font-family: var(--font-body);
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: var(--space-4);
             text-transform: uppercase;
-            letter-spacing: 0.12em;
+            letter-spacing: 0.04em;
         }
 
         .hero-brand {
@@ -650,7 +661,7 @@
             align-items: center;
             justify-content: center;
             gap: clamp(16px, 3vw, 28px);
-            margin-bottom: var(--space-3);
+            margin-bottom: var(--space-2);
             position: relative;
             z-index: 1;
         }
@@ -668,128 +679,197 @@
             height: 100%;
         }
 
-        .hero-edition-title {
+        .hero-title {
             font-family: var(--font-display);
-            font-size: clamp(48px, 8vw, 96px);
+            font-size: clamp(36px, 10vw, 128px);
+            text-transform: uppercase;
+            line-height: 1;
+            display: flex;
+            align-items: baseline;
+            gap: 0.02em;
+        }
+        .hero-title .brand-stat {
+            font-weight: 300;
+            color: var(--text-secondary);
+            letter-spacing: 0.08em;
+        }
+        .hero-title .brand-accent {
             font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: -0.03em;
-            line-height: 0.9;
-            color: var(--text-primary);
+            background: var(--accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Decorative accent bar under hero title */
+        .hero-accent-bar {
+            display: none;
+        }
+        @keyframes bar-shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Glow orb behind hero text */
+        .hero-glow {
+            display: none;
+        }
+        [data-theme="light"] .hero-glow {
+            display: none;
+        }
+        @keyframes glow-pulse {
+            0%, 100% { opacity: 0.7; transform: translate(-50%, -60%) scale(1); }
+            50% { opacity: 1; transform: translate(-50%, -60%) scale(1.1); }
+        }
+
+        /* Typewriter Animation */
+        .typewriter-container {
+            display: flex;
+            justify-content: center;
             margin-bottom: var(--space-2);
+            min-height: 140px;
         }
 
-        .hero-edition-title .edition-year {
-            display: block;
-            font-size: 0.4em;
-            font-weight: 400;
-            letter-spacing: 0.2em;
-            color: var(--text-tertiary);
-            margin-bottom: 4px;
-        }
-
-        .hero-cover-date {
-            font-family: var(--font-mono);
-            font-size: 12px;
-            font-weight: 400;
-            color: var(--text-tertiary);
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            margin-bottom: var(--space-5);
-        }
 
         .hero-subtitle {
-            font-size: 17px;
+            font-size: 15px;
             font-weight: 400;
             color: var(--text-secondary);
-            max-width: 560px;
-            margin: 0 auto var(--space-6);
-            line-height: 1.7;
+            max-width: 520px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
         }
 
-        .hero-divider {
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
-            border: none;
-            border-top: 1px solid var(--border);
-        }
-
-        /* ==================== QUICK STATS — EDITORIAL STRIP ==================== */
-        .stats-strip {
+        /* ==================== QUICK STATS ==================== */
+        .stats-container {
+            position: relative;
+            margin: 0 auto 60px;
             max-width: 900px;
-            margin: 0 auto;
-            padding: var(--space-6) 24px var(--space-5);
+            padding: var(--space-6) 24px;
         }
 
-        .stats-strip-inner {
+        /* Animated background widget */
+        .stats-bg {
+            position: absolute;
+            inset: 0;
+            border-radius: var(--radius-xl);
+            background: linear-gradient(135deg, rgba(10, 132, 255, 0.08) 0%, rgba(191, 90, 242, 0.08) 100%);
+            border: 1px solid var(--glass-border);
+            overflow: hidden;
+        }
+
+        .stats-bg::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(
+                from 0deg,
+                transparent 0deg,
+                rgba(10, 132, 255, 0.1) 60deg,
+                transparent 120deg,
+                rgba(191, 90, 242, 0.1) 180deg,
+                transparent 240deg,
+                rgba(48, 209, 88, 0.1) 300deg,
+                transparent 360deg
+            );
+            animation: rotate-bg 20s linear infinite;
+        }
+
+        @keyframes rotate-bg {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .stats-bg::after {
+            content: '';
+            position: absolute;
+            inset: 2px;
+            background: var(--bg-primary);
+            border-radius: var(--radius-xl);
+            opacity: 0.95;
+        }
+
+        [data-theme="light"] .stats-bg::after {
+            opacity: 0.92;
+        }
+
+        /* Floating particles */
+        .stats-particles {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            border-radius: var(--radius-xl);
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: var(--radius-full);
+            opacity: 0.4;
+            animation: float-particle 8s ease-in-out infinite;
+        }
+
+        .particle:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; }
+        .particle:nth-child(2) { left: 80%; top: 30%; animation-delay: 1s; background: var(--accent-purple); }
+        .particle:nth-child(3) { left: 30%; top: 70%; animation-delay: 2s; background: var(--accent-green); }
+        .particle:nth-child(4) { left: 70%; top: 60%; animation-delay: 3s; }
+        .particle:nth-child(5) { left: 50%; top: 40%; animation-delay: 4s; background: var(--accent-pink); }
+        .particle:nth-child(6) { left: 20%; top: 50%; animation-delay: 5s; background: var(--accent-yellow); }
+
+        @keyframes float-particle {
+            0%, 100% { transform: translateY(0) scale(1); opacity: 0.4; }
+            50% { transform: translateY(-20px) scale(1.5); opacity: 0.8; }
+        }
+
+        .stats-bar {
             display: flex;
-            align-items: flex-start;
-            gap: 0;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: var(--space-9);
+            position: relative;
+            z-index: 1;
         }
 
         .stat-item {
-            flex: 1;
-            text-align: left;
-            padding: 0 var(--space-4);
-            border-left: 1px solid var(--border);
+            text-align: center;
         }
 
-        .stat-item:first-child {
-            border-left: none;
-            padding-left: 0;
+        .stat-prefix {
+            font-size: 14px;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: var(--space-1);
         }
 
         .stat-value {
             font-family: var(--font-display);
-            font-size: 32px;
+            font-size: 28px;
             font-weight: 800;
             font-variant-numeric: tabular-nums;
             color: var(--text-primary);
+            -webkit-text-fill-color: var(--text-primary);
+            background: none;
+            -webkit-background-clip: unset;
+            background-clip: unset;
             line-height: 1;
             letter-spacing: -0.02em;
-            margin-bottom: 6px;
+            text-shadow: 0 0 20px rgba(232, 115, 74, 0.15);
         }
 
         .stat-label {
             font-size: 11px;
             text-transform: uppercase;
-            letter-spacing: 0.08em;
+            letter-spacing: 0.06em;
             color: var(--text-tertiary);
-            font-weight: 600;
-            font-variant: small-caps;
-        }
-
-        /* ==================== FEATURED INSIGHT ==================== */
-        .featured-insight {
-            max-width: 800px;
-            margin: 0 auto var(--space-6);
-            padding: var(--space-5) 24px var(--space-5) var(--space-5);
-            border-left: 4px solid var(--accent);
-            position: relative;
-        }
-
-        .featured-insight-label {
-            font-family: var(--font-mono);
-            font-size: 10px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: var(--accent);
-            margin-bottom: var(--space-2);
-        }
-
-        .featured-insight-text {
-            font-family: var(--font-display);
-            font-size: 20px;
+            margin-top: var(--space-2);
             font-weight: 500;
-            font-style: italic;
-            color: var(--text-primary);
-            line-height: 1.6;
-        }
-
-        [data-theme="light"] .featured-insight {
-            background: rgba(0, 0, 0, 0.015);
         }
 
         /* ==================== SECTION HEADERS ==================== */
@@ -808,12 +888,14 @@
 
         .section-title {
             font-family: var(--font-display);
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.14em;
-            color: var(--text-tertiary);
-            font-variant: small-caps;
+            letter-spacing: 0.08em;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
         }
 
         .section-title .icon {
@@ -970,151 +1052,83 @@
             color: var(--text-secondary);
         }
 
-        /* ==================== NAVIGATION CARDS — EDITORIAL TOC ==================== */
+        /* ==================== NAVIGATION CARDS ==================== */
         .nav-cards {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: auto;
-            gap: 0;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-3);
             margin-top: var(--space-4);
         }
 
-        /* Featured card spans 2 rows */
-        .nav-card--featured {
-            grid-row: 1 / 3;
-            grid-column: 1 / 2;
+        .nav-card {
             background: var(--bg-secondary);
             border: 1px solid var(--border);
-            border-left: 3px solid var(--accent);
-            border-radius: var(--radius-md);
-            padding: var(--space-6) var(--space-5);
+            border-left: 3px solid transparent;
+            border-radius: var(--radius-lg);
+            padding: 24px;
             text-decoration: none;
             color: inherit;
-            transition: border-color var(--transition-slow), box-shadow var(--transition-slow);
+            transition: transform 250ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 250ms cubic-bezier(0.16, 1, 0.3, 1), border-color var(--transition-slow);
             display: flex;
             flex-direction: column;
-            justify-content: flex-end;
-            position: relative;
-            min-height: 280px;
-        }
-
-        .nav-card--featured:hover {
-            border-color: var(--accent);
-            box-shadow: var(--elevation-2);
-        }
-
-        .nav-card--featured .nav-card-number {
-            font-family: var(--font-display);
-            font-size: 72px;
-            font-weight: 900;
-            color: var(--border);
-            line-height: 1;
-            position: absolute;
-            top: var(--space-4);
-            right: var(--space-5);
-        }
-
-        .nav-card--featured h3 {
-            font-family: var(--font-display);
-            font-size: 28px;
-            font-weight: 800;
-            color: var(--text-primary);
-            margin-bottom: var(--space-2);
-            letter-spacing: -0.01em;
-        }
-
-        .nav-card--featured p {
-            font-size: 15px;
-            color: var(--text-secondary);
-            line-height: 1.6;
-            max-width: 320px;
-        }
-
-        .nav-card--featured .featured-meta {
-            margin-top: var(--space-3);
-            font-family: var(--font-mono);
-            font-size: 11px;
-            color: var(--text-tertiary);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-
-        /* TOC list items on the right */
-        .nav-toc-list {
-            grid-column: 2 / 3;
-            grid-row: 1 / 3;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .nav-card--toc {
-            display: flex;
             align-items: flex-start;
-            gap: var(--space-3);
-            padding: var(--space-4) var(--space-4);
-            text-decoration: none;
-            color: inherit;
-            border-bottom: 1px solid var(--border);
-            border-left: 2px solid transparent;
-            transition: border-color var(--transition-slow), background var(--transition-slow);
+            text-align: left;
+            gap: var(--space-2);
+            box-shadow: none;
             position: relative;
+            overflow: visible;
+            animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) backwards;
         }
 
-        .nav-card--toc:last-child {
-            border-bottom: none;
+        .nav-card::after {
+            display: none;
         }
 
-        .nav-card--toc:hover {
+        .nav-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
             border-left-color: var(--accent);
-            background: var(--bg-secondary);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.15);
         }
 
-        .nav-card--toc .nav-card-number {
-            font-family: var(--font-mono);
-            font-size: 12px;
-            font-weight: 500;
-            color: var(--text-tertiary);
-            min-width: 24px;
-            padding-top: 2px;
-        }
-
-        .nav-card--toc .nav-card-content {
-            flex: 1;
-        }
-
-        .nav-card--toc h3 {
-            font-size: 15px;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 4px;
-        }
-
-        .nav-card--toc p {
-            font-size: 13px;
-            color: var(--text-secondary);
-            line-height: 1.5;
-        }
-
-        .nav-card--toc .nav-card-arrow {
-            font-size: 14px;
-            color: var(--text-tertiary);
-            transition: color var(--transition-fast), transform var(--transition-fast);
-            padding-top: 2px;
-        }
-
-        .nav-card--toc:hover .nav-card-arrow {
-            color: var(--accent);
-            transform: translateX(3px);
+        .nav-card:hover::after {
+            display: none;
         }
 
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(16px); }
             to { opacity: 1; transform: translateY(0); }
         }
+        .nav-card:nth-child(1) { animation-delay: 0.05s; }
+        .nav-card:nth-child(2) { animation-delay: 0.1s; }
+        .nav-card:nth-child(3) { animation-delay: 0.15s; }
+        .nav-card:nth-child(4) { animation-delay: 0.2s; }
+        .nav-card:nth-child(5) { animation-delay: 0.25s; }
+        .nav-card:nth-child(6) { animation-delay: 0.3s; }
+        .nav-card:nth-child(7) { animation-delay: 0.35s; }
+        .nav-card:nth-child(8) { animation-delay: 0.4s; }
+        .nav-card:nth-child(9) { animation-delay: 0.45s; }
+
+        .nav-card-icon {
+            display: none;
+        }
+
+        .nav-card h3 {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+        }
+
+        .nav-card p {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
 
         /* ==================== FOOTER ==================== */
         .footer {
-            padding: 48px 24px 40px;
+            padding: 32px 24px;
             text-align: center;
             border-top: 1px solid var(--border);
             margin-top: var(--space-9);
@@ -1143,13 +1157,6 @@
         .footer-text {
             font-size: 12px;
             color: var(--text-tertiary);
-            margin-bottom: var(--space-2);
-        }
-
-        .footer-attribution {
-            font-size: 11px;
-            color: var(--text-tertiary);
-            font-style: italic;
         }
 
         /* ==================== RESPONSIVE - MOBILE OPTIMIZATIONS ==================== */
@@ -1161,66 +1168,43 @@
             .mobile-nav-menu { display: flex; }
             .main { margin-left: 0; padding-top: 72px; }
 
-            /* Hero Section - Responsive */
-            .hero { padding: 64px 16px 0; }
+            /* Hero Section - Responsive titles */
+            .hero { padding: 80px 16px 48px; }
             .hero-brand { gap: var(--space-3); }
-            .hero-edition-title { font-size: clamp(36px, 12vw, 64px); }
+            .hero-title { text-align: center; }
+            /* hero-glow handled by min() in base rule */
+            .typewriter-container { min-height: 80px; }
             .hero-subtitle {
-                font-size: 15px;
+                font-size: 14px;
                 padding: 0 8px;
                 text-align: center;
             }
             .hero-badge { font-size: var(--text-xs); padding: var(--space-1) 12px; }
 
-            /* Stats Strip */
-            .stats-strip-inner {
-                flex-wrap: wrap;
-                gap: var(--space-4);
-            }
-            .stat-item {
-                flex: 0 0 calc(50% - var(--space-2));
-                border-left: none;
-                padding: 0;
-            }
-            .stat-item:nth-child(n+3) {
-                margin-top: var(--space-2);
-            }
+            /* Stats */
+            .stats-bar { flex-wrap: wrap; gap: var(--space-4); padding: var(--space-4) 16px; }
+            .stat-item { min-width: 80px; }
             .stat-value { font-size: 28px; }
             .stat-label { font-size: var(--text-xs); }
 
-            /* Featured Insight */
-            .featured-insight {
-                margin: 0 16px var(--space-5);
-                padding: var(--space-4) var(--space-3) var(--space-4) var(--space-4);
-            }
-            .featured-insight-text { font-size: 17px; }
-
-            /* Navigation Cards — stack to single column */
+            /* Navigation Cards */
             .nav-cards {
                 grid-template-columns: 1fr;
-                gap: 0;
+                gap: var(--space-2);
                 padding: 0 16px;
             }
-            .nav-card--featured {
-                grid-row: auto;
-                grid-column: auto;
-                min-height: 200px;
-                padding: var(--space-5) var(--space-4);
-            }
-            .nav-card--featured .nav-card-number { font-size: 48px; }
-            .nav-card--featured h3 { font-size: 22px; }
-            .nav-card--featured p { font-size: 14px; }
-            .nav-toc-list {
-                grid-column: auto;
-                grid-row: auto;
-            }
+            .nav-card { padding: var(--space-3); }
+            .nav-card h3 { font-size: 14px; }
+            .nav-card p { font-size: 12px; }
 
             /* Teams Grid */
             .teams-grid { grid-template-columns: 1fr; }
 
             /* Section titles */
             .section-title {
-                font-size: 12px;
+                font-size: 22px;
+                text-align: center;
+                word-break: break-word;
             }
             .section-subtitle {
                 font-size: 13px;
@@ -1232,6 +1216,12 @@
             .footer { padding: var(--space-5) 16px; }
             .footer-links { gap: var(--space-3); flex-wrap: wrap; justify-content: center; }
 
+            /* Additional responsive fixes - February 2026 */
+            .hero-title { font-size: 28px; }
+            .hero-subtitle { font-size: 13px; }
+            .stat-value { font-size: 24px; }
+            .nav-time { display: none; }
+
             /* Section header stacking for mobile */
             .section-header {
                 flex-direction: column;
@@ -1242,15 +1232,22 @@
                 align-self: flex-end;
             }
 
+            /* Stats Bar Alignment Fix */
+            .stats-bar { justify-content: space-evenly; }
+
             /* Hero Padding Optimization for Mobile */
-            .hero { padding: 56px 16px 0; }
+            .hero { padding: 72px 16px 40px; }
         }
 
         @media (max-width: 480px) {
             /* Extra small screens */
-            .hero-edition-title { font-size: clamp(32px, 10vw, 48px); }
+            .hero-title { font-size: clamp(28px, 8vw, 48px); }
             .stat-value { font-size: 22px; }
             .stat-label { font-size: var(--text-xs); }
+            .nav-card h3 { font-size: 14px; }
+
+            /* Hide nav button on very small screens */
+            .nav-btn { display: none; }
 
             /* Tighter padding on small screens */
             .section { padding: var(--space-6) 12px; }
@@ -1264,19 +1261,18 @@
             .team-icon svg { width: 30px; height: 30px; }
 
             /* Section title sizing */
-            .section-title { font-size: 11px; letter-spacing: 0.1em; }
+            .section-title { font-size: 18px; letter-spacing: 0.03em; }
             .section-title .icon { width: 32px; height: 32px; font-size: 14px; }
 
             /* Nav cards stacks to single column */
-            .nav-cards { grid-template-columns: 1fr; gap: 0; }
+            .nav-cards { grid-template-columns: 1fr; gap: var(--space-3); }
 
-            /* Subtitle + spacing */
-            .hero-subtitle { font-size: 14px; }
-
-            /* Featured insight tighter */
-            .featured-insight { margin: 0 12px var(--space-4); }
-            .featured-insight-text { font-size: 16px; }
+            /* Merged from 380px: subtitle + spacing */
+            .hero-subtitle { font-size: 13px; }
+            .stats-bar { gap: var(--space-3); }
         }
+
+        /* Former 380px rules merged into 480px */
 
         /* Touch Target Minimum Sizes (WCAG Compliance - 44x44px) */
         .mobile-menu-btn { width: 44px; height: 44px; }
@@ -1291,14 +1287,14 @@
         /* Navigation Actions Spacing at 480px */
         @media (max-width: 480px) {
             .nav-actions { gap: var(--space-2); }
-            /* Minimum font sizes */
+            /* Minimum font sizes (merged from 380px) */
             .trophy-ticker .trophy-text { font-size: var(--text-xs); }
             .label-group .name { font-size: var(--text-xs); }
             .card-badge.team-badge { font-size: var(--text-xs); }
         }
 
         /* Grid Orphan Card Centering */
-        .teams-grid { justify-content: center; }
+        .nav-cards, .teams-grid { justify-content: center; }
 
         /* Section Subtitle Base Style */
         .section-subtitle {
@@ -1311,7 +1307,8 @@
 
         /* 1024px iPad landscape breakpoint */
         @media (max-width: 1024px) {
-            .hero { padding: 80px var(--space-4) 0; }
+            .stats-bar { gap: var(--space-6); }
+            .hero { padding: 100px var(--space-4) 64px; }
             .nav-cards { padding: 0 24px; }
             .section { padding: var(--space-9) 24px; }
             .footer { padding: var(--space-6) 24px; }
@@ -1325,6 +1322,8 @@
 
         /* Prevent Horizontal Overflow */
         body { overflow-x: hidden; }
+
+        /* Former 380px font size rules - now applied globally at small sizes via 480px block */
 
         /* ==================== NAVIGATION GUIDE ==================== */
         .nav-guide-btn {
@@ -1816,6 +1815,12 @@
     <div class="bg-grid"></div>
     <div class="bg-watermark" aria-hidden="true">STATSLEDGE</div>
 
+    <!-- Intro Animation Sequence - Dynamic Trophy Lift -->
+    <!-- Randomly displays 3 agents from pool of 14 -->
+    <!-- Stadium background matches dominant sport of selected agents -->
+    <!-- Intro animation removed — Statsledge premium theme -->
+    <div class="intro-overlay" id="intro-overlay" style="display: none !important;"></div>
+
     <!-- Sidebar Navigation -->
     <aside class="sidebar" aria-label="Site navigation">
         <div class="sidebar-brand">
@@ -1953,7 +1958,7 @@
     <!-- Navigation Guide Modal -->
     <div class="nav-guide-overlay" id="nav-guide-overlay" role="dialog" aria-modal="true" onclick="closeNavGuide(event)">
         <div class="nav-guide-modal" onclick="event.stopPropagation()">
-            <button class="nav-guide-close" onclick="toggleNavGuide()">&#10005;</button>
+            <button class="nav-guide-close" onclick="toggleNavGuide()">✕</button>
             <div class="nav-guide-header">
                 <h3>The Playbook Rundown</h3>
                 <p>Quick guide to each section</p>
@@ -1986,103 +1991,57 @@
     <main id="main-content" class="main" role="main">
         <!-- Hero Section -->
         <section class="hero">
-            <div class="hero-badge" data-animate="fade-up">Pre-Season Issue  /  March 2026</div>
-            <div class="hero-brand" data-animate="fade-up">
-                <div class="hero-logo" style="display:flex;align-items:center;gap:20px;justify-content:center;"><img src="assets/logo/swirl-transparent.png" alt="" height="96" loading="lazy"><img src="assets/logo/text-transparent.png" alt="Statsledge" height="60" loading="lazy"></div>
+            <div class="hero-glow"></div>
+            <div class="hero-badge" data-animate="fade-up">IPL 2026 Pre-Season Analytics</div>
+            <div class="typewriter-container">
+                <div class="hero-brand" data-animate="fade-up">
+                    <div class="hero-logo" style="display:flex;align-items:center;gap:20px;justify-content:center;"><img src="assets/logo/swirl-transparent.png" alt="" height="96" loading="lazy"><img src="assets/logo/text-transparent.png" alt="Statsledge" height="60" loading="lazy"></div>
+                </div>
             </div>
-            <div class="hero-edition-title" data-animate="fade-up">
-                <span class="edition-year">Indian Premier League</span>
-                IPL 2026
-            </div>
-            <div class="hero-cover-date" data-animate="fade-up">The Pre-Tournament Playbook</div>
+            <div class="hero-accent-bar"></div>
             <p class="hero-subtitle" data-animate="fade-up">
-                Squad depth, player rankings, matchup intelligence, and projected XIs for all 10 franchises. Built from 219 matches of post-Impact Player era data.
+                Pre-season analytics for IPL 2026. Squad depth, player rankings, matchup data, and projected XIs for all 10 franchises.
             </p>
-            <hr class="hero-divider" data-animate="fade-in">
         </section>
-
-        <!-- Quick Stats Strip -->
-        <div class="stats-strip" data-animate="fade-up">
-            <div class="stats-strip-inner">
-                <div class="stat-item">
-                    <div class="stat-value">10</div>
-                    <div class="stat-label">Teams</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value">219</div>
-                    <div class="stat-label">Matches</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value">2023-25</div>
-                    <div class="stat-label">Data Window</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value">163</div>
-                    <div class="stat-label">Analytics Views</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Featured Insight -->
-        <div class="featured-insight" data-animate="fade-up">
-            <div class="featured-insight-label">Featured Insight</div>
-            <p class="featured-insight-text">RCB enters 2026 as the defending champion, but our models flag their bowling depth as the thinnest in the league. Can a retooled attack protect what Kohli and Co. built last April?</p>
-        </div>
 
         <!-- Explore Statsledge -->
         <section class="section">
             <div class="section-header">
-                <h2 class="section-title" data-animate="fade-up">Explore Statsledge</h2>
+                <h2 class="section-title" data-animate="fade-up" style="display:block; font-family: 'Nunito Sans', sans-serif; font-size: 20px; font-weight: 400; color: var(--text-secondary); letter-spacing: 0.06em; text-transform: none;">
+                    Explore <span style="font-weight:300;color:rgba(255,255,255,0.5);">Stat</span><span style="font-weight:800;color:#FFFFFF;">Sledge</span>
+                </h2>
             </div>
             <div class="nav-cards">
-                <a href="teams.html" class="nav-card--featured" data-animate="fade-up">
-                    <div class="nav-card-number">01</div>
+                <a href="teams.html" class="nav-card" data-animate="fade-up" style="transition-delay: 0.05s">
+                    <div class="nav-card-icon">🏏</div>
                     <h3>Teams</h3>
-                    <p>Projected XIs, squad depth charts, and player roles for all 10 franchises. The definitive pre-season roster breakdown.</p>
-                    <div class="featured-meta">10 Franchises / Full Depth Charts</div>
+                    <p>Projected XIs, squad depth, and player roles for all 10 franchises.</p>
                 </a>
-                <div class="nav-toc-list">
-                    <a href="rankings.html" class="nav-card--toc" data-animate="fade-up">
-                        <span class="nav-card-number">02</span>
-                        <div class="nav-card-content">
-                            <h3>Rankings</h3>
-                            <p>Composite player rankings across batting, bowling, and all-round categories.</p>
-                        </div>
-                        <span class="nav-card-arrow">&rarr;</span>
-                    </a>
-                    <a href="comparison.html" class="nav-card--toc" data-animate="fade-up">
-                        <span class="nav-card-number">03</span>
-                        <div class="nav-card-content">
-                            <h3>Compare</h3>
-                            <p>Radar charts, phase heatmaps, and side-by-side player breakdowns.</p>
-                        </div>
-                        <span class="nav-card-arrow">&rarr;</span>
-                    </a>
-                    <a href="head-to-head.html" class="nav-card--toc" data-animate="fade-up">
-                        <span class="nav-card-number">04</span>
-                        <div class="nav-card-content">
-                            <h3>Head to Head</h3>
-                            <p>Batter vs bowler matchup data: career, phase, and over-level splits.</p>
-                        </div>
-                        <span class="nav-card-arrow">&rarr;</span>
-                    </a>
-                    <a href="squad-builder.html" class="nav-card--toc" data-animate="fade-up">
-                        <span class="nav-card-number">05</span>
-                        <div class="nav-card-content">
-                            <h3>Fantasy</h3>
-                            <p>Draft rankings, auction simulator, and interactive XI builder.</p>
-                        </div>
-                        <span class="nav-card-arrow">&rarr;</span>
-                    </a>
-                    <a href="about.html" class="nav-card--toc" data-animate="fade-up">
-                        <span class="nav-card-number">06</span>
-                        <div class="nav-card-content">
-                            <h3>About</h3>
-                            <p>Our methodology and what makes Statsledge different.</p>
-                        </div>
-                        <span class="nav-card-arrow">&rarr;</span>
-                    </a>
-                </div>
+                <a href="rankings.html" class="nav-card" data-animate="fade-up" style="transition-delay: 0.1s">
+                    <div class="nav-card-icon">📊</div>
+                    <h3>Rankings</h3>
+                    <p>Composite player rankings across batting, bowling, and all-round categories.</p>
+                </a>
+                <a href="comparison.html" class="nav-card" data-animate="fade-up" style="transition-delay: 0.15s">
+                    <div class="nav-card-icon">⚖️</div>
+                    <h3>Compare</h3>
+                    <p>Radar charts, phase heatmaps, and side-by-side player breakdowns.</p>
+                </a>
+                <a href="head-to-head.html" class="nav-card" data-animate="fade-up" style="transition-delay: 0.2s">
+                    <div class="nav-card-icon">⚔️</div>
+                    <h3>Head to Head</h3>
+                    <p>Batter vs bowler matchup data: career, phase, and over-level splits.</p>
+                </a>
+                <a href="squad-builder.html" class="nav-card" data-animate="fade-up" style="transition-delay: 0.25s">
+                    <div class="nav-card-icon">XI</div>
+                    <h3>Fantasy</h3>
+                    <p>Draft rankings, auction simulator, and interactive XI builder for all 10 teams.</p>
+                </a>
+                <a href="about.html" class="nav-card" data-animate="fade-up" style="transition-delay: 0.3s">
+                    <div class="nav-card-icon">📖</div>
+                    <h3>About</h3>
+                    <p>Our mission, methodology, and what makes Statsledge different.</p>
+                </a>
             </div>
         </section>
 
@@ -2094,10 +2053,7 @@
                 <a href="rankings.html">Rankings</a>
             </div>
             <p class="footer-text">
-                Statsledge &copy; 2026 | IPL 2026 Pre-Season Analytics | Data: 2023-2025 (219 matches)
-            </p>
-            <p class="footer-attribution">
-                Built with data from Cricsheet
+                Statsledge © 2026 | IPL 2026 Pre-Season Analytics | Data: 2023-2025 (219 matches)
             </p>
         </footer>
     </main>
@@ -2109,6 +2065,469 @@
     <script>
         function throttle(fn, ms) { let last = 0; return function() { const now = Date.now(); if (now - last >= ms) { last = now; fn.apply(this, arguments); } }; }
 
+        // ==================== INTRO SYSTEM (DISABLED) ====================
+        // Intro overlay is hidden (display: none). Names genericized.
+        const AGENTS = {
+            // ========== NFL PLAYERS ==========
+            'tom-brady': {
+                name: 'QB Legend',
+                role: 'Product Owner',
+                sport: 'nfl',
+                trophy: 'lombardi',
+                trophyLabel: '7× Super Bowl Champion',
+                jerseyNumber: '12',
+                hair: { color: '#3d2b1f', style: 'short' },
+                jersey: { main: '#002244', accent: '#c60c30' }, // Patriots navy/red
+                shorts: '#002244',
+                skin: { color: '#e8c4a0', dark: '#d4b08a', light: '#f0d4b8' }, // Light Caucasian
+                build: 'athletic',
+                hasBeard: false
+            },
+            'brock-purdy': {
+                name: 'QB Rising',
+                role: 'Data Pipeline',
+                sport: 'nfl',
+                trophy: 'nfc',
+                trophyLabel: 'NFC Champion',
+                jerseyNumber: '13',
+                hair: { color: '#2a1f15', style: 'short' },
+                jersey: { main: '#aa0000', accent: '#b3995d' }, // 49ers red/gold
+                shorts: '#b3995d',
+                skin: { color: '#e8c4a0', dark: '#d4b08a', light: '#f0d4b8' }, // Light Caucasian
+                build: 'athletic',
+                hasBeard: false
+            },
+
+            // ========== NBA PLAYERS ==========
+            'stephen-curry': {
+                name: 'Sharpshooter',
+                role: 'Analytics Lead',
+                sport: 'nba',
+                trophy: 'nba',
+                trophyLabel: '4× NBA Champion',
+                jerseyNumber: '30',
+                hair: { color: '#1a1410', style: 'short' },
+                jersey: { main: '#1d428a', accent: '#ffc72c' }, // Warriors blue/gold
+                shorts: '#1d428a',
+                skin: { color: '#8d6b4a', dark: '#7a5c3e', light: '#9d7b5a' }, // Light brown
+                build: 'athletic',
+                hasBeard: true,
+                beardStyle: 'stubble', // Short, neat beard
+                beardColor: '#1a1410'
+            },
+            'lebron-james': {
+                name: 'The King',
+                role: 'Social & Engagement',
+                sport: 'nba',
+                trophy: 'nba',
+                trophyLabel: '4× NBA Champion',
+                jerseyNumber: '23',
+                hair: { color: '#1a1410', style: 'short' },
+                jersey: { main: '#552583', accent: '#fdb927' }, // Lakers purple/gold
+                shorts: '#552583',
+                skin: { color: '#5c3d2e', dark: '#4a3022', light: '#6d4a3a' }, // Dark brown
+                build: 'muscular',
+                hasBeard: true,
+                beardStyle: 'full', // Full iconic beard
+                beardColor: '#1a1410'
+            },
+
+            // ========== CRICKET PLAYERS ==========
+            'virat-kohli': {
+                name: 'Run Machine',
+                role: 'Cricket Legend',
+                sport: 'cricket',
+                trophy: 'ipl',
+                trophyLabel: 'IPL 2025 Champion',
+                jerseyNumber: '18',
+                hair: { color: '#1a1410', style: 'styled' },
+                jersey: { main: '#ec1c24', accent: '#d4af37' }, // RCB red with gold
+                shorts: '#1a1a1a', // Cricket whites/dark
+                pantsColor: '#1a1a1a',
+                skin: { color: '#a67c52', dark: '#8a6642', light: '#b88c62' }, // Indian brown
+                build: 'athletic',
+                hasBeard: true,
+                beardStyle: 'full', // Full Indian cricket beard
+                beardColor: '#1a1410',
+                hasFullPants: true // Cricket players wear full pants
+            },
+
+            // ========== SOCCER PLAYERS ==========
+            'kdb': {
+                name: 'Playmaker',
+                role: 'Visualization',
+                sport: 'soccer',
+                trophy: 'premier-league',
+                trophyLabel: 'Premier League Champion',
+                jerseyNumber: '17',
+                hair: { color: '#c9a86c', style: 'blonde' }, // Ginger-blonde
+                jersey: { main: '#6CABDD', accent: '#1C2C5B' }, // Man City sky blue
+                shorts: '#1C2C5B',
+                skin: { color: '#f0d4b8', dark: '#e0c4a8', light: '#ffe4c8' }, // Fair European
+                build: 'athletic',
+                hasBeard: true,
+                beardStyle: 'stubble', // Ginger stubble
+                beardColor: '#b8956a'
+            },
+            'kante': {
+                name: 'The Engine',
+                role: 'QA Lead',
+                sport: 'soccer',
+                trophy: 'world-cup',
+                trophyLabel: 'World Cup 2018',
+                jerseyNumber: '13',
+                hair: { color: '#0f0a08', style: 'short' },
+                jersey: { main: '#002654', accent: '#ED2939' }, // France navy/red
+                shorts: '#002654',
+                skin: { color: '#4a3628', dark: '#3a2618', light: '#5a4638' }, // Dark African
+                build: 'slim', // Compact build
+                hasBeard: false
+            },
+
+            // ========== COACHES/EXECUTIVES - BLACK SUITS WITH TEAM ACCENTS ==========
+            'jose-mourinho': {
+                name: 'The Special One',
+                role: 'Data Science',
+                sport: 'soccer',
+                trophy: 'ucl',
+                trophyLabel: '2× UCL Champion',
+                jerseyNumber: null,
+                hair: { color: '#6b6b6b', style: 'grey' },
+                jersey: { main: '#1a1a1a', accent: '#010e80' }, // Black suit base
+                shorts: null,
+                skin: { color: '#d4b08a', dark: '#c4a07a', light: '#e4c09a' }, // Portuguese/Mediterranean olive
+                build: 'athletic',
+                hasBeard: false,
+                hasCoat: false,
+                hasSuit: true,
+                suitColor: '#1a1a1a', // BLACK suit
+                suitDark: '#0f0f0f',
+                suitAccent: '#010e80', // Inter blue accent on lapel
+                tieColor: '#010e80', // Inter blue tie
+                hasScarf: false
+            },
+            'pep-guardiola': {
+                name: 'The Tactician',
+                role: 'Sprint Master',
+                sport: 'soccer',
+                trophy: 'premier-league',
+                trophyLabel: 'Treble Winner 2023',
+                jerseyNumber: null,
+                hair: { color: '#4a4a4a', style: 'bald' }, // Bald
+                jersey: { main: '#1a1a1a', accent: '#6cabdd' },
+                shorts: null,
+                skin: { color: '#d4b08a', dark: '#c4a07a', light: '#e4c09a' }, // Spanish/Mediterranean olive
+                build: 'slim',
+                hasBeard: true,
+                beardStyle: 'goatee', // Signature goatee
+                beardColor: '#4a4a4a',
+                hasCoat: false,
+                hasSuit: true,
+                suitColor: '#1a1a1a', // BLACK suit
+                suitDark: '#0f0f0f',
+                suitAccent: '#6cabdd', // City blue accent
+                tieColor: '#6cabdd', // City blue tie
+                hasScarf: true,
+                scarfColor: '#6cabdd'
+            },
+            'florentino': {
+                name: 'El Presidente',
+                role: 'Chief Strategist',
+                sport: 'soccer',
+                trophy: 'ucl',
+                trophyLabel: '6× UCL President',
+                jerseyNumber: null,
+                hair: { color: '#888888', style: 'grey' }, // Silver grey
+                jersey: { main: '#1a1a1a', accent: '#febe10' },
+                shorts: null,
+                skin: { color: '#e8c4a0', dark: '#d8b490', light: '#f8d4b0' }, // Spanish fair
+                build: 'slim',
+                hasBeard: false,
+                hasCoat: false,
+                hasSuit: true,
+                suitColor: '#1a1a1a', // BLACK suit
+                suitDark: '#0f0f0f',
+                suitAccent: '#febe10', // Real Madrid gold
+                tieColor: '#febe10' // Gold tie
+            },
+            'andy-flower': {
+                name: 'The Coach',
+                role: 'Cricket Expert',
+                sport: 'cricket',
+                trophy: 'ipl',
+                trophyLabel: 'IPL 2025 Champion',
+                jerseyNumber: null,
+                hair: { color: '#555555', style: 'grey' },
+                jersey: { main: '#ec1c24', accent: '#000000' },
+                shorts: '#000000',
+                skin: { color: '#e8c4a0', dark: '#d4b08a', light: '#f0d4b8' }, // Zimbabwean-British fair
+                build: 'athletic',
+                hasBeard: false,
+                hasCoat: false,
+                hasTracksuit: true,
+                tracksuitMain: '#ec1c24', // RCB red
+                tracksuitDark: '#c41017',
+                tracksuitAccent: '#d4af37', // Gold trim
+                tracksuitCollar: '#000000',
+                tracksuitShorts: '#000000'
+            },
+            'brad-stevens': {
+                name: 'The Architect',
+                role: 'Architecture',
+                sport: 'nba',
+                trophy: 'nba',
+                trophyLabel: '2024 NBA Champion',
+                jerseyNumber: null,
+                hair: { color: '#4a3d2f', style: 'short' },
+                jersey: { main: '#1a1a1a', accent: '#007a33' },
+                shorts: null,
+                skin: { color: '#e8c4a0', dark: '#d4b08a', light: '#f0d4b8' }, // Caucasian
+                build: 'slim',
+                hasBeard: false,
+                hasCoat: false,
+                hasSuit: true,
+                suitColor: '#1a1a1a', // BLACK suit
+                suitDark: '#0f0f0f',
+                suitAccent: '#007a33', // Celtics green accent
+                tieColor: '#007a33' // Green tie
+            },
+            'ime-udoka': {
+                name: 'The Operator',
+                role: 'DevOps Lead',
+                sport: 'nba',
+                trophy: 'nba',
+                trophyLabel: 'Eastern Conference Finals',
+                jerseyNumber: null,
+                hair: { color: '#0f0a08', style: 'short' },
+                jersey: { main: '#1a1a1a', accent: '#007a33' },
+                shorts: null,
+                skin: { color: '#6d4a3a', dark: '#5d3a2a', light: '#7d5a4a' }, // Nigerian-American brown
+                build: 'athletic',
+                hasBeard: true,
+                beardStyle: 'full', // Full beard
+                beardColor: '#0f0a08',
+                hasCoat: false,
+                hasSuit: true,
+                suitColor: '#1a1a1a', // BLACK suit
+                suitDark: '#0f0f0f',
+                suitAccent: '#007a33', // Celtics green accent
+                tieColor: '#007a33' // Green tie
+            },
+            'jayson-tatum': {
+                name: 'The Finisher',
+                role: 'UX & Reader Flow',
+                sport: 'nba',
+                trophy: 'nba',
+                trophyLabel: '2024 NBA Champion',
+                jerseyNumber: '0',
+                hair: { color: '#1a1a1a', style: 'short' }, // Flat-top fade
+                jersey: { main: '#007a33', accent: '#ba9653' }, // Celtics green/gold
+                shorts: '#007a33',
+                skin: { color: '#c49a6c', dark: '#b08a5c', light: '#d4aa7c' }, // Light-skinned
+                build: 'athletic',
+                hasBeard: true,
+                beardStyle: 'goatee', // Signature goatee
+                beardColor: '#1a1a1a'
+            }
+        };
+
+        // Get random agents for intro
+        function getRandomAgents(count = 3) {
+            const agentKeys = Object.keys(AGENTS);
+            const shuffled = agentKeys.sort(() => Math.random() - 0.5);
+            return shuffled.slice(0, count);
+        }
+
+        // Get stadium class based on sport
+        function getStadiumClass(sport) {
+            const stadiums = {
+                'nfl': 'stadium-nfl',
+                'nba': 'stadium-nba',
+                'soccer': 'stadium-soccer',
+                'cricket': 'stadium-cricket'
+            };
+            return stadiums[sport] || 'stadium-soccer';
+        }
+
+        // Initialize intro with random agents
+        function initializeIntro() {
+            const overlay = document.getElementById('intro-overlay');
+            const grid = document.getElementById('intro-grid');
+            if (!overlay || !grid) return;
+
+            const selectedAgents = getRandomAgents(3);
+
+            // Determine dominant sport for background
+            const sports = selectedAgents.map(key => AGENTS[key].sport);
+            const sportCounts = sports.reduce((acc, sport) => {
+                acc[sport] = (acc[sport] || 0) + 1;
+                return acc;
+            }, {});
+            const dominantSport = Object.keys(sportCounts).reduce((a, b) =>
+                sportCounts[a] > sportCounts[b] ? a : b
+            );
+
+            // Apply stadium background
+            overlay.classList.add(getStadiumClass(dominantSport));
+
+            // Generate boxes for each agent
+            grid.innerHTML = selectedAgents.map((agentKey, index) => {
+                const agent = AGENTS[agentKey];
+                const delay = 0.3 + (index * 0.7);
+                return generateAgentBox(agent, agentKey, index, delay);
+            }).join('');
+        }
+
+        // Generate HTML for an agent box
+        function generateAgentBox(agent, key, index, delay) {
+            const athleteHTML = generateAthleteHTML(agent);
+
+            // Trophy icon based on sport
+            const trophyIcons = {
+                'nfl': '🏈',
+                'nba': '🏀',
+                'soccer': '⚽',
+                'cricket': '🏏'
+            };
+            const trophyIcon = trophyIcons[agent.sport] || '🏆';
+
+            // Team names for card badges
+            const teamNames = {
+                'tom-brady': 'Patriots',
+                'brock-purdy': '49ers',
+                'stephen-curry': 'Warriors',
+                'lebron-james': 'Lakers',
+                'virat-kohli': 'RCB',
+                'kdb': 'Man City',
+                'kante': 'France',
+                'jose-mourinho': 'Inter',
+                'pep-guardiola': 'Man City',
+                'florentino': 'Real Madrid',
+                'brad-stevens': 'Celtics',
+                'ime-udoka': 'Celtics',
+                'jayson-tatum': 'Celtics',
+                'andy-flower': 'RCB'
+            };
+            const teamName = teamNames[key] || '';
+
+            // Build CSS variables for inline style
+            const jerseyDark = adjustColor(agent.jersey.main, -25);
+            let cssVars = `--delay: ${delay}s; --jersey-main: ${agent.jersey.main}; --jersey-dark: ${jerseyDark}; --jersey-accent: ${agent.jersey.accent}; --shorts-color: ${agent.shorts || agent.jersey.main}; --hair-color: ${agent.hair.color};`;
+
+            // Add skin tone CSS variables
+            if (agent.skin) {
+                cssVars += ` --skin-color: ${agent.skin.color}; --skin-dark: ${agent.skin.dark || adjustColor(agent.skin.color, -15)}; --skin-light: ${agent.skin.light || adjustColor(agent.skin.color, 15)};`;
+            }
+
+            // Add pants color for full pants
+            if (agent.hasFullPants) {
+                cssVars += ` --pants-color: ${agent.pantsColor || agent.shorts || agent.jersey.main};`;
+            }
+
+            // Add suit-specific CSS variables
+            if (agent.hasSuit) {
+                cssVars += ` --suit-color: ${agent.suitColor || agent.jersey.main}; --suit-dark: ${agent.suitDark || adjustColor(agent.suitColor || agent.jersey.main, -20)}; --suit-accent: ${agent.suitAccent || agent.jersey.accent}; --tie-color: ${agent.tieColor || agent.jersey.accent}; --tie-dark: ${adjustColor(agent.tieColor || agent.jersey.accent, -30)};`;
+            }
+
+            // Add tracksuit-specific CSS variables
+            if (agent.hasTracksuit) {
+                cssVars += ` --tracksuit-main: ${agent.tracksuitMain || agent.jersey.main}; --tracksuit-dark: ${agent.tracksuitDark || adjustColor(agent.tracksuitMain || agent.jersey.main, -20)}; --tracksuit-accent: ${agent.tracksuitAccent || '#d4af37'}; --tracksuit-collar: ${agent.tracksuitCollar || '#000000'}; --tracksuit-shorts: ${agent.tracksuitShorts || agent.shorts || '#000000'};`;
+            }
+
+            // Add scarf CSS variable
+            if (agent.hasScarf) {
+                cssVars += ` --scarf-color: ${agent.scarfColor || agent.jersey.accent};`;
+            }
+
+            return `
+                <div class="intro-box intro-box-dynamic"
+                     data-agent="${key}"
+                     data-sport="${agent.sport}"
+                     style="${cssVars}">
+                    ${agent.jerseyNumber ? `<div class="card-badge jersey-badge">${agent.jerseyNumber}</div>` : ''}
+                    ${teamName ? `<div class="card-badge team-badge">${teamName}</div>` : ''}
+                    <div class="figure">
+                        ${athleteHTML}
+                    </div>
+                    <div class="flash flash-1"></div>
+                    <div class="flash flash-2"></div>
+                    <div class="flash flash-3"></div>
+                    <div class="label-group">
+                        <div class="name">${agent.name}</div>
+                        <div class="trophy-ticker">
+                            <span class="trophy-icon">${trophyIcon}</span>
+                            <span class="trophy-text">${agent.trophyLabel}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Generate trophy HTML based on type
+        function generateTrophyHTML(trophyType) {
+            const trophies = {
+                'lombardi': `<div class="lombardi"><div class="football"></div><div class="stand"></div><div class="base"></div><div class="base-plate"></div></div>`,
+                'ipl': `<div class="ipl-trophy"><div class="handle-left"></div><div class="handle-right"></div><div class="cup"></div><div class="node"></div><div class="stem"></div><div class="base-top"></div><div class="base-mid"></div><div class="base-bottom"></div><div class="nameplate"></div></div>`,
+                'ucl': `<div class="ucl-trophy"><div class="ear-left"></div><div class="ear-right"></div><div class="cup"></div><div class="ring ring-1"></div><div class="ring ring-2"></div><div class="stem"></div><div class="base"></div></div>`,
+                'nba': `<div class="nba-trophy"><div class="ball"></div><div class="net"></div><div class="stem"></div><div class="base"></div></div>`,
+                'premier-league': `<div class="pl-trophy"><div class="crown"></div><div class="handles"></div><div class="bowl"></div><div class="stem"></div><div class="base"></div></div>`,
+                'world-cup': `<div class="wc-trophy"><div class="globe"></div><div class="figures"></div><div class="stem"></div><div class="base"></div></div>`,
+                'world-cup-cricket': `<div class="cwc-trophy"><div class="globe"></div><div class="cup"></div><div class="stem"></div><div class="base"></div></div>`,
+                'nfc': `<div class="nfc-trophy"><div class="football"></div><div class="stand"></div><div class="base"></div></div>`
+            };
+            return trophies[trophyType] || trophies['ucl'];
+        }
+
+        // Generate jersey back or suit back HTML
+        function generateAthleteHTML(agent) {
+            // Check if this is a manager/executive (suit) or player (jersey)
+            const isSuit = agent.hasSuit || agent.hasCoat || agent.hasTracksuit;
+
+            // Get last name for jersey back
+            const nameParts = agent.name.split(' ');
+            const lastName = nameParts[nameParts.length - 1].toUpperCase();
+
+            if (isSuit) {
+                // Suit back for managers/executives
+                return `
+                    <div class="jersey-back suit-back">
+                        <div class="sleeve sleeve-left"></div>
+                        <div class="sleeve sleeve-right"></div>
+                        <div class="jersey">
+                            <div class="lapel lapel-left"></div>
+                            <div class="lapel lapel-right"></div>
+                            <div class="back-seam"></div>
+                            <div class="player-name">${lastName}</div>
+                            <div class="back-number">${agent.role || 'EXEC'}</div>
+                        </div>
+                    </div>
+                `;
+            } else {
+                // Jersey back for players
+                return `
+                    <div class="jersey-back">
+                        <div class="sleeve sleeve-left"></div>
+                        <div class="sleeve sleeve-right"></div>
+                        <div class="jersey">
+                            <div class="player-name">${lastName}</div>
+                            <div class="back-number">${agent.jerseyNumber || ''}</div>
+                            <div class="accent-stripe"></div>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        // Helper to darken/lighten colors
+        function adjustColor(hex, percent) {
+            const num = parseInt(hex.replace('#', ''), 16);
+            const amt = Math.round(2.55 * percent);
+            const R = Math.max(0, Math.min(255, (num >> 16) + amt));
+            const G = Math.max(0, Math.min(255, ((num >> 8) & 0x00FF) + amt));
+            const B = Math.max(0, Math.min(255, (num & 0x0000FF) + amt));
+            return '#' + (0x1000000 + R * 0x10000 + G * 0x100 + B).toString(16).slice(1);
+        }
+
         // Theme Toggle
         function toggleTheme() {
             const html = document.documentElement;
@@ -2116,10 +2535,8 @@
             html.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
             const btn = document.querySelector('.theme-toggle');
-            if (btn) {
-                btn.textContent = newTheme === 'dark' ? '🌙' : '☀️';
-                btn.setAttribute('aria-label', newTheme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
-            }
+            btn.textContent = newTheme === 'dark' ? '🌙' : '☀️';
+            btn.setAttribute('aria-label', newTheme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
         }
 
         // Mobile menu toggle
@@ -2170,6 +2587,7 @@
         // Load saved theme
         const savedTheme = localStorage.getItem('theme') || 'dark';
         document.documentElement.setAttribute('data-theme', savedTheme);
+        document.querySelector('.theme-toggle').textContent = savedTheme === 'dark' ? '🌙' : '☀️';
 
         // Pixelated Team Logos (8x8 grid style)
         const TEAM_PIXEL_LOGOS = {
@@ -2268,7 +2686,6 @@
         // Populate Team Tabs
         function populateTeamTabs() {
             const tabsContainer = document.getElementById('team-tabs');
-            if (!tabsContainer) return;
             tabsContainer.innerHTML = '';
             TEAM_ORDER.forEach(abbrev => {
                 const team = TEAMS[abbrev];
@@ -2293,7 +2710,6 @@
         // Populate Teams Grid
         function populateTeamsGrid() {
             const grid = document.getElementById('teams-grid');
-            if (!grid) return;
             grid.innerHTML = '';
 
             TEAM_ORDER.forEach(abbrev => {
@@ -2315,7 +2731,7 @@
                         </div>
                     </div>
                     <div class="team-rating">
-                        <div class="rating-badge">${rating.overall.toFixed(1)}</div>
+                        <div class="rating-badge">⭐ ${rating.overall.toFixed(1)}</div>
                         <div class="rating-label">Overall Depth Rating</div>
                     </div>
                 `;
@@ -2332,10 +2748,11 @@
 
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
+            initializeIntro();
             populateTeamTabs();
             populateTeamsGrid();
-            updateTime();
-            setInterval(updateTime, 1000);
+            updateTime();  // Initialize time
+            setInterval(updateTime, 1000);  // Update every second
         });
 
     // TKT-278: Table scroll indicators

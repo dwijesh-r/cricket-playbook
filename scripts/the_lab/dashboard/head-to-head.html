@@ -131,7 +131,8 @@
         .nav { display: none; } .nav-tabs { display: none; } .nav-tab { display: none; } .nav-brand { display: none; } .nav-actions { display: none; } .nav-time { display: none; } .theme-toggle { display: none; } .nav-btn { display: none; }
 
         /* Main */
-        .main { margin-top: 0; max-width: var(--container-max); margin-left: 240px; margin-right: auto; padding: var(--space-5) var(--space-4) var(--space-6); }
+        .main { margin-top: 0; margin-left: 240px; padding: var(--space-5) var(--space-4) var(--space-6); display: flex; flex-direction: column; align-items: center; }
+        .main > * { width: 100%; max-width: var(--container-max); }
 
         /* Hero */
         .hero { text-align: center; padding: var(--space-11) 24px 40px; position: relative; }

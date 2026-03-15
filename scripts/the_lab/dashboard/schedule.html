@@ -1518,6 +1518,25 @@
             return verdict;
         }
 
+        function switchPackTab(matchIdx, teamIdx) {
+            var pack = document.getElementById('pack-' + matchIdx);
+            if (!pack) return;
+            pack.querySelectorAll('.pack-team-panel').forEach(function(p, i) {
+                p.style.display = i === teamIdx ? 'block' : 'none';
+            });
+            pack.querySelectorAll('.pack-tab-btn').forEach(function(b, i) {
+                if (i === teamIdx) {
+                    b.style.background = 'var(--accent)';
+                    b.style.color = '#fff';
+                    b.style.fontWeight = '600';
+                } else {
+                    b.style.background = 'var(--bg-tertiary)';
+                    b.style.color = 'var(--text-secondary)';
+                    b.style.fontWeight = '500';
+                }
+            });
+        }
+
         function buildMatchPack(m, bias, isWeekend, isDoubleHeader) {
             var biasLabel = bias === 'pace' ? 'Pace-friendly' : bias === 'spin' ? 'Spin-friendly' : 'Balanced';
             var biasColor = bias === 'pace' ? '#22c55e' : bias === 'spin' ? '#f97316' : '#64748b';
@@ -1546,26 +1565,32 @@
             // Quick verdict
             var verdict = buildQuickVerdict(homeTeam, awayTeam, bias);
 
+            // Keys to Victory
+            var keysToVictory = buildKeysToVictory(homeTeam, awayTeam, bias);
+
+            // Matchup Favor
+            var favor = getMatchupFavor(homeTeam, awayTeam, bias);
+
             var sectionHeader = function(title) {
                 return '<div class="mp-section-header">' + title + '</div>';
             };
 
-            var html = '<div class="match-pack ' + biasClass + '">';
+            var matchIdx = m.match;
+
+            var html = '<div class="match-pack ' + biasClass + '" id="pack-' + matchIdx + '">';
 
             // Header
             html += '<div class="match-pack-header">' +
                 '<span class="match-pack-title">Match Pack</span>' +
-                '<span class="match-pack-number">#' + m.match + '</span>' +
+                '<span class="match-pack-number">#' + matchIdx + '</span>' +
                 '<span class="match-pack-divider"></span>' +
                 (isWeekend ? '<span class="match-pack-badge weekend">WEEKEND</span>' : '') +
                 (isDoubleHeader ? '<span class="match-pack-badge double-header">DOUBLE HEADER</span>' : '') +
             '</div>';
 
-            // Row 1: Venue Intel + Key Players (Home) + Key Players (Away)
-            html += '<div class="mp-row">';
-
-            // Venue Intel
-            html += '<div class="mp-section-venue">' +
+            // Venue Intel (shared - always visible)
+            html += '<div class="mp-row">' +
+                '<div class="mp-section-venue">' +
                 sectionHeader(biasIcon + ' Venue Intel') +
                 '<div class="mp-venue-name">' + m.venue + '</div>' +
                 '<div class="mp-venue-bias" style="color:' + biasColor + ';">' + biasLabel + '</div>' +
@@ -1575,35 +1600,37 @@
                      'Even contest between bat and ball. All-round squads have the edge.') +
                 '</div>' +
                 '<div class="mp-venue-home"><span class="team-abbrev team-' + m.home + '" style="font-size:9px;">' + m.home + '</span> at home</div>' +
+                '</div>' +
+                '<div class="mp-section-matchups">' +
+                sectionHeader('&#9876; Key Matchups') +
+                '<div class="mp-matchup-list">';
+            matchups.forEach(function(ins) { html += '<div>' + ins + '</div>'; });
+            html += '</div></div>' +
+                '<div class="mp-section-verdict">' +
+                sectionHeader('&#9881; Quick Verdict') +
+                '<div class="mp-verdict-box">' + verdict + '</div>' +
+                '<div class="mp-favor-badge ' + favor.cls + '">' + favor.label + '</div>' +
+                '</div>' +
             '</div>';
 
-            // Home Key Players
-            html += '<div class="mp-section-players">' +
+            // Team tabs
+            html += '<div style="display:flex;gap:4px;margin-bottom:12px;border-bottom:1px solid var(--border);padding-bottom:8px;">' +
+                '<button class="pack-tab-btn" onclick="event.stopPropagation();switchPackTab(' + matchIdx + ',0);" style="padding:6px 16px;border:none;border-radius:var(--radius-sm);cursor:pointer;font-family:var(--font-body);font-size:var(--text-sm);font-weight:600;background:var(--accent);color:#fff;">' + homeTeam + '</button>' +
+                '<button class="pack-tab-btn" onclick="event.stopPropagation();switchPackTab(' + matchIdx + ',1);" style="padding:6px 16px;border:none;border-radius:var(--radius-sm);cursor:pointer;font-family:var(--font-body);font-size:var(--text-sm);font-weight:500;background:var(--bg-tertiary);color:var(--text-secondary);">' + awayTeam + '</button>' +
+            '</div>';
+
+            // ---- Home team panel (visible by default) ----
+            html += '<div class="pack-team-panel" style="display:block;">';
+
+            // Key Players
+            html += '<div class="mp-row">' +
+                '<div class="mp-section-players">' +
                 sectionHeader('&#9733; ' + homeTeam + ' Key Players') +
                 '<div class="mp-player-list">';
             homePlayers.forEach(function(p) { html += '<div class="mp-player-line">' + formatPlayerLine(p) + '</div>'; });
             html += '</div></div>';
 
-            // Away Key Players
-            html += '<div class="mp-section-players">' +
-                sectionHeader('&#9733; ' + awayTeam + ' Key Players') +
-                '<div class="mp-player-list">';
-            awayPlayers.forEach(function(p) { html += '<div class="mp-player-line">' + formatPlayerLine(p) + '</div>'; });
-            html += '</div></div>';
-
-            html += '</div>'; // end row 1
-
-            // Row 2: Matchups + Team Profiles
-            html += '<div class="mp-row">';
-
-            // Matchups to Watch
-            html += '<div class="mp-section-matchups">' +
-                sectionHeader('&#9876; Key Matchups') +
-                '<div class="mp-matchup-list">';
-            matchups.forEach(function(ins) { html += '<div>' + ins + '</div>'; });
-            html += '</div></div>';
-
-            // Home team profile
+            // Team Profile
             html += '<div class="mp-section-profile">' +
                 sectionHeader(homeTeam + ' Profile');
             if (homeInfo && homeInfo.strengths.length) {
@@ -1621,7 +1648,38 @@
             if (homeInfo && homeInfo.projected) html += '<div class="mp-projected">Projected: ' + homeInfo.projected + '</div>';
             html += '</div>';
 
-            // Away team profile
+            // Keys to Victory
+            html += '<div class="mp-section-keys">' +
+                sectionHeader('&#9881; Keys to Victory') +
+                '<div>';
+            keysToVictory.forEach(function(k) {
+                html += '<div class="mp-key-item"><span class="mp-key-icon">' + k.icon + '</span><span>' + k.text + '</span></div>';
+            });
+            html += '</div></div>';
+
+            html += '</div>'; // end mp-row
+
+            // Season Form
+            html += '<div class="mp-row">' +
+                '<div class="mp-section-form">' +
+                sectionHeader('&#9670; Season Form');
+            if (homeTrend) html += '<div class="mp-trend-line"><span class="team-abbrev team-' + homeTeam + '" style="font-size:9px;">' + homeTeam + '</span> ' + homeTrend + '</div>';
+            html += '</div></div>';
+
+            html += '</div>'; // end home panel
+
+            // ---- Away team panel (hidden by default) ----
+            html += '<div class="pack-team-panel" style="display:none;">';
+
+            // Key Players
+            html += '<div class="mp-row">' +
+                '<div class="mp-section-players">' +
+                sectionHeader('&#9733; ' + awayTeam + ' Key Players') +
+                '<div class="mp-player-list">';
+            awayPlayers.forEach(function(p) { html += '<div class="mp-player-line">' + formatPlayerLine(p) + '</div>'; });
+            html += '</div></div>';
+
+            // Team Profile
             html += '<div class="mp-section-profile">' +
                 sectionHeader(awayTeam + ' Profile');
             if (awayInfo && awayInfo.strengths.length) {
@@ -1639,8 +1697,7 @@
             if (awayInfo && awayInfo.projected) html += '<div class="mp-projected">Projected: ' + awayInfo.projected + '</div>';
             html += '</div>';
 
-            // Keys to Victory
-            var keysToVictory = buildKeysToVictory(homeTeam, awayTeam, bias);
+            // Keys to Victory (same for both tabs - contextual)
             html += '<div class="mp-section-keys">' +
                 sectionHeader('&#9881; Keys to Victory') +
                 '<div>';
@@ -1649,27 +1706,16 @@
             });
             html += '</div></div>';
 
-            html += '</div>'; // end row 2
+            html += '</div>'; // end mp-row
 
-            // Row 3: Season Form + Quick Verdict
-            html += '<div class="mp-row">';
-
-            // Season trends
-            html += '<div class="mp-section-form">' +
+            // Season Form
+            html += '<div class="mp-row">' +
+                '<div class="mp-section-form">' +
                 sectionHeader('&#9670; Season Form');
-            if (homeTrend) html += '<div class="mp-trend-line"><span class="team-abbrev team-' + homeTeam + '" style="font-size:9px;">' + homeTeam + '</span> ' + homeTrend + '</div>';
             if (awayTrend) html += '<div class="mp-trend-line"><span class="team-abbrev team-' + awayTeam + '" style="font-size:9px;">' + awayTeam + '</span> ' + awayTrend + '</div>';
-            html += '</div>';
+            html += '</div></div>';
 
-            // Quick Verdict + Matchup Favor Badge
-            var favor = getMatchupFavor(homeTeam, awayTeam, bias);
-            html += '<div class="mp-section-verdict">' +
-                sectionHeader('&#9881; Quick Verdict') +
-                '<div class="mp-verdict-box">' + verdict + '</div>' +
-                '<div class="mp-favor-badge ' + favor.cls + '">' + favor.label + '</div>' +
-            '</div>';
-
-            html += '</div>'; // end row 3
+            html += '</div>'; // end away panel
 
             html += '</div>'; // end match pack container
             return html;

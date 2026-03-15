@@ -7903,10 +7903,10 @@
                             // Section header helper
                             const sectionHdr = (title, accent) => `<div style="font-size:10px;color:${accent || 'var(--accent)'};text-transform:uppercase;letter-spacing:0.1em;font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:6px;">${title}<span style="flex:1;height:1px;background:var(--border);"></span></div>`;
 
-                            let packHtml = '<div style="display:flex;flex-wrap:wrap;gap:var(--space-3);">';
+                            let packHtml = '<div style="display:flex;flex-wrap:wrap;gap:var(--space-3);overflow-wrap:break-word;word-break:break-word;">';
 
                             // ── COL 1: Venue Intel + Quick Outlook ──
-                            packHtml += `<div style="flex:1;min-width:200px;">`;
+                            packHtml += `<div style="flex:1 1 0%;min-width:0;overflow-wrap:break-word;">`;
                             // Venue Intel
                             packHtml += sectionHdr('Venue Intel', 'var(--accent)');
                             packHtml += `<div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
@@ -7967,7 +7967,7 @@
                             packHtml += `</div>`;
 
                             // ── COL 2: Key Players to Watch ──
-                            packHtml += `<div style="flex:1;min-width:220px;max-height:400px;overflow:hidden;">`;
+                            packHtml += `<div style="flex:1 1 0%;min-width:0;overflow-wrap:break-word;">`;
                             packHtml += sectionHdr(`Key ${opponent} Threats`, '#ef4444');
                             if (keyPlayers.length > 0) {
                                 packHtml += keyPlayers.slice(0, 3).map(p => {
@@ -8072,7 +8072,7 @@
                             packHtml += `</div>`;
 
                             // ── COL 3: Scouting Intel (Vulnerabilities + Blueprint + Phase Battle) ──
-                            packHtml += `<div style="flex:1;min-width:220px;">`;
+                            packHtml += `<div style="flex:1 1 0%;min-width:0;overflow-wrap:break-word;">`;
 
                             // Team Vulnerabilities
                             if (oppPreview && oppPreview.scoutingReport && oppPreview.scoutingReport.vulnerabilities) {

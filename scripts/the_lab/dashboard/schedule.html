@@ -26,7 +26,7 @@
             --text-primary: #FAFAFA;
             --text-secondary: #A1A1AA;
             --text-tertiary: #71717A;
-            --accent: #3B82F6;
+            --accent: #E8734A;
             --accent-green: #22C55E;
             --accent-yellow: #FACC15;
             --accent-orange: #F97316;
@@ -38,9 +38,9 @@
             --glass: rgba(255, 255, 255, 0.02);
             --glass-border: rgba(255, 255, 255, 0.04);
             --shadow: rgba(0, 0, 0, 0.5);
-            --glow-accent: rgba(59, 130, 246, 0.08);
+            --glow-accent: rgba(232, 115, 74, 0.08);
             --glow-purple: rgba(167, 139, 250, 0.06);
-            --border-accent: rgba(59, 130, 246, 0.15);
+            --border-accent: rgba(232, 115, 74, 0.15);
             --scanline: transparent;
 
             /* === SPACING (8px base) === */
@@ -77,9 +77,9 @@
             --radius-full: 9999px;
 
             /* === TRANSITIONS === */
-            --transition-fast: 120ms cubic-bezier(0.25, 0.1, 0.25, 1);
-            --transition-normal: 200ms cubic-bezier(0.25, 0.1, 0.25, 1);
-            --transition-slow: 300ms cubic-bezier(0.16, 1, 0.3, 1);
+            --transition-fast: 100ms cubic-bezier(0.25, 0.1, 0.25, 1);
+            --transition-normal: 150ms cubic-bezier(0.25, 0.1, 0.25, 1);
+            --transition-slow: 250ms cubic-bezier(0.16, 1, 0.3, 1);
 
             /* === LAYOUT === */
             --container-max: 1280px;
@@ -103,7 +103,7 @@
             --text-primary: #09090B;
             --text-secondary: #52525B;
             --text-tertiary: #A1A1AA;
-            --accent: #2563EB;
+            --accent: #C2410C;
             --accent-green: #16A34A;
             --accent-yellow: #CA8A04;
             --accent-orange: #EA580C;
@@ -115,9 +115,9 @@
             --glass: rgba(0, 0, 0, 0.02);
             --glass-border: rgba(0, 0, 0, 0.04);
             --shadow: rgba(0, 0, 0, 0.06);
-            --glow-accent: rgba(37, 99, 235, 0.06);
+            --glow-accent: rgba(194, 65, 12, 0.06);
             --glow-purple: rgba(124, 58, 237, 0.04);
-            --border-accent: rgba(37, 99, 235, 0.12);
+            --border-accent: rgba(194, 65, 12, 0.12);
             --scanline: transparent;
             --elevation-1: 0 1px 2px rgba(0, 0, 0, 0.05);
             --elevation-2: 0 4px 16px rgba(0, 0, 0, 0.08);
@@ -146,6 +146,19 @@
             -webkit-font-smoothing: antialiased;
             transition: background var(--transition-slow), color var(--transition-slow);
         }
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            pointer-events: none;
+            opacity: 0.015;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 256px 256px;
+            mix-blend-mode: overlay;
+        }
+        [data-theme="light"] body::after { opacity: 0.02; }
 
         /* ==================== ACCESSIBILITY ==================== */
         .skip-nav {
@@ -174,7 +187,7 @@
         }
         .bg-gradient::before {
             content: ''; position: absolute; top: -20%; right: -10%; width: 60%; height: 60%;
-            background: radial-gradient(ellipse, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+            background: radial-gradient(ellipse, rgba(232, 115, 74, 0.08) 0%, transparent 70%);
             filter: blur(80px); animation: pulse-glow 8s ease-in-out infinite;
         }
         .bg-gradient::after {
@@ -276,7 +289,7 @@
         }
         .mobile-nav-menu.active { transform: translateY(0); opacity: 1; pointer-events: auto; }
         .mobile-nav-menu .sidebar-link { padding: 14px 16px; font-size: 15px; border-radius: var(--radius-lg); }
-        .mobile-nav-menu .sidebar-link.active { background: rgba(59, 130, 246, 0.12); }
+        .mobile-nav-menu .sidebar-link.active { background: rgba(232, 115, 74, 0.12); }
 
         /* ==================== MAIN CONTENT ==================== */
         .main { margin-left: 240px; padding-top: var(--space-4); min-height: 100vh; }
@@ -510,7 +523,7 @@
             border-bottom: 1px solid var(--border);
         }
         .schedule-table tbody tr:last-child { border-bottom: none; }
-        .schedule-table tbody tr:hover { background: rgba(59, 130, 246, 0.04); }
+        .schedule-table tbody tr:hover { background: rgba(232, 115, 74, 0.04); }
         .schedule-table tbody td {
             padding: 12px var(--space-3);
             color: var(--text-secondary);
@@ -823,9 +836,9 @@
             font-weight: 500;
             line-height: 1.5;
             padding: 8px 12px;
-            background: rgba(59,130,246,0.06);
+            background: rgba(232,115,74,0.06);
             border-radius: 4px;
-            border: 1px solid rgba(59,130,246,0.12);
+            border: 1px solid rgba(232,115,74,0.12);
         }
 
         /* Expand arrow on table rows */
@@ -889,10 +902,10 @@
             transition: background var(--transition-fast), transform var(--transition-fast);
         }
         .schedule-table tbody tr[style*="cursor"]:hover {
-            background: rgba(59, 130, 246, 0.06);
+            background: rgba(232, 115, 74, 0.06);
         }
         .schedule-table tbody tr.mp-expanded {
-            background: rgba(59, 130, 246, 0.04);
+            background: rgba(232, 115, 74, 0.04);
         }
 
         .match-pack {
@@ -1054,6 +1067,15 @@
             .match-pack-header { margin-bottom: 10px; }
             .mp-row { gap: 8px; margin-bottom: 10px; }
             .mp-section-header { font-size: 10px; }
+        }
+        [data-animate] {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s cubic-bezier(0.0, 0.0, 0.2, 1), transform 0.6s cubic-bezier(0.0, 0.0, 0.2, 1);
+        }
+        [data-animate].is-visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>

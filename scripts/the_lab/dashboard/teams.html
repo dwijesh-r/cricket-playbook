@@ -26,7 +26,7 @@
             --text-primary: #FAFAFA;
             --text-secondary: #A1A1AA;
             --text-tertiary: #71717A;
-            --accent: #3B82F6;
+            --accent: #E8734A;
             --accent-green: #22C55E;
             --accent-yellow: #FACC15;
             --accent-orange: #F97316;
@@ -38,9 +38,9 @@
             --glass: rgba(255, 255, 255, 0.02);
             --glass-border: rgba(255, 255, 255, 0.04);
             --shadow: rgba(0, 0, 0, 0.5);
-            --glow-accent: rgba(59, 130, 246, 0.08);
+            --glow-accent: rgba(232, 115, 74, 0.08);
             --glow-purple: rgba(167, 139, 250, 0.06);
-            --border-accent: rgba(59, 130, 246, 0.15);
+            --border-accent: rgba(232, 115, 74, 0.15);
             --scanline: transparent;
             --bg-sidebar: #09090B;
             --brand-stat-color: rgba(255, 255, 255, 0.5);
@@ -80,9 +80,9 @@
             --radius-full: 9999px;
 
             /* === TRANSITIONS === */
-            --transition-fast: 120ms cubic-bezier(0.25, 0.1, 0.25, 1);
-            --transition-normal: 200ms cubic-bezier(0.25, 0.1, 0.25, 1);
-            --transition-slow: 300ms cubic-bezier(0.16, 1, 0.3, 1);
+            --transition-fast: 100ms cubic-bezier(0.25, 0.1, 0.25, 1);
+            --transition-normal: 150ms cubic-bezier(0.25, 0.1, 0.25, 1);
+            --transition-slow: 250ms cubic-bezier(0.16, 1, 0.3, 1);
 
             /* === LAYOUT === */
             --container-max: 1280px;
@@ -100,7 +100,7 @@
             --intro-animation-speed: 0.7s;
             --surface-secondary: var(--bg-tertiary);
             --border-primary: var(--border);
-            --accent-blue: #3b82f6;
+            --accent-blue: #E8734A;
         }
 
         [data-theme="light"] {
@@ -111,7 +111,7 @@
             --text-primary: #09090B;
             --text-secondary: #52525B;
             --text-tertiary: #A1A1AA;
-            --accent: #2563EB;
+            --accent: #C2410C;
             --accent-green: #16A34A;
             --accent-yellow: #CA8A04;
             --accent-orange: #EA580C;
@@ -123,9 +123,9 @@
             --glass: rgba(0, 0, 0, 0.02);
             --glass-border: rgba(0, 0, 0, 0.04);
             --shadow: rgba(0, 0, 0, 0.06);
-            --glow-accent: rgba(37, 99, 235, 0.06);
+            --glow-accent: rgba(194, 65, 12, 0.06);
             --glow-purple: rgba(124, 58, 237, 0.04);
-            --border-accent: rgba(37, 99, 235, 0.12);
+            --border-accent: rgba(194, 65, 12, 0.12);
             --scanline: transparent;
             --bg-sidebar: #FFFFFF;
             --brand-stat-color: rgba(0, 0, 0, 0.4);
@@ -135,7 +135,7 @@
             --elevation-2: 0 4px 16px rgba(0, 0, 0, 0.08);
             --elevation-3: 0 8px 32px rgba(0, 0, 0, 0.12);
             --elevation-hover: 0 20px 60px rgba(0, 0, 0, 0.15);
-            --accent-blue: #2563eb;
+            --accent-blue: #C2410C;
         }
 
         /* ==================== GRID SYSTEM (TKT-268) ==================== */
@@ -477,6 +477,20 @@
             transition: background var(--transition-slow), color var(--transition-slow);
         }
 
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            pointer-events: none;
+            opacity: 0.015;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 256px 256px;
+            mix-blend-mode: overlay;
+        }
+        [data-theme="light"] body::after { opacity: 0.02; }
+
         /* Background */
         .bg-gradient {
             position: fixed;
@@ -494,7 +508,7 @@
             right: -10%;
             width: 60%;
             height: 60%;
-            background: radial-gradient(ellipse, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+            background: radial-gradient(ellipse, rgba(232, 115, 74, 0.08) 0%, transparent 70%);
             filter: blur(80px);
         }
         .bg-grid {
@@ -541,7 +555,7 @@
         .mobile-nav-menu { display: none; position: fixed; top: 56px; left: 0; right: 0; bottom: 0; background: rgba(8, 13, 25, 0.98); backdrop-filter: blur(20px); padding: 16px; z-index: 99; flex-direction: column; gap: 4px; overflow-y: auto; transform: translateY(-10px); opacity: 0; transition: all 200ms ease-in-out; pointer-events: none; }
         .mobile-nav-menu.active { transform: translateY(0); opacity: 1; pointer-events: auto; }
         .mobile-nav-menu .sidebar-link { padding: 14px 16px; font-size: 15px; border-radius: var(--radius-lg); }
-        .mobile-nav-menu .sidebar-link.active { background: rgba(59, 130, 246, 0.12); }
+        .mobile-nav-menu .sidebar-link.active { background: rgba(232, 115, 74, 0.12); }
         .nav { display: none; }
         .nav-tabs { display: none; }
         .nav-tab { display: none; }
@@ -1427,7 +1441,7 @@
             transition: background var(--transition-fast);
         }
         .depth-matrix tbody tr.depth-row:hover {
-            background: rgba(59, 130, 246, 0.04);
+            background: rgba(232, 115, 74, 0.04);
         }
         .depth-matrix td {
             padding: 10px var(--space-3);
@@ -1712,7 +1726,7 @@
         .role-badge svg {
             flex-shrink: 0;
         }
-        .role-batter { background: rgba(59, 130, 246, 0.12); color: var(--accent); }
+        .role-batter { background: rgba(232, 115, 74, 0.12); color: var(--accent); }
         .role-bowler { background: rgba(34, 197, 94, 0.12); color: var(--accent-green); }
         .role-all-rounder { background: rgba(168, 85, 247, 0.12); color: var(--accent-purple); }
         .role-wicketkeeper { background: rgba(234, 179, 8, 0.12); color: var(--accent-yellow); }
@@ -2765,8 +2779,8 @@
             padding: var(--space-3) 16px;
             margin: var(--space-3) 0 16px 0;
             border-radius: var(--radius-sm);
-            background: rgba(59, 130, 246, 0.08);
-            border-left: 3px solid var(--accent, #3b82f6);
+            background: rgba(232, 115, 74, 0.08);
+            border-left: 3px solid var(--accent, #E8734A);
             font-size: 13px;
             color: var(--text-secondary);
         }
@@ -2877,8 +2891,8 @@
         }
         .nav-guide-text h4 { font-size: 14px; font-weight: 600; margin-bottom: var(--space-1); }
         .nav-guide-text p { font-size: 12px; color: var(--text-secondary); line-height: 1.4; }
-        .nav-guide-start { border: 1px solid rgba(59, 130, 246, 0.3); background: rgba(59, 130, 246, 0.06); }
-        .nav-guide-start .nav-guide-icon { background: rgba(59, 130, 246, 0.15); color: var(--accent); }
+        .nav-guide-start { border: 1px solid rgba(232, 115, 74, 0.3); background: rgba(232, 115, 74, 0.06); }
+        .nav-guide-start .nav-guide-icon { background: rgba(232, 115, 74, 0.15); color: var(--accent); }
         .nav-guide-start .nav-guide-text h4 { color: var(--accent); }
         .nav-guide-close {
             position: absolute;
@@ -4173,8 +4187,8 @@
             width: 100%;
             max-height: 85vh;
             overflow-y: auto;
-            border: 1px solid rgba(59,130,246,0.3);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 40px rgba(59,130,246,0.15);
+            border: 1px solid rgba(232,115,74,0.3);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 40px rgba(232,115,74,0.15);
             position: relative;
         }
         .report-header { text-align: center; margin-bottom: var(--space-4); }
@@ -4212,7 +4226,7 @@
             font-size: 14px; font-weight: 600; cursor: pointer; letter-spacing: 0.04em;
             transition: background var(--transition-normal);
         }
-        .report-submit:hover { background: #2563EB; }
+        .report-submit:hover { background: #C2410C; }
         .report-submit:disabled { opacity: 0.6; cursor: not-allowed; }
         .report-success {
             text-align: center; padding: 32px 16px; display: none;
@@ -4233,7 +4247,7 @@
             color: white; font-family: var(--font-body); font-size: 14px; font-weight: 600;
             cursor: pointer; transition: background var(--transition-normal);
         }
-        .report-success .success-close:hover { background: #2563eb; }
+        .report-success .success-close:hover { background: #C2410C; }
         @media (max-width: 768px) {
             .report-btn { bottom: 76px; right: 16px; width: 48px; height: 48px; }
             .report-modal { padding: var(--space-4) 16px; }
@@ -4536,7 +4550,7 @@
     display: inline-block;
 }
 .pool-player-role.bat { background: rgba(234, 179, 8, 0.15); color: #EAB308; }
-.pool-player-role.bowl { background: rgba(59, 130, 246, 0.15); color: #3B82F6; }
+.pool-player-role.bowl { background: rgba(232, 115, 74, 0.15); color: #E8734A; }
 .pool-player-role.ar { background: rgba(34, 197, 94, 0.15); color: #22C55E; }
 .pool-player-role.wk { background: rgba(168, 85, 247, 0.15); color: #A855F7; }
 .pool-player-price {
@@ -4585,7 +4599,7 @@
 }
 .xi-slot.drag-over {
     border-color: var(--accent);
-    background: rgba(59, 130, 246, 0.08);
+    background: rgba(232, 115, 74, 0.08);
     border-style: solid;
 }
 .xi-slot.filled {
@@ -4672,8 +4686,8 @@
 .match-score {
     margin-top: 14px;
     padding: 10px 14px;
-    background: rgba(59, 130, 246, 0.06);
-    border: 1px solid rgba(59, 130, 246, 0.15);
+    background: rgba(232, 115, 74, 0.06);
+    border: 1px solid rgba(232, 115, 74, 0.15);
     border-radius: var(--radius-md);
     text-align: center;
 }
@@ -4724,6 +4738,20 @@
     animation: bxiFadeIn 0.3s ease;
 }
 @keyframes bxiFadeIn { from { opacity: 0; transform: translateX(-50%) translateY(10px); } to { opacity: 1; transform: translateX(-50%) translateY(0); } }
+
+[data-animate] {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s cubic-bezier(0.0, 0.0, 0.2, 1), transform 0.6s cubic-bezier(0.0, 0.0, 0.2, 1);
+}
+[data-animate].is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+[data-animate="fade-up"] { transform: translateY(24px); }
+[data-animate="fade-in"] { transform: none; }
+[data-animate="scale-in"] { transform: scale(0.96); }
+
 @media (max-width: 768px) {
     .build-xi-container { flex-direction: column; }
     .build-xi-board { width: 100%; }
@@ -5894,7 +5922,7 @@
 
                     <div class="strategy-section-header" style="margin-bottom: 10px;">
                         <div class="strategy-section-title" style="font-size: 13px;">Batting Depth</div>
-                        <span class="strategy-section-badge" style="background: rgba(59, 130, 246, 0.15); color: var(--accent);">${battingPositions.length} Positions</span>
+                        <span class="strategy-section-badge" style="background: rgba(232, 115, 74, 0.15); color: var(--accent);">${battingPositions.length} Positions</span>
                     </div>
                     <div class="table-wrap" style="margin-bottom:24px;">
                         <table class="depth-matrix">
@@ -7357,7 +7385,7 @@
                     const rc = roleMap[slotPlayer.role] || 'bat';
                     const rl = roleLabel[slotPlayer.role] || slotPlayer.role.toUpperCase().substring(0, 3);
                     const roleStyle = rc === 'bat' ? 'background:rgba(234,179,8,0.15);color:#EAB308;' :
-                                      rc === 'bowl' ? 'background:rgba(59,130,246,0.15);color:#3B82F6;' :
+                                      rc === 'bowl' ? 'background:rgba(232,115,74,0.15);color:#E8734A;' :
                                       rc === 'ar' ? 'background:rgba(34,197,94,0.15);color:#22C55E;' :
                                       'background:rgba(168,85,247,0.15);color:#A855F7;';
                     slotsHTML += `<div class="xi-slot${slotClass}${filledClass}" data-slot="${i}" onclick="bxiRemovePlayer(${i})">
@@ -7715,7 +7743,7 @@
                     'PP_ELITE': '#22c55e', 'PP_DOMINATOR': '#22c55e', 'NEW_BALL_SPECIALIST': '#22c55e',
                     'PRESSURE_BUILDER': '#f97316', 'PROVEN_WICKET_TAKER': '#f97316',
                     'FINISHER': '#a855f7', 'SIX_HITTER': '#a855f7', 'EXPLOSIVE_OPENER': '#a855f7',
-                    'MIDDLE_OVERS_CONTROLLER': '#3b82f6', 'MID_OVERS_ELITE': '#3b82f6', 'MIDDLE_OVERS_ACCELERATOR': '#3b82f6',
+                    'MIDDLE_OVERS_CONTROLLER': '#E8734A', 'MID_OVERS_ELITE': '#E8734A', 'MIDDLE_OVERS_ACCELERATOR': '#E8734A',
                     'CONSISTENT': '#14b8a6', 'ANCHOR': '#14b8a6', 'PLAYMAKER': '#14b8a6', 'ACCUMULATOR': '#14b8a6',
                     'WORKHORSE': '#64748b', 'PART_TIMER': '#64748b',
                     'PACE_SPECIALIST': '#06b6d4'
@@ -7836,7 +7864,7 @@
                 const insight = getVenueInsight(venueBias, opponent);
                 const cardId = `sched-card-${idx}`;
 
-                html += `<div style="background:var(--bg-secondary);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;transition:border-color 150ms ease;" onmouseenter="this.style.borderColor='rgba(59,130,246,0.2)'" onmouseleave="this.style.borderColor=''">
+                html += `<div style="background:var(--bg-secondary);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;transition:border-color 150ms ease;" onmouseenter="this.style.borderColor='rgba(232,115,74,0.2)'" onmouseleave="this.style.borderColor=''">
                     <!-- Match header row (clickable) -->
                     <div style="display:flex;align-items:center;gap:var(--space-3);padding:12px var(--space-3);cursor:pointer;" onclick="var el=document.getElementById('${cardId}');var arr=this.querySelector('.sched-arrow');if(el.style.display==='none'){el.style.display='block';arr.style.transform='rotate(90deg)';}else{el.style.display='none';arr.style.transform='rotate(0deg)';}">
                         <div style="min-width:28px;text-align:center;font-family:var(--font-mono);font-size:var(--text-xs);color:var(--text-tertiary);font-weight:600;">${m.match}</div>
@@ -7887,7 +7915,7 @@
                             </div>
                             <div style="font-size:var(--text-xs);color:var(--text-tertiary);margin-bottom:4px;">${m.city} ${biasLabel(m.venue) ? '&#183; ' + biasLabel(m.venue) : ''}</div>`;
                             if (insight) {
-                                packHtml += `<div style="margin-top:8px;padding:6px 10px;background:rgba(59,130,246,0.06);border-radius:var(--radius-sm);font-size:var(--text-xs);color:var(--accent);border-left:2px solid var(--accent);">${insight}</div>`;
+                                packHtml += `<div style="margin-top:8px;padding:6px 10px;background:rgba(232,115,74,0.06);border-radius:var(--radius-sm);font-size:var(--text-xs);color:var(--accent);border-left:2px solid var(--accent);">${insight}</div>`;
                             }
                             // Venue advantage indicator
                             if (isHome) {
@@ -8067,7 +8095,7 @@
                                 const oppPhase = oppPreview.categoryRatings.filter(r => r.group === 'phase');
                                 if (myPhase.length > 0 && oppPhase.length > 0) {
                                     packHtml += `<div style="margin-top:14px;">`;
-                                    packHtml += sectionHdr('Phase Battle', '#3b82f6');
+                                    packHtml += sectionHdr('Phase Battle', '#E8734A');
                                     packHtml += `<div style="padding:6px 8px;background:var(--bg-secondary);border-radius:var(--radius-sm);">
                                         <div style="display:flex;justify-content:space-between;font-size:9px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;padding:0 2px;">
                                             <span></span><span>${team}</span><span></span><span>${opponent}</span>

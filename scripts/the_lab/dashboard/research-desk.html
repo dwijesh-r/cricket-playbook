@@ -26,7 +26,7 @@
             --text-primary: #FAFAFA;
             --text-secondary: #A1A1AA;
             --text-tertiary: #71717A;
-            --accent: #3B82F6;
+            --accent: #E8734A;
             --accent-green: #22C55E;
             --accent-yellow: #FACC15;
             --accent-orange: #F97316;
@@ -38,9 +38,9 @@
             --glass: rgba(255, 255, 255, 0.02);
             --glass-border: rgba(255, 255, 255, 0.04);
             --shadow: rgba(0, 0, 0, 0.5);
-            --glow-accent: rgba(59, 130, 246, 0.08);
+            --glow-accent: rgba(232, 115, 74, 0.08);
             --glow-purple: rgba(167, 139, 250, 0.06);
-            --border-accent: rgba(59, 130, 246, 0.15);
+            --border-accent: rgba(232, 115, 74, 0.15);
             --scanline: transparent;
 
             /* === SPACING (8px base) === */
@@ -77,9 +77,9 @@
             --radius-full: 9999px;
 
             /* === TRANSITIONS === */
-            --transition-fast: 120ms cubic-bezier(0.25, 0.1, 0.25, 1);
-            --transition-normal: 200ms cubic-bezier(0.25, 0.1, 0.25, 1);
-            --transition-slow: 300ms cubic-bezier(0.16, 1, 0.3, 1);
+            --transition-fast: 100ms cubic-bezier(0.25, 0.1, 0.25, 1);
+            --transition-normal: 150ms cubic-bezier(0.25, 0.1, 0.25, 1);
+            --transition-slow: 250ms cubic-bezier(0.16, 1, 0.3, 1);
 
             /* === LAYOUT === */
             --container-max: 1280px;
@@ -105,7 +105,7 @@
             --text-primary: #09090B;
             --text-secondary: #52525B;
             --text-tertiary: #A1A1AA;
-            --accent: #2563EB;
+            --accent: #C2410C;
             --accent-green: #16A34A;
             --accent-yellow: #CA8A04;
             --accent-orange: #EA580C;
@@ -117,9 +117,9 @@
             --glass: rgba(0, 0, 0, 0.02);
             --glass-border: rgba(0, 0, 0, 0.04);
             --shadow: rgba(0, 0, 0, 0.06);
-            --glow-accent: rgba(37, 99, 235, 0.06);
+            --glow-accent: rgba(194, 65, 12, 0.06);
             --glow-purple: rgba(124, 58, 237, 0.04);
-            --border-accent: rgba(37, 99, 235, 0.12);
+            --border-accent: rgba(194, 65, 12, 0.12);
             --scanline: transparent;
             /* Elevation system - light */
             --elevation-1: 0 1px 2px rgba(0, 0, 0, 0.05);
@@ -306,6 +306,30 @@
             transition: background var(--transition-slow), color var(--transition-slow);
         }
 
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            pointer-events: none;
+            opacity: 0.015;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 256px 256px;
+            mix-blend-mode: overlay;
+        }
+        [data-theme="light"] body::after { opacity: 0.02; }
+
+        [data-animate] {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s cubic-bezier(0.0, 0.0, 0.2, 1), transform 0.6s cubic-bezier(0.0, 0.0, 0.2, 1);
+        }
+        [data-animate].is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* ==================== BACKGROUND ==================== */
         .bg-gradient {
             position: fixed; inset: 0; z-index: -4;
@@ -316,7 +340,7 @@
         }
         .bg-gradient::before {
             content: ''; position: absolute; top: -20%; right: -10%; width: 60%; height: 60%;
-            background: radial-gradient(ellipse, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+            background: radial-gradient(ellipse, rgba(232, 115, 74, 0.08) 0%, transparent 70%);
             filter: blur(80px);
         }
         .bg-grid {
@@ -359,7 +383,7 @@
         .mobile-nav-menu { display: none; position: fixed; top: 56px; left: 0; right: 0; bottom: 0; background: rgba(8, 13, 25, 0.98); backdrop-filter: blur(20px); padding: 16px; z-index: 99; flex-direction: column; gap: 4px; overflow-y: auto; transform: translateY(-10px); opacity: 0; transition: all 200ms ease-in-out; pointer-events: none; }
         .mobile-nav-menu.active { transform: translateY(0); opacity: 1; pointer-events: auto; }
         .mobile-nav-menu .sidebar-link { padding: 14px 16px; font-size: 15px; border-radius: var(--radius-lg); }
-        .mobile-nav-menu .sidebar-link.active { background: rgba(59, 130, 246, 0.12); }
+        .mobile-nav-menu .sidebar-link.active { background: rgba(232, 115, 74, 0.12); }
         .nav { display: none; } .nav-tabs { display: none; } .nav-tab { display: none; } .nav-brand { display: none; } .nav-actions { display: none; } .nav-time { display: none; } .theme-toggle { display: none; } .nav-btn { display: none; }
 
         /* ==================== MAIN LAYOUT ==================== */
@@ -1894,7 +1918,7 @@
     <!-- Sidebar Navigation -->
     <aside class="sidebar" aria-label="Site navigation">
         <div class="sidebar-brand">
-            <div class="sidebar-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" fill="none"><defs><linearGradient id="sg1" x1="0" y1="1" x2="0" y2="0"><stop offset="0%" stop-color="#3B82F6" stop-opacity="0.2"/><stop offset="100%" stop-color="#3B82F6" stop-opacity="0.9"/></linearGradient><linearGradient id="sg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#60A5FA"/><stop offset="100%" stop-color="#3B82F6"/></linearGradient></defs><rect x="1" y="1" width="34" height="34" rx="8" fill="#0F172A" stroke="rgba(59,130,246,0.25)" stroke-width="1"/><rect x="7" y="21" width="5" height="9" rx="2" fill="url(#sg1)"/><rect x="15.5" y="15" width="5" height="15" rx="2" fill="url(#sg1)"/><rect x="24" y="8" width="5" height="22" rx="2" fill="url(#sg2)"/><circle cx="9.5" cy="19" r="2" fill="#60A5FA"/><circle cx="18" cy="13" r="2" fill="#60A5FA"/><circle cx="26.5" cy="6.5" r="2.5" fill="#3B82F6" stroke="#60A5FA" stroke-width="1"/><path d="M9.5 19 L18 13 L26.5 6.5" stroke="#60A5FA" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.6"/></svg></div>
+            <div class="sidebar-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" fill="none"><defs><linearGradient id="sg1" x1="0" y1="1" x2="0" y2="0"><stop offset="0%" stop-color="#E8734A" stop-opacity="0.2"/><stop offset="100%" stop-color="#E8734A" stop-opacity="0.9"/></linearGradient><linearGradient id="sg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#60A5FA"/><stop offset="100%" stop-color="#E8734A"/></linearGradient></defs><rect x="1" y="1" width="34" height="34" rx="8" fill="#0F172A" stroke="rgba(232,115,74,0.25)" stroke-width="1"/><rect x="7" y="21" width="5" height="9" rx="2" fill="url(#sg1)"/><rect x="15.5" y="15" width="5" height="15" rx="2" fill="url(#sg1)"/><rect x="24" y="8" width="5" height="22" rx="2" fill="url(#sg2)"/><circle cx="9.5" cy="19" r="2" fill="#60A5FA"/><circle cx="18" cy="13" r="2" fill="#60A5FA"/><circle cx="26.5" cy="6.5" r="2.5" fill="#E8734A" stroke="#60A5FA" stroke-width="1"/><path d="M9.5 19 L18 13 L26.5 6.5" stroke="#60A5FA" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.6"/></svg></div>
             <div class="sidebar-title"><span class="brand-stat">STAT</span><span class="brand-sledge">SLEDGE</span></div>
         </div>
         <div class="sidebar-section-label">Navigate</div>
@@ -1915,7 +1939,7 @@
     </aside>
     <div class="mobile-topbar">
         <div style="display:flex;align-items:center;gap:10px;">
-            <div class="sidebar-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" fill="none"><defs><linearGradient id="sg1m" x1="0" y1="1" x2="0" y2="0"><stop offset="0%" stop-color="#3B82F6" stop-opacity="0.2"/><stop offset="100%" stop-color="#3B82F6" stop-opacity="0.9"/></linearGradient><linearGradient id="sg2m" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#60A5FA"/><stop offset="100%" stop-color="#3B82F6"/></linearGradient></defs><rect x="1" y="1" width="34" height="34" rx="8" fill="#0F172A" stroke="rgba(59,130,246,0.25)" stroke-width="1"/><rect x="7" y="21" width="5" height="9" rx="2" fill="url(#sg1m)"/><rect x="15.5" y="15" width="5" height="15" rx="2" fill="url(#sg1m)"/><rect x="24" y="8" width="5" height="22" rx="2" fill="url(#sg2m)"/><circle cx="9.5" cy="19" r="2" fill="#60A5FA"/><circle cx="18" cy="13" r="2" fill="#60A5FA"/><circle cx="26.5" cy="6.5" r="2.5" fill="#3B82F6" stroke="#60A5FA" stroke-width="1"/><path d="M9.5 19 L18 13 L26.5 6.5" stroke="#60A5FA" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.6"/></svg></div>
+            <div class="sidebar-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" fill="none"><defs><linearGradient id="sg1m" x1="0" y1="1" x2="0" y2="0"><stop offset="0%" stop-color="#E8734A" stop-opacity="0.2"/><stop offset="100%" stop-color="#E8734A" stop-opacity="0.9"/></linearGradient><linearGradient id="sg2m" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#60A5FA"/><stop offset="100%" stop-color="#E8734A"/></linearGradient></defs><rect x="1" y="1" width="34" height="34" rx="8" fill="#0F172A" stroke="rgba(232,115,74,0.25)" stroke-width="1"/><rect x="7" y="21" width="5" height="9" rx="2" fill="url(#sg1m)"/><rect x="15.5" y="15" width="5" height="15" rx="2" fill="url(#sg1m)"/><rect x="24" y="8" width="5" height="22" rx="2" fill="url(#sg2m)"/><circle cx="9.5" cy="19" r="2" fill="#60A5FA"/><circle cx="18" cy="13" r="2" fill="#60A5FA"/><circle cx="26.5" cy="6.5" r="2.5" fill="#E8734A" stroke="#60A5FA" stroke-width="1"/><path d="M9.5 19 L18 13 L26.5 6.5" stroke="#60A5FA" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.6"/></svg></div>
             <div class="sidebar-title"><span class="brand-stat">STAT</span><span class="brand-sledge">SLEDGE</span></div>
         </div>
         <button class="mobile-menu-btn" onclick="toggleMobileMenu()" title="Menu" aria-label="Open navigation menu"><span></span><span></span><span></span></button>

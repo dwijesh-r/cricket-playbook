@@ -26,7 +26,7 @@
             --text-primary: #FAFAFA;
             --text-secondary: #A1A1AA;
             --text-tertiary: #71717A;
-            --accent: #3B82F6;
+            --accent: #E8734A;
             --accent-green: #22C55E;
             --accent-yellow: #FACC15;
             --accent-orange: #F97316;
@@ -38,9 +38,9 @@
             --glass: rgba(255, 255, 255, 0.02);
             --glass-border: rgba(255, 255, 255, 0.04);
             --shadow: rgba(0, 0, 0, 0.5);
-            --glow-accent: rgba(59, 130, 246, 0.08);
+            --glow-accent: rgba(232, 115, 74, 0.08);
             --glow-purple: rgba(167, 139, 250, 0.06);
-            --border-accent: rgba(59, 130, 246, 0.15);
+            --border-accent: rgba(232, 115, 74, 0.15);
             --scanline: transparent;
             --bg-sidebar: #09090B;
             --brand-stat-color: rgba(255, 255, 255, 0.5);
@@ -80,9 +80,9 @@
             --radius-full: 9999px;
 
             /* === TRANSITIONS === */
-            --transition-fast: 120ms cubic-bezier(0.25, 0.1, 0.25, 1);
-            --transition-normal: 200ms cubic-bezier(0.25, 0.1, 0.25, 1);
-            --transition-slow: 300ms cubic-bezier(0.16, 1, 0.3, 1);
+            --transition-fast: 100ms cubic-bezier(0.25, 0.1, 0.25, 1);
+            --transition-normal: 150ms cubic-bezier(0.25, 0.1, 0.25, 1);
+            --transition-slow: 250ms cubic-bezier(0.16, 1, 0.3, 1);
 
             /* === LAYOUT === */
             --container-max: 1280px;
@@ -104,7 +104,7 @@
             --text-primary: #09090B;
             --text-secondary: #52525B;
             --text-tertiary: #A1A1AA;
-            --accent: #2563EB;
+            --accent: #C2410C;
             --accent-green: #16A34A;
             --accent-yellow: #CA8A04;
             --accent-orange: #EA580C;
@@ -116,9 +116,9 @@
             --glass: rgba(0, 0, 0, 0.02);
             --glass-border: rgba(0, 0, 0, 0.04);
             --shadow: rgba(0, 0, 0, 0.06);
-            --glow-accent: rgba(37, 99, 235, 0.06);
+            --glow-accent: rgba(194, 65, 12, 0.06);
             --glow-purple: rgba(124, 58, 237, 0.04);
-            --border-accent: rgba(37, 99, 235, 0.12);
+            --border-accent: rgba(194, 65, 12, 0.12);
             --scanline: transparent;
             --bg-sidebar: #FFFFFF;
             --brand-stat-color: rgba(0, 0, 0, 0.4);
@@ -355,7 +355,7 @@
             right: -10%;
             width: 60%;
             height: 60%;
-            background: radial-gradient(ellipse, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+            background: radial-gradient(ellipse, rgba(232, 115, 74, 0.08) 0%, transparent 70%);
             filter: blur(80px);
             animation: pulse-glow 8s ease-in-out infinite;
         }
@@ -404,7 +404,7 @@
             font-weight: 900;
             letter-spacing: -0.03em;
             color: transparent;
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(168, 85, 247, 0.03) 100%);
+            background: linear-gradient(135deg, rgba(232, 115, 74, 0.05) 0%, rgba(168, 85, 247, 0.03) 100%);
             -webkit-background-clip: text;
             background-clip: text;
             z-index: -1;
@@ -612,7 +612,7 @@
             border-radius: var(--radius-lg);
         }
         .mobile-nav-menu .sidebar-link.active {
-            background: rgba(59, 130, 246, 0.12);
+            background: rgba(232, 115, 74, 0.12);
         }
 
         /* Legacy classes kept for compatibility */
@@ -1409,12 +1409,12 @@
             line-height: 1.4;
         }
         .nav-guide-start {
-            background: rgba(59, 130, 246, 0.06);
-            border: 1px solid rgba(59, 130, 246, 0.3);
+            background: rgba(232, 115, 74, 0.06);
+            border: 1px solid rgba(232, 115, 74, 0.3);
             color: inherit;
         }
         .nav-guide-start .nav-guide-icon {
-            background: rgba(59, 130, 246, 0.15);
+            background: rgba(232, 115, 74, 0.15);
             color: var(--accent);
         }
         .nav-guide-start .nav-guide-text h4 {
@@ -1486,8 +1486,8 @@
             width: 100%;
             max-height: 85vh;
             overflow-y: auto;
-            border: 1px solid rgba(59,130,246,0.3);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 40px rgba(59,130,246,0.15);
+            border: 1px solid rgba(232,115,74,0.3);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 40px rgba(232,115,74,0.15);
             position: relative;
         }
         .report-header { text-align: center; margin-bottom: var(--space-4); }
@@ -1525,7 +1525,7 @@
             font-size: 14px; font-weight: 600; cursor: pointer; letter-spacing: 0.04em;
             transition: background var(--transition-normal);
         }
-        .report-submit:hover { background: #2563EB; }
+        .report-submit:hover { background: #C2410C; }
         .report-submit:disabled { opacity: 0.6; cursor: not-allowed; }
         .report-success {
             text-align: center; padding: 32px 16px; display: none;
@@ -1546,7 +1546,7 @@
             color: white; font-family: var(--font-body); font-size: 14px; font-weight: 600;
             cursor: pointer; transition: background var(--transition-normal);
         }
-        .report-success .success-close:hover { background: #2563eb; }
+        .report-success .success-close:hover { background: #C2410C; }
         @media (max-width: 768px) {
             .report-btn { bottom: 76px; right: 16px; width: 48px; height: 48px; }
             .report-modal { padding: var(--space-4) 16px; }
@@ -1756,6 +1756,34 @@
                 height: 20px;
             }
         }
+        /* === SCROLL-TRIGGERED REVEALS (Bencium) === */
+        [data-animate] {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s cubic-bezier(0.0, 0.0, 0.2, 1), transform 0.6s cubic-bezier(0.0, 0.0, 0.2, 1);
+        }
+        [data-animate].is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        [data-animate="fade-up"] { transform: translateY(24px); }
+        [data-animate="fade-in"] { transform: none; }
+        [data-animate="scale-in"] { transform: scale(0.96); }
+
+        /* Subtle grain overlay for atmosphere */
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            pointer-events: none;
+            opacity: 0.015;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 256px 256px;
+            mix-blend-mode: overlay;
+        }
+        [data-theme="light"] body::after { opacity: 0.02; }
     </style>
 </head>
 <body>
@@ -1943,14 +1971,14 @@
         <!-- Hero Section -->
         <section class="hero">
             <div class="hero-glow"></div>
-            <div class="hero-badge">IPL 2026 Pre-Season Analytics</div>
+            <div class="hero-badge" data-animate="fade-up">IPL 2026 Pre-Season Analytics</div>
             <div class="typewriter-container">
-                <div class="hero-brand">
+                <div class="hero-brand" data-animate="fade-up">
                     <div class="hero-logo" style="display:flex;align-items:center;gap:20px;justify-content:center;"><img src="assets/logo/swirl-transparent.png" alt="" height="96" loading="lazy"><img src="assets/logo/text-transparent.png" alt="Statsledge" height="60" loading="lazy"></div>
                 </div>
             </div>
             <div class="hero-accent-bar"></div>
-            <p class="hero-subtitle">
+            <p class="hero-subtitle" data-animate="fade-up">
                 Pre-season analytics for IPL 2026. Squad depth, player rankings, matchup data, and projected XIs for all 10 franchises.
             </p>
         </section>
@@ -1958,37 +1986,37 @@
         <!-- Explore Statsledge -->
         <section class="section">
             <div class="section-header">
-                <h2 class="section-title" style="display:block; font-family: 'Nunito Sans', sans-serif; font-size: 20px; font-weight: 400; color: var(--text-secondary); letter-spacing: 0.06em; text-transform: none;">
+                <h2 class="section-title" data-animate="fade-up" style="display:block; font-family: 'Nunito Sans', sans-serif; font-size: 20px; font-weight: 400; color: var(--text-secondary); letter-spacing: 0.06em; text-transform: none;">
                     Explore <span style="font-weight:300;color:rgba(255,255,255,0.5);">Stat</span><span style="font-weight:800;color:#FFFFFF;">Sledge</span>
                 </h2>
             </div>
             <div class="nav-cards">
-                <a href="teams.html" class="nav-card">
+                <a href="teams.html" class="nav-card" data-animate="fade-up" style="transition-delay: 0.05s">
                     <div class="nav-card-icon">🏏</div>
                     <h3>Teams</h3>
                     <p>Projected XIs, squad depth, and player roles for all 10 franchises.</p>
                 </a>
-                <a href="rankings.html" class="nav-card">
+                <a href="rankings.html" class="nav-card" data-animate="fade-up" style="transition-delay: 0.1s">
                     <div class="nav-card-icon">📊</div>
                     <h3>Rankings</h3>
                     <p>Composite player rankings across batting, bowling, and all-round categories.</p>
                 </a>
-                <a href="comparison.html" class="nav-card">
+                <a href="comparison.html" class="nav-card" data-animate="fade-up" style="transition-delay: 0.15s">
                     <div class="nav-card-icon">⚖️</div>
                     <h3>Compare</h3>
                     <p>Radar charts, phase heatmaps, and side-by-side player breakdowns.</p>
                 </a>
-                <a href="head-to-head.html" class="nav-card">
+                <a href="head-to-head.html" class="nav-card" data-animate="fade-up" style="transition-delay: 0.2s">
                     <div class="nav-card-icon">⚔️</div>
                     <h3>Head to Head</h3>
                     <p>Batter vs bowler matchup data: career, phase, and over-level splits.</p>
                 </a>
-                <a href="squad-builder.html" class="nav-card">
+                <a href="squad-builder.html" class="nav-card" data-animate="fade-up" style="transition-delay: 0.25s">
                     <div class="nav-card-icon">XI</div>
                     <h3>Fantasy</h3>
                     <p>Draft rankings, auction simulator, and interactive XI builder for all 10 teams.</p>
                 </a>
-                <a href="about.html" class="nav-card">
+                <a href="about.html" class="nav-card" data-animate="fade-up" style="transition-delay: 0.3s">
                     <div class="nav-card-icon">📖</div>
                     <h3>About</h3>
                     <p>Our mission, methodology, and what makes Statsledge different.</p>
@@ -2791,6 +2819,17 @@
         document.getElementById('report-success').style.display = 'none';
     }
 
+
+    // Scroll-triggered entrance animations (Bencium)
+    const animObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                animObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('[data-animate]').forEach(el => animObserver.observe(el));
 
 </script>
 

@@ -423,7 +423,11 @@ const FULL_DEPTH_CHARTS = {{
                 f"players: [{', '.join(players_js)}] }}"
             )
 
-        vulnerabilities = team.get("vulnerabilities", [])
+        vulnerabilities = [
+            v
+            for v in team.get("vulnerabilities", [])
+            if "wrist spin" not in v.lower() and "left-arm wrist" not in v.lower()
+        ]
         vulnerabilities_str = ", ".join(
             [f'"{v.replace(chr(34), chr(39))}"' for v in vulnerabilities[:3]]
         )

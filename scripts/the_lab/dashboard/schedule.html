@@ -873,32 +873,40 @@
         }
 
         .mp-venue-record-table {
-            width: 100%;
+            width: auto;
             font-size: 11px;
             border-collapse: collapse;
         }
         .mp-venue-record-table th {
-            text-align: left;
             font-size: 10px;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.06em;
             color: var(--text-tertiary);
-            padding: 4px 8px 4px 0;
+            padding: 4px 12px 4px 0;
             border-bottom: 1px solid var(--border);
         }
+        .mp-venue-record-table th:first-child {
+            text-align: left;
+        }
+        .mp-venue-record-table th:not(:first-child) {
+            text-align: right;
+            min-width: 36px;
+        }
         .mp-venue-record-table td {
-            padding: 4px 8px 4px 0;
+            padding: 5px 12px 5px 0;
             color: var(--text-secondary);
             border-bottom: 1px solid color-mix(in oklch, var(--border), transparent 60%);
         }
         .mp-venue-record-table td:first-child {
+            text-align: left;
             color: var(--text-primary);
             font-weight: 500;
-            max-width: 180px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
+        }
+        .mp-venue-record-table td:not(:first-child) {
+            text-align: right;
+            font-family: var(--font-mono);
+            min-width: 36px;
         }
         .mp-venue-record-table .mp-win-cell {
             color: var(--accent-green);
@@ -1303,6 +1311,7 @@
     <script src="data/season_previews.js"></script>
     <script src="data/historic_trends.js"></script>
     <script src="data/team_h2h_records.js"></script>
+    <script src="data/h2h_data.js"></script>
     <script>
     (function() {
         'use strict';
@@ -1424,57 +1433,127 @@
             return { paceCount: paceCount, spinCount: spinCount, types: types };
         }
 
-        function getTeamBattingHands(teamAbbrev) {
-            var squad = (typeof FULL_SQUADS !== 'undefined') ? FULL_SQUADS[teamAbbrev] : null;
-            if (!squad) return { left: 0, right: 0 };
-            var predicted = squad.filter(function(p) { return p.predictedXII && (p.role === 'Batter' || p.role === 'Wicketkeeper' || p.role === 'All-rounder'); });
-            var left = 0, right = 0;
-            predicted.forEach(function(p) {
-                if (p.battingHand === 'Left-hand') left++;
-                else right++;
+        // ==================== PLAYER MATCHUP LOOKUP ====================
+        // Map team abbreviation to full H2H team name
+        var H2H_TEAM_NAMES = {
+            'CSK': 'Chennai Super Kings', 'DC': 'Delhi Capitals', 'GT': 'Gujarat Titans',
+            'KKR': 'Kolkata Knight Riders', 'LSG': 'Lucknow Super Giants', 'MI': 'Mumbai Indians',
+            'PBKS': 'Punjab Kings', 'RCB': 'Royal Challengers Bengaluru', 'RR': 'Rajasthan Royals',
+            'SRH': 'Sunrisers Hyderabad'
+        };
+
+        // Build a lookup: full name -> H2H player ID (by last-name + team match)
+        var _playerIdCache = null;
+        function getPlayerH2HId(fullName, teamAbbrev) {
+            if (typeof H2H_DATA === 'undefined') return null;
+            if (!_playerIdCache) {
+                _playerIdCache = {};
+                var meta = H2H_DATA.playerMeta;
+                Object.keys(meta).forEach(function(id) {
+                    var m = meta[id];
+                    // Index by last name + team
+                    var parts = m.name.split(' ');
+                    var lastName = parts[parts.length - 1].toLowerCase();
+                    var key = lastName + '|' + m.team;
+                    if (!_playerIdCache[key]) _playerIdCache[key] = [];
+                    _playerIdCache[key].push(id);
+                });
+            }
+            var parts = fullName.split(' ');
+            var lastName = parts[parts.length - 1].toLowerCase();
+            var teamFull = H2H_TEAM_NAMES[teamAbbrev] || '';
+            var key = lastName + '|' + teamFull;
+            var ids = _playerIdCache[key];
+            if (ids && ids.length === 1) return ids[0];
+            // If multiple matches, try first initial
+            if (ids && ids.length > 1) {
+                var firstInitial = fullName.charAt(0).toUpperCase();
+                for (var i = 0; i < ids.length; i++) {
+                    var mName = H2H_DATA.playerMeta[ids[i]].name;
+                    if (mName.charAt(0).toUpperCase() === firstInitial) return ids[i];
+                }
+                return ids[0];
+            }
+            // Direct index lookup
+            var idx = H2H_DATA.playerIndex;
+            if (idx[fullName]) return idx[fullName];
+            return null;
+        }
+
+        // Find top player-vs-player matchups between two teams' predicted XIs
+        function findPlayerMatchups(battingTeam, bowlingTeam, limit) {
+            if (typeof H2H_DATA === 'undefined' || typeof FULL_SQUADS === 'undefined') return [];
+            var batSquad = FULL_SQUADS[battingTeam] || [];
+            var bowlSquad = FULL_SQUADS[bowlingTeam] || [];
+            var batters = batSquad.filter(function(p) { return p.predictedXII && (p.role === 'Batter' || p.role === 'Wicketkeeper' || p.role === 'All-rounder'); });
+            var bowlers = bowlSquad.filter(function(p) { return p.predictedXII && (p.role === 'Bowler' || p.role === 'All-rounder') && p.bowlingType && p.bowlingType !== 'Medium'; });
+
+            var results = [];
+            var matchups = H2H_DATA.matchups;
+            batters.forEach(function(bat) {
+                var batId = getPlayerH2HId(bat.name, battingTeam);
+                if (!batId) return;
+                bowlers.forEach(function(bowl) {
+                    var bowlId = getPlayerH2HId(bowl.name, bowlingTeam);
+                    if (!bowlId) return;
+                    var m = matchups[batId + '__' + bowlId];
+                    if (m && m.career && m.career.balls >= 12) {
+                        results.push({
+                            batter: bat.name.split(' ').pop(),
+                            bowler: bowl.name.split(' ').pop(),
+                            balls: m.career.balls,
+                            runs: m.career.runs,
+                            dismissals: m.career.dismissals,
+                            sr: m.career.sr || 0,
+                            avg: m.career.avg || 0,
+                            dominance: m.career.sr > 150 ? 'batter' : m.career.sr < 100 ? 'bowler' : 'even'
+                        });
+                    }
+                });
             });
-            return { left: left, right: right };
+            // Sort by significance: most balls faced
+            results.sort(function(a, b) { return b.balls - a.balls; });
+            return results.slice(0, limit || 3);
         }
 
         function buildMatchupInsights(homeTeam, awayTeam, bias) {
-            var homeBowl = getTeamBowlingTypes(homeTeam);
-            var awayBowl = getTeamBowlingTypes(awayTeam);
-            var homeBat = getTeamBattingHands(homeTeam);
-            var awayBat = getTeamBattingHands(awayTeam);
             var insights = [];
 
-            // Spin-heavy bowling vs batting weaknesses
-            if (homeBowl.spinCount >= 3 && awayBat.right >= 5) {
-                insights.push('<span style="color:var(--accent-orange);">&#9650;</span> ' + homeTeam + ' spin battery (' + homeBowl.spinCount + ' spinners) vs ' + awayTeam + '\'s right-hand-heavy lineup');
+            // 1. Actual player-vs-player matchups
+            var homeBatVsAway = findPlayerMatchups(homeTeam, awayTeam, 2);
+            var awayBatVsHome = findPlayerMatchups(awayTeam, homeTeam, 2);
+
+            homeBatVsAway.forEach(function(m) {
+                var icon = m.dominance === 'batter' ? '<span style="color:var(--accent-green);">&#9650;</span>' :
+                           m.dominance === 'bowler' ? '<span style="color:var(--accent-red);">&#9660;</span>' :
+                           '<span style="color:var(--text-tertiary);">&#8594;</span>';
+                insights.push(icon + ' ' + m.batter + ' vs ' + m.bowler + ': ' + m.runs + '/' + m.balls + 'b (' + m.dismissals + ' dismissals, SR ' + m.sr.toFixed(0) + ')');
+            });
+            awayBatVsHome.forEach(function(m) {
+                var icon = m.dominance === 'batter' ? '<span style="color:var(--accent-green);">&#9650;</span>' :
+                           m.dominance === 'bowler' ? '<span style="color:var(--accent-red);">&#9660;</span>' :
+                           '<span style="color:var(--text-tertiary);">&#8594;</span>';
+                insights.push(icon + ' ' + m.batter + ' vs ' + m.bowler + ': ' + m.runs + '/' + m.balls + 'b (' + m.dismissals + ' dismissals, SR ' + m.sr.toFixed(0) + ')');
+            });
+
+            // 2. Tactical matchup insights (venue + bowling composition)
+            if (insights.length < 4) {
+                var homeBowl = getTeamBowlingTypes(homeTeam);
+                var awayBowl = getTeamBowlingTypes(awayTeam);
+                if (bias === 'pace') {
+                    if (homeBowl.paceCount >= 3) insights.push('<span style="color:var(--accent-green);">&#9889;</span> ' + homeTeam + ' pace attack (' + homeBowl.paceCount + ' seamers) boosted at this venue');
+                    if (awayBowl.paceCount >= 3) insights.push('<span style="color:var(--accent-green);">&#9889;</span> ' + awayTeam + ' pace attack (' + awayBowl.paceCount + ' seamers) boosted at this venue');
+                }
+                if (bias === 'spin') {
+                    if (homeBowl.spinCount >= 2) insights.push('<span style="color:var(--accent-orange);">&#10047;</span> ' + homeTeam + ' spinners amplified at this venue');
+                    if (awayBowl.spinCount >= 2) insights.push('<span style="color:var(--accent-orange);">&#10047;</span> ' + awayTeam + ' spinners amplified at this venue');
+                }
             }
-            if (awayBowl.spinCount >= 3 && homeBat.right >= 5) {
-                insights.push('<span style="color:var(--accent-orange);">&#9650;</span> ' + awayTeam + ' spin battery (' + awayBowl.spinCount + ' spinners) vs ' + homeTeam + '\'s right-hand-heavy lineup');
-            }
-            // Pace-heavy bowling at pace-friendly venues
-            if (bias === 'pace') {
-                if (homeBowl.paceCount >= 3) insights.push('<span style="color:var(--accent-green);">&#9650;</span> ' + homeTeam + '\'s pace attack (' + homeBowl.paceCount + ' seamers) boosted by venue conditions');
-                if (awayBowl.paceCount >= 3) insights.push('<span style="color:var(--accent-green);">&#9650;</span> ' + awayTeam + '\'s pace attack (' + awayBowl.paceCount + ' seamers) boosted by venue conditions');
-            }
-            // Spin at spin-friendly venue
-            if (bias === 'spin') {
-                if (homeBowl.spinCount >= 2) insights.push('<span style="color:var(--accent-orange);">&#9650;</span> ' + homeTeam + ' spinners amplified at this venue');
-                if (awayBowl.spinCount >= 2) insights.push('<span style="color:var(--accent-orange);">&#9650;</span> ' + awayTeam + ' spinners amplified at this venue');
-            }
-            // Left-arm bowling matchup against left-hand batters
-            var homeLeftArm = (typeof FULL_SQUADS !== 'undefined' && FULL_SQUADS[homeTeam]) ?
-                FULL_SQUADS[homeTeam].filter(function(p) { return p.predictedXII && p.bowlingArm === 'Left-arm' && p.bowlingType !== 'Medium'; }) : [];
-            var awayLeftArm = (typeof FULL_SQUADS !== 'undefined' && FULL_SQUADS[awayTeam]) ?
-                FULL_SQUADS[awayTeam].filter(function(p) { return p.predictedXII && p.bowlingArm === 'Left-arm' && p.bowlingType !== 'Medium'; }) : [];
-            if (homeLeftArm.length >= 2 && awayBat.left >= 3) {
-                insights.push('<span style="color:var(--accent-teal);">&#9650;</span> ' + homeTeam + '\'s left-arm options (' + homeLeftArm.map(function(p){return p.name.split(' ').pop();}).join(', ') + ') vs ' + awayTeam + '\'s ' + awayBat.left + ' left-hand batters');
-            }
-            if (awayLeftArm.length >= 2 && homeBat.left >= 3) {
-                insights.push('<span style="color:var(--accent-teal);">&#9650;</span> ' + awayTeam + '\'s left-arm options vs ' + homeTeam + '\'s ' + homeBat.left + ' left-hand batters');
-            }
+
             if (insights.length === 0) {
-                insights.push('<span style="color:var(--text-tertiary);">&#8212;</span> Balanced matchup profile; no dominant tactical edge for either side');
+                insights.push('<span style="color:var(--text-tertiary);">&#8212;</span> Limited head-to-head data between these lineups');
             }
-            return insights.slice(0, 3);
+            return insights.slice(0, 5);
         }
 
         function getTeamStrengthsVulnerabilities(teamAbbrev) {
@@ -1521,8 +1600,6 @@
         function truncateStr(s, max) { return s.length > max ? s.substring(0, max) + '...' : s; }
 
         function buildQuickVerdict(homeTeam, awayTeam, bias) {
-            var homeInfo = getTeamStrengthsVulnerabilities(homeTeam);
-            var awayInfo = getTeamStrengthsVulnerabilities(awayTeam);
             var homeTrend = (typeof HISTORIC_TRENDS !== 'undefined' && HISTORIC_TRENDS.seasonRecords && HISTORIC_TRENDS.seasonRecords[homeTeam]) ?
                 HISTORIC_TRENDS.seasonRecords[homeTeam] : [];
             var awayTrend = (typeof HISTORIC_TRENDS !== 'undefined' && HISTORIC_TRENDS.seasonRecords && HISTORIC_TRENDS.seasonRecords[awayTeam]) ?
@@ -1530,29 +1607,58 @@
             var homeWinPct = homeTrend.length ? homeTrend[homeTrend.length - 1].winPct : 50;
             var awayWinPct = awayTrend.length ? awayTrend[awayTrend.length - 1].winPct : 50;
 
-            // Adjust for venue bias + bowling makeup
+            // H2H context
+            var h2h = getH2HRecord(homeTeam, awayTeam);
+            var h2hNote = '';
+            if (h2h && h2h.since2023 && h2h.since2023.total > 0) {
+                var hW = h2h.since2023[homeTeam] || 0;
+                var aW = h2h.since2023[awayTeam] || 0;
+                if (hW > aW) h2hNote = homeTeam + ' lead ' + hW + '-' + aW + ' in recent meetings. ';
+                else if (aW > hW) h2hNote = awayTeam + ' lead ' + aW + '-' + hW + ' in recent meetings. ';
+                else h2hNote = 'Recent H2H split ' + hW + '-' + aW + '. ';
+            }
+            if (!h2hNote && h2h && h2h.alltime && h2h.alltime.total > 0) {
+                var hWa = h2h.alltime[homeTeam] || 0;
+                var aWa = h2h.alltime[awayTeam] || 0;
+                if (hWa > aWa + 3) h2hNote = homeTeam + ' dominate the all-time series ' + hWa + '-' + aWa + '. ';
+                else if (aWa > hWa + 3) h2hNote = awayTeam + ' dominate the all-time series ' + aWa + '-' + hWa + '. ';
+            }
+
+            // Bowling composition advantage
             var homeBowl = getTeamBowlingTypes(homeTeam);
             var awayBowl = getTeamBowlingTypes(awayTeam);
-            var homeAdj = 3; // home advantage
-            if (bias === 'pace' && homeBowl.paceCount >= 3) homeAdj += 3;
-            if (bias === 'spin' && homeBowl.spinCount >= 2) homeAdj += 3;
-            if (bias === 'pace' && awayBowl.paceCount >= 3) homeAdj -= 2;
-            if (bias === 'spin' && awayBowl.spinCount >= 2) homeAdj -= 2;
+            var venueNote = '';
+            if (bias === 'pace') {
+                if (homeBowl.paceCount >= 3 && awayBowl.paceCount < 3) venueNote = homeTeam + '\'s pace depth (' + homeBowl.paceCount + ' seamers) gives them the edge on this surface. ';
+                else if (awayBowl.paceCount >= 3 && homeBowl.paceCount < 3) venueNote = awayTeam + '\'s pace depth could neutralize ' + homeTeam + '\'s home advantage. ';
+                else if (homeBowl.paceCount >= 3 && awayBowl.paceCount >= 3) venueNote = 'Both sides pack pace — new ball will be decisive. ';
+            } else if (bias === 'spin') {
+                if (homeBowl.spinCount >= 3 && awayBowl.spinCount < 3) venueNote = homeTeam + '\'s spin-heavy attack well-suited to conditions. ';
+                else if (awayBowl.spinCount >= 3 && homeBowl.spinCount < 3) venueNote = awayTeam + '\'s spinners could exploit this surface. ';
+                else if (homeBowl.spinCount >= 2 && awayBowl.spinCount >= 2) venueNote = 'Both sides armed for spin — middle overs will be key. ';
+            }
 
-            var homeScore = homeWinPct + homeAdj;
-            var awayScore = awayWinPct;
-            var diff = homeScore - awayScore;
-            var verdict = '';
-            if (diff > 15) verdict = homeTeam + ' strong favorites at home. ';
-            else if (diff > 5) verdict = homeTeam + ' slight edge with home advantage. ';
-            else if (diff > -5) verdict = 'Evenly matched contest. ';
-            else if (diff > -15) verdict = awayTeam + ' slight edge despite travelling. ';
-            else verdict = awayTeam + ' strong favorites on paper. ';
+            // Form context
+            var formNote = '';
+            var homeLatest = homeTrend.length ? homeTrend[homeTrend.length - 1] : null;
+            var awayLatest = awayTrend.length ? awayTrend[awayTrend.length - 1] : null;
+            if (homeLatest && awayLatest) {
+                if (homeLatest.winPct > 60 && awayLatest.winPct < 45) formNote = homeTeam + ' (' + homeLatest.wins + 'W-' + homeLatest.losses + 'L last season) carry significantly better form. ';
+                else if (awayLatest.winPct > 60 && homeLatest.winPct < 45) formNote = awayTeam + ' (' + awayLatest.wins + 'W-' + awayLatest.losses + 'L last season) carry significantly better form. ';
+            }
 
-            if (bias === 'pace') verdict += 'Seam movement early will be decisive.';
-            else if (bias === 'spin') verdict += 'Middle-overs spin control will decide this.';
-            else verdict += 'Conditions favor the more balanced attack.';
-            return verdict;
+            var verdict = h2hNote + venueNote + formNote;
+            if (!verdict) {
+                // Fallback
+                var homeAdj = 3;
+                if (bias === 'pace' && homeBowl.paceCount >= 3) homeAdj += 3;
+                if (bias === 'spin' && homeBowl.spinCount >= 2) homeAdj += 3;
+                var diff = (homeWinPct + homeAdj) - awayWinPct;
+                if (diff > 10) verdict = homeTeam + ' have home advantage and the stronger recent record. ';
+                else if (diff < -10) verdict = awayTeam + ' are the stronger side on paper despite travelling. ';
+                else verdict = 'Closely matched on form and firepower — could go either way. ';
+            }
+            return verdict.trim();
         }
 
         // Expose switchPackTab globally so onclick handlers in dynamic HTML can call it

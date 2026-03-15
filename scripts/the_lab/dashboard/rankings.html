@@ -1499,7 +1499,7 @@
 
             /* Subcategory pills */
             .subcategory-nav { padding: 0 12px; gap: 6px; }
-            .subcategory-pill { padding: 8px 14px; font-size: 13px; min-height: 40px; display: inline-flex; align-items: center; }
+            .subcategory-pill { padding: 8px 14px; font-size: 13px; min-height: 44px; display: inline-flex; align-items: center; }
 
             /* Breadcrumb: readable size */
             #rankingsBreadcrumb { padding: 0 12px; font-size: 12px; }
@@ -1556,8 +1556,8 @@
                 overflow-x: auto;
             }
             .leaderboard-table { font-size: 13px; }
-            .leaderboard-table thead th { padding: 8px 8px; }
-            .leaderboard-table tbody td { padding: 8px 8px; }
+            .leaderboard-table thead th { padding: 10px 10px; }
+            .leaderboard-table tbody td { padding: 10px 10px; }
             /* Hide less important columns via JS class */
             .leaderboard-table .col-hide-mobile { display: none; }
         }
@@ -1572,6 +1572,8 @@
         @media (max-width: 480px) {
             .main { padding: var(--space-11) 12px 40px; }
             .footer { padding: var(--space-4) 12px; }
+            .leaderboard-table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+            .page-btn { min-width: 44px; min-height: 44px; }
         }
 
         /* Touch Target Minimum Sizes (WCAG Compliance - 44x44px) */
@@ -2154,7 +2156,6 @@
         <!-- Footer -->
         <footer class="footer" role="contentinfo">
             <div class="footer-links">
-                <a href="/boardroom/index.html">Mission Control</a>
                 <span>Statsledge</span>
                 <a href="about.html">About</a>
             </div>

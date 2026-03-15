@@ -1555,7 +1555,7 @@
             gap: var(--space-2) var(--space-4);
         }
         @media (max-width: 768px) {
-            .depth-matrix .pos-cell { width: 70px; font-size: 12px; }
+            .depth-matrix .pos-cell { width: 60px; font-size: 12px; }
             .depth-matrix td { padding: var(--space-2); }
             .depth-matrix .player-name { font-size: 12px; }
             .depth-matrix .player-badges { display: none; }
@@ -1564,7 +1564,7 @@
         @media (max-width: 480px) {
             .depth-matrix thead th { font-size: 12px; padding: var(--space-1) var(--space-2); }
             .depth-matrix td { padding: var(--space-2) var(--space-1); }
-            .depth-matrix .pos-cell { width: 55px; }
+            .depth-matrix .pos-cell { width: 50px; }
         }
         .depth-players {
             display: flex;
@@ -2343,6 +2343,34 @@
             [id^="sched-card-"] > div[style*="display:flex"][style*="flex-wrap:wrap"] {
                 flex-direction: column !important;
             }
+
+            /* Roster table: horizontal scroll wrapper at 640px */
+            .roster-table-wrapper {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                margin: 0 -4px;
+                padding: 0 4px;
+            }
+            .roster-table {
+                font-size: 12px;
+                min-width: 500px;
+            }
+
+            /* Depth chart: reduce font sizes for mid-size screens */
+            .depth-matrix {
+                font-size: 12px;
+            }
+            .depth-matrix thead th {
+                font-size: 9px;
+                padding: 8px var(--space-2);
+            }
+            .depth-matrix .pos-cell {
+                width: 65px;
+                font-size: 11px;
+            }
+            .depth-matrix .player-name {
+                font-size: 12px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -2358,10 +2386,10 @@
             .team-header-content { flex-direction: column; text-align: center; }
             .team-meta { justify-content: center; flex-wrap: wrap; gap: var(--space-3); }
             .meta-item { font-size: var(--text-xs); }
-            .xi-grid { grid-template-columns: 1fr; }
+            .xi-grid { grid-template-columns: 1fr; max-width: 100%; overflow: hidden; }
             .roster-table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; }
             .roster-table { font-size: var(--text-xs); }
-            .roster-table th, .roster-table td { padding: var(--space-2) 4px; }
+            .roster-table th, .roster-table td { padding: var(--space-2) var(--space-2); }
             .squad-summary { grid-template-columns: 1fr; }
             .search-filter-bar { flex-direction: column; align-items: stretch; }
             .search-box { min-width: 100%; }
@@ -2436,6 +2464,35 @@
                 margin-top: var(--space-2);
                 min-height: 44px;
                 font-size: 14px;
+            }
+
+            /* Touch targets: ensure min 44x44px on small screens */
+            .content-tab {
+                min-height: 44px;
+                min-width: 44px;
+                padding: var(--space-2) var(--space-3);
+            }
+            .filter-select {
+                min-height: 44px;
+                font-size: 14px;
+            }
+            .search-box input {
+                min-height: 44px;
+                font-size: 16px; /* prevents iOS zoom on focus */
+            }
+
+            /* Player profile modal: full-screen on very small devices */
+            .player-profile-modal {
+                padding: var(--space-2) var(--space-3);
+            }
+            .pp-stat-card {
+                min-height: 44px;
+                padding: var(--space-2);
+            }
+
+            /* Depth chart: tighter at 480px */
+            .depth-section {
+                padding: var(--space-3);
             }
         }
 

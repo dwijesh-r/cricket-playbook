@@ -1322,7 +1322,7 @@
             .main { margin-left: 0; padding-top: 72px; }
             .desk-container {
                 grid-template-columns: 1fr;
-                padding: 0 12px;
+                padding: 0 16px;
             }
             .schema-sidebar {
                 border-radius: var(--radius-lg) var(--radius-lg) 0 0;
@@ -1344,8 +1344,9 @@
         @media (max-width: 480px) {
             .page-title { font-size: 20px; }
             .page-subtitle { font-size: 13px; }
-            .editor-toolbar { flex-wrap: wrap; gap: var(--space-1); }
+            .editor-toolbar { flex-wrap: wrap; gap: var(--space-2); }
             .nl-search-bar { padding: var(--space-2) 12px; }
+            .nl-search-input { min-height: 44px; }
         }
 
         /* ==================== QUERY EXPLANATION PANEL ==================== */
@@ -1805,7 +1806,7 @@
         @media (max-width: 480px) {
             /* Editor toolbar: wrap buttons with touch targets */
             .editor-toolbar { flex-wrap: wrap; gap: var(--space-2); padding: var(--space-1) 12px; }
-            .editor-toolbar-left, .editor-toolbar-right { gap: var(--space-1); }
+            .editor-toolbar-left, .editor-toolbar-right { gap: var(--space-2); }
             .editor-btn { font-size: var(--text-xs); padding: var(--space-1) var(--space-2); min-width: 44px; min-height: 44px; }
 
             /* Results table: smaller font */
@@ -1820,7 +1821,7 @@
 
             /* NL search bar: compact */
             .nl-search-bar { padding: var(--space-2) 10px; gap: var(--space-1); }
-            .nl-search-input { font-size: 16px; }  /* keep 16px — below triggers iOS auto-zoom */
+            .nl-search-input { font-size: 16px; min-height: 44px; }  /* keep 16px — below triggers iOS auto-zoom; 44px WCAG touch target */
             .nl-search-hint { padding: var(--space-1) 0 0 0; font-size: var(--text-xs); }
             .nl-search-chips { gap: var(--space-1); padding: var(--space-1) 0 0 0; }
             .nl-chip { font-size: var(--text-xs); padding: var(--space-1) var(--space-2); min-height: 44px; min-width: 44px; }
@@ -1933,7 +1934,6 @@
             <a href="about.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> About</a>
         </nav>
         <div class="sidebar-footer">
-            <a href="/boardroom/index.html" class="sidebar-link"><span class="sidebar-link-icon">&#9670;</span> Mission Control</a>
             <div class="sidebar-time" id="navTime">--:--:--</div>
         </div>
     </aside>
@@ -1953,9 +1953,6 @@
         <a href="head-to-head.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Head to Head</a>
         <a href="schedule.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Schedule</a>
         <a href="about.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> About</a>
-        <div style="border-top: 1px solid rgba(148,163,184,0.08); margin-top: 12px; padding-top: 12px;">
-            <a href="/boardroom/index.html" class="sidebar-link"><span class="sidebar-link-icon">&#9670;</span> Mission Control</a>
-        </div>
     </div>
 
     <main id="main-content" class="main">
@@ -7207,13 +7204,6 @@ LIMIT 20;</textarea>
                 <div>
                     <h4 style="font-size: 14px; font-weight: 600;">About — "The Origin Story"</h4>
                     <p style="font-size: 12px; color: var(--text-secondary);">The story, the vision, the Founder. How Statsledge came to be.</p>
-                </div>
-            </a>
-            <a href="/boardroom/index.html" style="display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: var(--radius-lg); text-decoration: none; color: inherit; transition: background 0.2s;">
-                <span style="font-size: 24px;">📡</span>
-                <div>
-                    <h4 style="font-size: 14px; font-weight: 600;">The Boardroom — "Front Office Moves"</h4>
-                    <p style="font-size: 12px; color: var(--text-secondary);">Florentino's war room. Tickets, sprints, agent roster.</p>
                 </div>
             </a>
         </div>

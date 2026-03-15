@@ -1229,7 +1229,7 @@
             .stat-label { font-size: var(--text-xs); }
             .nav-card h3 { font-size: 14px; }
 
-            /* Hide Mission Control button on very small screens */
+            /* Hide nav button on very small screens */
             .nav-btn { display: none; }
 
             /* Tighter padding on small screens */
@@ -1246,14 +1246,16 @@
             /* Section title sizing */
             .section-title { font-size: 18px; letter-spacing: 0.03em; }
             .section-title .icon { width: 32px; height: 32px; font-size: 14px; }
-        }
 
-        @media (max-width: 380px) {
-            /* Tiny screens */
+            /* Nav cards stacks to single column */
+            .nav-cards { grid-template-columns: 1fr; gap: var(--space-3); }
+
+            /* Merged from 380px: subtitle + spacing */
             .hero-subtitle { font-size: 13px; }
-            .nav-cards { gap: var(--space-3); }
             .stats-bar { gap: var(--space-3); }
         }
+
+        /* Former 380px rules merged into 480px */
 
         /* Touch Target Minimum Sizes (WCAG Compliance - 44x44px) */
         .mobile-menu-btn { width: 44px; height: 44px; }
@@ -1268,6 +1270,10 @@
         /* Navigation Actions Spacing at 480px */
         @media (max-width: 480px) {
             .nav-actions { gap: var(--space-2); }
+            /* Minimum font sizes (merged from 380px) */
+            .trophy-ticker .trophy-text { font-size: var(--text-xs); }
+            .label-group .name { font-size: var(--text-xs); }
+            .card-badge.team-badge { font-size: var(--text-xs); }
         }
 
         /* Grid Orphan Card Centering */
@@ -1300,12 +1306,7 @@
         /* Prevent Horizontal Overflow */
         body { overflow-x: hidden; }
 
-        /* Minimum Font Sizes at 380px (Readability) */
-        @media (max-width: 380px) {
-            .trophy-ticker .trophy-text { font-size: var(--text-xs); }
-            .label-group .name { font-size: var(--text-xs); }
-            .card-badge.team-badge { font-size: var(--text-xs); }
-        }
+        /* Former 380px font size rules - now applied globally at small sizes via 480px block */
 
         /* ==================== NAVIGATION GUIDE ==================== */
         .nav-guide-btn {

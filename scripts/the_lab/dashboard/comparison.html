@@ -1158,8 +1158,8 @@
             }
 
             /* B. Padding */
-            .section { padding: 12px; }
-            .comparison-content { padding: 0 12px; }
+            .section { padding: 16px; }
+            .comparison-content { padding: 0 16px; }
 
             .form-grid { grid-template-columns: 1fr !important; }
 
@@ -1204,8 +1204,8 @@
             .hero { padding: var(--space-9) var(--space-3) var(--space-5); }
             .hero-title { font-size: 28px; }
             .selection-bar { padding: var(--space-3); margin: 0 var(--space-2) var(--space-6); }
-            .comparison-content { padding: 0 var(--space-2); }
-            .section { padding: var(--space-3); }
+            .comparison-content { padding: 0 12px; }
+            .section { padding: 12px; }
             .verdict-card { padding: var(--space-3); }
 
             /* B. Radar chart: 240px cap on 480px screens */
@@ -1266,17 +1266,12 @@
                 grid-template-columns: 1fr !important;
             }
             .stats-table .stat-label { font-size: var(--text-xs); }
-        }
 
-        /* 360px very small screens */
-        @media (max-width: 360px) {
-            /* B. Radar chart: 200px cap on 360px screens */
-            .radar-svg { max-width: 200px; }
-            .radar-label { font-size: 10px; }
-            .section { padding: var(--space-2); }
-            .comparison-content { padding: 0 var(--space-1); }
+            /* Scope button sizing for small screens (merged from 360px) */
             .scope-btn { font-size: 12px; padding: var(--space-2) var(--space-2); }
         }
+
+        /* Former 360px rules merged into 480px above */
         /* ==================== REPORT ISSUE ==================== */
         .report-btn { position: fixed; bottom: 24px; right: 24px; width: 56px; height: 56px; background: #dc2626; border: none; border-radius: var(--radius-full); color: white; cursor: pointer; z-index: 90; transition: all var(--transition-normal); display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 12px rgba(220,38,38,0.4); }
         .report-btn:hover { background: #b91c1c; color: white; transform: scale(1.08); box-shadow: 0 4px 20px rgba(220,38,38,0.6); }
@@ -1621,7 +1616,6 @@
         <!-- Footer -->
         <footer class="footer" role="contentinfo">
             <div class="footer-links">
-                <a href="/boardroom/index.html">Mission Control</a>
                 <span>Statsledge</span>
                 <a href="about.html">About</a>
             </div>

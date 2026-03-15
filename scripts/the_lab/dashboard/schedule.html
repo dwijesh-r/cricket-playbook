@@ -1945,31 +1945,7 @@
                 }
                 dateRendered[m.date] = true;
 
-                var packId = 'match-pack-' + m.match;
-                tr.style.cursor = 'pointer';
-                tr.setAttribute('tabindex', '0');
-                tr.setAttribute('role', 'button');
-                tr.setAttribute('aria-expanded', 'false');
-                var expandHandler = (function(pid, triggerRow) {
-                    return function() {
-                        var el = document.getElementById(pid);
-                        if (el) {
-                            var isOpen = el.style.display !== 'none';
-                            el.style.display = isOpen ? 'none' : 'table-row';
-                            triggerRow.classList.toggle('mp-expanded', !isOpen);
-                            triggerRow.setAttribute('aria-expanded', !isOpen);
-                        }
-                    };
-                })(packId, tr);
-                tr.onclick = expandHandler;
-                tr.onkeydown = (function(handler) {
-                    return function(e) {
-                        if (e.key === 'Enter' || e.key === ' ') {
-                            e.preventDefault();
-                            handler();
-                        }
-                    };
-                })(expandHandler);
+                // Match packs disabled for now
 
                 tr.innerHTML =
                     '<td class="col-match-num">' + m.match + '</td>' +
@@ -1978,16 +1954,11 @@
                     '<td class="col-vs">vs</td>' +
                     '<td><span class="team-abbrev team-' + m.away + '">' + m.away + '</span></td>' +
                     '<td class="col-venue"><div class="venue-cell-inner"><span class="venue-bias-dot ' + bias + '" title="' + capitalize(bias) + '-friendly"></span><span class="venue-name-text">' + m.venue + '</span></div></td>' +
-                    '<td class="city-cell">' + m.city + ' <span class="mp-expand-arrow">&#9654;</span></td>';
+                    '<td class="city-cell">' + m.city + '</td>';
 
                 tbody.appendChild(tr);
 
-                // Match Pack expandable row
-                var packTr = document.createElement('tr');
-                packTr.id = packId;
-                packTr.style.display = 'none';
-                packTr.innerHTML = '<td colspan="7" style="padding:0;background:transparent;">' + buildMatchPack(m, bias, isWeekend, isDoubleHeader) + '</td>';
-                tbody.appendChild(packTr);
+                // Match pack rows disabled for now
             });
 
             matchCountEl.innerHTML = 'Showing <strong>' + filtered.length + '</strong> of ' + IPL_SCHEDULE.length + ' matches';

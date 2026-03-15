@@ -471,7 +471,7 @@
           "price_cr": 5.0
         },
         {
-          "player_name": "Mayank Yadav",
+          "player_name": "Mangesh Yadav",
           "role": "Pace Bowler",
           "price_cr": 0.3
         },
@@ -585,7 +585,7 @@
         {
           "batting_position": 9,
           "player_id": "77b1aa15",
-          "player_name": "Harshit Rana",
+          "player_name": "Vaibhav Arora",
           "role": "Pace Bowler",
           "batting_hand": "Right-hand",
           "is_overseas": false,
@@ -682,6 +682,16 @@
         },
         {
           "batting_position": 3,
+          "player_id": "ad3b6e95",
+          "player_name": "Abishek Porel",
+          "role": "Wicketkeeper",
+          "batting_hand": "Left-hand",
+          "is_overseas": false,
+          "price_cr": 4.0,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 4,
           "player_id": "fb2d1dda",
           "player_name": "Nitish Rana",
           "role": "All-rounder",
@@ -691,7 +701,7 @@
           "rationale": "Founder's Selection"
         },
         {
-          "batting_position": 4,
+          "batting_position": 5,
           "player_id": "85b3fab2",
           "player_name": "Tristan Stubbs",
           "role": "All-rounder",
@@ -701,23 +711,13 @@
           "rationale": "Founder's Selection"
         },
         {
-          "batting_position": 5,
+          "batting_position": 6,
           "player_id": "d67d5f00",
           "player_name": "David Miller",
           "role": "Batter",
           "batting_hand": "Left-hand",
           "is_overseas": true,
           "price_cr": 2.0,
-          "rationale": "Founder's Selection"
-        },
-        {
-          "batting_position": 6,
-          "player_id": "84d9c311",
-          "player_name": "Ashutosh Sharma",
-          "role": "Batter",
-          "batting_hand": "Right-hand",
-          "is_overseas": false,
-          "price_cr": 3.8,
           "rationale": "Founder's Selection"
         },
         {
@@ -1098,9 +1098,9 @@
       },
       "impact_subs": [
         {
-          "player_name": "Ravi Singh",
-          "role": "All-rounder",
-          "price_cr": 0.3
+          "player_name": "Tushar Deshpande",
+          "role": "Pace Bowler",
+          "price_cr": 6.5
         },
         {
           "player_name": "Shubham Dubey",

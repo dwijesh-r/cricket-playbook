@@ -1,7 +1,7 @@
 /**
  * Statsledge - Predicted XII Data
  * IPL 2026 Pre-Season Analytics
- * Auto-generated: 2026-03-15T04:35:15.638829
+ * Auto-generated: 2026-03-15T04:52:13.126794
  * Algorithm: SUPER SELECTOR
  */
 
@@ -93,7 +93,7 @@ const PREDICTED_XII = {
         impactPlayer: { name: "Yash Dayal", role: "Pace Bowler", price: 5.0 },
         impactSubs: [
             { name: "Yash Dayal", role: "Pace Bowler", price: 5.0 },
-            { name: "Mayank Yadav", role: "Pace Bowler", price: 0.3 },
+            { name: "Mangesh Yadav", role: "Pace Bowler", price: 0.3 },
             { name: "Devdutt Padikkal", role: "Batter", price: 0.3 }
         ],
         balance: { overseas: 4, bowlingOptions: 8, spinners: 4, pacers: 7, leftHandersTop6: 1 },
@@ -115,7 +115,7 @@ const PREDICTED_XII = {
             { position: 6, name: "Ramandeep Singh", role: "All-rounder", batting: "Right-hand", overseas: false, price: 4.0 },
             { position: 7, name: "Anukul Roy", role: "All-rounder", batting: "Left-hand", overseas: false, price: 0.4 },
             { position: 8, name: "Sunil Narine", role: "All-rounder", batting: "Left-hand", overseas: true, price: 12.0 },
-            { position: 9, name: "Harshit Rana", role: "Pace Bowler", batting: "Right-hand", overseas: false, price: 4.0 },
+            { position: 9, name: "Vaibhav Arora", role: "Pace Bowler", batting: "Right-hand", overseas: false, price: 4.0 },
             { position: 10, name: "Matheesha Pathirana", role: "Pace Bowler", batting: "Right-hand", overseas: true, price: 18.0 },
             { position: 11, name: "Varun Chakravarthy", role: "Spinner", batting: "Right-hand", overseas: false, price: 12.0 }
         ],
@@ -138,10 +138,10 @@ const PREDICTED_XII = {
         xi: [
             { position: 1, name: "Ben Duckett", role: "Wicketkeeper", batting: "Left-hand", overseas: true, price: 0.75 },
             { position: 2, name: "KL Rahul", role: "Wicketkeeper", batting: "Right-hand", overseas: false, price: 14.0 },
-            { position: 3, name: "Nitish Rana", role: "All-rounder", batting: "Left-hand", overseas: false, price: 0.5 },
-            { position: 4, name: "Tristan Stubbs", role: "All-rounder", batting: "Right-hand", overseas: true, price: 10.0 },
-            { position: 5, name: "David Miller", role: "Batter", batting: "Left-hand", overseas: true, price: 2.0 },
-            { position: 6, name: "Ashutosh Sharma", role: "Batter", batting: "Right-hand", overseas: false, price: 3.8 },
+            { position: 3, name: "Abishek Porel", role: "Wicketkeeper", batting: "Left-hand", overseas: false, price: 4.0 },
+            { position: 4, name: "Nitish Rana", role: "All-rounder", batting: "Left-hand", overseas: false, price: 0.5 },
+            { position: 5, name: "Tristan Stubbs", role: "All-rounder", batting: "Right-hand", overseas: true, price: 10.0 },
+            { position: 6, name: "David Miller", role: "Batter", batting: "Left-hand", overseas: true, price: 2.0 },
             { position: 7, name: "Axar Patel", role: "All-rounder", batting: "Left-hand", overseas: false, price: 16.5 },
             { position: 8, name: "Auqib Nabi", role: "All-rounder", batting: "Right-hand", overseas: false, price: 0.0 },
             { position: 9, name: "Mitchell Starc", role: "Pace Bowler", batting: "Left-hand", overseas: true, price: 11.75 },
@@ -208,7 +208,7 @@ const PREDICTED_XII = {
         ],
         impactPlayer: { name: "Tushar Deshpande", role: "Pace Bowler", price: 6.5 },
         impactSubs: [
-            { name: "Ravi Singh", role: "All-rounder", price: 0.3 },
+            { name: "Tushar Deshpande", role: "Pace Bowler", price: 6.5 },
             { name: "Shubham Dubey", role: "Batter", price: 0.3 },
             { name: "Vignesh Puthur", role: "Pace Bowler", price: 0.3 }
         ],
@@ -306,7 +306,7 @@ const PREDICTED_XII = {
 
 /**
  * Statsledge - Depth Chart Ratings
- * Auto-generated: 2026-03-15T04:35:15.639034
+ * Auto-generated: 2026-03-15T04:52:13.126988
  */
 
 const DEPTH_CHART_RATINGS = {

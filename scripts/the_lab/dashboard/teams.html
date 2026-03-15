@@ -5778,6 +5778,8 @@
                 const battingPositions = [];
                 const bowlingPositions = [];
                 fullDepth.positions.forEach(pos => {
+                    // Skip left-arm wrist spin — it's a luxury, not a necessity
+                    if (/wrist[\s_-]*spin/i.test(pos.name) || /left[\s_-]*arm[\s_-]*wrist/i.test(pos.name)) return;
                     if (battingPositionNames.some(n => pos.name.includes(n) || n.includes(pos.name))) {
                         battingPositions.push(pos);
                     } else {
@@ -5787,7 +5789,7 @@
 
                 // Bowling variety summary from bowler positions
                 const bowlTypeSummary = {};
-                const bowlTypeLabels = {'Right-arm Pace': 'RA Pace', 'Left-arm Pace': 'LA Pace', 'Off-spin': 'Off', 'Leg-spin': 'Leg', 'Left-arm Orthodox': 'LA Orth', 'Left-arm Wrist Spin': 'LA WS'};
+                const bowlTypeLabels = {'Right-arm Pace': 'RA Pace', 'Left-arm Pace': 'LA Pace', 'Off-spin': 'Off', 'Leg-spin': 'Leg', 'Left-arm Orthodox': 'LA Orth'};
                 bowlingPositions.forEach(pos => {
                     const label = bowlTypeLabels[pos.name];
                     if (label) {

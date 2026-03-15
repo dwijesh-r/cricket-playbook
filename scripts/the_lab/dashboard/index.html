@@ -1757,18 +1757,21 @@
             }
         }
         /* === SCROLL-TRIGGERED REVEALS (Bencium) === */
-        [data-animate] {
+        .anim-ready [data-animate] {
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.6s cubic-bezier(0.0, 0.0, 0.2, 1), transform 0.6s cubic-bezier(0.0, 0.0, 0.2, 1);
         }
-        [data-animate].is-visible {
+        .anim-ready [data-animate].is-visible {
             opacity: 1;
             transform: translateY(0);
         }
-        [data-animate="fade-up"] { transform: translateY(24px); }
-        [data-animate="fade-in"] { transform: none; }
-        [data-animate="scale-in"] { transform: scale(0.96); }
+        .anim-ready [data-animate="fade-up"] { transform: translateY(24px); }
+        .anim-ready [data-animate="fade-in"] { transform: none; }
+        .anim-ready [data-animate="scale-in"] { transform: scale(0.96); }
+        .anim-ready [data-animate].is-visible[data-animate="fade-up"],
+        .anim-ready [data-animate].is-visible[data-animate="fade-in"],
+        .anim-ready [data-animate].is-visible[data-animate="scale-in"] { opacity: 1; transform: translateY(0); }
 
         /* Subtle grain overlay for atmosphere */
         body::after {
@@ -2821,6 +2824,8 @@
 
 
     // Scroll-triggered entrance animations (Bencium)
+    // Only hide elements once JS confirms it can animate them
+    document.documentElement.classList.add('anim-ready');
     const animObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {

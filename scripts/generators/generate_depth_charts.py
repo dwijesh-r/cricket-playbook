@@ -2296,11 +2296,12 @@ def generate_team_depth_chart(team: str, players: List[Player]) -> DepthChart:
     team_abbrev = TEAM_ABBREV[team]
     _ensure_predicted_xii_coverage(positions, players, team_abbrev)
 
-    # Calculate overall metrics
+    # Calculate overall metrics (exclude left-arm wrist spin — luxury, not necessity)
     ratings = {k: v.rating for k, v in positions.items()}
+    ratings_for_ranking = {k: v for k, v in ratings.items() if k != "left_arm_wrist_spin"}
     avg_rating = sum(ratings.values()) / len(ratings) if ratings else 5.0
-    strongest = max(ratings, key=ratings.get)
-    weakest = min(ratings, key=ratings.get)
+    strongest = max(ratings_for_ranking, key=ratings_for_ranking.get)
+    weakest = min(ratings_for_ranking, key=ratings_for_ranking.get)
 
     # Identify vulnerabilities
     vulnerabilities = _identify_vulnerabilities(positions)

@@ -1692,6 +1692,49 @@
             .mobile-cards { display: flex; }
             .mobile-pagination { display: flex !important; flex-wrap: wrap; justify-content: center; padding: var(--space-3) 12px; gap: 4px; }
             .mobile-pagination .page-btn { min-width: 44px; min-height: 44px; font-size: 13px; }
+            .methodology { display: none; }
+        }
+
+        /* Mobile cards table-style layout */
+        .mobile-col-header-row {
+            display: none;
+        }
+        @media (max-width: 640px) {
+            .mobile-col-header-row {
+                display: grid;
+                padding: 8px 14px 6px;
+                background: var(--bg-tertiary);
+                border-bottom: 1px solid var(--border);
+                font-size: 10px;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.06em;
+                color: var(--text-tertiary);
+                position: sticky;
+                top: 0;
+                z-index: 2;
+            }
+            .mobile-player-row {
+                display: grid;
+                align-items: center;
+                gap: 0;
+            }
+            .mobile-stats {
+                display: contents;
+            }
+            .mobile-stat-sep { display: none !important; }
+            .mobile-stat-label { display: none !important; }
+            .mobile-stat-cell {
+                font-size: 13px;
+                font-weight: 600;
+                color: var(--text-primary);
+                text-align: right;
+                font-variant-numeric: tabular-nums;
+                padding: 0 4px;
+            }
+            .mobile-stat-cell.composite {
+                font-weight: 700;
+            }
         }
 
         /* ==================== SAMPLE SIZE INDICATOR ==================== */
@@ -2487,6 +2530,15 @@
             rows = sub.rows.slice();
         }
 
+        // Filter to IPL 2026 squad players only
+        const playerColIdx = state.headers.indexOf('Player') !== -1 ? state.headers.indexOf('Player') : state.headers.indexOf('Batter');
+        if (playerColIdx >= 0 && Object.keys(PLAYER_TEAM_MAP).length > 0) {
+            rows = rows.filter(row => {
+                const name = String(row[playerColIdx]).toLowerCase().trim();
+                return PLAYER_TEAM_MAP[name] != null;
+            });
+        }
+
         // Filter rows by search
         if (state.searchQuery) {
             const q = state.searchQuery.toLowerCase();
@@ -2510,6 +2562,12 @@
                 if (va > vb) return state.sortDir === 'asc' ? 1 : -1;
                 return 0;
             });
+        }
+
+        // Re-rank after filtering so ranks are sequential
+        const rIdx = state.headers.indexOf('Rank');
+        if (rIdx >= 0) {
+            rows.forEach((row, i) => { row[rIdx] = i + 1; });
         }
 
         state.filteredRows = rows;
@@ -2648,43 +2706,54 @@
             return;
         }
 
-        // Pick top 2-3 stat columns to show inline
+        // Pick stat columns to show
         const rankIdx = headers.indexOf('Rank');
         const nameIdx = headers.indexOf('Player') !== -1 ? headers.indexOf('Player') : headers.indexOf('Batter');
         const scoreIdx = findScoreColumn(headers);
         const bowlerIdx = isMatchup ? headers.indexOf('Bowler') : -1;
 
-        const skipIndices = new Set([rankIdx, nameIdx, scoreIdx]);
+        const skipIndices = new Set([rankIdx, nameIdx]);
         if (bowlerIdx >= 0) skipIndices.add(bowlerIdx);
 
-        // Collect displayable stat columns (max 3)
+        // Collect displayable stat columns (up to 4)
         const statCols = [];
-        for (let i = 0; i < headers.length && statCols.length < 3; i++) {
+        // Score column first if exists
+        if (scoreIdx >= 0) { statCols.push(scoreIdx); skipIndices.add(scoreIdx); }
+        for (let i = 0; i < headers.length && statCols.length < 4; i++) {
             if (skipIndices.has(i)) continue;
             statCols.push(i);
         }
 
+        // Grid template: #rank name [stat cols...]
+        const totalCols = 2 + statCols.length; // rank + name + stats
+        const statColWidths = statCols.map(() => 'minmax(40px, 1fr)').join(' ');
+        const gridTemplate = '28px 1fr ' + statColWidths;
+
         let html = '';
 
-        // Sample size header inside mobile list
+        // Sample size header
         const qCount = sub && sub.qualifiedCount ? sub.qualifiedCount : rows.length;
         html += '<div class="mobile-sample-size">' + qCount + ' qualified player' + (qCount !== 1 ? 's' : '') + '</div>';
+
+        // Column headers row
+        const shortHeaders = statCols.map(ci => {
+            return headers[ci].replace('Strike Rate', 'SR').replace('Average', 'Avg').replace('Economy', 'Econ').replace('Innings', 'Inn').replace('Matches', 'M').replace('Wickets', 'Wkts').replace('Boundary%', 'Bnd%').replace('Composite', 'Score').replace('Dot Ball%', 'Dot%');
+        });
+        html += '<div class="mobile-col-header-row" style="grid-template-columns: ' + gridTemplate + ';">';
+        html += '<span></span><span>Player</span>';
+        shortHeaders.forEach(h => { html += '<span style="text-align:right;">' + escapeHtml(h) + '</span>'; });
+        html += '</div>';
 
         pageRows.forEach(row => {
             const rank = rankIdx >= 0 ? row[rankIdx] : '?';
             const name = nameIdx >= 0 ? row[nameIdx] : 'Unknown';
 
-            let meta = '';
-            if (isMatchup && bowlerIdx >= 0) {
-                meta = 'vs ' + row[bowlerIdx];
-            }
-
-            html += '<div class="mobile-player-row">';
+            html += '<div class="mobile-player-row" style="grid-template-columns: ' + gridTemplate + ';">';
 
             // Rank badge
             html += '<span class="mobile-rank">' + renderRankBadge(rank) + '</span>';
 
-            // Player name + optional meta (clickable if team found)
+            // Player name
             const playerLink = getPlayerLink(name);
             html += '<span class="mobile-player-info">';
             if (playerLink) {
@@ -2692,40 +2761,34 @@
             } else {
                 html += '<span class="mobile-player-name">' + escapeHtml(String(name)) + '</span>';
             }
-            if (meta) html += '<span class="mobile-player-meta">' + escapeHtml(meta) + '</span>';
+            if (isMatchup && bowlerIdx >= 0) {
+                html += '<span class="mobile-player-meta">vs ' + escapeHtml(String(row[bowlerIdx])) + '</span>';
+            }
             html += '</span>';
 
-            // Inline stats (2-3 key stats)
+            // Stat values as grid cells
             html += '<span class="mobile-stats">';
-
-            // If there is a score/composite column, show it first
-            if (scoreIdx >= 0 && row[scoreIdx] !== null && row[scoreIdx] !== undefined) {
-                const numVal = Number(row[scoreIdx]);
-                if (!isNaN(numVal)) {
-                    let tier = 'average';
-                    if (numVal >= 85) tier = 'elite';
-                    else if (numVal >= 70) tier = 'strong';
-                    else if (numVal >= 55) tier = 'solid';
-                    html += '<span class="composite-value ' + tier + '">' + numVal.toFixed(1) + '</span>';
-                    if (statCols.length > 0) html += '<span class="mobile-stat-sep">&middot;</span>';
-                }
-            }
-
             statCols.forEach((colIdx, si) => {
                 const hdr = headers[colIdx];
                 const cell = row[colIdx];
-                const shortLabel = hdr.replace('Strike Rate', 'SR').replace('Average', 'Avg').replace('Economy', 'Econ').replace('Innings', 'Inn').replace('Matches', 'M').replace('Wickets', 'Wkts').replace('Boundary%', 'Bnd%');
-
-                if (hdr === 'Dominance') {
+                const isScore = colIdx === scoreIdx;
+                if (isScore) {
+                    const numVal = Number(cell);
+                    let tier = 'average';
+                    if (!isNaN(numVal)) {
+                        if (numVal >= 85) tier = 'elite';
+                        else if (numVal >= 70) tier = 'strong';
+                        else if (numVal >= 55) tier = 'solid';
+                    }
+                    html += '<span class="mobile-stat-cell composite ' + tier + '">' + formatValue(cell, hdr) + '</span>';
+                } else if (hdr === 'Dominance') {
                     html += renderDominanceCell(cell);
                 } else {
-                    html += '<span class="mobile-stat-label">' + escapeHtml(shortLabel) + '</span> ';
-                    html += '<span class="mobile-stat-value">' + formatValue(cell, hdr) + '</span>';
+                    html += '<span class="mobile-stat-cell">' + formatValue(cell, hdr) + '</span>';
                 }
-                if (si < statCols.length - 1) html += '<span class="mobile-stat-sep">&middot;</span>';
             });
-
             html += '</span>';
+
             html += '</div>';
         });
 

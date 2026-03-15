@@ -519,11 +519,12 @@
         .schedule-table thead th:first-child { text-align: center; width: 44px; }
         .schedule-table thead th.col-vs { text-align: center; width: 36px; }
         .schedule-table tbody tr {
-            transition: background var(--transition-fast);
+            transition: background 100ms ease, border-color 100ms ease;
             border-bottom: 1px solid var(--border);
+            border-left: 3px solid transparent;
         }
         .schedule-table tbody tr:last-child { border-bottom: none; }
-        .schedule-table tbody tr:hover { background: rgba(232, 115, 74, 0.04); }
+        .schedule-table tbody tr:hover { background: rgba(232, 115, 74, 0.04); border-left-color: var(--accent); }
         .schedule-table tbody td {
             padding: 12px var(--space-3);
             color: var(--text-secondary);
@@ -563,6 +564,10 @@
             color: #fff;
             min-width: 48px;
             text-align: center;
+            transition: transform 150ms ease;
+        }
+        .team-abbrev:hover {
+            transform: scale(1.08);
         }
 
         /* IPL Team Colors */
@@ -592,12 +597,17 @@
             align-items: center;
             gap: 8px;
         }
+        @keyframes dotPulse {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
         .venue-bias-dot {
             display: inline-block;
             width: 8px;
             height: 8px;
             border-radius: 50%;
             flex-shrink: 0;
+            animation: dotPulse 3s ease-in-out infinite;
         }
         .venue-bias-dot.pace { background: var(--accent-green); }
         .venue-bias-dot.spin { background: var(--accent-orange); }
@@ -983,7 +993,8 @@
         .team-tab.active {
             color: #fff;
             border-color: transparent;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25);
+            transform: translateY(-1px);
         }
         .team-tab[data-team=""] { background: var(--accent); color: #fff; border-color: transparent; }
         .team-tab[data-team=""].active { background: var(--accent); }

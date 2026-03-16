@@ -25,7 +25,7 @@ const PREDICTED_XII = {
             { position: 3, name: "Tilak Varma", role: "Batter", batting: "Left-hand", overseas: false, price: 8.0 },
             { position: 4, name: "Suryakumar Yadav", role: "Batter", batting: "Right-hand", overseas: false, price: 16.35 },
             { position: 5, name: "Hardik Pandya", role: "All-rounder", batting: "Right-hand", overseas: false, price: 16.35 },
-            { position: 6, name: "Sherfane Rutherford", role: "All-rounder", batting: "Left-hand", overseas: true, price: 0.5 },
+            { position: 6, name: "Sherfane Rutherford", role: "All-rounder", batting: "Left-hand", overseas: true, price: 2.6 },
             { position: 7, name: "Naman Dhir", role: "All-rounder", batting: "Right-hand", overseas: false, price: 5.25 },
             { position: 8, name: "Mitchell Santner", role: "All-rounder", batting: "Left-hand", overseas: true, price: 2.0 },
             { position: 9, name: "Deepak Chahar", role: "Pace Bowler", batting: "Right-hand", overseas: false, price: 9.25 },
@@ -34,7 +34,7 @@ const PREDICTED_XII = {
         ],
         impactPlayer: { name: "Mayank Markande", role: "Spinner", price: 0.3 },
         impactSubs: [
-            { name: "Shardul Thakur", role: "Pace Bowler", price: 1.0 },
+            { name: "Shardul Thakur", role: "Pace Bowler", price: 2 },
             { name: "Mayank Markande", role: "Spinner", price: 0.3 },
             { name: "Robin Minz", role: "Wicketkeeper", price: 0.65 }
         ],
@@ -64,8 +64,8 @@ const PREDICTED_XII = {
         impactPlayer: { name: "Anshul Kamboj", role: "Pace Bowler", price: 3.4 },
         impactSubs: [
             { name: "Anshul Kamboj", role: "Pace Bowler", price: 3.4 },
-            { name: "Rahul Chahar", role: "Spinner", price: 0.3 },
-            { name: "Sarfaraz Khan", role: "Batter", price: 0.3 }
+            { name: "Rahul Chahar", role: "Spinner", price: 5.2 },
+            { name: "Sarfaraz Khan", role: "Batter", price: 0.75 }
         ],
         balance: { overseas: 4, bowlingOptions: 8, spinners: 4, pacers: 7, leftHandersTop6: 2 },
         constraintsSatisfied: true
@@ -84,7 +84,7 @@ const PREDICTED_XII = {
             { position: 4, name: "Rajat Patidar", role: "Batter", batting: "Right-hand", overseas: false, price: 11.0 },
             { position: 5, name: "Tim David", role: "All-rounder", batting: "Right-hand", overseas: true, price: 3.0 },
             { position: 6, name: "Jitesh Sharma", role: "Wicketkeeper", batting: "Right-hand", overseas: false, price: 11.0 },
-            { position: 7, name: "Romario Shepherd", role: "All-rounder", batting: "Right-hand", overseas: true, price: 2.0 },
+            { position: 7, name: "Romario Shepherd", role: "All-rounder", batting: "Right-hand", overseas: true, price: 1.5 },
             { position: 8, name: "Krunal Pandya", role: "All-rounder", batting: "Left-hand", overseas: false, price: 5.75 },
             { position: 9, name: "Bhuvneshwar Kumar", role: "Pace Bowler", batting: "Right-hand", overseas: false, price: 10.75 },
             { position: 10, name: "Josh Hazlewood", role: "Pace Bowler", batting: "Left-hand", overseas: true, price: 12.5 },
@@ -93,7 +93,7 @@ const PREDICTED_XII = {
         impactPlayer: { name: "Yash Dayal", role: "Pace Bowler", price: 5.0 },
         impactSubs: [
             { name: "Yash Dayal", role: "Pace Bowler", price: 5.0 },
-            { name: "Mangesh Yadav", role: "Pace Bowler", price: 0.3 },
+            { name: "Mangesh Yadav", role: "Pace Bowler", price: 5.2 },
             { name: "Devdutt Padikkal", role: "Batter", price: 0.3 }
         ],
         balance: { overseas: 4, bowlingOptions: 8, spinners: 4, pacers: 7, leftHandersTop6: 1 },
@@ -107,7 +107,7 @@ const PREDICTED_XII = {
         captain: "Ajinkya Rahane",
         wicketkeeper: "Finn Allen",
         xi: [
-            { position: 1, name: "Finn Allen", role: "Wicketkeeper", batting: "Right-hand", overseas: true, price: 0.3 },
+            { position: 1, name: "Finn Allen", role: "Wicketkeeper", batting: "Right-hand", overseas: true, price: 2 },
             { position: 2, name: "Ajinkya Rahane", role: "Batter", batting: "Right-hand", overseas: false, price: 1.5 },
             { position: 3, name: "Cameron Green", role: "All-rounder", batting: "Right-hand", overseas: true, price: 25.2 },
             { position: 4, name: "Angkrish Raghuvanshi", role: "Batter", batting: "Right-hand", overseas: false, price: 3.0 },
@@ -121,8 +121,8 @@ const PREDICTED_XII = {
         ],
         impactPlayer: { name: "Vaibhav Arora", role: "Pace Bowler", price: 1.8 },
         impactSubs: [
-            { name: "Akash Deep", role: "Pace Bowler", price: 0.3 },
-            { name: "Rahul Tripathi", role: "Batter", price: 0.3 },
+            { name: "Akash Deep", role: "Pace Bowler", price: 1 },
+            { name: "Rahul Tripathi", role: "Batter", price: 0.75 },
             { name: "Kartik Tyagi", role: "Pace Bowler", price: 0.3 }
         ],
         balance: { overseas: 4, bowlingOptions: 7, spinners: 4, pacers: 7, leftHandersTop6: 1 },
@@ -136,14 +136,14 @@ const PREDICTED_XII = {
         captain: "Axar Patel",
         wicketkeeper: "Ben Duckett",
         xi: [
-            { position: 1, name: "Ben Duckett", role: "Wicketkeeper", batting: "Left-hand", overseas: true, price: 0.75 },
+            { position: 1, name: "Ben Duckett", role: "Wicketkeeper", batting: "Left-hand", overseas: true, price: 2 },
             { position: 2, name: "KL Rahul", role: "Wicketkeeper", batting: "Right-hand", overseas: false, price: 14.0 },
             { position: 3, name: "Abishek Porel", role: "Wicketkeeper", batting: "Left-hand", overseas: false, price: 4.0 },
-            { position: 4, name: "Nitish Rana", role: "All-rounder", batting: "Left-hand", overseas: false, price: 0.5 },
+            { position: 4, name: "Nitish Rana", role: "All-rounder", batting: "Left-hand", overseas: false, price: 4.2 },
             { position: 5, name: "Tristan Stubbs", role: "All-rounder", batting: "Right-hand", overseas: true, price: 10.0 },
             { position: 6, name: "David Miller", role: "Batter", batting: "Left-hand", overseas: true, price: 2.0 },
             { position: 7, name: "Axar Patel", role: "All-rounder", batting: "Left-hand", overseas: false, price: 16.5 },
-            { position: 8, name: "Auqib Nabi", role: "All-rounder", batting: "Right-hand", overseas: false, price: 0.0 },
+            { position: 8, name: "Auqib Nabi", role: "All-rounder", batting: "Right-hand", overseas: false, price: 8.4 },
             { position: 9, name: "Mitchell Starc", role: "Pace Bowler", batting: "Left-hand", overseas: true, price: 11.75 },
             { position: 10, name: "Kuldeep Yadav", role: "Spinner", batting: "Left-hand", overseas: false, price: 13.25 },
             { position: 11, name: "Mukesh Kumar", role: "Pace Bowler", batting: "Right-hand", overseas: false, price: 8.0 }
@@ -172,7 +172,7 @@ const PREDICTED_XII = {
             { position: 5, name: "Marcus Stoinis", role: "All-rounder", batting: "Right-hand", overseas: true, price: 11.0 },
             { position: 6, name: "Shashank Singh", role: "All-rounder", batting: "Right-hand", overseas: false, price: 5.5 },
             { position: 7, name: "Azmatullah Omarzai", role: "All-rounder", batting: "Right-hand", overseas: true, price: 2.4 },
-            { position: 8, name: "Marco Jansen", role: "All-rounder", batting: "Right-hand", overseas: true, price: 11.25 },
+            { position: 8, name: "Marco Jansen", role: "All-rounder", batting: "Right-hand", overseas: true, price: 7 },
             { position: 9, name: "Lockie Ferguson", role: "Pace Bowler", batting: "Right-hand", overseas: true, price: 2.0 },
             { position: 10, name: "Arshdeep Singh", role: "Pace Bowler", batting: "Left-hand", overseas: false, price: 18.0 },
             { position: 11, name: "Yuzvendra Chahal", role: "Spinner", batting: "Right-hand", overseas: false, price: 18.0 }
@@ -198,9 +198,9 @@ const PREDICTED_XII = {
             { position: 2, name: "Vaibhav Sooryavanshi", role: "Batter", batting: "Left-hand", overseas: false, price: 1.1 },
             { position: 3, name: "Dhruv Jurel", role: "Wicketkeeper", batting: "Right-hand", overseas: false, price: 14.0 },
             { position: 4, name: "Riyan Parag", role: "All-rounder", batting: "Right-hand", overseas: false, price: 14.0 },
-            { position: 5, name: "Sam Curran", role: "All-rounder", batting: "Left-hand", overseas: true, price: 10.0 },
+            { position: 5, name: "Sam Curran", role: "All-rounder", batting: "Left-hand", overseas: true, price: 2.4 },
             { position: 6, name: "Shimron Hetmyer", role: "Batter", batting: "Left-hand", overseas: true, price: 11.0 },
-            { position: 7, name: "Ravindra Jadeja", role: "All-rounder", batting: "Left-hand", overseas: false, price: 17.5 },
+            { position: 7, name: "Ravindra Jadeja", role: "All-rounder", batting: "Left-hand", overseas: false, price: 14 },
             { position: 8, name: "Jofra Archer", role: "Pace Bowler", batting: "Right-hand", overseas: true, price: 12.5 },
             { position: 9, name: "Ravi Bishnoi", role: "Spinner", batting: "Right-hand", overseas: false, price: 7.2 },
             { position: 10, name: "Nandre Burger", role: "Pace Bowler", batting: "Left-hand", overseas: true, price: 3.5 },
@@ -268,7 +268,7 @@ const PREDICTED_XII = {
         impactSubs: [
             { name: "Prasidh Krishna", role: "Pace Bowler", price: 9.5 },
             { name: "Kumar Kushagra", role: "Wicketkeeper", price: 0.65 },
-            { name: "Ashok Sharma", role: "Pace Bowler", price: 0.3 }
+            { name: "Ashok Sharma", role: "Pace Bowler", price: 0.9 }
         ],
         balance: { overseas: 4, bowlingOptions: 9, spinners: 7, pacers: 4, leftHandersTop6: 2 },
         constraintsSatisfied: true

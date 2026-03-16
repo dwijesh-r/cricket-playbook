@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Bat (left side, smaller) -->
+  <path d="M2 22l1.8-1.8"/>
+  <path d="M3.8 20.2l1.5-1.5"/>
+  <!-- Bat blade -->
+  <path d="M5.3 18.7l5.5-5.5c.5-.5 1.2-.8 1.9-.8h.1c.4 0 .7.3.7.7v.1c0 .7-.3 1.4-.8 1.9l-5.5 5.5z" fill="currentColor" fill-opacity="0.06"/>
+  <path d="M5.3 18.7l5.5-5.5c.5-.5 1.2-.8 1.9-.8h.1c.4 0 .7.3.7.7v.1c0 .7-.3 1.4-.8 1.9l-5.5 5.5z"/>
+  <!-- Ball (right side, upper) -->
+  <circle cx="18" cy="6" r="4.5" fill="currentColor" fill-opacity="0.06"/>
+  <circle cx="18" cy="6" r="4.5"/>
+  <!-- Seam -->
+  <path d="M15.5 4c.8 1.1.8 2.5 0 3.5" stroke-opacity="0.5" stroke-width="1"/>
+  <path d="M20.5 5c-.8 1.1-.8 2.5 0 3.5" stroke-opacity="0.5" stroke-width="1"/>
+</svg>

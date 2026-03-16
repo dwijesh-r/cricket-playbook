@@ -20,6 +20,7 @@ And generates:
 
 import csv
 import json
+import re
 from datetime import datetime
 from pathlib import Path
 
@@ -447,6 +448,53 @@ const FULL_DEPTH_CHARTS = {{
     return js_content
 
 
+def _parse_existing_alltime_stats(js_path):
+    """Parse existing full_squads.js to extract alltime stats per player_id.
+
+    Returns a dict keyed by player name+team_abbrev with alltime stat dicts,
+    used as fallback when DuckDB is unavailable (e.g. CI without the full DB).
+    """
+    existing = {}
+    if not js_path.exists():
+        return existing
+    try:
+        content = js_path.read_text()
+    except OSError:
+        return existing
+
+    # Find each team block: "    ABBREV: ["
+    current_team = None
+    for line in content.split("\n"):
+        # Detect team header like "    MI: ["
+        team_match = re.match(r"^\s+([A-Z]{2,4}):\s*\[", line)
+        if team_match:
+            current_team = team_match.group(1)
+            continue
+
+        if current_team and "name:" in line and "alltime:" in line:
+            # Extract player name
+            name_match = re.search(r"name:\s*'([^']*)'", line)
+            # Extract alltime block
+            alltime_match = re.search(
+                r"alltime:\s*\{\s*matches:\s*([\d.]+),\s*runs:\s*([\d.]+),"
+                r"\s*sr:\s*([\d.]+),\s*wkts:\s*([\d.]+),"
+                r"\s*econ:\s*([\d.]+),\s*innings:\s*([\d.]+)\s*\}",
+                line,
+            )
+            if name_match and alltime_match:
+                player_name = name_match.group(1).replace("\\'", "'")
+                key = f"{current_team}|{player_name}"
+                existing[key] = {
+                    "matches": int(float(alltime_match.group(1))),
+                    "runs": int(float(alltime_match.group(2))),
+                    "sr": round(float(alltime_match.group(3)), 1),
+                    "wkts": int(float(alltime_match.group(4))),
+                    "econ": round(float(alltime_match.group(5)), 2),
+                    "innings": int(float(alltime_match.group(6))),
+                }
+    return existing
+
+
 def generate_full_squads_js():
     """Generate full_squads.js from squad CSV + contracts + experience data."""
     data_dir = ROOT_DIR / "data"
@@ -489,51 +537,67 @@ def generate_full_squads_js():
                     "recent_bowl_economy": round(float(row.get("recent_bowl_economy") or 0), 2),
                 }
 
+    # Load existing alltime stats from current full_squads.js as fallback
+    # This preserves locally-generated correct data when DuckDB is unavailable (e.g. CI)
+    squads_js_path = DASHBOARD_DATA_DIR / "full_squads.js"
+    existing_alltime = _parse_existing_alltime_stats(squads_js_path)
+
     # Load all-time stats from DuckDB
     alltime_stats = {}
     duckdb_path = ROOT_DIR / "data" / "cricket_playbook.duckdb"
     if duckdb_path.exists() and duckdb is not None:
-        con = duckdb.connect(str(duckdb_path), read_only=True)
-        # Batting all-time
-        bat_rows = con.execute(
-            "SELECT player_id, innings, runs, strike_rate FROM analytics_ipl_batting_career_alltime"
-        ).fetchall()
-        for pid, innings, runs, sr in bat_rows:
-            if pid:
-                alltime_stats[pid] = {
-                    "matches": int(innings or 0),
-                    "innings": int(innings or 0),
-                    "runs": int(runs or 0),
-                    "sr": round(float(sr or 0), 1),
-                    "wkts": 0,
-                    "econ": 0,
-                }
-        # Bowling all-time
-        bowl_rows = con.execute(
-            "SELECT player_id, matches_bowled, wickets, economy_rate FROM analytics_ipl_bowling_career_alltime"
-        ).fetchall()
-        for pid, matches_bowled, wickets, economy in bowl_rows:
-            if pid:
-                if pid in alltime_stats:
-                    alltime_stats[pid]["wkts"] = int(wickets or 0)
-                    alltime_stats[pid]["econ"] = round(float(economy or 0), 2)
-                    # Use max of batting innings and bowling matches for matches/innings
-                    alltime_stats[pid]["matches"] = max(
-                        alltime_stats[pid]["matches"], int(matches_bowled or 0)
-                    )
-                    alltime_stats[pid]["innings"] = max(
-                        alltime_stats[pid]["innings"], int(matches_bowled or 0)
-                    )
-                else:
+        try:
+            con = duckdb.connect(str(duckdb_path), read_only=True)
+            # Batting all-time
+            bat_rows = con.execute(
+                "SELECT player_id, innings, runs, strike_rate FROM analytics_ipl_batting_career_alltime"
+            ).fetchall()
+            for pid, innings, runs, sr in bat_rows:
+                if pid:
                     alltime_stats[pid] = {
-                        "matches": int(matches_bowled or 0),
-                        "innings": int(matches_bowled or 0),
-                        "runs": 0,
-                        "sr": 0,
-                        "wkts": int(wickets or 0),
-                        "econ": round(float(economy or 0), 2),
+                        "matches": int(innings or 0),
+                        "innings": int(innings or 0),
+                        "runs": int(runs or 0),
+                        "sr": round(float(sr or 0), 1),
+                        "wkts": 0,
+                        "econ": 0,
                     }
-        con.close()
+            # Bowling all-time
+            bowl_rows = con.execute(
+                "SELECT player_id, matches_bowled, wickets, economy_rate FROM analytics_ipl_bowling_career_alltime"
+            ).fetchall()
+            for pid, matches_bowled, wickets, economy in bowl_rows:
+                if pid:
+                    if pid in alltime_stats:
+                        alltime_stats[pid]["wkts"] = int(wickets or 0)
+                        alltime_stats[pid]["econ"] = round(float(economy or 0), 2)
+                        # Use max of batting innings and bowling matches for matches/innings
+                        alltime_stats[pid]["matches"] = max(
+                            alltime_stats[pid]["matches"], int(matches_bowled or 0)
+                        )
+                        alltime_stats[pid]["innings"] = max(
+                            alltime_stats[pid]["innings"], int(matches_bowled or 0)
+                        )
+                    else:
+                        alltime_stats[pid] = {
+                            "matches": int(matches_bowled or 0),
+                            "innings": int(matches_bowled or 0),
+                            "runs": 0,
+                            "sr": 0,
+                            "wkts": int(wickets or 0),
+                            "econ": round(float(economy or 0), 2),
+                        }
+            con.close()
+        except Exception as e:
+            print(f"  ⚠ DuckDB alltime query failed: {e}")
+            alltime_stats = {}
+
+    # If DuckDB returned no alltime data, flag it for name-based fallback below
+    _use_alltime_fallback = len(alltime_stats) == 0 and len(existing_alltime) > 0
+    if _use_alltime_fallback:
+        print(
+            "  ⚠ DuckDB alltime stats empty — preserving existing alltime values from full_squads.js"
+        )
 
     # Load founder data for predicted XII
     founder_xii = {}
@@ -635,6 +699,10 @@ const FULL_SQUADS = {{
             # Dual-scope stats: since2023 from experience CSV, alltime from DuckDB
             pid = p.get("player_id", "")
             at = alltime_stats.get(pid, {}) if pid else {}
+            # Fallback: if DuckDB alltime was empty, use existing values from full_squads.js
+            if not at and _use_alltime_fallback:
+                fallback_key = f"{abbrev}|{p['name']}"
+                at = existing_alltime.get(fallback_key, {})
             since2023_js = (
                 f"{{ matches: {p['ipl_matches']}, runs: {p['ipl_runs']}, "
                 f"sr: {p['ipl_sr']}, wkts: {p['ipl_wickets']}, "

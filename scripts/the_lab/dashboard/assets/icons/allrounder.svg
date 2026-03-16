@@ -1,14 +1,38 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-  <!-- Bat (left side, smaller) -->
-  <path d="M2 22l1.8-1.8"/>
-  <path d="M3.8 20.2l1.5-1.5"/>
-  <!-- Bat blade -->
-  <path d="M5.3 18.7l5.5-5.5c.5-.5 1.2-.8 1.9-.8h.1c.4 0 .7.3.7.7v.1c0 .7-.3 1.4-.8 1.9l-5.5 5.5z" fill="currentColor" fill-opacity="0.06"/>
-  <path d="M5.3 18.7l5.5-5.5c.5-.5 1.2-.8 1.9-.8h.1c.4 0 .7.3.7.7v.1c0 .7-.3 1.4-.8 1.9l-5.5 5.5z"/>
-  <!-- Ball (right side, upper) -->
-  <circle cx="18" cy="6" r="4.5" fill="currentColor" fill-opacity="0.06"/>
-  <circle cx="18" cy="6" r="4.5"/>
-  <!-- Seam -->
-  <path d="M15.5 4c.8 1.1.8 2.5 0 3.5" stroke-opacity="0.5" stroke-width="1"/>
-  <path d="M20.5 5c-.8 1.1-.8 2.5 0 3.5" stroke-opacity="0.5" stroke-width="1"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <!-- All-rounder: bat + ball together, like the inspiration image -->
+  <defs>
+    <radialGradient id="arBallGrad" cx="40%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#E83030"/>
+      <stop offset="60%" stop-color="#C41E1E"/>
+      <stop offset="100%" stop-color="#8B1515"/>
+    </radialGradient>
+  </defs>
+  <!-- Bat blade (angled, behind ball) -->
+  <rect x="10" y="2" width="7" height="22" rx="1.5" fill="#D4A574" stroke="#8B6914" stroke-width="0.8" transform="rotate(20 13.5 13)"/>
+  <!-- Blade face highlight -->
+  <rect x="12" y="3" width="3.5" height="20" rx="1" fill="#E0BD90" opacity="0.5" transform="rotate(20 13.5 13)"/>
+  <!-- Shoulder -->
+  <rect x="12" y="23" width="3.5" height="2.5" rx="0.5" fill="#A67C52" stroke="#8B6914" stroke-width="0.5" transform="rotate(20 13.5 13)"/>
+  <!-- Handle -->
+  <rect x="12.5" y="25" width="2.2" height="9" rx="1" fill="#5C3A1E" stroke="#3D2512" stroke-width="0.5" transform="rotate(20 13.5 13)"/>
+  <!-- Handle grip lines -->
+  <line x1="12.7" y1="27" x2="14.5" y2="27" stroke="#8B6914" stroke-width="0.4" opacity="0.5" transform="rotate(20 13.5 13)"/>
+  <line x1="12.7" y1="29" x2="14.5" y2="29" stroke="#8B6914" stroke-width="0.4" opacity="0.5" transform="rotate(20 13.5 13)"/>
+  <line x1="12.7" y1="31" x2="14.5" y2="31" stroke="#8B6914" stroke-width="0.4" opacity="0.5" transform="rotate(20 13.5 13)"/>
+  <!-- Grip end -->
+  <rect x="12.5" y="33.5" width="2.2" height="1.8" rx="1" fill="#2D1810" transform="rotate(20 13.5 13)"/>
+  <!-- Cricket ball (foreground, overlapping bat) -->
+  <circle cx="34" cy="34" r="10" fill="url(#arBallGrad)" stroke="#8B1515" stroke-width="0.8"/>
+  <!-- Seam curves -->
+  <path d="M28 29c1.8 2.2 1.8 5.5 0 8" fill="none" stroke="#FFD4D4" stroke-width="0.9" opacity="0.6"/>
+  <path d="M40 31c-1.8 2.2-1.8 5.5 0 8" fill="none" stroke="#FFD4D4" stroke-width="0.9" opacity="0.6"/>
+  <!-- Stitches -->
+  <line x1="27" y1="31.5" x2="28.5" y2="30.8" stroke="#FFD4D4" stroke-width="0.5" opacity="0.4"/>
+  <line x1="26.8" y1="33.5" x2="28.3" y2="32.8" stroke="#FFD4D4" stroke-width="0.5" opacity="0.4"/>
+  <line x1="27" y1="35.5" x2="28.5" y2="34.8" stroke="#FFD4D4" stroke-width="0.5" opacity="0.4"/>
+  <line x1="39.5" y1="33" x2="41" y2="32.3" stroke="#FFD4D4" stroke-width="0.5" opacity="0.4"/>
+  <line x1="39.2" y1="35" x2="40.7" y2="34.3" stroke="#FFD4D4" stroke-width="0.5" opacity="0.4"/>
+  <line x1="39.5" y1="37" x2="41" y2="36.3" stroke="#FFD4D4" stroke-width="0.5" opacity="0.4"/>
+  <!-- Ball shine -->
+  <ellipse cx="31" cy="30" rx="3" ry="2" fill="white" opacity="0.15" transform="rotate(-30 31 30)"/>
 </svg>

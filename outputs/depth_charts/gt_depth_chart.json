@@ -318,7 +318,7 @@
           "score": 5.0,
           "rationale": "Lead pacer",
           "is_overseas": false,
-          "price_cr": 0.5,
+          "price_cr": 0.75,
           "bowling_type": "Fast-Medium",
           "bowling_arm": "Left-arm",
           "secondary_positions": []

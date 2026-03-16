@@ -296,7 +296,7 @@
           "score": 66.1,
           "rationale": "Founder XII. Lead pacer",
           "is_overseas": true,
-          "price_cr": 11.25,
+          "price_cr": 7.0,
           "bowling_type": "Fast-Medium",
           "bowling_arm": "Left-arm",
           "secondary_positions": []
@@ -308,7 +308,7 @@
           "score": 2.8,
           "rationale": "Part-timer (0 ov)",
           "is_overseas": true,
-          "price_cr": 0.3,
+          "price_cr": 4.4,
           "bowling_type": "Fast",
           "bowling_arm": "Left-arm",
           "secondary_positions": []
@@ -406,7 +406,7 @@
           "score": 7.2,
           "rationale": "Part-timer (0 ov)",
           "is_overseas": true,
-          "price_cr": 1.0,
+          "price_cr": 3.0,
           "bowling_type": "LA Orthodox",
           "bowling_arm": "Left-arm",
           "secondary_positions": []
@@ -529,7 +529,7 @@
           "score": 69.9,
           "rationale": "Founder XII. Bowling specialist tag",
           "is_overseas": true,
-          "price_cr": 11.25,
+          "price_cr": 7.0,
           "bowling_type": "Fast-Medium",
           "bowling_arm": "Left-arm",
           "secondary_positions": []

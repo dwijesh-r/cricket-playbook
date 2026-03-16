@@ -1,7 +1,7 @@
 /**
  * Statsledge - Full Squad Data
  * IPL 2026 Pre-Season Analytics
- * Auto-generated: 2026-03-16T16:09:19.009240
+ * Auto-generated: 2026-03-16T16:11:20.540524
  */
 
 const FULL_SQUADS = {

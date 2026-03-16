@@ -603,6 +603,127 @@
         .comparison-phase-table tbody tr:hover { background: var(--glass); }
         .better-value { color: var(--accent-green); font-weight: 700; }
 
+        /* ==================== HISTORICAL TRENDS ==================== */
+        .historical-trends {
+            margin-bottom: var(--space-6);
+        }
+        .trends-subtitle {
+            font-size: var(--text-sm); color: var(--text-tertiary); margin-bottom: var(--space-4);
+            font-weight: 500;
+        }
+        .trends-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-4);
+        }
+        .trend-card {
+            background: var(--bg-secondary); border: 1px solid var(--border);
+            border-radius: var(--radius-lg); padding: var(--space-4);
+        }
+        .trend-card-title {
+            font-family: var(--font-display); font-size: var(--text-sm); font-weight: 700;
+            color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.06em;
+            margin-bottom: var(--space-3); display: flex; align-items: center; gap: var(--space-2);
+        }
+        .trend-card-title .trend-icon {
+            font-size: var(--text-md);
+        }
+        .trend-bar-group {
+            display: flex; flex-direction: column; gap: var(--space-2);
+        }
+        .trend-bar-row {
+            display: flex; align-items: center; gap: var(--space-2);
+        }
+        .trend-bar-label {
+            width: 70px; font-size: 11px; font-weight: 600; color: var(--text-tertiary);
+            text-transform: uppercase; letter-spacing: 0.04em; flex-shrink: 0; text-align: right;
+        }
+        .trend-bar-track {
+            flex: 1; height: 24px; background: var(--bg-tertiary); border-radius: 4px;
+            overflow: hidden; position: relative;
+        }
+        .trend-bar-fill {
+            height: 100%; border-radius: 4px;
+            transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex; align-items: center; justify-content: flex-end; padding-right: 8px;
+            min-width: 2px;
+        }
+        .trend-bar-fill.scope-recent {
+            background: linear-gradient(90deg, var(--accent), var(--accent-orange));
+        }
+        .trend-bar-fill.scope-alltime {
+            background: linear-gradient(90deg, var(--accent-purple), rgba(167, 139, 250, 0.6));
+        }
+        .trend-bar-value {
+            font-size: 11px; font-weight: 700; color: #fff; white-space: nowrap;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+        }
+        .trend-bar-value-outside {
+            font-size: 11px; font-weight: 700; color: var(--text-secondary);
+            min-width: 45px; font-variant-numeric: tabular-nums;
+        }
+        .trend-legend {
+            display: flex; justify-content: center; gap: var(--space-5);
+            margin-bottom: var(--space-4); padding: var(--space-2) 0;
+        }
+        .trend-legend-item {
+            display: flex; align-items: center; gap: var(--space-2);
+            font-size: var(--text-xs); color: var(--text-secondary); font-weight: 600;
+        }
+        .trend-legend-dot {
+            width: 12px; height: 12px; border-radius: 3px;
+        }
+        .trend-legend-dot.recent {
+            background: linear-gradient(135deg, var(--accent), var(--accent-orange));
+        }
+        .trend-legend-dot.alltime {
+            background: linear-gradient(135deg, var(--accent-purple), rgba(167, 139, 250, 0.6));
+        }
+        .trend-delta {
+            display: inline-flex; align-items: center; gap: 2px;
+            font-size: 11px; font-weight: 700; margin-left: var(--space-2);
+            padding: 1px 6px; border-radius: var(--radius-full);
+        }
+        .trend-delta.up { color: var(--accent-green); background: rgba(34, 197, 94, 0.1); }
+        .trend-delta.down { color: var(--accent-red); background: rgba(239, 68, 68, 0.1); }
+        .trend-delta.neutral { color: var(--text-tertiary); background: var(--bg-tertiary); }
+
+        /* Vertical bar chart for phase comparison */
+        .phase-trend-chart {
+            display: flex; align-items: flex-end; justify-content: center;
+            gap: var(--space-3); height: 120px; padding-top: var(--space-2);
+            margin-bottom: var(--space-2);
+        }
+        .phase-trend-col {
+            display: flex; flex-direction: column; align-items: center; gap: 4px;
+            flex: 1; max-width: 80px;
+        }
+        .phase-trend-bars {
+            display: flex; align-items: flex-end; gap: 3px; height: 100px; width: 100%;
+            justify-content: center;
+        }
+        .phase-trend-bar {
+            width: 16px; border-radius: 3px 3px 0 0;
+            transition: height 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+        }
+        .phase-trend-bar.recent { background: var(--accent); }
+        .phase-trend-bar.alltime { background: var(--accent-purple); opacity: 0.7; }
+        .phase-trend-bar-label {
+            font-size: 10px; font-weight: 700; color: var(--text-tertiary);
+            text-transform: uppercase; letter-spacing: 0.04em; text-align: center;
+        }
+        .phase-trend-bar-val {
+            font-size: 10px; font-weight: 700; color: var(--text-secondary);
+            font-variant-numeric: tabular-nums; text-align: center; margin-top: 2px;
+        }
+        @media (max-width: 768px) {
+            .trends-grid { grid-template-columns: 1fr; }
+            .trend-bar-label { width: 55px; font-size: 10px; }
+            .phase-trend-chart { height: 100px; gap: var(--space-2); }
+            .phase-trend-bars { height: 80px; }
+            .phase-trend-bar { width: 12px; }
+        }
+
         /* ==================== FOOTER ==================== */
         .footer {
             padding: var(--space-6) 24px; text-align: center;
@@ -921,15 +1042,15 @@
 
             <!-- View Mode Toggle (Grid / List) -->
             <div class="view-mode-toggle" role="tablist" aria-label="Display mode">
-                <button class="view-mode-btn active" id="grid-mode-btn" onclick="setViewMode('grid')" title="Grid view" aria-label="Grid view" role="tab" aria-selected="true">&#9638;&#9638;</button>
-                <button class="view-mode-btn" id="list-mode-btn" onclick="setViewMode('list')" title="List view" aria-label="List view" role="tab" aria-selected="false">&#9776;</button>
+                <button class="view-mode-btn" id="grid-mode-btn" onclick="setViewMode('grid')" title="Grid view" aria-label="Grid view" role="tab" aria-selected="false">&#9638;&#9638;</button>
+                <button class="view-mode-btn active" id="list-mode-btn" onclick="setViewMode('list')" title="List view" aria-label="List view" role="tab" aria-selected="true">&#9776;</button>
             </div>
 
             <!-- Venue Cards Grid -->
-            <div class="venue-grid" id="venue-grid"></div>
+            <div class="venue-grid hidden" id="venue-grid"></div>
 
             <!-- Venue List Table -->
-            <div class="venue-list-table-wrapper hidden" id="venue-list">
+            <div class="venue-list-table-wrapper" id="venue-list">
                 <table class="venue-list-table">
                     <thead>
                         <tr>
@@ -987,7 +1108,7 @@
     // ==================== STATE ====================
     let currentView = 'grid';
     let currentSort = 'avgScore';
-    let currentViewMode = 'grid'; // 'grid' or 'list'
+    let currentViewMode = 'list'; // 'grid' or 'list'
     let listSortCol = 'avgScore';
     let listSortAsc = false;
     let selectedVenueKey = null;
@@ -1037,6 +1158,7 @@
     document.addEventListener('DOMContentLoaded', function() {
         updateScopeToggle();
         renderVenueGrid();
+        if (currentViewMode === 'list') renderVenueList();
         populateComparisonSelectors();
         updateTime();
         setInterval(updateTime, 1000);
@@ -1341,6 +1463,8 @@
 
             '<div class="character-narrative">' + narrative + '</div>' +
 
+            buildHistoricalTrends(key) +
+
             '<h3 class="section-title">Phase Breakdown</h3>' +
             '<div class="phase-table-wrapper">' +
                 '<table class="phase-table">' +
@@ -1368,32 +1492,80 @@
             : '');
 
         window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        // Animate trend bars
+        setTimeout(function() {
+            container.querySelectorAll('.trend-bar-fill').forEach(function(bar) {
+                var w = bar.style.width;
+                bar.style.width = '0%';
+                setTimeout(function() { bar.style.width = w; }, 60);
+            });
+            container.querySelectorAll('.phase-trend-bar').forEach(function(bar) {
+                var h = bar.style.height;
+                bar.style.height = '0%';
+                setTimeout(function() { bar.style.height = h; }, 60);
+            });
+        }, 20);
     }
 
     function findTeamRecordsForVenue(venueName, venueKey) {
         var scopeData = getScopeData();
-        var records = [];
+        var teamMap = {}; // keyed by teamCode to deduplicate
+        var expectedCity = TEAM_CITIES[venueKey] || '';
+        // Extract the core venue name (before first comma) for fuzzy matching
+        var coreVenue = venueName ? venueName.split(',')[0].trim().toLowerCase() : '';
+
         TEAM_CODES.forEach(function(teamCode) {
             var teamData = scopeData.teamVenueRecords[teamCode];
             if (!teamData) return;
             teamData.forEach(function(rec) {
-                // Match by venue name or city
-                if (rec.venue === venueName ||
-                    rec.city === TEAM_CITIES[venueKey] ||
-                    (venueName && rec.venue && rec.venue.toLowerCase().indexOf(venueName.toLowerCase().split(',')[0].split(' ')[0]) !== -1)) {
-                    records.push({
-                        team: teamCode,
-                        venue: rec.venue,
-                        city: rec.city,
-                        matches: rec.matches,
-                        wins: rec.wins,
-                        losses: rec.losses,
-                        winPct: rec.winPct,
-                        record: rec.record
-                    });
+                var recCore = rec.venue ? rec.venue.split(',')[0].trim().toLowerCase() : '';
+                // Normalize common venue name variations (e.g. "M.Chinnaswamy" vs "M Chinnaswamy")
+                var normalizedRecCore = recCore.replace(/\./g, ' ').replace(/\s+/g, ' ');
+                var normalizedCoreVenue = coreVenue.replace(/\./g, ' ').replace(/\s+/g, ' ');
+
+                // Match by: exact venue name, normalized core venue name, or city match for home venue
+                var isMatch = false;
+                if (rec.venue === venueName) {
+                    isMatch = true;
+                } else if (normalizedCoreVenue && normalizedRecCore &&
+                           (normalizedRecCore === normalizedCoreVenue ||
+                            normalizedRecCore.indexOf(normalizedCoreVenue) !== -1 ||
+                            normalizedCoreVenue.indexOf(normalizedRecCore) !== -1)) {
+                    isMatch = true;
+                } else if (expectedCity && rec.city === expectedCity) {
+                    isMatch = true;
+                }
+
+                if (isMatch) {
+                    if (teamMap[teamCode]) {
+                        // Aggregate: merge duplicate team records for this venue
+                        teamMap[teamCode].matches += rec.matches;
+                        teamMap[teamCode].wins += rec.wins;
+                        teamMap[teamCode].losses += rec.losses;
+                    } else {
+                        teamMap[teamCode] = {
+                            team: teamCode,
+                            venue: rec.venue,
+                            city: rec.city,
+                            matches: rec.matches,
+                            wins: rec.wins,
+                            losses: rec.losses
+                        };
+                    }
                 }
             });
         });
+
+        // Compute winPct and record from aggregated totals
+        var records = [];
+        Object.keys(teamMap).forEach(function(teamCode) {
+            var r = teamMap[teamCode];
+            r.winPct = r.matches > 0 ? parseFloat(((r.wins / r.matches) * 100).toFixed(1)) : 0;
+            r.record = r.wins + '-' + r.losses;
+            records.push(r);
+        });
+
         return records;
     }
 
@@ -1421,6 +1593,172 @@
                 'while a chase win rate of <strong>' + v.chaseWinPct + '%</strong> ' +
                 (v.chaseFriendly ? 'slightly favors the chasing side.' : 'keeps both innings finely balanced.');
         }
+    }
+
+    // ==================== HISTORICAL TRENDS ====================
+    function buildHistoricalTrends(key) {
+        // Compare since2023 (recent) vs alltime to show trends
+        var recent = VENUE_DATA.since2023 ? VENUE_DATA.since2023.venueProfiles[key] : null;
+        var alltime = VENUE_DATA.alltime ? VENUE_DATA.alltime.venueProfiles[key] : null;
+
+        if (!recent && !alltime) return '';
+
+        // If only one scope exists, still show it as visual bars
+        var hasComparison = (recent && alltime);
+        var html = '<div class="historical-trends">' +
+            '<h3 class="section-title">Historical Trends</h3>';
+
+        if (hasComparison) {
+            html += '<p class="trends-subtitle">Comparing recent form (2023-2025) against all-time IPL averages to reveal how this venue is evolving.</p>';
+            html += '<div class="trend-legend">' +
+                '<div class="trend-legend-item"><div class="trend-legend-dot recent"></div>Since 2023</div>' +
+                '<div class="trend-legend-item"><div class="trend-legend-dot alltime"></div>All-Time</div>' +
+                '</div>';
+        } else {
+            html += '<p class="trends-subtitle">Venue statistics shown as visual bars for the available data scope.</p>';
+        }
+
+        html += '<div class="trends-grid">';
+
+        // 1. First Innings Score comparison
+        var recentScore = recent ? recent.avgFirstInningsScore : 0;
+        var alltimeScore = alltime ? alltime.avgFirstInningsScore : 0;
+        var scoreMax = Math.max(recentScore, alltimeScore, 150) * 1.1;
+        var scoreDelta = hasComparison ? (recentScore - alltimeScore).toFixed(1) : null;
+        var scoreDeltaClass = scoreDelta > 0 ? 'up' : (scoreDelta < 0 ? 'down' : 'neutral');
+        var scoreDeltaArrow = scoreDelta > 0 ? '&#9650;' : (scoreDelta < 0 ? '&#9660;' : '&#8212;');
+
+        html += '<div class="trend-card">' +
+            '<div class="trend-card-title"><span class="trend-icon">&#127951;</span> Avg 1st Innings Score' +
+            (hasComparison ? '<span class="trend-delta ' + scoreDeltaClass + '">' + scoreDeltaArrow + ' ' + (scoreDelta > 0 ? '+' : '') + scoreDelta + '</span>' : '') +
+            '</div>' +
+            '<div class="trend-bar-group">';
+
+        if (recent) {
+            html += buildTrendBarRow('2023-25', recentScore, scoreMax, 'recent', recentScore.toFixed(1));
+        }
+        if (alltime) {
+            html += buildTrendBarRow('All-Time', alltimeScore, scoreMax, 'alltime', alltimeScore.toFixed(1));
+        }
+        html += '</div></div>';
+
+        // 2. Run Rate by Phase - vertical bar chart
+        var phases = ['powerplay', 'middle', 'death'];
+        var phaseLabels = { powerplay: 'PP', middle: 'MID', death: 'DTH' };
+        var maxRR = 0;
+        phases.forEach(function(p) {
+            if (recent && recent.phases && recent.phases[p] && recent.phases[p].battingFirst) {
+                maxRR = Math.max(maxRR, recent.phases[p].battingFirst.runRate || 0);
+            }
+            if (alltime && alltime.phases && alltime.phases[p] && alltime.phases[p].battingFirst) {
+                maxRR = Math.max(maxRR, alltime.phases[p].battingFirst.runRate || 0);
+            }
+        });
+        maxRR = maxRR * 1.15 || 14;
+
+        html += '<div class="trend-card">' +
+            '<div class="trend-card-title"><span class="trend-icon">&#9889;</span> Run Rate by Phase (Bat 1st)</div>' +
+            '<div class="phase-trend-chart">';
+
+        phases.forEach(function(p) {
+            var recentRR = (recent && recent.phases && recent.phases[p] && recent.phases[p].battingFirst) ? recent.phases[p].battingFirst.runRate : 0;
+            var alltimeRR = (alltime && alltime.phases && alltime.phases[p] && alltime.phases[p].battingFirst) ? alltime.phases[p].battingFirst.runRate : 0;
+            var recentH = maxRR > 0 ? (recentRR / maxRR * 100) : 0;
+            var alltimeH = maxRR > 0 ? (alltimeRR / maxRR * 100) : 0;
+
+            html += '<div class="phase-trend-col">' +
+                '<div class="phase-trend-bars">';
+            if (alltime) {
+                html += '<div class="phase-trend-bar alltime" style="height:' + alltimeH + '%;"></div>';
+            }
+            if (recent) {
+                html += '<div class="phase-trend-bar recent" style="height:' + recentH + '%;"></div>';
+            }
+            html += '</div>' +
+                '<div class="phase-trend-bar-label">' + phaseLabels[p] + '</div>';
+            if (hasComparison) {
+                html += '<div class="phase-trend-bar-val">' + recentRR.toFixed(1) + ' / ' + alltimeRR.toFixed(1) + '</div>';
+            } else {
+                html += '<div class="phase-trend-bar-val">' + (recent ? recentRR : alltimeRR).toFixed(1) + '</div>';
+            }
+            html += '</div>';
+        });
+        html += '</div></div>';
+
+        // 3. Boundary % by Phase
+        var maxBdy = 0;
+        phases.forEach(function(p) {
+            if (recent && recent.phases && recent.phases[p] && recent.phases[p].battingFirst) {
+                maxBdy = Math.max(maxBdy, recent.phases[p].battingFirst.boundaryPct || 0);
+            }
+            if (alltime && alltime.phases && alltime.phases[p] && alltime.phases[p].battingFirst) {
+                maxBdy = Math.max(maxBdy, alltime.phases[p].battingFirst.boundaryPct || 0);
+            }
+        });
+        maxBdy = maxBdy * 1.15 || 35;
+
+        html += '<div class="trend-card">' +
+            '<div class="trend-card-title"><span class="trend-icon">&#127919;</span> Boundary % by Phase (Bat 1st)</div>' +
+            '<div class="trend-bar-group">';
+
+        phases.forEach(function(p) {
+            var recentBdy = (recent && recent.phases && recent.phases[p] && recent.phases[p].battingFirst) ? recent.phases[p].battingFirst.boundaryPct : 0;
+            var alltimeBdy = (alltime && alltime.phases && alltime.phases[p] && alltime.phases[p].battingFirst) ? alltime.phases[p].battingFirst.boundaryPct : 0;
+
+            if (recent) {
+                html += buildTrendBarRow(phaseLabels[p] + ' New', recentBdy, maxBdy, 'recent', recentBdy.toFixed(1) + '%');
+            }
+            if (alltime) {
+                html += buildTrendBarRow(phaseLabels[p] + ' All', alltimeBdy, maxBdy, 'alltime', alltimeBdy.toFixed(1) + '%');
+            }
+        });
+        html += '</div></div>';
+
+        // 4. Dot Ball % by Phase
+        var maxDot = 0;
+        phases.forEach(function(p) {
+            if (recent && recent.phases && recent.phases[p] && recent.phases[p].battingFirst) {
+                maxDot = Math.max(maxDot, recent.phases[p].battingFirst.dotPct || 0);
+            }
+            if (alltime && alltime.phases && alltime.phases[p] && alltime.phases[p].battingFirst) {
+                maxDot = Math.max(maxDot, alltime.phases[p].battingFirst.dotPct || 0);
+            }
+        });
+        maxDot = maxDot * 1.15 || 55;
+
+        html += '<div class="trend-card">' +
+            '<div class="trend-card-title"><span class="trend-icon">&#9898;</span> Dot Ball % by Phase (Bat 1st)</div>' +
+            '<div class="trend-bar-group">';
+
+        phases.forEach(function(p) {
+            var recentDot = (recent && recent.phases && recent.phases[p] && recent.phases[p].battingFirst) ? recent.phases[p].battingFirst.dotPct : 0;
+            var alltimeDot = (alltime && alltime.phases && alltime.phases[p] && alltime.phases[p].battingFirst) ? alltime.phases[p].battingFirst.dotPct : 0;
+
+            if (recent) {
+                html += buildTrendBarRow(phaseLabels[p] + ' New', recentDot, maxDot, 'recent', recentDot.toFixed(1) + '%');
+            }
+            if (alltime) {
+                html += buildTrendBarRow(phaseLabels[p] + ' All', alltimeDot, maxDot, 'alltime', alltimeDot.toFixed(1) + '%');
+            }
+        });
+        html += '</div></div>';
+
+        html += '</div></div>'; // close trends-grid and historical-trends
+        return html;
+    }
+
+    function buildTrendBarRow(label, value, max, scopeClass, displayVal) {
+        var widthPct = max > 0 ? (value / max * 100) : 0;
+        var showInside = widthPct > 25;
+        return '<div class="trend-bar-row">' +
+            '<div class="trend-bar-label">' + label + '</div>' +
+            '<div class="trend-bar-track">' +
+                '<div class="trend-bar-fill scope-' + scopeClass + '" style="width:' + widthPct + '%;">' +
+                    (showInside ? '<span class="trend-bar-value">' + displayVal + '</span>' : '') +
+                '</div>' +
+            '</div>' +
+            (!showInside ? '<span class="trend-bar-value-outside">' + displayVal + '</span>' : '<span class="trend-bar-value-outside"></span>') +
+            '</div>';
     }
 
     // ==================== COMPARISON VIEW ====================

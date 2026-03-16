@@ -753,6 +753,25 @@
         .panel { display: none; overflow-x: hidden; }
         .panel.active { display: block; }
         .panel:not(.active) { content-visibility: hidden; }
+        .notes-table-wrap { padding: var(--space-4); overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        .notes-table { width: 100%; border-collapse: collapse; font-size: 13px; line-height: 1.5; }
+        .notes-table thead th { text-align: left; padding: 10px 12px; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); border-bottom: 2px solid var(--border); white-space: nowrap; position: sticky; top: 0; background: var(--bg-primary); z-index: 1; }
+        .notes-table tbody td { padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+        .notes-table tbody tr:hover { background: var(--bg-secondary); }
+        .notes-player-name { font-weight: 600; color: var(--text-primary); white-space: nowrap; }
+        .notes-captain { display: inline-block; font-size: 9px; font-weight: 700; padding: 1px 5px; border-radius: 3px; margin-left: 6px; vertical-align: middle; }
+        .notes-overseas { display: inline-block; font-size: 9px; padding: 1px 5px; border-radius: 3px; margin-left: 4px; vertical-align: middle; background: var(--bg-tertiary); color: var(--text-secondary); }
+        .notes-role-badge { display: inline-block; font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 4px; white-space: nowrap; }
+        .notes-role-badge.role-batter { background: #2563eb20; color: #3b82f6; }
+        .notes-role-badge.role-bowler { background: #dc262620; color: #ef4444; }
+        .notes-role-badge.role-allrounder { background: #7c3aed20; color: #8b5cf6; }
+        .notes-role-badge.role-wk { background: #d9770620; color: #f59e0b; }
+        .notes-age { font-family: var(--font-mono); font-size: 12px; color: var(--text-secondary); text-align: center; }
+        .notes-scout { font-size: 12px; color: var(--text-secondary); line-height: 1.55; max-width: 420px; }
+        .notes-scout em { color: var(--text-primary); font-style: normal; font-weight: 600; }
+        .notes-group-header td { padding: 14px 12px 6px !important; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; border-bottom: 2px solid var(--border) !important; background: var(--bg-primary); }
+        .notes-predicted { background: rgba(34,197,94,0.06); }
+        @media (max-width: 768px) { .notes-table { font-size: 12px; } .notes-table thead th, .notes-table tbody td { padding: 8px 8px; } .notes-scout { max-width: 220px; font-size: 11px; } }
 
         /* Predicted XI Panel - Clean List Format */
         .xi-grid {
@@ -795,16 +814,26 @@
             color: var(--text-secondary);
             flex-shrink: 0;
         }
-        .player-info { flex: 1; min-width: 0; }
+        .player-info { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
         .player-name {
             font-size: 14px;
             font-weight: 600;
             margin-bottom: 0;
+            display: block;
+        }
+        .player-detail-line {
+            font-size: 11px;
+            color: var(--text-tertiary);
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
         .player-role {
-            font-size: 12px;
+            font-size: 11px;
             color: var(--text-tertiary);
-            display: inline;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
         }
         .player-meta {
             text-align: right;
@@ -814,7 +843,7 @@
             flex-shrink: 0;
         }
         .player-price {
-            font-size: 13px;
+            font-size: 11px;
             font-weight: 600;
             color: var(--accent);
             font-family: var(--font-mono);
@@ -1475,7 +1504,8 @@
             letter-spacing: 0.04em;
             color: var(--text-secondary);
             white-space: nowrap;
-            width: 100px;
+            width: 110px;
+            min-width: 80px;
         }
         .depth-matrix .player-cell {
             display: flex;
@@ -2338,16 +2368,18 @@
                 border-bottom: none;
                 width: 100%;
                 text-align: left;
+                box-sizing: border-box;
             }
-            /* Add team labels before values */
-            .compare-table tbody td:first-child::before,
-            .compare-table tbody td:last-child::before {
+            /* Add team labels before values using data-team attribute */
+            .compare-table tbody td[data-team]::before {
+                content: attr(data-team);
                 font-size: 11px;
                 font-weight: 700;
                 text-transform: uppercase;
                 letter-spacing: 0.08em;
                 color: var(--text-tertiary);
                 font-family: var(--font-body);
+                min-width: 40px;
             }
 
             /* E. Compare header: stack team names full width */
@@ -2357,6 +2389,14 @@
             .compare-header-team {
                 width: 100%;
                 padding: var(--space-3);
+                flex-wrap: wrap;
+            }
+            .compare-header-team select {
+                width: 100% !important;
+                margin-left: 0 !important;
+                margin-top: var(--space-2);
+                min-height: 44px;
+                font-size: 14px !important;
             }
             .compare-header-vs {
                 align-self: center;
@@ -2559,6 +2599,9 @@
             transform: scale(1.1);
             box-shadow: 0 6px 28px rgba(255, 159, 10, 0.6);
             animation: none;
+        }
+        @media (max-width: 768px) {
+            .nav-guide-btn { bottom: 16px; right: 16px; width: 48px; height: 48px; font-size: 20px; }
         }
         /* ==================== PLAYER PROFILE MODAL (TKT-200) ==================== */
         .player-profile-overlay {
@@ -4138,6 +4181,53 @@
             color: var(--text-tertiary);
         }
 
+        /* ==================== AUTO-GENERATED PREVIEW (Task #10) ==================== */
+        .autogen-preview { padding: 0; }
+        .autogen-preview-banner { display: flex; align-items: center; gap: var(--space-2); padding: var(--space-2) var(--space-3); background: rgba(168,85,247,0.08); border-left: 3px solid var(--accent-purple, #a855f7); border-radius: var(--radius-sm); font-size: 0.72rem; color: var(--text-secondary); margin-bottom: var(--space-4); }
+        .autogen-section { margin-bottom: var(--space-5); }
+        .autogen-section-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent, #3b82f6); margin-bottom: var(--space-3); padding-bottom: var(--space-2); border-bottom: 1px solid var(--border); }
+        .autogen-overview-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: var(--space-3); margin-bottom: var(--space-4); }
+        .autogen-overview-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius-md); padding: var(--space-3); text-align: center; }
+        .autogen-overview-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-tertiary); margin-bottom: var(--space-1); }
+        .autogen-overview-value { font-size: 1.1rem; font-weight: 700; color: var(--text-primary); }
+        .autogen-depth-bar-row { display: flex; align-items: center; gap: var(--space-2); padding: var(--space-2) 0; border-bottom: 1px solid var(--border-light, rgba(255,255,255,0.05)); }
+        .autogen-depth-bar-row:last-child { border-bottom: none; }
+        .autogen-depth-label { flex: 0 0 130px; font-size: 0.78rem; color: var(--text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .autogen-depth-bar-bg { flex: 1; height: 8px; background: var(--card-bg); border-radius: 4px; overflow: hidden; }
+        .autogen-depth-bar-fill { height: 100%; border-radius: 4px; transition: width 0.5s ease; }
+        .autogen-depth-score { flex: 0 0 40px; text-align: right; font-size: 0.78rem; font-weight: 600; color: var(--text-primary); }
+        .autogen-player-card { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3); background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius-md); margin-bottom: var(--space-2); }
+        .autogen-player-rank { flex: 0 0 28px; height: 28px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: var(--accent, #3b82f6); color: #fff; font-size: 0.7rem; font-weight: 700; }
+        .autogen-player-info { flex: 1; min-width: 0; }
+        .autogen-player-name { font-size: 0.88rem; font-weight: 600; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .autogen-player-meta { font-size: 0.7rem; color: var(--text-tertiary); margin-top: 2px; }
+        .autogen-player-stat { flex: 0 0 auto; text-align: right; font-size: 0.75rem; color: var(--text-secondary); }
+        .autogen-player-stat strong { display: block; font-size: 0.92rem; color: var(--text-primary); }
+        .autogen-xi-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: var(--space-2); }
+        .autogen-xi-slot { display: flex; align-items: center; gap: var(--space-2); padding: var(--space-2) var(--space-3); background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius-sm); font-size: 0.82rem; }
+        .autogen-xi-pos { flex: 0 0 22px; height: 22px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: rgba(59,130,246,0.15); color: var(--accent, #3b82f6); font-size: 0.65rem; font-weight: 700; }
+        .autogen-xi-name { flex: 1; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .autogen-xi-role { font-size: 0.65rem; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.5px; }
+        .autogen-xi-overseas { font-size: 0.6rem; background: rgba(168,85,247,0.15); color: var(--accent-purple, #a855f7); padding: 1px 6px; border-radius: 3px; font-weight: 600; }
+        .autogen-swot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); }
+        .autogen-swot-box { padding: var(--space-3); border-radius: var(--radius-md); border: 1px solid var(--border); }
+        .autogen-swot-box.strengths { background: rgba(34,197,94,0.06); border-color: rgba(34,197,94,0.2); }
+        .autogen-swot-box.weaknesses { background: rgba(239,68,68,0.06); border-color: rgba(239,68,68,0.2); }
+        .autogen-swot-box h4 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-2); }
+        .autogen-swot-box.strengths h4 { color: var(--accent-green, #22c55e); }
+        .autogen-swot-box.weaknesses h4 { color: var(--accent-red, #ef4444); }
+        .autogen-swot-box ul { list-style: none; padding: 0; margin: 0; }
+        .autogen-swot-box li { font-size: 0.8rem; color: var(--text-secondary); padding: var(--space-1) 0; line-height: 1.5; }
+        .autogen-swot-box li::before { content: ''; display: inline-block; width: 6px; height: 6px; border-radius: 50%; margin-right: var(--space-2); vertical-align: middle; }
+        .autogen-swot-box.strengths li::before { background: var(--accent-green, #22c55e); }
+        .autogen-swot-box.weaknesses li::before { background: var(--accent-red, #ef4444); }
+        .autogen-outlook-text { font-size: 0.88rem; line-height: 1.75; color: var(--text-secondary); text-align: justify; text-justify: inter-word; background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius-md); padding: var(--space-4); }
+        .autogen-editorial-placeholder { padding: var(--space-4); background: linear-gradient(135deg, rgba(59,130,246,0.04), rgba(168,85,247,0.04)); border: 1px dashed var(--border); border-radius: var(--radius-md); text-align: center; }
+        .autogen-editorial-placeholder-title { font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); margin-bottom: var(--space-2); }
+        .autogen-editorial-placeholder-text { font-size: 0.78rem; color: var(--text-tertiary); line-height: 1.6; }
+        @media (max-width: 768px) { .autogen-overview-grid { grid-template-columns: repeat(2, 1fr); } .autogen-xi-grid { grid-template-columns: 1fr; } .autogen-swot-grid { grid-template-columns: 1fr; } .autogen-depth-label { flex: 0 0 90px; font-size: 0.7rem; } .autogen-player-card { padding: var(--space-2); } .autogen-player-name { font-size: 0.82rem; } }
+        @media (max-width: 480px) { .autogen-overview-grid { grid-template-columns: 1fr 1fr; } .autogen-depth-label { flex: 0 0 70px; font-size: 0.65rem; } }
+
         /* Responsive - Mobile */
         @media (max-width: 768px) {
             .content-panel { padding: 0 12px 60px; }
@@ -4230,7 +4320,7 @@
         /* ==================== REPORT ISSUE ==================== */
         .report-btn {
             position: fixed;
-            bottom: 92px;
+            bottom: 88px;
             right: 24px;
             width: 56px;
             height: 56px;
@@ -4334,7 +4424,7 @@
         }
         .report-success .success-close:hover { background: #C2410C; }
         @media (max-width: 768px) {
-            .report-btn { bottom: 76px; right: 16px; width: 48px; height: 48px; }
+            .report-btn { bottom: 72px; right: 16px; width: 48px; height: 48px; }
             .report-modal { padding: var(--space-4) 16px; }
         }
 
@@ -4366,7 +4456,7 @@
 /* ==================== CHAT WIDGET ==================== */
 .chat-btn {
     position: fixed;
-    bottom: 160px;
+    bottom: 152px;
     right: 24px;
     width: 56px;
     height: 56px;
@@ -4534,7 +4624,7 @@
 .chat-send:hover { transform: scale(1.08); }
 .chat-send:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
 @media (max-width: 768px) {
-    .chat-btn { bottom: 136px; right: 16px; width: 48px; height: 48px; }
+    .chat-btn { bottom: 128px; right: 16px; width: 48px; height: 48px; }
     .chat-panel {
         bottom: 0; right: 0; left: 0;
         width: 100%; height: 70vh;
@@ -4605,12 +4695,13 @@
     background: var(--bg-secondary);
     border: 1px solid var(--border);
     border-radius: var(--radius-sm);
-    cursor: grab;
+    cursor: pointer;
     transition: var(--transition-fast);
     user-select: none;
+    min-height: 44px;
 }
 .pool-player:hover { border-color: var(--accent); background: var(--bg-tertiary); }
-.pool-player:active { cursor: grabbing; }
+.pool-player:active { background: var(--bg-tertiary); transform: scale(0.98); }
 .pool-player.placed { opacity: 0.3; pointer-events: none; }
 .pool-player-name {
     font-size: var(--text-sm);
@@ -4931,6 +5022,7 @@
             <button class="content-tab" data-tab="compare" role="tab" aria-selected="false" aria-controls="panel-compare">Compare</button>
             <button class="content-tab" data-tab="schedule" role="tab" aria-selected="false" aria-controls="panel-schedule">Schedule</button>
             <button class="content-tab" data-tab="buildxi" role="tab" aria-selected="false" aria-controls="panel-buildxi">Build XI</button>
+            <button class="content-tab" data-tab="notes" role="tab" aria-selected="false" aria-controls="panel-notes">Pre-Tournament Notes</button>
         </div>
 
         <!-- Content Panels -->
@@ -4962,6 +5054,9 @@
             </div>
             <div class="panel" id="panel-buildxi" role="tabpanel" aria-labelledby="tab-buildxi">
                 <div id="buildxi-content"></div>
+            </div>
+            <div class="panel" id="panel-notes" role="tabpanel" aria-labelledby="tab-notes">
+                <div id="notes-content"></div>
             </div>
         </div>
 
@@ -5252,7 +5347,7 @@
             // XI List Header
             const xiHeader = document.createElement('div');
             xiHeader.style.cssText = 'display:flex;align-items:center;justify-content:space-between;padding:12px 16px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-tertiary);border-bottom:2px solid var(--accent);background:var(--bg-tertiary);border-radius:var(--radius-lg) var(--radius-lg) 0 0;';
-            xiHeader.innerHTML = '<span style="width:28px;text-align:center;">#</span><span style="flex:1;padding-left:var(--space-3);">Player</span><span style="width:80px;text-align:right;">Price</span><span style="width:50px;text-align:center;">Nat</span>';
+            xiHeader.innerHTML = '<span style="width:28px;text-align:center;">#</span><span style="flex:1;padding-left:var(--space-3);">Player</span>';
             xiGrid.appendChild(xiHeader);
 
             // Injury Watch notice
@@ -5288,12 +5383,14 @@
                 card.innerHTML = `
                     <div class="player-position">${player.position}</div>
                     <div class="player-info">
-                        <span class="player-name player-clickable" onclick="openPlayerProfile('${player.name.replace(/'/g, "\\\\'")}')">${player.name}</span>${getInjuryBadge(player.name)}
-                        <span class="player-role" style="margin-left:8px;opacity:0.6;display:inline-flex;align-items:center;gap:4px;">${xiRoleIcon} ${player.role}</span>
-                    </div>
-                    <div class="player-meta">
-                        <span class="player-price">₹${player.price}Cr</span>
-                        <span style="width:50px;text-align:center;font-size:12px;">${player.overseas ? getFlag(nat) : '🇮🇳'}</span>
+                        <div><span class="player-name player-clickable" onclick="openPlayerProfile('${player.name.replace(/'/g, "\\\\'")}')">${player.name}</span>${getInjuryBadge(player.name)}</div>
+                        <div class="player-detail-line">
+                            <span class="player-role">${xiRoleIcon} ${player.role}</span>
+                            <span>·</span>
+                            <span class="player-price">₹${Number(player.price).toFixed(2)}Cr</span>
+                            <span>·</span>
+                            <span>${player.overseas ? getFlag(nat) : '🇮🇳'}</span>
+                        </div>
                     </div>
                 `;
                 xiGrid.appendChild(card);
@@ -5321,7 +5418,7 @@
                                 <div class="impact-sub-icon">${getRoleIcon(roleToIcon(s.role))}</div>
                                 <div class="impact-sub-info">
                                     <div class="impact-sub-name player-clickable" onclick="openPlayerProfile('${s.name.replace(/'/g, "\\\\'")}')">${s.name}</div>
-                                    <div class="impact-sub-role">${s.role} · ₹${s.price} Cr</div>
+                                    <div class="impact-sub-role">${s.role} · ₹${Number(s.price).toFixed(2)} Cr</div>
                                 </div>
                             </div>
                         `).join('')}
@@ -5383,7 +5480,7 @@
             const primePct = ((prime / totalAge) * 100).toFixed(0);
             const expPct = ((experienced / totalAge) * 100).toFixed(0);
             const vetPct = ((veteran / totalAge) * 100).toFixed(0);
-            const veterans50Plus = squad.filter(p => { const s = p.stats; const m = s && s[rosterScope] ? s[rosterScope].matches : 0; return (m > 0 ? m : (p.iplMatches || 0)) >= 50; }).length;
+            const veterans50Plus = squad.filter(p => { const s = p.stats; return (s && s[rosterScope] ? s[rosterScope].matches : (p.iplMatches || 0)) >= 50; }).length;
             const uncappedCount = squad.filter(p => p.isUncapped).length;
 
             // --- Venue Alignment ---
@@ -5412,8 +5509,8 @@
                     const mid = vp.phases && vp.phases.middle;
                     const dth = vp.phases && vp.phases.death;
                     const avgRR = (phase) => phase ? ((phase.battingFirst.runRate + phase.chasing.runRate) / 2).toFixed(2) : '-';
-                    const avgBdry = (phase) => phase ? ((phase.battingFirst.boundaryPct + phase.chasing.boundaryPct) / 2).toFixed(1) : '-';
-                    const avgDot = (phase) => phase ? ((phase.battingFirst.dotPct + phase.chasing.dotPct) / 2).toFixed(1) : '-';
+                    const avgBdry = (phase) => phase ? ((phase.battingFirst.boundaryPct + phase.chasing.boundaryPct) / 2).toFixed(2) : '-';
+                    const avgDot = (phase) => phase ? ((phase.battingFirst.dotPct + phase.chasing.dotPct) / 2).toFixed(2) : '-';
                     venueData = {
                         homeVenue: {
                             name: vp.venueName,
@@ -5885,6 +5982,8 @@
                 // Bowling variety summary from bowler positions
                 const bowlTypeSummary = {};
                 const bowlTypeLabels = {'Right-arm Pace': 'RA Pace', 'Left-arm Pace': 'LA Pace', 'Off-spin': 'Off', 'Leg-spin': 'Leg', 'Left-arm Orthodox': 'LA Orth'};
+                // Abbreviate long position names for cleaner depth chart display
+                const posNameAbbrev = {'Right-arm Pace': 'RA Pace', 'Left-arm Pace': 'LA Pace', 'Left-arm Orthodox': 'LA Orth', 'Allrounder (Batting)': 'AR (Bat)', 'Allrounder (Bowling)': 'AR (Bowl)', 'Middle Order': 'Mid Order', 'Middle Order #4-5': 'Mid Order', 'Middle Overs Specialist': 'Mid Overs', 'Lead Pacer': 'Lead Pace', 'Lead Spinner': 'Lead Spin', 'Supporting Pacer (PP)': 'Supp Pace (PP)', 'Supporting Pacer (Death)': 'Supp Pace (D)', 'Finisher #6-7': 'Finisher'};
                 bowlingPositions.forEach(pos => {
                     const label = bowlTypeLabels[pos.name];
                     if (label) {
@@ -5922,7 +6021,7 @@
                             </div>
                         </div>
                         <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                            ${pos.players.map(p => `<div style="font-size: 11px; padding: 4px 10px; border-radius: var(--radius-sm); background: var(--bg-tertiary); border: 1px solid var(--border);"><strong style="color: var(--text-primary);">${p.name}</strong> <span style="color: var(--text-tertiary);">${p.score.toFixed(0)}%</span> <span style="color: var(--text-secondary);">${p.rationale}</span> <span style="color: var(--accent);">₹${p.price}Cr</span></div>`).join('')}
+                            ${pos.players.map(p => `<div style="font-size: 11px; padding: 4px 10px; border-radius: var(--radius-sm); background: var(--bg-tertiary); border: 1px solid var(--border);"><strong style="color: var(--text-primary);">${p.name}</strong> <span style="color: var(--text-tertiary);">${p.score.toFixed(0)}%</span> <span style="color: var(--text-secondary);">${p.rationale}</span> <span style="color: var(--accent);">₹${Number(p.price).toFixed(2)}Cr</span></div>`).join('')}
                         </div>
                     `;
 
@@ -5939,9 +6038,10 @@
                         return `<div class="player-cell"><span class="rank-dot ${rank}"></span><span class="player-name" onclick="event.stopPropagation(); openPlayerProfile('${p.name.replace(/'/g, "\\\\'")}')">${shortenName(p.name)}</span><span class="player-badges">${osBadge(p)}${bowlBadge(p)}</span></div>`;
                     };
 
+                    const displayName = posNameAbbrev[pos.name] || pos.name;
                     return `
                         <tr class="depth-row" onclick="toggleDepthDetail(${posIdx})">
-                            <td class="pos-cell">${pos.name}</td>
+                            <td class="pos-cell" title="${pos.name}">${displayName}</td>
                             <td>${playerCell(p1, 'primary')}</td>
                             <td>${playerCell(p2, 'secondary')}</td>
                             <td>${playerCell(p3, 'tertiary')}</td>
@@ -6589,55 +6689,55 @@
 
                 ${qualNote}
 
-                <div class="pressure-glossary-toggle" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open');">
-                    <span class="toggle-arrow">&#9660;</span> What do these ratings mean?
+                <div class="pressure-methodology-toggle" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open');">
+                    <span class="toggle-arrow">&#9660;</span> Show Methodology
                 </div>
-                <div class="pressure-glossary-body">
-                    <div class="pressure-glossary-section">
+                <div class="pressure-methodology-body">
+                    <div class="meth-section">
                         <h4>Pressure Bands (RRR-Based)</h4>
-                        <table class="pressure-glossary-table">
+                        <table class="meth-table">
                             <thead><tr><th scope="col">Band</th><th scope="col">RRR Range</th><th scope="col">What It Means</th></tr></thead>
                             <tbody>
-                                <tr><td class="band-tag">COMFORTABLE</td><td>&lt; 8</td><td>Cruising : run rate is manageable, batters can play normally</td></tr>
-                                <tr><td class="band-tag">BUILDING</td><td>8 &ndash; 10</td><td>Above par : scoring needs to accelerate, risk-taking begins</td></tr>
-                                <tr><td class="band-tag">HIGH</td><td>10 &ndash; 12</td><td>Aggressive required : boundaries needed every 2-3 balls</td></tr>
-                                <tr><td class="band-tag">EXTREME</td><td>12 &ndash; 15</td><td>Six-hitting territory : almost every ball must score</td></tr>
-                                <tr><td class="band-tag">NEAR_IMPOSSIBLE</td><td>15+</td><td>Miracle needed : requires continuous boundaries to win</td></tr>
+                                <tr><td class="meth-label">COMFORTABLE</td><td>&lt; 8</td><td>Cruising : run rate is manageable, batters can play normally</td></tr>
+                                <tr><td class="meth-label">BUILDING</td><td>8 &ndash; 10</td><td>Above par : scoring needs to accelerate, risk-taking begins</td></tr>
+                                <tr><td class="meth-label">HIGH</td><td>10 &ndash; 12</td><td>Aggressive required : boundaries needed every 2-3 balls</td></tr>
+                                <tr><td class="meth-label">EXTREME</td><td>12 &ndash; 15</td><td>Six-hitting territory : almost every ball must score</td></tr>
+                                <tr><td class="meth-label">NEAR_IMPOSSIBLE</td><td>15+</td><td>Miracle needed : requires continuous boundaries to win</td></tr>
                             </tbody>
                         </table>
                     </div>
-                    <div class="pressure-glossary-section">
+                    <div class="meth-section">
                         <h4>Pressure Ratings (Performance Tags)</h4>
-                        <table class="pressure-glossary-table">
+                        <table class="meth-table">
                             <thead><tr><th scope="col">Rating</th><th scope="col">For Batters</th><th scope="col">For Bowlers</th></tr></thead>
                             <tbody>
-                                <tr><td class="band-tag">CLUTCH</td><td>SR improves 10%+ AND dot% drops in 12+ RRR bands</td><td>Economy improves AND dot% rises in 12+ RRR bands</td></tr>
-                                <tr><td class="band-tag">PRESSURE_PROOF</td><td>Metrics within &plusmn;5% of overall across all bands</td><td>Metrics within &plusmn;5% of overall across all bands</td></tr>
-                                <tr><td class="band-tag">MODERATE</td><td>Performance changes between 5-10% under pressure</td><td>Economy/dot% changes 5-10% under pressure</td></tr>
-                                <tr><td class="band-tag">PRESSURE_SENSITIVE</td><td>SR drops 10%+ OR dot% rises 10%+ in 12+ RRR bands</td><td>Economy rises 15%+ OR boundary% conceded rises 10%+</td></tr>
+                                <tr><td class="meth-label">CLUTCH</td><td>SR improves 10%+ AND dot% drops in 12+ RRR bands</td><td>Economy improves AND dot% rises in 12+ RRR bands</td></tr>
+                                <tr><td class="meth-label">PRESSURE_PROOF</td><td>Metrics within &plusmn;5% of overall across all bands</td><td>Metrics within &plusmn;5% of overall across all bands</td></tr>
+                                <tr><td class="meth-label">MODERATE</td><td>Performance changes between 5-10% under pressure</td><td>Economy/dot% changes 5-10% under pressure</td></tr>
+                                <tr><td class="meth-label">PRESSURE_SENSITIVE</td><td>SR drops 10%+ OR dot% rises 10%+ in 12+ RRR bands</td><td>Economy rises 15%+ OR boundary% conceded rises 10%+</td></tr>
                             </tbody>
                         </table>
                     </div>
-                    <div class="pressure-glossary-section">
+                    <div class="meth-section">
                         <h4>Entry Context (Batter Only)</h4>
-                        <table class="pressure-glossary-table">
+                        <table class="meth-table">
                             <thead><tr><th scope="col">Context</th><th scope="col">Balls Before Pressure</th><th scope="col">Meaning</th></tr></thead>
                             <tbody>
-                                <tr><td class="band-tag">FRESH</td><td>&lt; 10</td><td>Walked in during pressure phase : facing it cold</td></tr>
-                                <tr><td class="band-tag">BUILDING</td><td>10 &ndash; 25</td><td>Getting set when pressure hit : partially established</td></tr>
-                                <tr><td class="band-tag">SET</td><td>25 &ndash; 40</td><td>Well established before pressure phase</td></tr>
-                                <tr><td class="band-tag">DEEP_SET</td><td>40+</td><td>Long innings before pressure : fully in rhythm</td></tr>
+                                <tr><td class="meth-label">FRESH</td><td>&lt; 10</td><td>Walked in during pressure phase : facing it cold</td></tr>
+                                <tr><td class="meth-label">BUILDING</td><td>10 &ndash; 25</td><td>Getting set when pressure hit : partially established</td></tr>
+                                <tr><td class="meth-label">SET</td><td>25 &ndash; 40</td><td>Well established before pressure phase</td></tr>
+                                <tr><td class="meth-label">DEEP_SET</td><td>40+</td><td>Long innings before pressure : fully in rhythm</td></tr>
                             </tbody>
                         </table>
                     </div>
-                    <div class="pressure-glossary-section">
+                    <div class="meth-section">
                         <h4>Other Terms</h4>
-                        <table class="pressure-glossary-table">
+                        <table class="meth-table">
                             <tbody>
-                                <tr><td class="band-tag" style="width: 140px;">Weighted Score</td><td>Composite metric combining SR delta with sample size (log&#8322; scaling) and death overs bonus (30% weight for overs 16-20 execution)</td></tr>
-                                <tr><td class="band-tag">SR Delta</td><td>Percentage change in strike rate between overall performance and pressure situations. Positive = better under pressure.</td></tr>
-                                <tr><td class="band-tag">Overs 15-17</td><td>Setup phase under pressure : where batting teams begin acceleration and bowlers set up their death plans</td></tr>
-                                <tr><td class="band-tag">Overs 18-20</td><td>Death execution phase : the highest-leverage balls of the innings where pressure performance matters most</td></tr>
+                                <tr><td class="meth-label" style="width: 140px;">Weighted Score</td><td>Composite metric combining SR delta with sample size (log&#8322; scaling) and death overs bonus (30% weight for overs 16-20 execution)</td></tr>
+                                <tr><td class="meth-label">SR Delta</td><td>Percentage change in strike rate between overall performance and pressure situations. Positive = better under pressure.</td></tr>
+                                <tr><td class="meth-label">Overs 15-17</td><td>Setup phase under pressure : where batting teams begin acceleration and bowlers set up their death plans</td></tr>
+                                <tr><td class="meth-label">Overs 18-20</td><td>Death execution phase : the highest-leverage balls of the innings where pressure performance matters most</td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -6680,7 +6780,7 @@
             const totalRemaining = squadData.purseRemaining;
             const overseas = squad.filter(p => p.nationality !== 'IND').length;
             const retained = squad.filter(p => p.retainedStatus === 'Retained').length;
-            const avgAge = (squad.reduce((sum, p) => sum + p.age, 0) / squad.length).toFixed(1);
+            const avgAge = (squad.reduce((sum, p) => sum + p.age, 0) / squad.length).toFixed(2);
 
             // Role breakdown
             const batters = squad.filter(p => p.role === 'Batter').length;
@@ -6725,7 +6825,7 @@
                             <div class="squad-stat-label has-tooltip" data-tooltip="Total players in the squad roster">Players</div>
                         </div>
                         <div class="squad-stat">
-                            <div class="squad-stat-value">₹${totalSpent.toFixed(1)}Cr</div>
+                            <div class="squad-stat-value">₹${totalSpent.toFixed(2)}Cr</div>
                             <div class="squad-stat-label has-tooltip" data-tooltip="Total auction spend in Indian Rupees (Crores)">Spent</div>
                         </div>
                         <div class="squad-stat">
@@ -6874,7 +6974,7 @@
                                     <span class="age-cell ${getAgeClass(player.age)}">${player.age}</span>
                                 </td>
                                 <td class="compact-cell">
-                                    <span class="ipl-exp-badge ${player.isUncapped ? 'uncapped' : ((() => { const s = player.stats; const m = s && s[rosterScope] ? s[rosterScope].matches : 0; return m > 0 ? m : (player.iplMatches || 0); })()) >= 30 ? 'veteran' : ''}">${player.isUncapped ? 'U' : (() => { const s = player.stats; const m = s && s[rosterScope] ? s[rosterScope].matches : 0; return m > 0 ? m : (player.iplMatches || 0); })()}</span>
+                                    <span class="ipl-exp-badge ${player.isUncapped ? 'uncapped' : ((() => { const s = player.stats; return s && s[rosterScope] ? s[rosterScope].matches : (player.iplMatches || 0); })()) >= 30 ? 'veteran' : ''}">${player.isUncapped ? 'U' : (() => { const s = player.stats; return s && s[rosterScope] ? s[rosterScope].matches : (player.iplMatches || 0); })()}</span>
                                 </td>
                                 <td>
                                     <span class="nat-badge ${player.nationality !== 'IND' ? 'overseas' : ''}">
@@ -6981,7 +7081,7 @@
                         <h4>IPL Experience${rosterScope === 'alltime' ? ' (All-Time)' : ' (Since 2023)'}</h4>
                         <div class="summary-breakdown">
                             ${(() => {
-                                const getMatches = (p) => { const s = p.stats; const m = s && s[rosterScope] ? s[rosterScope].matches : 0; return m > 0 ? m : (p.iplMatches || 0); };
+                                const getMatches = (p) => { const s = p.stats; return s && s[rosterScope] ? s[rosterScope].matches : (p.iplMatches || 0); };
                                 const experienced = squad.filter(p => getMatches(p) > 0).sort((a,b) => getMatches(b) - getMatches(a));
                                 const uncapped = squad.filter(p => p.isUncapped).length;
                                 const totalMatches = squad.reduce((sum, p) => sum + getMatches(p), 0);
@@ -7107,10 +7207,10 @@
                 { label: 'Overall Rating', val1: rating1.overall, val2: rating2.overall, higher: 'better', tooltip: 'Composite team strength rating (0-100)' },
                 { label: 'Titles Won', val1: team1.titles, val2: team2.titles, higher: 'better', tooltip: 'IPL championship titles won' },
                 { label: 'Squad Size', val1: squad1.squad.length, val2: squad2.squad.length, higher: 'neutral', tooltip: 'Total players in squad roster' },
-                { label: 'Purse Spent (Cr)', val1: squad1.purseSpent.toFixed(1), val2: squad2.purseSpent.toFixed(1), higher: 'neutral', tooltip: 'Auction spend in Indian Rupees (Crores)' },
-                { label: 'Purse Remaining (Cr)', val1: squad1.purseRemaining.toFixed(1), val2: squad2.purseRemaining.toFixed(1), higher: 'neutral', tooltip: 'Remaining auction budget out of 120 Cr salary cap' },
+                { label: 'Purse Spent (Cr)', val1: squad1.purseSpent.toFixed(2), val2: squad2.purseSpent.toFixed(2), higher: 'neutral', tooltip: 'Auction spend in Indian Rupees (Crores)' },
+                { label: 'Purse Remaining (Cr)', val1: squad1.purseRemaining.toFixed(2), val2: squad2.purseRemaining.toFixed(2), higher: 'neutral', tooltip: 'Remaining auction budget out of 120 Cr salary cap' },
                 { label: 'Overseas Players', val1: squad1.squad.filter(p => p.nationality !== 'IND').length, val2: squad2.squad.filter(p => p.nationality !== 'IND').length, higher: 'neutral', tooltip: 'Non-Indian players (max 4 can play per XI)' },
-                { label: 'Avg Squad Age', val1: (squad1.squad.reduce((s, p) => s + p.age, 0) / squad1.squad.length).toFixed(1), val2: (squad2.squad.reduce((s, p) => s + p.age, 0) / squad2.squad.length).toFixed(1), higher: 'neutral', tooltip: 'Average age of squad members' },
+                { label: 'Avg Squad Age', val1: (squad1.squad.reduce((s, p) => s + p.age, 0) / squad1.squad.length).toFixed(2), val2: (squad2.squad.reduce((s, p) => s + p.age, 0) / squad2.squad.length).toFixed(2), higher: 'neutral', tooltip: 'Average age of squad members' },
                 { label: 'Batters', val1: squad1.squad.filter(p => p.role === 'Batter').length, val2: squad2.squad.filter(p => p.role === 'Batter').length, higher: 'neutral', tooltip: 'Players whose primary role is batting' },
                 { label: 'Bowlers', val1: squad1.squad.filter(p => p.role === 'Bowler').length, val2: squad2.squad.filter(p => p.role === 'Bowler').length, higher: 'neutral', tooltip: 'Players whose primary role is bowling' },
                 { label: 'All-Rounders', val1: squad1.squad.filter(p => p.role === 'All-rounder').length, val2: squad2.squad.filter(p => p.role === 'All-rounder').length, higher: 'neutral', tooltip: 'Players who contribute with both bat and ball' },
@@ -7159,9 +7259,9 @@
                         <tbody>
                             ${metrics.map(m => `
                                 <tr>
-                                    <td class="${getCompareClass(m, true)}">${m.val1}</td>
+                                    <td class="${getCompareClass(m, true)}" data-team="${currentTeam}">${m.val1}</td>
                                     <td class="compare-metric-label has-tooltip" data-tooltip="${m.tooltip}">${m.label}</td>
-                                    <td class="${getCompareClass(m, false)}">${m.val2}</td>
+                                    <td class="${getCompareClass(m, false)}" data-team="${compareTeam}">${m.val2}</td>
                                 </tr>
                             `).join('')}
                         </tbody>
@@ -7188,11 +7288,7 @@
             const data = (typeof SEASON_PREVIEWS !== 'undefined') ? SEASON_PREVIEWS[currentTeam] : null;
 
             if (!data || !data.available) {
-                container.innerHTML = `
-                    <div class="preview-coming-soon">
-                        <div class="preview-coming-soon-title">Season Preview Coming Soon</div>
-                        <div class="preview-coming-soon-text">The ${TEAMS[currentTeam]?.name || currentTeam} season preview is being prepared by Statsledge's editorial team.</div>
-                    </div>`;
+                container.innerHTML = renderAutoGeneratedPreview(currentTeam);
                 return;
             }
 
@@ -7367,6 +7463,247 @@
             });
         }
 
+        // ==================== AUTO-GENERATED PREVIEW (Task #10) ====================
+        function renderAutoGeneratedPreview(teamAbbrev) {
+            const team = TEAMS[teamAbbrev] || {};
+            const teamName = team.name || teamAbbrev;
+            const fullName = team.fullName || teamName;
+            const squad = (typeof FULL_SQUADS !== 'undefined' && FULL_SQUADS[teamAbbrev]) ? FULL_SQUADS[teamAbbrev] : [];
+            const predicted = (typeof PREDICTED_XII !== 'undefined' && PREDICTED_XII[teamAbbrev]) ? PREDICTED_XII[teamAbbrev] : null;
+            const depth = (typeof FULL_DEPTH_CHARTS !== 'undefined' && FULL_DEPTH_CHARTS[teamAbbrev]) ? FULL_DEPTH_CHARTS[teamAbbrev] : null;
+
+            // Derived data
+            const captain = squad.find(p => p.isCaptain);
+            const captainName = captain ? captain.name : (team.captain || 'TBD');
+            const overseasPlayers = squad.filter(p => p.nationality !== 'IND');
+            const uncappedPlayers = squad.filter(p => p.isUncapped);
+            const totalSpent = squad.reduce((s, p) => s + (p.price || 0), 0);
+            const retainedCount = squad.filter(p => (p.acquisition || '').toLowerCase().includes('retain')).length;
+            const avgAge = squad.length ? (squad.reduce((s, p) => s + (p.age || 0), 0) / squad.length).toFixed(1) : '?';
+            const totalIPLMatches = squad.reduce((s, p) => s + (p.iplMatches || 0), 0);
+
+            // Star players: highest IPL runs
+            const starBatters = squad.filter(p => (p.iplRuns || 0) > 200)
+                .sort((a, b) => (b.iplRuns || 0) - (a.iplRuns || 0)).slice(0, 3);
+            const starBowlers = squad.filter(p => (p.iplWickets || 0) > 10)
+                .sort((a, b) => (b.iplWickets || 0) - (a.iplWickets || 0)).slice(0, 3);
+
+            // Depth chart strengths and weaknesses
+            let depthStrengths = [];
+            let depthWeaknesses = [];
+            let depthOverall = '?';
+            if (depth) {
+                depthOverall = depth.overall || '?';
+                const positions = depth.positions || [];
+                depthStrengths = positions.filter(p => p.rating >= 8.0)
+                    .sort((a, b) => b.rating - a.rating).slice(0, 4)
+                    .map(p => p.name + ' (' + p.rating.toFixed(1) + '/10)');
+                depthWeaknesses = positions.filter(p => p.rating < 5.0)
+                    .sort((a, b) => a.rating - b.rating).slice(0, 4)
+                    .map(p => p.name + ' (' + p.rating.toFixed(1) + '/10)');
+            }
+            const vulnerabilities = (depth && depth.vulnerabilities) ? depth.vulnerabilities : [];
+
+            // Rating color helper
+            function ratingColor(r) {
+                if (r >= 8) return 'var(--accent-green, #22c55e)';
+                if (r >= 6.5) return 'var(--accent, #3b82f6)';
+                if (r >= 5) return 'var(--accent-yellow, #eab308)';
+                return 'var(--accent-red, #ef4444)';
+            }
+
+            // Build outlook text from data
+            const outlookParts = [];
+            outlookParts.push(`${fullName} enter IPL 2026 with a squad of ${squad.length} players, captained by ${captainName}.`);
+            if (depth) {
+                outlookParts.push(`The depth chart overall rating stands at <strong>${depthOverall}/10</strong>, with the strongest position being <strong>${depth.strongest || 'N/A'}</strong> and the weakest being <strong>${depth.weakest || 'N/A'}</strong>.`);
+            }
+            if (overseasPlayers.length > 0) {
+                outlookParts.push(`The squad includes ${overseasPlayers.length} overseas player${overseasPlayers.length > 1 ? 's' : ''}, giving the franchise flexibility in selection.`);
+            }
+            if (vulnerabilities.length > 0) {
+                outlookParts.push(`Key vulnerabilities to watch: ${vulnerabilities.slice(0, 3).join('; ')}.`);
+            }
+            if (starBatters.length > 0) {
+                outlookParts.push(`The batting is anchored by ${starBatters.map(p => p.name).join(', ')}, who combine for ${starBatters.reduce((s, p) => s + (p.iplRuns || 0), 0)} runs since 2023.`);
+            }
+            if (starBowlers.length > 0) {
+                outlookParts.push(`The bowling attack is led by ${starBowlers.map(p => p.name).join(', ')}, accounting for ${starBowlers.reduce((s, p) => s + (p.iplWickets || 0), 0)} wickets in the same window.`);
+            }
+
+            let html = '<div class="autogen-preview">';
+
+            // Banner
+            html += `<div class="autogen-preview-banner">
+                <span>Data-generated preview from squad, depth chart, and predicted XI data. Full editorial preview in progress.</span>
+            </div>`;
+
+            // === SECTION 1: Team Overview ===
+            html += `<div class="autogen-section">
+                <div class="autogen-section-title">Team Overview</div>
+                <div class="autogen-overview-grid">
+                    <div class="autogen-overview-card">
+                        <div class="autogen-overview-label">Captain</div>
+                        <div class="autogen-overview-value" style="font-size:0.92rem;">${captainName}</div>
+                    </div>
+                    <div class="autogen-overview-card">
+                        <div class="autogen-overview-label">Squad Size</div>
+                        <div class="autogen-overview-value">${squad.length}</div>
+                    </div>
+                    <div class="autogen-overview-card">
+                        <div class="autogen-overview-label">Overseas</div>
+                        <div class="autogen-overview-value">${overseasPlayers.length}</div>
+                    </div>
+                    <div class="autogen-overview-card">
+                        <div class="autogen-overview-label">Avg Age</div>
+                        <div class="autogen-overview-value">${avgAge}</div>
+                    </div>
+                    <div class="autogen-overview-card">
+                        <div class="autogen-overview-label">Purse Spent</div>
+                        <div class="autogen-overview-value">${totalSpent.toFixed(1)} Cr</div>
+                    </div>
+                    <div class="autogen-overview-card">
+                        <div class="autogen-overview-label">Depth Rating</div>
+                        <div class="autogen-overview-value" style="color:${ratingColor(parseFloat(depthOverall) || 0)}">${depthOverall}/10</div>
+                    </div>
+                    <div class="autogen-overview-card">
+                        <div class="autogen-overview-label">Retained</div>
+                        <div class="autogen-overview-value">${retainedCount}</div>
+                    </div>
+                    <div class="autogen-overview-card">
+                        <div class="autogen-overview-label">IPL Experience</div>
+                        <div class="autogen-overview-value">${totalIPLMatches} matches</div>
+                    </div>
+                </div>
+            </div>`;
+
+            // === SECTION 2: Strengths & Weaknesses ===
+            if (depthStrengths.length > 0 || depthWeaknesses.length > 0 || vulnerabilities.length > 0) {
+                html += `<div class="autogen-section">
+                    <div class="autogen-section-title">Key Strengths & Weaknesses</div>
+                    <div class="autogen-swot-grid">
+                        <div class="autogen-swot-box strengths">
+                            <h4>Strengths</h4>
+                            <ul>${depthStrengths.length > 0 ? depthStrengths.map(s => '<li>' + s + '</li>').join('') : '<li>Data unavailable</li>'}</ul>
+                        </div>
+                        <div class="autogen-swot-box weaknesses">
+                            <h4>Weaknesses</h4>
+                            <ul>${depthWeaknesses.length > 0 ? depthWeaknesses.map(w => '<li>' + w + '</li>').join('') : (vulnerabilities.length > 0 ? vulnerabilities.map(v => '<li>' + v + '</li>').join('') : '<li>Data unavailable</li>')}</ul>
+                        </div>
+                    </div>
+                </div>`;
+            }
+
+            // === SECTION 3: Players to Watch ===
+            const playersToWatch = [];
+            // Add top batter
+            if (starBatters.length > 0) {
+                starBatters.forEach((p, i) => {
+                    playersToWatch.push({ player: p, reason: 'Top Run-Scorer', statLabel: 'Runs', statValue: p.iplRuns || 0, subStat: 'SR ' + (p.iplSR || 0).toFixed(1) });
+                });
+            }
+            // Add top bowler
+            if (starBowlers.length > 0) {
+                starBowlers.forEach((p, i) => {
+                    if (!playersToWatch.find(pw => pw.player.name === p.name)) {
+                        playersToWatch.push({ player: p, reason: 'Top Wicket-Taker', statLabel: 'Wkts', statValue: p.iplWickets || 0, subStat: 'Econ ' + (p.iplEconomy || 0).toFixed(2) });
+                    }
+                });
+            }
+            // Add captain if not already included
+            if (captain && !playersToWatch.find(pw => pw.player.name === captain.name)) {
+                const capStat = (captain.iplRuns || 0) > (captain.iplWickets || 0) * 20
+                    ? { label: 'Runs', value: captain.iplRuns || 0, sub: 'SR ' + (captain.iplSR || 0).toFixed(1) }
+                    : { label: 'Wkts', value: captain.iplWickets || 0, sub: 'Econ ' + (captain.iplEconomy || 0).toFixed(2) };
+                playersToWatch.push({ player: captain, reason: 'Captain', statLabel: capStat.label, statValue: capStat.value, subStat: capStat.sub });
+            }
+
+            if (playersToWatch.length > 0) {
+                html += `<div class="autogen-section">
+                    <div class="autogen-section-title">Players to Watch</div>`;
+                playersToWatch.slice(0, 5).forEach((pw, i) => {
+                    const p = pw.player;
+                    const roleStr = p.role + (p.nationality !== 'IND' ? ' | ' + p.nationality : '') + (p.batterClass ? ' | ' + p.batterClass : '') + (p.bowlerClass ? ' | ' + p.bowlerClass : '');
+                    html += `<div class="autogen-player-card">
+                        <div class="autogen-player-rank">${i + 1}</div>
+                        <div class="autogen-player-info">
+                            <div class="autogen-player-name">${p.name}</div>
+                            <div class="autogen-player-meta">${roleStr} &middot; ${pw.reason}</div>
+                        </div>
+                        <div class="autogen-player-stat">
+                            <strong>${pw.statValue}</strong>
+                            ${pw.statLabel} &middot; ${pw.subStat}
+                        </div>
+                    </div>`;
+                });
+                html += `</div>`;
+            }
+
+            // === SECTION 4: Predicted XI ===
+            if (predicted && predicted.xi && predicted.xi.length > 0) {
+                html += `<div class="autogen-section">
+                    <div class="autogen-section-title">Predicted XI</div>
+                    <div class="autogen-xi-grid">`;
+                predicted.xi.forEach(p => {
+                    html += `<div class="autogen-xi-slot">
+                        <div class="autogen-xi-pos">${p.position}</div>
+                        <div class="autogen-xi-name">${p.name}</div>
+                        <span class="autogen-xi-role">${p.role}</span>
+                        ${p.overseas ? '<span class="autogen-xi-overseas">OS</span>' : ''}
+                    </div>`;
+                });
+                html += `</div>`;
+                if (predicted.impactPlayer) {
+                    html += `<div style="margin-top:var(--space-2);padding:var(--space-2) var(--space-3);background:rgba(234,179,8,0.08);border:1px solid rgba(234,179,8,0.2);border-radius:var(--radius-sm);font-size:0.8rem;color:var(--text-secondary);">
+                        Impact Player: <strong>${predicted.impactPlayer.name}</strong> (${predicted.impactPlayer.role})
+                    </div>`;
+                }
+                html += `</div>`;
+            }
+
+            // === SECTION 5: Depth Chart Breakdown ===
+            if (depth && depth.positions && depth.positions.length > 0) {
+                html += `<div class="autogen-section">
+                    <div class="autogen-section-title">Depth Chart Breakdown</div>`;
+                depth.positions.forEach(pos => {
+                    const pct = (pos.rating / 10) * 100;
+                    const color = ratingColor(pos.rating);
+                    html += `<div class="autogen-depth-bar-row">
+                        <div class="autogen-depth-label">${pos.name}</div>
+                        <div class="autogen-depth-bar-bg"><div class="autogen-depth-bar-fill" style="width:${pct}%;background:${color}"></div></div>
+                        <div class="autogen-depth-score" style="color:${color}">${pos.rating.toFixed(1)}</div>
+                    </div>`;
+                });
+                html += `</div>`;
+            }
+
+            // === SECTION 6: Season Outlook ===
+            html += `<div class="autogen-section">
+                <div class="autogen-section-title">Season Outlook</div>
+                <div class="autogen-outlook-text">${outlookParts.join(' ')}</div>
+            </div>`;
+
+            // === SECTION 7: Editorial Placeholder ===
+            html += `<div class="autogen-section">
+                <div class="autogen-editorial-placeholder">
+                    <div class="autogen-editorial-placeholder-title">Full Editorial Preview In Progress</div>
+                    <div class="autogen-editorial-placeholder-text">
+                        The Statsledge editorial team is preparing the full magazine-style season preview for ${fullName}.<br>
+                        This will include the Bold Take, Keys to Victory, Scouting Report, phase-by-phase analysis,<br>
+                        and detailed section breakdowns. Check back soon.
+                    </div>
+                </div>
+            </div>`;
+
+            // Footer
+            html += `<div style="text-align:center;padding:16px;color:var(--text-tertiary);font-size:0.7rem;">
+                Auto-generated from squad, depth chart, and predicted XI data | Statsledge v5.0.0
+            </div>`;
+
+            html += '</div>';
+            return html;
+        }
+
         function renderPreviewBlocks(blocks) {
             if (!blocks || !blocks.length) return '';
             let html = '';
@@ -7479,7 +7816,7 @@
                 const slotClass = isImpact ? ' xi-slot-impact' : '';
                 const filledClass = slotPlayer ? ' filled' : '';
                 const num = isImpact ? 'IP' : (i + 1);
-                const label = isImpact ? 'Impact Player' : 'Drop player here';
+                const label = isImpact ? 'Impact Player' : 'Tap player or drag here';
                 if (slotPlayer) {
                     const rc = roleMap[slotPlayer.role] || 'bat';
                     const rl = roleLabel[slotPlayer.role] || slotPlayer.role.toUpperCase().substring(0, 3);
@@ -7594,8 +7931,21 @@
         }
 
         function bxiAttachDragHandlers() {
-            // Pool players: dragstart
+            // Pool players: tap-to-add (works on mobile and desktop)
             document.querySelectorAll('#bxi-pool .pool-player:not(.placed)').forEach(el => {
+                el.addEventListener('click', function() {
+                    const playerName = decodeURIComponent(el.dataset.player);
+                    const squad = FULL_SQUADS[currentTeam] || [];
+                    const player = squad.find(p => p.name === playerName);
+                    if (!player || buildXIState.slots.includes(player)) return;
+                    // Find first empty slot
+                    const emptyIdx = buildXIState.slots.indexOf(null);
+                    if (emptyIdx === -1) return;
+                    buildXIState.slots[emptyIdx] = player;
+                    renderBuildXI();
+                });
+
+                // Drag-and-drop for desktop
                 el.addEventListener('dragstart', function(e) {
                     e.dataTransfer.setData('text/plain', el.dataset.player);
                     e.dataTransfer.effectAllowed = 'move';
@@ -7736,8 +8086,136 @@
                 if (tabId === 'schedule') {
                     renderSchedulePanel();
                 }
+                if (tabId === 'notes') {
+                    renderNotesPanel();
+                }
             });
         });
+
+        function renderNotesPanel() {
+            const container = document.getElementById('notes-content');
+            if (!container) return;
+            if (typeof FULL_SQUADS === 'undefined' || !FULL_SQUADS[currentTeam]) {
+                container.innerHTML = '<p style="color:var(--text-tertiary);padding:var(--space-4);">Squad data not available.</p>';
+                return;
+            }
+
+            const squad = FULL_SQUADS[currentTeam];
+            const teamColor = TEAMS[currentTeam] ? TEAMS[currentTeam].primaryColor : 'var(--accent)';
+
+            // Role ordering for group sort
+            const roleOrder = { 'Batter': 1, 'Wicketkeeper': 2, 'All-rounder': 3, 'Bowler': 4 };
+
+            // Sort: predicted XI first (by founderPos), then non-XI grouped by role
+            const predicted = squad.filter(p => p.predictedXII).sort((a, b) => (a.founderPos || 99) - (b.founderPos || 99));
+            const bench = squad.filter(p => !p.predictedXII).sort((a, b) => {
+                const ra = roleOrder[a.role] || 5, rb = roleOrder[b.role] || 5;
+                if (ra !== rb) return ra - rb;
+                return (b.iplMatches || 0) - (a.iplMatches || 0);
+            });
+
+            function scoutNote(p) {
+                const parts = [];
+                // Archetype
+                const archetype = (p.batterClass && p.batterClass !== '-') ? p.batterClass : (p.bowlerClass && p.bowlerClass !== '-') ? p.bowlerClass : '';
+                if (archetype) parts.push('<em>' + archetype + '</em>');
+
+                // Batting hand + bowling type combo
+                const hand = (p.battingHand || '').replace('-hand', '').trim();
+                const bowl = p.bowlingType && p.bowlingType !== '-' && p.bowlingType !== 'Medium' ? p.bowlingType : '';
+                if (p.role === 'Bowler' || p.role === 'All-rounder') {
+                    const arm = (p.bowlingArm || '').replace('-arm', '').trim();
+                    if (arm && bowl) parts.push(arm + ' ' + bowl.toLowerCase());
+                } else if (hand) {
+                    parts.push(hand + '-handed');
+                }
+
+                // Tags
+                const allTags = [...(p.batterTags || []), ...(p.bowlerTags || [])];
+                const tagMap = {
+                    'PP_DOMINATOR': 'powerplay threat', 'PP_ELITE': 'powerplay specialist',
+                    'DEATH_SPECIALIST': 'death overs specialist', 'DEATH_ELITE': 'death overs elite',
+                    'SIX_HITTER': 'six-hitting ability', 'FINISHER': 'finisher',
+                    'ANCHOR': 'anchor role', 'CONSISTENT': 'consistent performer',
+                    'EXPLOSIVE_OPENER': 'explosive opener', 'MIDDLE_OVERS_ACCELERATOR': 'middle-overs accelerator',
+                    'MIDDLE_OVERS_CONTROLLER': 'middle-overs controller', 'MID_OVERS_ELITE': 'mid-overs elite',
+                    'PROVEN_WICKET_TAKER': 'proven wicket-taker', 'PRESSURE_BUILDER': 'pressure builder',
+                    'NEW_BALL_SPECIALIST': 'new-ball specialist', 'WORKHORSE': 'workhorse',
+                    'ACCUMULATOR': 'accumulator', 'PLAYMAKER': 'playmaker',
+                    'PACE_SPECIALIST': 'pace specialist'
+                };
+                const mapped = allTags.slice(0, 3).map(t => tagMap[t] || t.toLowerCase().replace(/_/g, ' ')).filter(Boolean);
+                if (mapped.length) parts.push(mapped.join(', '));
+
+                // IPL experience
+                const m = p.iplMatches || 0;
+                const am = (p.stats && p.stats.alltime) ? p.stats.alltime.matches : 0;
+                if (p.isUncapped || m === 0) {
+                    parts.push('uncapped / IPL debut pending');
+                } else if (am > 100) {
+                    parts.push(am + ' career IPL caps');
+                } else if (m < 10) {
+                    parts.push('limited IPL exposure (' + m + ' matches since 2023)');
+                }
+
+                // Key stat
+                if (p.role === 'Batter' || p.role === 'Wicketkeeper') {
+                    if (p.iplRuns > 500) parts.push('SR ' + (p.iplSR || 0).toFixed(1));
+                } else if (p.role === 'Bowler') {
+                    if (p.iplWickets > 10) parts.push('Econ ' + (p.iplEconomy || 0).toFixed(2));
+                } else if (p.role === 'All-rounder') {
+                    const bits = [];
+                    if (p.iplRuns > 200) bits.push(p.iplRuns + ' runs');
+                    if (p.iplWickets > 5) bits.push(p.iplWickets + ' wkts');
+                    if (bits.length) parts.push(bits.join(' & ') + ' since 2023');
+                }
+
+                // Acquisition + price
+                if (p.acquisition === 'Retained' && p.price >= 10) parts.push('retained at ' + p.price + 'cr');
+                else if (p.acquisition === 'Traded') parts.push('traded in');
+
+                return parts.join('. ') + '.';
+            }
+
+            function roleClass(role) {
+                if (role === 'Batter') return 'role-batter';
+                if (role === 'Bowler') return 'role-bowler';
+                if (role === 'All-rounder') return 'role-allrounder';
+                if (role === 'Wicketkeeper') return 'role-wk';
+                return '';
+            }
+
+            function playerRow(p) {
+                const badges = [];
+                if (p.isCaptain) badges.push('<span class="notes-captain" style="background:' + teamColor + ';color:#fff;">C</span>');
+                if (p.overseas) badges.push('<span class="notes-overseas">OS</span>');
+                const trClass = p.predictedXII ? ' class="notes-predicted"' : '';
+                return '<tr' + trClass + '>' +
+                    '<td class="notes-player-name">' + p.name + badges.join('') + '</td>' +
+                    '<td><span class="notes-role-badge ' + roleClass(p.role) + '">' + p.role + '</span></td>' +
+                    '<td class="notes-age">' + (p.age || '-') + '</td>' +
+                    '<td class="notes-scout">' + scoutNote(p) + '</td>' +
+                    '</tr>';
+            }
+
+            let html = '<div class="notes-table-wrap">';
+            html += '<table class="notes-table"><thead><tr><th>Player</th><th>Role</th><th>Age</th><th>Scouting Note</th></tr></thead><tbody>';
+
+            // Predicted XI group
+            if (predicted.length) {
+                html += '<tr class="notes-group-header"><td colspan="4" style="color:' + teamColor + ';">Projected Starting XI</td></tr>';
+                predicted.forEach(p => { html += playerRow(p); });
+            }
+
+            // Bench group
+            if (bench.length) {
+                html += '<tr class="notes-group-header"><td colspan="4">Squad Depth</td></tr>';
+                bench.forEach(p => { html += playerRow(p); });
+            }
+
+            html += '</tbody></table></div>';
+            container.innerHTML = html;
+        }
 
         function renderSchedulePanel() {
             const container = document.getElementById('schedule-content');

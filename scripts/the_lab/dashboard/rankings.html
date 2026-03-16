@@ -1507,28 +1507,32 @@
             .stat-value { font-size: 24px; }
             .stat-label { font-size: 13px; }
 
-            /* Category pills: proper wrapping, adequate spacing, touch targets */
-            .category-nav { padding: 0 12px; gap: 6px; }
-            .category-pill { padding: 10px 14px; font-size: 13px; min-height: 44px; display: inline-flex; align-items: center; }
+            /* Category pills: horizontal scroll on mobile */
+            .category-nav { padding: 0 12px; gap: 6px; flex-wrap: nowrap; overflow-x: auto; justify-content: flex-start; -webkit-overflow-scrolling: touch; scrollbar-width: none; -ms-overflow-style: none; }
+            .category-nav::-webkit-scrollbar { display: none; }
+            .category-pill { padding: 10px 14px; font-size: 13px; min-height: 44px; display: inline-flex; align-items: center; flex-shrink: 0; }
 
-            /* Subcategory pills */
-            .subcategory-nav { padding: 0 12px; gap: 6px; }
-            .subcategory-pill { padding: 8px 14px; font-size: 13px; min-height: 44px; display: inline-flex; align-items: center; }
+            /* Subcategory pills: horizontal scroll on mobile */
+            .subcategory-nav { padding: 0 12px; gap: 6px; flex-wrap: nowrap; overflow-x: auto; justify-content: flex-start; -webkit-overflow-scrolling: touch; scrollbar-width: none; -ms-overflow-style: none; }
+            .subcategory-nav::-webkit-scrollbar { display: none; }
+            .subcategory-pill { padding: 8px 14px; font-size: 13px; min-height: 44px; display: inline-flex; align-items: center; flex-shrink: 0; }
 
             /* Breadcrumb: readable size */
             #rankingsBreadcrumb { padding: 0 12px; font-size: 12px; }
 
-            /* Scope toggle: full-width, adequate height */
+            /* Scope toggle: wrap into 2 rows on mobile */
             .scope-toggle-wrap { padding: 0 12px; }
-            .scope-toggle { width: 100%; }
-            .scope-btn { flex: 1; min-height: 44px; font-size: 13px; text-align: center; }
+            .scope-toggle { width: 100%; flex-wrap: wrap; gap: 4px; padding: 6px; }
+            .scope-toggle [role="separator"] { display: none; }
+            .scope-btn { flex: 1 1 auto; min-height: 44px; font-size: 13px; text-align: center; min-width: calc(33% - 4px); }
 
             /* Search input: full-width, 44px height */
-            .filters-bar { padding: 0 12px; flex-direction: column; align-items: stretch; }
+            .filters-bar { padding: 0 12px; flex-direction: column; align-items: stretch; gap: 8px; }
             .search-box { max-width: 100%; }
             .search-box input { height: 44px; font-size: 14px; }
             .filter-group { justify-content: center; }
             .filter-btn { min-height: 44px; font-size: 13px; }
+            .show-all-toggle { width: 100%; justify-content: center; min-height: 44px; font-size: 14px; padding: 10px 14px; }
 
             .leaderboard-container { padding: 0 12px; }
 
@@ -1666,9 +1670,12 @@
         }
 
         .mobile-player-meta {
-            font-size: 12px;
+            font-size: 11px;
             color: var(--text-tertiary);
             margin-top: 1px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .mobile-stats {
@@ -2081,6 +2088,7 @@
             <a href="comparison.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Compare</a>
             <a href="head-to-head.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Head to Head</a>
             <a href="schedule.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Schedule</a>
+            <a href="squad-builder.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Fantasy</a>
             <a href="about.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> About</a>
         </nav>
         <div class="sidebar-footer">
@@ -2103,6 +2111,7 @@
         <a href="comparison.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Compare</a>
         <a href="head-to-head.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Head to Head</a>
         <a href="schedule.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Schedule</a>
+        <a href="squad-builder.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Fantasy</a>
         <a href="about.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> About</a>
     </div>
 
@@ -2732,11 +2741,12 @@
         const skipIndices = new Set([rankIdx, nameIdx]);
         if (bowlerIdx >= 0) skipIndices.add(bowlerIdx);
 
-        // Collect displayable stat columns (up to 4)
+        // Collect displayable stat columns (up to 4, or 3 for matchups)
+        const maxStatCols = isMatchup ? 3 : 4;
         const statCols = [];
         // Score column first if exists
         if (scoreIdx >= 0) { statCols.push(scoreIdx); skipIndices.add(scoreIdx); }
-        for (let i = 0; i < headers.length && statCols.length < 4; i++) {
+        for (let i = 0; i < headers.length && statCols.length < maxStatCols; i++) {
             if (skipIndices.has(i)) continue;
             statCols.push(i);
         }
@@ -2744,7 +2754,8 @@
         // Grid template: #rank name [stat cols...]
         const totalCols = 2 + statCols.length; // rank + name + stats
         const statColWidths = statCols.map(() => 'minmax(40px, 1fr)').join(' ');
-        const gridTemplate = '28px 1fr ' + statColWidths;
+        const nameWidth = isMatchup ? 'minmax(100px, 1.5fr)' : '1fr';
+        const gridTemplate = '28px ' + nameWidth + ' ' + statColWidths;
 
         let html = '';
 

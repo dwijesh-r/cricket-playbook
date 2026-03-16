@@ -330,11 +330,17 @@
             position: fixed;
             inset: 0;
             z-index: -4;
-            background: linear-gradient(135deg, #0B1120 0%, #0D1526 25%, #0F1A2E 50%, #0D1526 75%, #0B1120 100%);
+            background:
+                /* Subtle noise texture via SVG for depth */
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"),
+                /* Warm earth-tone gradient — dark charcoal with amber undertones */
+                linear-gradient(160deg, #0C0A09 0%, #1C1410 20%, #171310 40%, #131110 60%, #0E0C0B 80%, #0A0908 100%);
         }
 
         [data-theme="light"] .bg-gradient {
-            background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 50%, #F8FAFC 100%);
+            background:
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E"),
+                linear-gradient(160deg, #FAFAF9 0%, #F5F0EB 30%, #FAF8F5 60%, #FAFAFA 100%);
         }
         /* Light theme card polish */
         [data-theme="light"] .nav-card,
@@ -351,30 +357,38 @@
         .bg-gradient::before {
             content: '';
             position: absolute;
-            top: -20%;
-            right: -10%;
-            width: 60%;
-            height: 60%;
-            background: radial-gradient(ellipse, rgba(232, 115, 74, 0.08) 0%, transparent 70%);
-            filter: blur(80px);
-            animation: pulse-glow 8s ease-in-out infinite;
+            top: -15%;
+            right: -5%;
+            width: 55%;
+            height: 55%;
+            background: radial-gradient(ellipse, rgba(232, 115, 74, 0.06) 0%, rgba(194, 65, 12, 0.03) 40%, transparent 70%);
+            filter: blur(100px);
+            animation: pulse-glow 12s ease-in-out infinite;
         }
 
         .bg-gradient::after {
             content: '';
             position: absolute;
-            bottom: -20%;
-            left: -10%;
-            width: 50%;
-            height: 50%;
-            background: radial-gradient(ellipse, rgba(168, 85, 247, 0.08) 0%, transparent 70%);
-            filter: blur(80px);
-            animation: pulse-glow 8s ease-in-out infinite 4s;
+            bottom: -15%;
+            left: -5%;
+            width: 45%;
+            height: 45%;
+            /* Warm sienna instead of purple — stays on-brand */
+            background: radial-gradient(ellipse, rgba(180, 83, 9, 0.05) 0%, rgba(120, 53, 15, 0.03) 40%, transparent 70%);
+            filter: blur(100px);
+            animation: pulse-glow 12s ease-in-out infinite 6s;
+        }
+
+        [data-theme="light"] .bg-gradient::before {
+            background: radial-gradient(ellipse, rgba(194, 65, 12, 0.04) 0%, transparent 70%);
+        }
+        [data-theme="light"] .bg-gradient::after {
+            background: radial-gradient(ellipse, rgba(180, 83, 9, 0.03) 0%, transparent 70%);
         }
 
         @keyframes pulse-glow {
-            0%, 100% { opacity: 0.6; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.1); }
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 0.85; transform: scale(1.05); }
         }
 
         .bg-grid {
@@ -637,6 +651,45 @@
             padding: 120px 24px 80px;
             text-align: center;
             position: relative;
+            overflow: hidden;
+        }
+
+        /* Subtle geometric diamond lattice behind hero */
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                /* Diamond grid pattern — rotated squares */
+                linear-gradient(45deg, var(--border) 1px, transparent 1px),
+                linear-gradient(-45deg, var(--border) 1px, transparent 1px);
+            background-size: 48px 48px;
+            mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 10%, transparent 70%);
+            -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 10%, transparent 70%);
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        /* Warm radial vignette behind hero content */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: min(800px, 90vw);
+            height: 500px;
+            background: radial-gradient(ellipse, rgba(232, 115, 74, 0.06) 0%, rgba(194, 65, 12, 0.02) 40%, transparent 70%);
+            filter: blur(60px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        [data-theme="light"] .hero::before {
+            opacity: 0.3;
+        }
+        [data-theme="light"] .hero::after {
+            background: radial-gradient(ellipse, rgba(194, 65, 12, 0.05) 0%, rgba(180, 83, 9, 0.02) 40%, transparent 70%);
         }
 
         .hero-badge {
@@ -654,6 +707,8 @@
             margin-bottom: var(--space-4);
             text-transform: uppercase;
             letter-spacing: 0.04em;
+            position: relative;
+            z-index: 1;
         }
 
         .hero-brand {
@@ -703,23 +758,42 @@
 
         /* Decorative accent bar under hero title */
         .hero-accent-bar {
-            display: none;
+            width: 64px;
+            height: 3px;
+            margin: var(--space-4) auto;
+            border-radius: var(--radius-full);
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            background-size: 200% 100%;
+            animation: bar-shimmer 4s ease-in-out infinite;
+            opacity: 0.7;
+            position: relative;
+            z-index: 1;
         }
         @keyframes bar-shimmer {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+            0%, 100% { background-position: 0% 50%; opacity: 0.5; }
+            50% { background-position: 100% 50%; opacity: 0.8; }
         }
 
         /* Glow orb behind hero text */
         .hero-glow {
-            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: min(600px, 80vw);
+            height: 300px;
+            background: radial-gradient(ellipse, rgba(232, 115, 74, 0.07) 0%, transparent 65%);
+            transform: translate(-50%, -60%);
+            filter: blur(50px);
+            pointer-events: none;
+            z-index: 0;
+            animation: glow-pulse 10s ease-in-out infinite;
         }
         [data-theme="light"] .hero-glow {
-            display: none;
+            background: radial-gradient(ellipse, rgba(194, 65, 12, 0.05) 0%, transparent 65%);
         }
         @keyframes glow-pulse {
-            0%, 100% { opacity: 0.7; transform: translate(-50%, -60%) scale(1); }
-            50% { opacity: 1; transform: translate(-50%, -60%) scale(1.1); }
+            0%, 100% { opacity: 0.6; transform: translate(-50%, -60%) scale(1); }
+            50% { opacity: 1; transform: translate(-50%, -60%) scale(1.05); }
         }
 
         /* Typewriter Animation */
@@ -728,6 +802,8 @@
             justify-content: center;
             margin-bottom: var(--space-2);
             min-height: 140px;
+            position: relative;
+            z-index: 1;
         }
 
 
@@ -738,6 +814,8 @@
             max-width: 520px;
             margin: 0 auto 40px;
             line-height: 1.6;
+            position: relative;
+            z-index: 1;
         }
 
         /* ==================== QUICK STATS ==================== */
@@ -1110,7 +1188,28 @@
         .nav-card:nth-child(9) { animation-delay: 0.45s; }
 
         .nav-card-icon {
-            display: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--accent);
+            margin-bottom: 4px;
+            flex-shrink: 0;
+        }
+        .nav-card-icon svg {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        .nav-card:hover .nav-card-icon {
+            background: rgba(255, 255, 255, 0.1);
         }
 
         .nav-card h3 {
@@ -2015,37 +2114,37 @@
             </div>
             <div class="nav-cards">
                 <a href="teams.html" class="nav-card" data-animate="fade-up" style="transition-delay: 0.05s">
-                    <div class="nav-card-icon">🏏</div>
+                    <div class="nav-card-icon"><svg viewBox="0 0 24 24"><path d="M12 2L3 7v7c0 5 4 8 9 10 5-2 9-5 9-10V7l-9-5z"/></svg></div>
                     <h3>Teams</h3>
                     <p>Projected XIs, squad depth, and player roles for all 10 franchises.</p>
                 </a>
                 <a href="rankings.html" class="nav-card" data-animate="fade-up" style="transition-delay: 0.1s">
-                    <div class="nav-card-icon">📊</div>
+                    <div class="nav-card-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z"/></svg></div>
                     <h3>Rankings</h3>
                     <p>Composite player rankings across batting, bowling, and all-round categories.</p>
                 </a>
                 <a href="stats.html" class="nav-card" data-animate="fade-up" style="transition-delay: 0.15s">
-                    <div class="nav-card-icon"></div>
+                    <div class="nav-card-icon"><svg viewBox="0 0 24 24"><rect x="3" y="12" width="4" height="9" rx="1"/><rect x="10" y="7" width="4" height="14" rx="1"/><rect x="17" y="3" width="4" height="18" rx="1"/></svg></div>
                     <h3>Player Stats</h3>
                     <p>Career IPL statistics — batting, bowling, and all-round numbers for all 249 squad players.</p>
                 </a>
                 <a href="comparison.html" class="nav-card" data-animate="fade-up" style="transition-delay: 0.2s">
-                    <div class="nav-card-icon">⚖️</div>
+                    <div class="nav-card-icon"><svg viewBox="0 0 24 24"><path d="M8 4l-6 8h12z"/><path d="M16 20l6-8H10z"/></svg></div>
                     <h3>Compare</h3>
                     <p>Radar charts, phase heatmaps, and side-by-side player breakdowns.</p>
                 </a>
                 <a href="head-to-head.html" class="nav-card" data-animate="fade-up" style="transition-delay: 0.2s">
-                    <div class="nav-card-icon">⚔️</div>
+                    <div class="nav-card-icon"><svg viewBox="0 0 24 24"><path d="M6 4l4 4-7 7 3 3 7-7 4 4V4H6z"/><path d="M15 17l3 3"/><path d="M10 6l-6 6"/></svg></div>
                     <h3>Head to Head</h3>
                     <p>Batter vs bowler matchup data: career, phase, and over-level splits.</p>
                 </a>
                 <a href="squad-builder.html" class="nav-card" data-animate="fade-up" style="transition-delay: 0.25s">
-                    <div class="nav-card-icon">XI</div>
+                    <div class="nav-card-icon"><svg viewBox="0 0 24 24"><path d="M12 2a4 4 0 014 4v1h3a2 2 0 012 2v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9a2 2 0 012-2h3V6a4 4 0 014-4z"/><path d="M10 13h4"/><path d="M12 11v4"/></svg></div>
                     <h3>Fantasy</h3>
                     <p>Draft rankings, auction simulator, and interactive XI builder for all 10 teams.</p>
                 </a>
                 <a href="about.html" class="nav-card" data-animate="fade-up" style="transition-delay: 0.3s">
-                    <div class="nav-card-icon">📖</div>
+                    <div class="nav-card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><circle cx="12" cy="8" r="0.5" fill="currentColor"/></svg></div>
                     <h3>About</h3>
                     <p>Our mission, methodology, and what makes Statsledge different.</p>
                 </a>

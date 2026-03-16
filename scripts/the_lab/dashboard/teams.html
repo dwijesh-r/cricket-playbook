@@ -7026,10 +7026,6 @@
                                 <span class="breakdown-value">₹${totalSpent.toFixed(2)} Cr</span>
                             </div>
                             <div class="breakdown-row">
-                                <span class="breakdown-label">Remaining</span>
-                                <span class="breakdown-value">₹${totalRemaining.toFixed(2)} Cr</span>
-                            </div>
-                            <div class="breakdown-row">
                                 <span class="breakdown-label">Retained</span>
                                 <span class="breakdown-value">${retained} players</span>
                             </div>
@@ -7168,7 +7164,7 @@
             ].join('\n');
 
             // Add team summary
-            const summary = `\n\n"Team Summary"\n"Total Spent","₹${squadData.purseSpent.toFixed(2)} Cr"\n"Remaining","₹${squadData.purseRemaining.toFixed(2)} Cr"\n"Total Players","${squad.length}"`;
+            const summary = `\n\n"Team Summary"\n"Total Spent","₹${squadData.purseSpent.toFixed(2)} Cr"\n"Total Players","${squad.length}"`;
 
             // Create and download file
             const blob = new Blob([csvContent + summary], { type: 'text/csv;charset=utf-8;' });
@@ -7208,7 +7204,6 @@
                 { label: 'Titles Won', val1: team1.titles, val2: team2.titles, higher: 'better', tooltip: 'IPL championship titles won' },
                 { label: 'Squad Size', val1: squad1.squad.length, val2: squad2.squad.length, higher: 'neutral', tooltip: 'Total players in squad roster' },
                 { label: 'Purse Spent (Cr)', val1: squad1.purseSpent.toFixed(2), val2: squad2.purseSpent.toFixed(2), higher: 'neutral', tooltip: 'Auction spend in Indian Rupees (Crores)' },
-                { label: 'Purse Remaining (Cr)', val1: squad1.purseRemaining.toFixed(2), val2: squad2.purseRemaining.toFixed(2), higher: 'neutral', tooltip: 'Remaining auction budget out of 120 Cr salary cap' },
                 { label: 'Overseas Players', val1: squad1.squad.filter(p => p.nationality !== 'IND').length, val2: squad2.squad.filter(p => p.nationality !== 'IND').length, higher: 'neutral', tooltip: 'Non-Indian players (max 4 can play per XI)' },
                 { label: 'Avg Squad Age', val1: (squad1.squad.reduce((s, p) => s + p.age, 0) / squad1.squad.length).toFixed(2), val2: (squad2.squad.reduce((s, p) => s + p.age, 0) / squad2.squad.length).toFixed(2), higher: 'neutral', tooltip: 'Average age of squad members' },
                 { label: 'Batters', val1: squad1.squad.filter(p => p.role === 'Batter').length, val2: squad2.squad.filter(p => p.role === 'Batter').length, higher: 'neutral', tooltip: 'Players whose primary role is batting' },

@@ -313,38 +313,21 @@
             color: #fff; white-space: nowrap;
         }
 
-        /* ==================== MOBILE CARDS ==================== */
-        .mobile-cards {
-            display: none; flex-direction: column; gap: 0; padding: 0 12px;
-            margin: 0 auto 40px; max-width: 1200px; background: var(--bg-secondary);
-            border: 1px solid var(--border); border-radius: var(--radius-sm); overflow: hidden;
-        }
-        .mobile-col-header-row { display: none; }
-        .mobile-player-row {
-            display: flex; align-items: center; gap: 10px; padding: 10px 14px;
-            border-bottom: 1px solid var(--glass-border); min-height: 44px;
-            transition: background 100ms ease;
-        }
-        .mobile-player-row:last-child { border-bottom: none; }
-        .mobile-player-row:hover { background: rgba(232, 115, 74, 0.04); }
-        .mobile-rank { flex-shrink: 0; width: 28px; text-align: center; font-weight: 700; font-size: 13px; color: var(--text-tertiary); }
-        .mobile-player-info { flex: 1; min-width: 0; }
-        .mobile-player-name { font-size: 14px; font-weight: 700; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .mobile-player-meta { font-size: 12px; color: var(--text-tertiary); margin-top: 1px; }
-        .mobile-stats { flex-shrink: 0; font-size: 13px; color: var(--text-secondary); font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
-        .mobile-stat-cell { font-size: 13px; font-weight: 600; color: var(--text-primary); text-align: right; font-variant-numeric: tabular-nums; padding: 0 4px; }
-
+        /* ==================== MOBILE TABLE (horizontal scroll) ==================== */
         @media (max-width: 640px) {
-            .leaderboard-container { display: none; }
-            .mobile-cards { display: flex; }
-            .mobile-col-header-row {
-                display: grid; padding: 8px 14px 6px; background: var(--bg-tertiary);
-                border-bottom: 1px solid var(--border); font-size: 10px; font-weight: 700;
-                text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-tertiary);
-                position: sticky; top: 0; z-index: 2;
-            }
-            .mobile-player-row { display: grid; align-items: center; gap: 0; }
-            .mobile-stats { display: contents; }
+            .leaderboard-table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+            .leaderboard-table { min-width: 600px; }
+            .leaderboard-table thead th { position: sticky; top: 0; z-index: 2; }
+            .leaderboard-table thead th:nth-child(2) { min-width: 140px; position: sticky; left: 50px; z-index: 3; background: var(--bg-tertiary); }
+            .leaderboard-table thead th:first-child { position: sticky; left: 0; z-index: 3; background: var(--bg-tertiary); }
+            .leaderboard-table tbody td:nth-child(2) { min-width: 140px; position: sticky; left: 50px; z-index: 1; background: var(--bg-secondary); }
+            .leaderboard-table tbody td:first-child { position: sticky; left: 0; z-index: 1; background: var(--bg-secondary); }
+            .leaderboard-table tbody tr:hover td:first-child,
+            .leaderboard-table tbody tr:hover td:nth-child(2) { background: rgba(232, 115, 74, 0.06); }
+            [data-theme="light"] .leaderboard-table tbody tr:hover td:first-child,
+            [data-theme="light"] .leaderboard-table tbody tr:hover td:nth-child(2) { background: rgba(194, 65, 12, 0.04); }
+            .leaderboard-table tbody tr { min-height: 44px; }
+            .leaderboard-table tbody td { padding: 12px 10px; }
         }
 
         /* ==================== FOOTER ==================== */
@@ -445,14 +428,14 @@
         <!-- Hero -->
         <section class="hero">
             <h1 class="hero-title">Player Stats</h1>
-            <p class="hero-subtitle">Career IPL statistics for all 249 players in IPL 2026 squads</p>
+            <p class="hero-subtitle">Stats for all IPL 2026 squad players. Toggle between IPL 2023-25 and full T20 career.</p>
         </section>
 
         <!-- Scope Toggle -->
         <div class="scope-toggle-wrap">
             <div class="scope-toggle" id="scopeToggle" role="tablist" aria-label="Data scope">
-                <button class="scope-btn active" data-scope="alltime" onclick="setScope('alltime')" role="tab" aria-selected="true">All-Time</button>
-                <button class="scope-btn" data-scope="since2023" onclick="setScope('since2023')" role="tab" aria-selected="false">Since 2023</button>
+                <button class="scope-btn" data-scope="alltime" onclick="setScope('alltime')" role="tab" aria-selected="false">All T20s</button>
+                <button class="scope-btn active" data-scope="since2023" onclick="setScope('since2023')" role="tab" aria-selected="true">IPL 2023-25</button>
             </div>
         </div>
 
@@ -491,7 +474,7 @@
             <div class="results-count" id="resultsCount">-- players</div>
         </div>
 
-        <!-- Desktop Table -->
+        <!-- Stats Table (horizontally scrollable on mobile) -->
         <div class="leaderboard-container" id="leaderboardContainer">
             <div class="leaderboard-table-wrap">
                 <div class="leaderboard-table-scroll">
@@ -502,9 +485,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- Mobile Cards -->
-        <div class="mobile-cards" id="mobileCards"></div>
 
         <!-- Footer -->
         <footer class="footer" role="contentinfo">
@@ -544,7 +524,7 @@
 
     // ==================== STATE ====================
     const state = {
-        scope: 'alltime',
+        scope: 'since2023',
         category: 'batting',
         sortCol: null,
         sortDir: 'desc',
@@ -658,7 +638,6 @@
         document.getElementById('resultsCount').textContent = data.length + ' player' + (data.length !== 1 ? 's' : '');
 
         renderDesktopTable(data);
-        renderMobileCards(data);
     }
 
     function renderDesktopTable(data) {
@@ -719,56 +698,6 @@
         tbody.innerHTML = html;
     }
 
-    function renderMobileCards(data) {
-        var container = document.getElementById('mobileCards');
-        var cat = state.category;
-        var scope = state.scope;
-
-        if (data.length === 0) {
-            container.innerHTML = '<div style="text-align:center;padding:40px;color:var(--text-tertiary);">No players match the current filters</div>';
-            return;
-        }
-
-        var html = '';
-
-        // Column header row
-        if (cat === 'batting') {
-            html += '<div class="mobile-col-header-row" style="grid-template-columns: 28px 1fr 50px 50px 50px 50px;">';
-            html += '<span>#</span><span>Player</span><span style="text-align:right">Inn</span><span style="text-align:right">Runs</span><span style="text-align:right">Avg</span><span style="text-align:right">SR</span>';
-            html += '</div>';
-        } else {
-            html += '<div class="mobile-col-header-row" style="grid-template-columns: 28px 1fr 46px 46px 46px 46px;">';
-            html += '<span>#</span><span>Player</span><span style="text-align:right">Overs</span><span style="text-align:right">Wkts</span><span style="text-align:right">Econ</span><span style="text-align:right">Avg</span>';
-            html += '</div>';
-        }
-
-        for (var i = 0; i < data.length; i++) {
-            var p = data[i];
-            var d = cat === 'batting' ? (p.bat && p.bat[scope]) : (p.bowl && p.bowl[scope]);
-            if (!d) d = {};
-
-            if (cat === 'batting') {
-                html += '<div class="mobile-player-row" style="grid-template-columns: 28px 1fr 50px 50px 50px 50px;">';
-                html += '<div class="mobile-rank">' + (i + 1) + '</div>';
-                html += '<div class="mobile-player-info"><div class="mobile-player-name">' + p.name + '</div><div class="mobile-player-meta">' + p.team + ' &middot; ' + p.role + '</div></div>';
-                html += '<div class="mobile-stats"><div class="mobile-stat-cell">' + fmtNum(d.inn) + '</div></div>';
-                html += '<div class="mobile-stats"><div class="mobile-stat-cell">' + fmtNum(d.runs) + '</div></div>';
-                html += '<div class="mobile-stats"><div class="mobile-stat-cell">' + fmtNum(d.avg, 1) + '</div></div>';
-                html += '<div class="mobile-stats"><div class="mobile-stat-cell">' + fmtNum(d.sr, 1) + '</div></div>';
-                html += '</div>';
-            } else {
-                html += '<div class="mobile-player-row" style="grid-template-columns: 28px 1fr 46px 46px 46px 46px;">';
-                html += '<div class="mobile-rank">' + (i + 1) + '</div>';
-                html += '<div class="mobile-player-info"><div class="mobile-player-name">' + p.name + '</div><div class="mobile-player-meta">' + p.team + ' &middot; ' + p.role + '</div></div>';
-                html += '<div class="mobile-stats"><div class="mobile-stat-cell">' + fmtNum(d.overs, 1) + '</div></div>';
-                html += '<div class="mobile-stats"><div class="mobile-stat-cell">' + fmtNum(d.wkts) + '</div></div>';
-                html += '<div class="mobile-stats"><div class="mobile-stat-cell">' + fmtNum(d.econ, 1) + '</div></div>';
-                html += '<div class="mobile-stats"><div class="mobile-stat-cell">' + fmtNum(d.avg, 1) + '</div></div>';
-                html += '</div>';
-            }
-        }
-        container.innerHTML = html;
-    }
 
     // ==================== INTERACTIONS ====================
     function setScope(scope) {

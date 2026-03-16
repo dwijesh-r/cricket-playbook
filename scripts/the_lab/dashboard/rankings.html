@@ -1710,53 +1710,62 @@
         }
 
         @media (max-width: 640px) {
-            .leaderboard-container { display: none; }
-            .mobile-cards { display: flex; }
-            .mobile-pagination { display: flex !important; flex-wrap: wrap; justify-content: center; padding: var(--space-3) 12px; gap: 4px; }
-            .mobile-pagination .page-btn { min-width: 44px; min-height: 44px; font-size: 13px; }
-            .methodology { display: none; }
-        }
+            /* Use horizontally-scrollable table instead of mobile cards */
+            .leaderboard-container { display: block; padding: 0 8px; }
+            .mobile-cards { display: none !important; }
 
-        /* Mobile cards table-style layout */
-        .mobile-col-header-row {
-            display: none;
-        }
-        @media (max-width: 640px) {
-            .mobile-col-header-row {
-                display: grid;
-                padding: 8px 14px 6px;
-                background: var(--bg-tertiary);
-                border-bottom: 1px solid var(--border);
-                font-size: 10px;
-                font-weight: 700;
-                text-transform: uppercase;
-                letter-spacing: 0.06em;
-                color: var(--text-tertiary);
+            .leaderboard-table-scroll {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .leaderboard-table { font-size: 13px; }
+            .leaderboard-table thead th {
+                padding: 10px 8px;
+                font-size: 11px;
                 position: sticky;
                 top: 0;
                 z-index: 2;
             }
-            .mobile-player-row {
-                display: grid;
-                align-items: center;
-                gap: 0;
-            }
-            .mobile-stats {
-                display: contents;
-            }
-            .mobile-stat-sep { display: none !important; }
-            .mobile-stat-label { display: none !important; }
-            .mobile-stat-cell {
+            .leaderboard-table tbody td {
+                padding: 10px 8px;
                 font-size: 13px;
-                font-weight: 600;
-                color: var(--text-primary);
-                text-align: right;
-                font-variant-numeric: tabular-nums;
-                padding: 0 4px;
+                min-height: 44px;
+                height: 44px;
             }
-            .mobile-stat-cell.composite {
-                font-weight: 700;
+            .leaderboard-table tbody tr {
+                min-height: 44px;
             }
+
+            /* Ensure player name column stays readable */
+            .leaderboard-table tbody td:nth-child(2),
+            .leaderboard-table thead th:nth-child(2) {
+                min-width: 160px;
+                white-space: nowrap;
+            }
+
+            /* Rank column compact */
+            .leaderboard-table thead th:first-child,
+            .leaderboard-table tbody td:first-child {
+                width: 44px;
+                min-width: 44px;
+            }
+
+            /* Hide less important columns */
+            .leaderboard-table .col-hide-mobile { display: none; }
+
+            .composite-bar-bg { display: none; }
+
+            .methodology { display: none; }
+
+            /* Pagination touch targets */
+            .pagination { gap: 4px; padding: var(--space-3) 8px; flex-wrap: wrap; }
+            .page-btn { min-width: 44px; min-height: 44px; font-size: 13px; }
+        }
+
+        /* Mobile cards grid layout (deprecated - now using scrollable table) */
+        .mobile-col-header-row {
+            display: none;
         }
 
         /* ==================== SAMPLE SIZE INDICATOR ==================== */
@@ -2331,13 +2340,13 @@
 
     // ==================== CATEGORY ICONS ====================
     const CATEGORY_ICONS = {
-        'batter_phase': '&#127951;',
-        'bowler_phase': '&#127936;',
-        'batter_vs_bowling_type': '&#9876;&#65039;',
-        'bowler_vs_handedness': '&#129354;',
-        'player_matchups': '&#128165;',
-        'batter_composite': '&#11088;',
-        'bowler_composite': '&#127775;'
+        'batter_phase': '',
+        'bowler_phase': '',
+        'batter_vs_bowling_type': '',
+        'bowler_vs_handedness': '',
+        'player_matchups': '',
+        'batter_composite': '',
+        'bowler_composite': ''
     };
 
     const CATEGORY_SHORT_NAMES = {
@@ -2619,7 +2628,7 @@
         // Determine which column holds the "composite" / "score" value
         const scoreColIndex = findScoreColumn(headers);
 
-        // Determine which columns to keep visible on medium-mobile (640-768px)
+        // Determine which columns to keep visible on mobile (<=768px)
         // Keep: Rank, Player/Batter, Bowler (matchups), score col, and first 2 stat cols
         const rankIdx = headers.indexOf('Rank');
         const nameIdx = headers.indexOf('Player') !== -1 ? headers.indexOf('Player') : headers.indexOf('Batter');
@@ -3051,10 +3060,8 @@
         renderTable();
         renderMobileCards();
         renderPagination();
-        // Scroll to top - use mobile cards on small screens, table on larger
-        const scrollTarget = window.innerWidth <= 640
-            ? document.getElementById('mobileCards')
-            : document.getElementById('leaderboardContainer');
+        // Scroll to top of leaderboard table
+        const scrollTarget = document.getElementById('leaderboardContainer');
         if (scrollTarget) scrollTarget.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 

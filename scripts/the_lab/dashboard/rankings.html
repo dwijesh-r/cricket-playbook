@@ -2304,6 +2304,7 @@
     <!-- Rankings Data -->
     <script src="data/rankings.js"></script>
     <script src="data/full_squads.js"></script>
+    <script src="data/player_aliases.js"></script>
 
     <script>
     function throttle(fn, ms) { let last = 0; return function() { const now = Date.now(); if (now - last >= ms) { last = now; fn.apply(this, arguments); } }; }
@@ -2329,25 +2330,22 @@
     const PLAYER_TEAM_MAP = {};
     function buildPlayerTeamMap() {
         if (typeof FULL_SQUADS === 'undefined') return;
+        // Map full squad names to team abbreviations
         Object.keys(FULL_SQUADS).forEach(teamAbbrev => {
             FULL_SQUADS[teamAbbrev].forEach(player => {
-                // Full name map
                 PLAYER_TEAM_MAP[player.name.toLowerCase()] = teamAbbrev;
-                // Also store abbreviated versions: "FirstInitial LastName" patterns
-                const parts = player.name.split(' ');
-                if (parts.length >= 2) {
-                    // Common cricket abbreviation: "V Kohli" from "Virat Kohli"
-                    const abbr1 = parts[0][0] + ' ' + parts.slice(1).join(' ');
-                    PLAYER_TEAM_MAP[abbr1.toLowerCase()] = teamAbbrev;
-                    // Also: "VK" pattern won't work well, but "Initials LastName" patterns
-                    // like "SA Yadav" from "Suryakumar Yadav" - try first two chars + surname
-                    if (parts[0].length > 1) {
-                        const abbr2 = parts[0].substring(0, 2).toUpperCase() + ' ' + parts.slice(1).join(' ');
-                        PLAYER_TEAM_MAP[abbr2.toLowerCase()] = teamAbbrev;
-                    }
-                }
             });
         });
+        // Map cricsheet abbreviated names using PLAYER_ALIASES (generated from DuckDB)
+        if (typeof PLAYER_ALIASES !== 'undefined') {
+            Object.keys(PLAYER_ALIASES).forEach(cricsheetName => {
+                const fullName = PLAYER_ALIASES[cricsheetName];
+                const team = PLAYER_TEAM_MAP[fullName.toLowerCase()];
+                if (team) {
+                    PLAYER_TEAM_MAP[cricsheetName.toLowerCase()] = team;
+                }
+            });
+        }
     }
 
     function getPlayerTeam(playerName) {

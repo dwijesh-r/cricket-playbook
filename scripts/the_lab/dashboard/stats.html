@@ -452,6 +452,23 @@
         }
         .pd-tag.archetype { background: rgba(232, 115, 74, 0.15); color: var(--accent); border-color: rgba(232, 115, 74, 0.25); }
 
+        /* Batting/Bowling tabs in player detail */
+        .pd-tabs { display: flex; gap: 0; margin-bottom: var(--space-4); border-bottom: 2px solid var(--border); }
+        .pd-tab {
+            padding: var(--space-2) var(--space-4); font-size: var(--text-sm); font-weight: 700;
+            color: var(--text-tertiary); cursor: pointer; border: none; background: none;
+            text-transform: uppercase; letter-spacing: 0.06em; position: relative;
+            transition: color var(--transition-normal);
+        }
+        .pd-tab:hover { color: var(--text-secondary); }
+        .pd-tab.active { color: var(--accent); }
+        .pd-tab.active::after {
+            content: ''; position: absolute; bottom: -2px; left: 0; right: 0;
+            height: 2px; background: var(--accent);
+        }
+        .pd-tab-content { display: none; }
+        .pd-tab-content.active { display: block; }
+
         /* Mobile full-screen modal */
         @media (max-width: 768px) {
             .player-detail-overlay { padding: 0; align-items: stretch; }
@@ -1220,6 +1237,9 @@
         var profile = profileLookup[playerName];
         if (!profile) return;
 
+        var hasBat = !!(profile.batting && (profile.batting.phase || profile.batting.vs_bowling_type || profile.batting.vs_teams));
+        var hasBowl = !!(profile.bowling && (profile.bowling.phase || profile.bowling.vs_teams));
+
         var html = '';
 
         // Header
@@ -1234,24 +1254,53 @@
         if (profile.bowling_type) html += '<span class="pd-meta-item">' + escHtml(profile.bowling_type) + '</span>';
         html += '</div></div>';
 
-        // Section 1: IPL vs All T20 Comparison
+        // IPL vs All T20 Comparison (shared, always visible)
         html += renderScopeComparison(profile, playerName);
 
-        // Section 2: Phase Performance
-        html += renderPhaseSection(profile);
-
-        // Section 3: vs Bowling Type (batters) with matchup highlights
-        html += renderVsBowlingType(profile);
-
-        // Section 4: vs Teams with matchup highlights
-        html += renderVsTeams(profile);
-
-        // Section 5: Tags & Archetype
+        // Tags & Archetype (shared, always visible)
         html += renderTags(profile);
+
+        // Tabs (only show if both batting and bowling data exist)
+        if (hasBat && hasBowl) {
+            html += '<div class="pd-tabs">';
+            html += '<button class="pd-tab active" onclick="switchPdTab(\'batting\',this)">Batting</button>';
+            html += '<button class="pd-tab" onclick="switchPdTab(\'bowling\',this)">Bowling</button>';
+            html += '</div>';
+
+            // Batting tab content
+            html += '<div class="pd-tab-content active" id="pdTabBatting">';
+            html += renderBattingPhaseSection(profile);
+            html += renderVsBowlingType(profile);
+            html += renderBattingVsTeams(profile);
+            html += '</div>';
+
+            // Bowling tab content
+            html += '<div class="pd-tab-content" id="pdTabBowling">';
+            html += renderBowlingPhaseSection(profile);
+            html += renderBowlingVsTeams(profile);
+            html += '</div>';
+        } else if (hasBat) {
+            html += renderBattingPhaseSection(profile);
+            html += renderVsBowlingType(profile);
+            html += renderBattingVsTeams(profile);
+        } else if (hasBowl) {
+            html += renderBowlingPhaseSection(profile);
+            html += renderBowlingVsTeams(profile);
+        }
 
         document.getElementById('playerDetailContent').innerHTML = html;
         document.getElementById('playerDetailOverlay').classList.add('active');
         document.body.style.overflow = 'hidden';
+    }
+
+    function switchPdTab(tab, btn) {
+        var tabs = btn.parentElement.querySelectorAll('.pd-tab');
+        for (var i = 0; i < tabs.length; i++) tabs[i].classList.remove('active');
+        btn.classList.add('active');
+        var batEl = document.getElementById('pdTabBatting');
+        var bowlEl = document.getElementById('pdTabBowling');
+        if (batEl) batEl.classList.toggle('active', tab === 'batting');
+        if (bowlEl) bowlEl.classList.toggle('active', tab === 'bowling');
     }
 
     function closePlayerDetail() {
@@ -1351,22 +1400,17 @@
         return '<div class="pd-comp-row"><span class="pd-comp-label">' + label + '</span><span class="' + cls + '">' + value + '</span></div>';
     }
 
-    function renderPhaseSection(profile) {
+    function renderBattingPhaseSection(profile) {
         var bat = profile.batting && profile.batting.phase;
-        var bowl = profile.bowling && profile.bowling.phase;
-        if (!bat && !bowl) return '';
-
+        if (!bat) return '';
         var phases = ['powerplay', 'middle', 'death'];
         var phaseLabels = { powerplay: 'Powerplay', middle: 'Middle', death: 'Death' };
         var html = '<div class="pd-section"><div class="pd-section-title">Phase Performance</div>';
         html += '<div class="pd-phase-grid">';
-
         for (var pi = 0; pi < phases.length; pi++) {
             var ph = phases[pi];
-            html += '<div class="pd-phase-card">';
-            html += '<div class="pd-phase-card-title">' + phaseLabels[ph] + '</div>';
-
-            if (bat && bat[ph]) {
+            html += '<div class="pd-phase-card"><div class="pd-phase-card-title">' + phaseLabels[ph] + '</div>';
+            if (bat[ph]) {
                 var b = bat[ph];
                 html += '<div class="pd-bar-group"><div class="pd-bar-label"><span>SR</span><span>' + fmtNum(b.sr, 1) + '</span></div>' + pdBar(b.sr || 0, 200, 'bat') + '</div>';
                 html += '<div class="pd-bar-group"><div class="pd-bar-label"><span>Avg</span><span>' + fmtNum(b.avg, 1) + '</span></div>' + pdBar(b.avg || 0, 60, 'bat') + '</div>';
@@ -1374,7 +1418,23 @@
                     html += '<div class="pd-bar-group"><div class="pd-bar-label"><span>Boundary%</span><span>' + fmtNum(b.boundary_pct, 1) + '</span></div>' + pdBar(b.boundary_pct || 0, 40, 'bat') + '</div>';
                 }
             }
-            if (bowl && bowl[ph]) {
+            html += '</div>';
+        }
+        html += '</div></div>';
+        return html;
+    }
+
+    function renderBowlingPhaseSection(profile) {
+        var bowl = profile.bowling && profile.bowling.phase;
+        if (!bowl) return '';
+        var phases = ['powerplay', 'middle', 'death'];
+        var phaseLabels = { powerplay: 'Powerplay', middle: 'Middle', death: 'Death' };
+        var html = '<div class="pd-section"><div class="pd-section-title">Phase Performance</div>';
+        html += '<div class="pd-phase-grid">';
+        for (var pi = 0; pi < phases.length; pi++) {
+            var ph = phases[pi];
+            html += '<div class="pd-phase-card"><div class="pd-phase-card-title">' + phaseLabels[ph] + '</div>';
+            if (bowl[ph]) {
                 var w = bowl[ph];
                 html += '<div class="pd-bar-group"><div class="pd-bar-label"><span>Economy</span><span>' + fmtNum(w.economy, 2) + '</span></div>' + pdBar(w.economy || 0, 12, 'bowl') + '</div>';
                 html += '<div class="pd-bar-group"><div class="pd-bar-label"><span>SR</span><span>' + fmtNum(w.sr, 1) + '</span></div>' + pdBar(w.sr || 0, 200, 'bowl') + '</div>';
@@ -1386,7 +1446,6 @@
                     html += '</div>';
                 }
             }
-
             html += '</div>';
         }
         html += '</div></div>';
@@ -1454,126 +1513,105 @@
         return html;
     }
 
-    function renderVsTeams(profile) {
+    function renderBattingVsTeams(profile) {
         var batVs = profile.batting && profile.batting.vs_teams;
-        var bowlVs = profile.bowling && profile.bowling.vs_teams;
-        if (!batVs && !bowlVs) return '';
+        if (!batVs) return '';
+
+        var allTeams = (batVs.best || []).concat(batVs.worst || []);
+        var seen = {}, unique = [];
+        for (var i = 0; i < allTeams.length; i++) {
+            if (!seen[allTeams[i].team]) { seen[allTeams[i].team] = true; unique.push(allTeams[i]); }
+        }
+        if (unique.length === 0) return '';
+
+        var bestTeam = batVs.best && batVs.best.length > 0 ? batVs.best[0].team : '';
+        var worstTeam = batVs.worst && batVs.worst.length > 0 ? batVs.worst[batVs.worst.length - 1].team : '';
 
         var html = '<div class="pd-section"><div class="pd-section-title">vs Teams</div>';
-
-        if (batVs) {
-            var allTeams = (batVs.best || []).concat(batVs.worst || []);
-            var seen = {};
-            var unique = [];
-            for (var i = 0; i < allTeams.length; i++) {
-                if (!seen[allTeams[i].team]) { seen[allTeams[i].team] = true; unique.push(allTeams[i]); }
+        if (bestTeam || worstTeam) {
+            html += '<div style="display:flex;gap:12px;margin-bottom:12px;flex-wrap:wrap;">';
+            if (bestTeam) {
+                var bestData = batVs.best[0];
+                html += '<div class="matchup-best" style="flex:1;min-width:140px;padding:8px 12px;border-radius:var(--radius-sm);">';
+                html += '<span class="matchup-label best">Best</span>';
+                html += '<div style="font-weight:700;color:var(--accent-green);font-size:14px;">' + getTeamBadge(bestTeam) + '</div>';
+                html += '<div style="font-size:12px;color:var(--text-secondary);">SR ' + fmtNum(bestData.sr, 1) + ' | Avg ' + fmtNum(bestData.avg, 1) + '</div>';
+                html += '</div>';
             }
-            if (unique.length > 0) {
-                var bestTeam = batVs.best && batVs.best.length > 0 ? batVs.best[0].team : '';
-                var worstTeam = batVs.worst && batVs.worst.length > 0 ? batVs.worst[batVs.worst.length - 1].team : '';
-
-                // Matchup highlights for batting
-                html += '<div style="font-size:12px;font-weight:600;color:var(--text-secondary);margin-bottom:6px;">Batting</div>';
-                if (bestTeam || worstTeam) {
-                    html += '<div style="display:flex;gap:12px;margin-bottom:12px;flex-wrap:wrap;">';
-                    if (bestTeam) {
-                        var bestData = batVs.best[0];
-                        html += '<div class="matchup-best" style="flex:1;min-width:140px;padding:8px 12px;border-radius:var(--radius-sm);">';
-                        html += '<span class="matchup-label best">Best</span>';
-                        html += '<div style="font-weight:700;color:var(--accent-green);font-size:14px;">' + getTeamBadge(bestTeam) + '</div>';
-                        html += '<div style="font-size:12px;color:var(--text-secondary);">SR ' + fmtNum(bestData.sr, 1) + ' | Avg ' + fmtNum(bestData.avg, 1) + '</div>';
-                        html += '</div>';
-                    }
-                    if (worstTeam) {
-                        var worstData = batVs.worst[batVs.worst.length - 1];
-                        html += '<div class="matchup-worst" style="flex:1;min-width:140px;padding:8px 12px;border-radius:var(--radius-sm);">';
-                        html += '<span class="matchup-label worst">Worst</span>';
-                        html += '<div style="font-weight:700;color:var(--accent-red);font-size:14px;">' + getTeamBadge(worstTeam) + '</div>';
-                        html += '<div style="font-size:12px;color:var(--text-secondary);">SR ' + fmtNum(worstData.sr, 1) + ' | Avg ' + fmtNum(worstData.avg, 1) + '</div>';
-                        html += '</div>';
-                    }
-                    html += '</div>';
-                }
-
-                // Check if data has runs/balls fields (some entries may have them)
-                var hasRuns = unique.some(function(d) { return d.runs != null; });
-                var hasBalls = unique.some(function(d) { return d.balls != null; });
-
-                html += '<table class="pd-table"><thead><tr><th>Team</th><th>Inn</th>';
-                if (hasRuns) html += '<th>Runs</th>';
-                if (hasBalls) html += '<th>Balls</th>';
-                html += '<th>SR</th><th>Avg</th></tr></thead><tbody>';
-                for (var i = 0; i < unique.length; i++) {
-                    var d = unique[i];
-                    var cls = '';
-                    if (d.team === bestTeam) cls = ' class="pd-best"';
-                    else if (d.team === worstTeam) cls = ' class="pd-worst"';
-                    html += '<tr' + cls + '>';
-                    html += '<td>' + getTeamBadge(d.team) + '</td>';
-                    html += '<td>' + fmtNum(d.innings) + '</td>';
-                    if (hasRuns) html += '<td>' + fmtNum(d.runs) + '</td>';
-                    if (hasBalls) html += '<td>' + fmtNum(d.balls) + '</td>';
-                    html += '<td>' + fmtNum(d.sr, 2) + '</td>';
-                    html += '<td>' + fmtNum(d.avg, 2) + '</td>';
-                    html += '</tr>';
-                }
-                html += '</tbody></table>';
+            if (worstTeam) {
+                var worstData = batVs.worst[batVs.worst.length - 1];
+                html += '<div class="matchup-worst" style="flex:1;min-width:140px;padding:8px 12px;border-radius:var(--radius-sm);">';
+                html += '<span class="matchup-label worst">Worst</span>';
+                html += '<div style="font-weight:700;color:var(--accent-red);font-size:14px;">' + getTeamBadge(worstTeam) + '</div>';
+                html += '<div style="font-size:12px;color:var(--text-secondary);">SR ' + fmtNum(worstData.sr, 1) + ' | Avg ' + fmtNum(worstData.avg, 1) + '</div>';
+                html += '</div>';
             }
+            html += '</div>';
         }
-
-        if (bowlVs) {
-            var allTeams = (bowlVs.best || []).concat(bowlVs.worst || []);
-            var seen = {};
-            var unique = [];
-            for (var i = 0; i < allTeams.length; i++) {
-                if (!seen[allTeams[i].team]) { seen[allTeams[i].team] = true; unique.push(allTeams[i]); }
-            }
-            if (unique.length > 0) {
-                var bestTeam = bowlVs.best && bowlVs.best.length > 0 ? bowlVs.best[0].team : '';
-                var worstTeam = bowlVs.worst && bowlVs.worst.length > 0 ? bowlVs.worst[bowlVs.worst.length - 1].team : '';
-
-                html += '<div style="font-size:12px;font-weight:600;color:var(--text-secondary);margin:12px 0 6px;">Bowling</div>';
-                // Matchup highlights for bowling
-                if (bestTeam || worstTeam) {
-                    html += '<div style="display:flex;gap:12px;margin-bottom:12px;flex-wrap:wrap;">';
-                    if (bestTeam) {
-                        var bestData = bowlVs.best[0];
-                        html += '<div class="matchup-best" style="flex:1;min-width:140px;padding:8px 12px;border-radius:var(--radius-sm);">';
-                        html += '<span class="matchup-label best">Best</span>';
-                        html += '<div style="font-weight:700;color:var(--accent-green);font-size:14px;">' + getTeamBadge(bestTeam) + '</div>';
-                        html += '<div style="font-size:12px;color:var(--text-secondary);">Econ ' + fmtNum(bestData.economy, 2) + ' | Wkts ' + fmtNum(bestData.wickets) + '</div>';
-                        html += '</div>';
-                    }
-                    if (worstTeam) {
-                        var worstData = bowlVs.worst[bowlVs.worst.length - 1];
-                        html += '<div class="matchup-worst" style="flex:1;min-width:140px;padding:8px 12px;border-radius:var(--radius-sm);">';
-                        html += '<span class="matchup-label worst">Worst</span>';
-                        html += '<div style="font-weight:700;color:var(--accent-red);font-size:14px;">' + getTeamBadge(worstTeam) + '</div>';
-                        html += '<div style="font-size:12px;color:var(--text-secondary);">Econ ' + fmtNum(worstData.economy, 2) + ' | Wkts ' + fmtNum(worstData.wickets) + '</div>';
-                        html += '</div>';
-                    }
-                    html += '</div>';
-                }
-
-                html += '<table class="pd-table"><thead><tr><th>Team</th><th>Econ</th><th>SR</th><th>Wkts</th><th>Overs</th></tr></thead><tbody>';
-                for (var i = 0; i < unique.length; i++) {
-                    var d = unique[i];
-                    var cls = '';
-                    if (d.team === bestTeam) cls = ' class="pd-best"';
-                    else if (d.team === worstTeam) cls = ' class="pd-worst"';
-                    html += '<tr' + cls + '>';
-                    html += '<td>' + getTeamBadge(d.team) + '</td>';
-                    html += '<td>' + fmtNum(d.economy, 2) + '</td>';
-                    html += '<td>' + fmtNum(d.sr, 1) + '</td>';
-                    html += '<td>' + fmtNum(d.wickets) + '</td>';
-                    html += '<td>' + fmtNum(d.overs, 1) + '</td>';
-                    html += '</tr>';
-                }
-                html += '</tbody></table>';
-            }
+        var hasRuns = unique.some(function(d) { return d.runs != null; });
+        var hasBalls = unique.some(function(d) { return d.balls != null; });
+        html += '<table class="pd-table"><thead><tr><th>Team</th><th>Inn</th>';
+        if (hasRuns) html += '<th>Runs</th>';
+        if (hasBalls) html += '<th>Balls</th>';
+        html += '<th>SR</th><th>Avg</th></tr></thead><tbody>';
+        for (var i = 0; i < unique.length; i++) {
+            var d = unique[i], cls = '';
+            if (d.team === bestTeam) cls = ' class="pd-best"';
+            else if (d.team === worstTeam) cls = ' class="pd-worst"';
+            html += '<tr' + cls + '><td>' + getTeamBadge(d.team) + '</td><td>' + fmtNum(d.innings) + '</td>';
+            if (hasRuns) html += '<td>' + fmtNum(d.runs) + '</td>';
+            if (hasBalls) html += '<td>' + fmtNum(d.balls) + '</td>';
+            html += '<td>' + fmtNum(d.sr, 2) + '</td><td>' + fmtNum(d.avg, 2) + '</td></tr>';
         }
+        html += '</tbody></table></div>';
+        return html;
+    }
 
-        html += '</div>';
+    function renderBowlingVsTeams(profile) {
+        var bowlVs = profile.bowling && profile.bowling.vs_teams;
+        if (!bowlVs) return '';
+
+        var allTeams = (bowlVs.best || []).concat(bowlVs.worst || []);
+        var seen = {}, unique = [];
+        for (var i = 0; i < allTeams.length; i++) {
+            if (!seen[allTeams[i].team]) { seen[allTeams[i].team] = true; unique.push(allTeams[i]); }
+        }
+        if (unique.length === 0) return '';
+
+        var bestTeam = bowlVs.best && bowlVs.best.length > 0 ? bowlVs.best[0].team : '';
+        var worstTeam = bowlVs.worst && bowlVs.worst.length > 0 ? bowlVs.worst[bowlVs.worst.length - 1].team : '';
+
+        var html = '<div class="pd-section"><div class="pd-section-title">vs Teams</div>';
+        if (bestTeam || worstTeam) {
+            html += '<div style="display:flex;gap:12px;margin-bottom:12px;flex-wrap:wrap;">';
+            if (bestTeam) {
+                var bestData = bowlVs.best[0];
+                html += '<div class="matchup-best" style="flex:1;min-width:140px;padding:8px 12px;border-radius:var(--radius-sm);">';
+                html += '<span class="matchup-label best">Best</span>';
+                html += '<div style="font-weight:700;color:var(--accent-green);font-size:14px;">' + getTeamBadge(bestTeam) + '</div>';
+                html += '<div style="font-size:12px;color:var(--text-secondary);">Econ ' + fmtNum(bestData.economy, 2) + ' | Wkts ' + fmtNum(bestData.wickets) + '</div>';
+                html += '</div>';
+            }
+            if (worstTeam) {
+                var worstData = bowlVs.worst[bowlVs.worst.length - 1];
+                html += '<div class="matchup-worst" style="flex:1;min-width:140px;padding:8px 12px;border-radius:var(--radius-sm);">';
+                html += '<span class="matchup-label worst">Worst</span>';
+                html += '<div style="font-weight:700;color:var(--accent-red);font-size:14px;">' + getTeamBadge(worstTeam) + '</div>';
+                html += '<div style="font-size:12px;color:var(--text-secondary);">Econ ' + fmtNum(worstData.economy, 2) + ' | Wkts ' + fmtNum(worstData.wickets) + '</div>';
+                html += '</div>';
+            }
+            html += '</div>';
+        }
+        html += '<table class="pd-table"><thead><tr><th>Team</th><th>Econ</th><th>SR</th><th>Wkts</th><th>Overs</th></tr></thead><tbody>';
+        for (var i = 0; i < unique.length; i++) {
+            var d = unique[i], cls = '';
+            if (d.team === bestTeam) cls = ' class="pd-best"';
+            else if (d.team === worstTeam) cls = ' class="pd-worst"';
+            html += '<tr' + cls + '><td>' + getTeamBadge(d.team) + '</td>';
+            html += '<td>' + fmtNum(d.economy, 2) + '</td><td>' + fmtNum(d.sr, 1) + '</td>';
+            html += '<td>' + fmtNum(d.wickets) + '</td><td>' + fmtNum(d.overs, 1) + '</td></tr>';
+        }
+        html += '</tbody></table></div>';
         return html;
     }
 

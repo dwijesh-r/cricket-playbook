@@ -171,7 +171,8 @@ def _query_t20_fallback_bowler_phase(
         return []
     id_list = ", ".join(f"'{pid}'" for pid in missing_ids)
     rows = conn.execute(f"""
-        SELECT player_id, player_name, balls_bowled, economy_rate, dot_ball_pct
+        SELECT player_id, player_name, balls_bowled, economy_rate, dot_ball_pct,
+            COALESCE(wickets, 0), boundary_conceded_pct
         FROM analytics_t20_bowler_phase_since2023
         WHERE match_phase = '{phase}'
           AND CAST(player_id AS VARCHAR) IN ({id_list})
@@ -223,7 +224,7 @@ def _make_stub_batter_phase_row(rank: int, player_name: str) -> list:
 
 def _make_stub_bowler_phase_row(rank: int, player_name: str) -> list:
     """Create a stub row for a squad bowler with no phase data at all."""
-    return [rank, player_name, 0, None, None, True]
+    return [rank, player_name, 0, None, 0, None, None, True]
 
 
 def _make_stub_batter_composite_row(rank: int, player_name: str) -> list:
@@ -684,18 +685,23 @@ def query_bowler_phase_rankings(conn: duckdb.DuckDBPyConnection, suffix: str = "
     fall back to T20 since-2023 stats (marked is_t20_fallback: true).
     """
     view = f"analytics_ipl_bowler_phase_rankings{suffix}"
+    base_view = f"analytics_ipl_bowler_phase{suffix}"
     squad = _get_all_squad_players(conn)
     subcategories = []
     for phase in PHASE_ORDER:
-        # --- IPL-qualified rows ---
+        # --- IPL-qualified rows (join with base view for wickets + boundary%) ---
         ipl_rows = conn.execute(
             f"""
             SELECT
-                phase_rank, player_name, balls_bowled, economy_rate,
-                dot_ball_pct, player_id
-            FROM {view}
-            WHERE match_phase = ?
-            ORDER BY phase_rank
+                r.phase_rank, r.player_name, r.balls_bowled, r.economy_rate,
+                r.dot_ball_pct, r.player_id,
+                COALESCE(b.wickets, 0) AS wickets,
+                b.boundary_conceded_pct
+            FROM {view} r
+            LEFT JOIN {base_view} b
+                ON r.player_id = b.player_id AND r.match_phase = b.match_phase
+            WHERE r.match_phase = ?
+            ORDER BY r.phase_rank
             """,
             [phase],
         ).fetchall()
@@ -709,6 +715,8 @@ def query_bowler_phase_rankings(conn: duckdb.DuckDBPyConnection, suffix: str = "
                 r[1],
                 int(r[2]),
                 _format_num(r[3], 2),
+                int(r[6]),
+                _format_num(r[7]),
                 _format_num(r[4]),
             ]
             for r in ipl_rows
@@ -728,6 +736,8 @@ def query_bowler_phase_rankings(conn: duckdb.DuckDBPyConnection, suffix: str = "
                         r[1],
                         int(r[2]) if r[2] is not None else 0,
                         _format_num(r[3], 2),
+                        int(r[5]) if len(r) > 5 and r[5] is not None else 0,
+                        _format_num(r[6]) if len(r) > 6 else None,
                         _format_num(r[4]),
                         True,  # is_t20_fallback
                     ]
@@ -744,7 +754,7 @@ def query_bowler_phase_rankings(conn: duckdb.DuckDBPyConnection, suffix: str = "
             {
                 "id": phase,
                 "title": PHASE_TITLES[phase],
-                "headers": ["Rank", "Player", "Balls", "Econ", "Dot%"],
+                "headers": ["Rank", "Player", "Balls", "Econ", "Wkts", "Boundary%", "Dot%"],
                 "rows": formatted_rows,
                 "qualifiedCount": qualified_count,
             }

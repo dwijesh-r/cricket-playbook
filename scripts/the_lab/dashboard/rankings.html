@@ -2588,17 +2588,10 @@
         const sub = cat.subcategories[state.currentSubcategory];
         state.headers = sub.headers;
 
-        // Get all rows, filtering out T20 fallback for IPL scopes
-        let rows;
+        // Get all rows — include T20 fallback rows for squad players in IPL scopes
+        let rows = sub.rows.slice();
         const isT20Scope = state.currentScope.startsWith('all_t20');
         const isIPLScope = !isT20Scope;
-
-        if (isIPLScope) {
-            // IPL scopes: exclude T20 fallback rows (last element === true)
-            rows = sub.rows.filter(row => row[row.length - 1] !== true);
-        } else {
-            rows = sub.rows.slice();
-        }
 
         // Filter to IPL 2026 squad players (applies to ALL scopes)
         const playerColIdx = state.headers.indexOf('Player') !== -1 ? state.headers.indexOf('Player') : state.headers.indexOf('Batter');

@@ -1495,10 +1495,56 @@
         return html;
     }
 
-    function renderVsBowlingType(profile) {
-        var vsBowl = profile.batting && profile.batting.vs_bowling_type;
-        if (!vsBowl) return '';
+    // Consolidate duplicate bowling types: merge stats by weighted average
+    var BOWL_TYPE_MAP = {
+        'Wrist-spin': 'Wrist Spin',
+        'Leg-spin': 'Wrist Spin',
+        'LA Orthodox': 'Left-arm Orthodox',
+        'Left-arm orthodox': 'Left-arm Orthodox',
+        'Off-Spin/Leg-Spin': 'Off-spin',
+        'Off-Spin/Left-Arm Orthodox': 'Off-spin'
+    };
 
+    function consolidateBowlTypes(vsBowl) {
+        var merged = {};
+        var keys = Object.keys(vsBowl);
+        for (var i = 0; i < keys.length; i++) {
+            var raw = keys[i];
+            var canonical = BOWL_TYPE_MAP[raw] || raw;
+            var d = vsBowl[raw];
+            if (!merged[canonical]) {
+                merged[canonical] = { balls: 0, runs: 0, dismissals: 0 };
+            }
+            var m = merged[canonical];
+            var balls = d.balls || 0;
+            var runs = d.runs || (d.sr && balls ? Math.round(d.sr * balls / 100) : 0);
+            m.balls += balls;
+            m.runs += runs;
+            // Track dismissals for avg calculation
+            if (d.avg && d.avg > 0 && runs > 0) {
+                m.dismissals += Math.round(runs / d.avg);
+            }
+        }
+        // Compute derived stats
+        var result = {};
+        var ckeys = Object.keys(merged);
+        for (var i = 0; i < ckeys.length; i++) {
+            var m = merged[ckeys[i]];
+            result[ckeys[i]] = {
+                balls: m.balls,
+                runs: m.runs,
+                sr: m.balls > 0 ? (m.runs / m.balls * 100) : 0,
+                avg: m.dismissals > 0 ? (m.runs / m.dismissals) : null
+            };
+        }
+        return result;
+    }
+
+    function renderVsBowlingType(profile) {
+        var vsBowlRaw = profile.batting && profile.batting.vs_bowling_type;
+        if (!vsBowlRaw) return '';
+
+        var vsBowl = consolidateBowlTypes(vsBowlRaw);
         var types = Object.keys(vsBowl);
         if (types.length === 0) return '';
 
@@ -1543,11 +1589,9 @@
             var cls = '';
             if (types[i] === bestType) cls = ' class="pd-best"';
             else if (types[i] === worstType) cls = ' class="pd-worst"';
-            // Derive runs from SR and balls: runs = SR * balls / 100
-            var derivedRuns = (d.sr && d.balls) ? Math.round(d.sr * d.balls / 100) : d.runs;
             html += '<tr' + cls + '>';
             html += '<td>' + escHtml(types[i]) + '</td>';
-            html += '<td>' + fmtNum(derivedRuns) + '</td>';
+            html += '<td>' + fmtNum(d.runs) + '</td>';
             html += '<td>' + fmtNum(d.balls) + '</td>';
             html += '<td>' + fmtNum(d.sr, 2) + '</td>';
             html += '<td>' + fmtNum(d.avg, 2) + '</td>';

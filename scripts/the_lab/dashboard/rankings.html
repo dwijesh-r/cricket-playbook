@@ -2611,18 +2611,11 @@
             });
         }
 
-        // Apply qualification filter only when "Show All" is OFF and after squad filter
-        if (!state.showAll && sub.qualifiedCount != null) {
-            // Re-rank: only keep rows that were within the qualified range in original data
-            const qualifiedNames = new Set();
-            let count = 0;
-            for (const row of sub.rows) {
-                if (row[row.length - 1] === true) continue; // skip fallback
-                if (count >= sub.qualifiedCount) break;
-                qualifiedNames.add(String(row[playerColIdx]).toLowerCase().trim());
-                count++;
-            }
-            rows = rows.filter(row => qualifiedNames.has(String(row[playerColIdx]).toLowerCase().trim()));
+        // Apply qualification filter only when no squad filter is active
+        // Squad filter already limits to ~25 players, no need to further restrict
+        const squadFilterActive = playerColIdx >= 0 && Object.keys(PLAYER_TEAM_MAP).length > 0;
+        if (!state.showAll && !squadFilterActive && sub.qualifiedCount != null && sub.qualifiedCount < rows.length) {
+            rows = rows.slice(0, sub.qualifiedCount);
         }
 
         // Filter by minimum balls threshold

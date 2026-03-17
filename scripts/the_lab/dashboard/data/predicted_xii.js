@@ -1,7 +1,7 @@
 /**
  * Statsledge - Predicted XII Data
  * IPL 2026 Pre-Season Analytics
- * Auto-generated: 2026-03-17T09:32:09.317182
+ * Auto-generated: 2026-03-17T10:19:36.763163
  * Algorithm: SUPER SELECTOR
  */
 
@@ -306,7 +306,7 @@ const PREDICTED_XII = {
 
 /**
  * Statsledge - Depth Chart Ratings
- * Auto-generated: 2026-03-17T09:32:09.317377
+ * Auto-generated: 2026-03-17T10:19:36.763334
  */
 
 const DEPTH_CHART_RATINGS = {

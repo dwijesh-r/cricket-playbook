@@ -2590,31 +2590,39 @@
         const sub = cat.subcategories[state.currentSubcategory];
         state.headers = sub.headers;
 
-        // Filter by qualification status (Show All toggle)
+        // Get all rows, filtering out T20 fallback for IPL scopes
         let rows;
         const isT20Scope = state.currentScope.startsWith('all_t20');
         const isIPLScope = !isT20Scope;
 
-        if (!state.showAll && sub.qualifiedCount != null && sub.qualifiedCount < sub.rows.length) {
-            rows = sub.rows.slice(0, sub.qualifiedCount);
-        } else if (state.showAll && isIPLScope) {
-            // Show All for IPL scopes: show all rows but filter out T20 fallback rows.
-            // T20 fallback rows have a boolean `true` as their LAST element.
-            rows = sub.rows.filter(row => {
-                const lastEl = row[row.length - 1];
-                return lastEl !== true;
-            });
+        if (isIPLScope) {
+            // IPL scopes: exclude T20 fallback rows (last element === true)
+            rows = sub.rows.filter(row => row[row.length - 1] !== true);
         } else {
             rows = sub.rows.slice();
         }
 
-        // Filter to IPL 2026 squad players only (for IPL scopes, not All T20)
+        // Filter to IPL 2026 squad players (applies to ALL scopes)
         const playerColIdx = state.headers.indexOf('Player') !== -1 ? state.headers.indexOf('Player') : state.headers.indexOf('Batter');
-        if (isIPLScope && playerColIdx >= 0 && Object.keys(PLAYER_TEAM_MAP).length > 0) {
+        if (playerColIdx >= 0 && Object.keys(PLAYER_TEAM_MAP).length > 0) {
             rows = rows.filter(row => {
                 const name = String(row[playerColIdx]).toLowerCase().trim();
                 return PLAYER_TEAM_MAP[name] != null;
             });
+        }
+
+        // Apply qualification filter only when "Show All" is OFF and after squad filter
+        if (!state.showAll && sub.qualifiedCount != null) {
+            // Re-rank: only keep rows that were within the qualified range in original data
+            const qualifiedNames = new Set();
+            let count = 0;
+            for (const row of sub.rows) {
+                if (row[row.length - 1] === true) continue; // skip fallback
+                if (count >= sub.qualifiedCount) break;
+                qualifiedNames.add(String(row[playerColIdx]).toLowerCase().trim());
+                count++;
+            }
+            rows = rows.filter(row => qualifiedNames.has(String(row[playerColIdx]).toLowerCase().trim()));
         }
 
         // Filter by minimum balls threshold

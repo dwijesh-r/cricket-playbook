@@ -469,6 +469,16 @@
         .pd-tab-content { display: none; }
         .pd-tab-content.active { display: block; }
 
+        /* Scope toggles in player detail */
+        .pd-scope-bar { display: flex; gap: 6px; margin-bottom: var(--space-4); flex-wrap: wrap; }
+        .pd-scope-btn {
+            padding: 5px 12px; font-size: 12px; font-weight: 600; border-radius: var(--radius-full);
+            border: 1px solid var(--border); background: var(--bg-tertiary); color: var(--text-tertiary);
+            cursor: pointer; transition: all var(--transition-normal); white-space: nowrap;
+        }
+        .pd-scope-btn:hover { color: var(--text-secondary); border-color: var(--text-tertiary); }
+        .pd-scope-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
         /* Mobile full-screen modal */
         @media (max-width: 768px) {
             .player-detail-overlay { padding: 0; align-items: stretch; }
@@ -699,6 +709,7 @@
     <!-- Data -->
     <script src="data/player_stats.js"></script>
     <script src="data/player_profiles.js"></script>
+    <script src="data/player_profiles_scoped.js"></script>
     <script src="data/full_squads.js"></script>
     <script src="assets/shared.js"></script>
 
@@ -1233,12 +1244,44 @@
     }
 
     // ==================== PLAYER DETAIL PANEL ====================
+    var pdState = { playerName: '', scope: 'ipl_since2023', discipline: 'batting' };
+
+    var PD_SCOPE_LABELS = {
+        'ipl_since2023': 'IPL 2023+',
+        'ipl_alltime': 'IPL All-Time',
+        'all_t20_since2023': 'All T20 2023+',
+        'all_t20_alltime': 'All T20 All-Time'
+    };
+
+    function getScopedProfile(playerName, scope) {
+        if (typeof PLAYER_PROFILES_SCOPED !== 'undefined' && PLAYER_PROFILES_SCOPED[playerName]) {
+            return PLAYER_PROFILES_SCOPED[playerName][scope] || null;
+        }
+        return null;
+    }
+
     function showPlayerDetail(playerName) {
         var profile = profileLookup[playerName];
         if (!profile) return;
+        pdState.playerName = playerName;
+        pdState.scope = 'ipl_since2023';
+        pdState.discipline = 'batting';
+        renderPlayerDetail();
+        document.getElementById('playerDetailOverlay').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
 
-        var hasBat = !!(profile.batting && (profile.batting.phase || profile.batting.vs_bowling_type || profile.batting.vs_teams));
-        var hasBowl = !!(profile.bowling && (profile.bowling.phase || profile.bowling.vs_teams));
+    function renderPlayerDetail() {
+        var playerName = pdState.playerName;
+        var profile = profileLookup[playerName];
+        if (!profile) return;
+
+        var scoped = getScopedProfile(playerName, pdState.scope) || {};
+        var hasBat = !!(scoped.batting && (scoped.batting.phase || scoped.batting.vs_bowling_type || scoped.batting.vs_teams));
+        var hasBowl = !!(scoped.bowling && (scoped.bowling.phase || scoped.bowling.vs_teams));
+        // Default to batting if available, else bowling
+        if (!hasBat && hasBowl) pdState.discipline = 'bowling';
+        else if (hasBat && !hasBowl) pdState.discipline = 'batting';
 
         var html = '';
 
@@ -1254,53 +1297,53 @@
         if (profile.bowling_type) html += '<span class="pd-meta-item">' + escHtml(profile.bowling_type) + '</span>';
         html += '</div></div>';
 
-        // IPL vs All T20 Comparison (shared, always visible)
+        // IPL vs All T20 Comparison (always visible)
         html += renderScopeComparison(profile, playerName);
 
-        // Tags & Archetype (shared, always visible)
+        // Tags & Archetype (always visible)
         html += renderTags(profile);
 
-        // Tabs (only show if both batting and bowling data exist)
+        // Scope toggle bar
+        html += '<div class="pd-scope-bar">';
+        var scopes = ['ipl_since2023', 'ipl_alltime', 'all_t20_since2023', 'all_t20_alltime'];
+        for (var si = 0; si < scopes.length; si++) {
+            var s = scopes[si];
+            var cls = s === pdState.scope ? 'pd-scope-btn active' : 'pd-scope-btn';
+            html += '<button class="' + cls + '" onclick="switchPdScope(\'' + s + '\')">' + PD_SCOPE_LABELS[s] + '</button>';
+        }
+        html += '</div>';
+
+        // Batting/Bowling tabs
         if (hasBat && hasBowl) {
             html += '<div class="pd-tabs">';
-            html += '<button class="pd-tab active" onclick="switchPdTab(\'batting\',this)">Batting</button>';
-            html += '<button class="pd-tab" onclick="switchPdTab(\'bowling\',this)">Bowling</button>';
+            html += '<button class="pd-tab' + (pdState.discipline === 'batting' ? ' active' : '') + '" onclick="switchPdDiscipline(\'batting\')">Batting</button>';
+            html += '<button class="pd-tab' + (pdState.discipline === 'bowling' ? ' active' : '') + '" onclick="switchPdDiscipline(\'bowling\')">Bowling</button>';
             html += '</div>';
+        }
 
-            // Batting tab content
-            html += '<div class="pd-tab-content active" id="pdTabBatting">';
-            html += renderBattingPhaseSection(profile);
-            html += renderVsBowlingType(profile);
-            html += renderBattingVsTeams(profile);
-            html += '</div>';
-
-            // Bowling tab content
-            html += '<div class="pd-tab-content" id="pdTabBowling">';
-            html += renderBowlingPhaseSection(profile);
-            html += renderBowlingVsTeams(profile);
-            html += '</div>';
-        } else if (hasBat) {
-            html += renderBattingPhaseSection(profile);
-            html += renderVsBowlingType(profile);
-            html += renderBattingVsTeams(profile);
-        } else if (hasBowl) {
-            html += renderBowlingPhaseSection(profile);
-            html += renderBowlingVsTeams(profile);
+        // Render discipline content using scoped data
+        if (pdState.discipline === 'batting' && hasBat) {
+            html += renderBattingPhaseSection(scoped);
+            html += renderVsBowlingType(scoped);
+            html += renderBattingVsTeams(scoped);
+        } else if (pdState.discipline === 'bowling' && hasBowl) {
+            html += renderBowlingPhaseSection(scoped);
+            html += renderBowlingVsTeams(scoped);
+        } else if (!hasBat && !hasBowl) {
+            html += '<div class="pd-section" style="color:var(--text-tertiary);text-align:center;padding:var(--space-6);">No data available for this scope</div>';
         }
 
         document.getElementById('playerDetailContent').innerHTML = html;
-        document.getElementById('playerDetailOverlay').classList.add('active');
-        document.body.style.overflow = 'hidden';
     }
 
-    function switchPdTab(tab, btn) {
-        var tabs = btn.parentElement.querySelectorAll('.pd-tab');
-        for (var i = 0; i < tabs.length; i++) tabs[i].classList.remove('active');
-        btn.classList.add('active');
-        var batEl = document.getElementById('pdTabBatting');
-        var bowlEl = document.getElementById('pdTabBowling');
-        if (batEl) batEl.classList.toggle('active', tab === 'batting');
-        if (bowlEl) bowlEl.classList.toggle('active', tab === 'bowling');
+    function switchPdScope(scope) {
+        pdState.scope = scope;
+        renderPlayerDetail();
+    }
+
+    function switchPdDiscipline(disc) {
+        pdState.discipline = disc;
+        renderPlayerDetail();
     }
 
     function closePlayerDetail() {
@@ -1459,9 +1502,10 @@
         var types = Object.keys(vsBowl);
         if (types.length === 0) return '';
 
-        // Find best and worst by SR (min 10 balls)
+        // Find best and worst by SR (min 10 balls, skip Unknown)
         var bestSR = -1, worstSR = 999999, bestType = '', worstType = '';
         for (var i = 0; i < types.length; i++) {
+            if (types[i].toLowerCase() === 'unknown') continue;
             var d = vsBowl[types[i]];
             var sr = d.sr || 0;
             var balls = d.balls || 0;
@@ -1517,21 +1561,24 @@
         var batVs = profile.batting && profile.batting.vs_teams;
         if (!batVs) return '';
 
-        var allTeams = (batVs.best || []).concat(batVs.worst || []);
+        // Support both old format (best/worst) and scoped format (best_3/worst_3)
+        var bestArr = batVs.best || batVs.best_3 || [];
+        var worstArr = batVs.worst || batVs.worst_3 || [];
+        var allTeams = bestArr.concat(worstArr);
         var seen = {}, unique = [];
         for (var i = 0; i < allTeams.length; i++) {
             if (!seen[allTeams[i].team]) { seen[allTeams[i].team] = true; unique.push(allTeams[i]); }
         }
         if (unique.length === 0) return '';
 
-        var bestTeam = batVs.best && batVs.best.length > 0 ? batVs.best[0].team : '';
-        var worstTeam = batVs.worst && batVs.worst.length > 0 ? batVs.worst[batVs.worst.length - 1].team : '';
+        var bestTeam = bestArr.length > 0 ? bestArr[0].team : '';
+        var worstTeam = worstArr.length > 0 ? worstArr[worstArr.length - 1].team : '';
 
         var html = '<div class="pd-section"><div class="pd-section-title">vs Teams</div>';
         if (bestTeam || worstTeam) {
             html += '<div style="display:flex;gap:12px;margin-bottom:12px;flex-wrap:wrap;">';
             if (bestTeam) {
-                var bestData = batVs.best[0];
+                var bestData = bestArr[0];
                 html += '<div class="matchup-best" style="flex:1;min-width:140px;padding:8px 12px;border-radius:var(--radius-sm);">';
                 html += '<span class="matchup-label best">Best</span>';
                 html += '<div style="font-weight:700;color:var(--accent-green);font-size:14px;">' + getTeamBadge(bestTeam) + '</div>';
@@ -1539,7 +1586,7 @@
                 html += '</div>';
             }
             if (worstTeam) {
-                var worstData = batVs.worst[batVs.worst.length - 1];
+                var worstData = worstArr[worstArr.length - 1];
                 html += '<div class="matchup-worst" style="flex:1;min-width:140px;padding:8px 12px;border-radius:var(--radius-sm);">';
                 html += '<span class="matchup-label worst">Worst</span>';
                 html += '<div style="font-weight:700;color:var(--accent-red);font-size:14px;">' + getTeamBadge(worstTeam) + '</div>';
@@ -1571,21 +1618,23 @@
         var bowlVs = profile.bowling && profile.bowling.vs_teams;
         if (!bowlVs) return '';
 
-        var allTeams = (bowlVs.best || []).concat(bowlVs.worst || []);
+        var bestArr = bowlVs.best || bowlVs.best_3 || [];
+        var worstArr = bowlVs.worst || bowlVs.worst_3 || [];
+        var allTeams = bestArr.concat(worstArr);
         var seen = {}, unique = [];
         for (var i = 0; i < allTeams.length; i++) {
             if (!seen[allTeams[i].team]) { seen[allTeams[i].team] = true; unique.push(allTeams[i]); }
         }
         if (unique.length === 0) return '';
 
-        var bestTeam = bowlVs.best && bowlVs.best.length > 0 ? bowlVs.best[0].team : '';
-        var worstTeam = bowlVs.worst && bowlVs.worst.length > 0 ? bowlVs.worst[bowlVs.worst.length - 1].team : '';
+        var bestTeam = bestArr.length > 0 ? bestArr[0].team : '';
+        var worstTeam = worstArr.length > 0 ? worstArr[worstArr.length - 1].team : '';
 
         var html = '<div class="pd-section"><div class="pd-section-title">vs Teams</div>';
         if (bestTeam || worstTeam) {
             html += '<div style="display:flex;gap:12px;margin-bottom:12px;flex-wrap:wrap;">';
             if (bestTeam) {
-                var bestData = bowlVs.best[0];
+                var bestData = bestArr[0];
                 html += '<div class="matchup-best" style="flex:1;min-width:140px;padding:8px 12px;border-radius:var(--radius-sm);">';
                 html += '<span class="matchup-label best">Best</span>';
                 html += '<div style="font-weight:700;color:var(--accent-green);font-size:14px;">' + getTeamBadge(bestTeam) + '</div>';
@@ -1593,7 +1642,7 @@
                 html += '</div>';
             }
             if (worstTeam) {
-                var worstData = bowlVs.worst[bowlVs.worst.length - 1];
+                var worstData = worstArr[worstArr.length - 1];
                 html += '<div class="matchup-worst" style="flex:1;min-width:140px;padding:8px 12px;border-radius:var(--radius-sm);">';
                 html += '<span class="matchup-label worst">Worst</span>';
                 html += '<div style="font-weight:700;color:var(--accent-red);font-size:14px;">' + getTeamBadge(worstTeam) + '</div>';

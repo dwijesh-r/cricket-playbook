@@ -227,6 +227,29 @@
         }
         .scope-btn:hover { color: var(--text-primary); background: var(--bg-tertiary); }
         .scope-btn.active { background: linear-gradient(135deg, var(--accent) 0%, var(--accent-teal) 100%); color: #fff; box-shadow: 0 2px 12px rgba(232, 115, 74, 0.15); }
+        .scope-group-label {
+            font-size: 10px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.08em; color: var(--text-tertiary); padding: 0 6px;
+            display: flex; align-items: center;
+        }
+
+        /* ==================== MATCHUP HIGHLIGHTS ==================== */
+        .matchup-best { background: rgba(34, 197, 94, 0.08); border-left: 3px solid var(--accent-green); }
+        .matchup-worst { background: rgba(239, 68, 68, 0.08); border-left: 3px solid var(--accent-red); }
+        .matchup-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 2px 8px; border-radius: var(--radius-full); display: inline-block; margin-bottom: 4px; }
+        .matchup-label.best { background: rgba(34, 197, 94, 0.15); color: var(--accent-green); }
+        .matchup-label.worst { background: rgba(239, 68, 68, 0.15); color: var(--accent-red); }
+
+        /* ==================== IPL VS ALL T20 COMPARISON ==================== */
+        .pd-comparison { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); margin-top: var(--space-2); }
+        .pd-comp-col { background: var(--bg-tertiary); border-radius: var(--radius-sm); padding: var(--space-3); }
+        .pd-comp-col-title { font-size: 12px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: var(--space-2); text-align: center; }
+        .pd-comp-row { display: flex; justify-content: space-between; padding: 4px 0; font-size: 13px; border-bottom: 1px solid var(--glass-border); }
+        .pd-comp-row:last-child { border-bottom: none; }
+        .pd-comp-label { color: var(--text-tertiary); font-size: 11px; font-weight: 600; text-transform: uppercase; }
+        .pd-comp-value { color: var(--text-primary); font-weight: 600; font-variant-numeric: tabular-nums; }
+        .pd-comp-value.better { color: var(--accent-green); }
+        .pd-comp-value.worse { color: var(--text-tertiary); }
 
         /* ==================== CATEGORY TABS ==================== */
         .category-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-2); padding: 0 24px; margin: 0 auto 16px; max-width: 1200px; }
@@ -462,8 +485,11 @@
             .hero-title { font-size: 28px; word-break: break-word; hyphens: auto; }
             .hero-subtitle { font-size: 14px; padding: 0 8px; }
             .scope-toggle-wrap { padding: 0 12px; }
-            .scope-toggle { width: 100%; }
-            .scope-btn { flex: 1; min-height: 44px; font-size: 13px; text-align: center; }
+            .scope-toggle { width: 100%; flex-wrap: wrap; gap: 4px; padding: 6px; }
+            .scope-toggle [role="separator"] { display: none; }
+            .scope-group-label { width: 100%; text-align: center; padding: 4px 0 0; font-size: 10px; }
+            .scope-btn { flex: 1 1 auto; min-height: 44px; font-size: 13px; text-align: center; min-width: calc(50% - 4px); }
+            .pd-comparison { grid-template-columns: 1fr; }
             .filters-bar { padding: 0 12px; flex-direction: column; align-items: stretch; }
             .search-box { max-width: 100%; }
             .search-box input { height: 44px; font-size: 14px; }
@@ -541,14 +567,19 @@
         <!-- Hero -->
         <section class="hero">
             <h1 class="hero-title">Player Stats</h1>
-            <p class="hero-subtitle">Stats for all IPL 2026 squad players. Toggle between IPL 2023-25 and full T20 career.</p>
+            <p class="hero-subtitle">Stats for IPL 2026 squad players. Toggle between IPL and All T20 scopes across recent (2023-25) and all-time data.</p>
         </section>
 
         <!-- Scope Toggle -->
         <div class="scope-toggle-wrap">
             <div class="scope-toggle" id="scopeToggle" role="tablist" aria-label="Data scope">
-                <button class="scope-btn" data-scope="alltime" onclick="setScope('alltime')" role="tab" aria-selected="false">All T20s</button>
-                <button class="scope-btn active" data-scope="since2023" onclick="setScope('since2023')" role="tab" aria-selected="true">IPL 2023-25</button>
+                <span class="scope-group-label">IPL</span>
+                <button class="scope-btn active" data-scope="ipl_since2023" onclick="setScope('ipl_since2023')" role="tab" aria-selected="true">2023-25</button>
+                <button class="scope-btn" data-scope="ipl_alltime" onclick="setScope('ipl_alltime')" role="tab" aria-selected="false">All-Time</button>
+                <span style="width:1px;background:var(--border);margin:4px 2px;" role="separator"></span>
+                <span class="scope-group-label">All T20</span>
+                <button class="scope-btn" data-scope="all_t20_since2023" onclick="setScope('all_t20_since2023')" role="tab" aria-selected="false">2023-25</button>
+                <button class="scope-btn" data-scope="all_t20_alltime" onclick="setScope('all_t20_alltime')" role="tab" aria-selected="false">All-Time</button>
             </div>
         </div>
 
@@ -582,7 +613,7 @@
                 <option value="Batter">Batter</option>
                 <option value="Bowler">Bowler</option>
                 <option value="All-rounder">All-rounder</option>
-                <option value="Wicket-keeper">Wicket-keeper</option>
+                <option value="Wicketkeeper">Wicketkeeper</option>
             </select>
             <select class="filter-select" id="phaseFilter" onchange="applyFilters()">
                 <option value="">All Phases</option>
@@ -643,7 +674,7 @@
                 <a href="about.html">About</a>
             </div>
             <p class="footer-text">
-                Statsledge &copy; 2026 | IPL 2026 Pre-Season Analytics | Dual-Scope: All-Time + Since 2023
+                Statsledge &copy; 2026 | IPL 2026 Pre-Season Analytics | Quad-Scope: IPL + All T20
             </p>
         </footer>
     </main>
@@ -651,6 +682,7 @@
     <!-- Data -->
     <script src="data/player_stats.js"></script>
     <script src="data/player_profiles.js"></script>
+    <script src="data/full_squads.js"></script>
     <script src="assets/shared.js"></script>
 
     <script>
@@ -675,7 +707,7 @@
 
     // ==================== STATE ====================
     const state = {
-        scope: 'since2023',
+        scope: 'ipl_since2023',
         category: 'batting',
         sortCol: null,
         sortDir: 'desc',
@@ -688,6 +720,35 @@
         page: 1,
         pageSize: 50
     };
+
+    // ==================== SQUAD FILTER (IPL scopes) ====================
+    // Build player name -> team map from FULL_SQUADS for IPL scope filtering
+    const SQUAD_PLAYER_MAP = {};
+    function buildSquadPlayerMap() {
+        if (typeof FULL_SQUADS === 'undefined') return;
+        Object.keys(FULL_SQUADS).forEach(function(teamAbbrev) {
+            FULL_SQUADS[teamAbbrev].forEach(function(player) {
+                SQUAD_PLAYER_MAP[player.name.toLowerCase()] = teamAbbrev;
+            });
+        });
+    }
+    buildSquadPlayerMap();
+
+    function isIplScope() {
+        return state.scope === 'ipl_since2023' || state.scope === 'ipl_alltime';
+    }
+
+    function getDataScope() {
+        // Map UI scope to the data key in player_stats.js
+        // ipl_since2023 -> since2023, ipl_alltime -> alltime
+        // all_t20_since2023 -> since2023, all_t20_alltime -> alltime
+        if (state.scope === 'ipl_since2023' || state.scope === 'all_t20_since2023') return 'since2023';
+        return 'alltime';
+    }
+
+    function isSquadPlayer(playerName) {
+        return SQUAD_PLAYER_MAP[playerName.toLowerCase()] != null;
+    }
 
     // ==================== PROFILE LOOKUP ====================
     // Build a name-keyed lookup from PLAYER_PROFILES for quick access
@@ -829,7 +890,8 @@
     // ==================== HELPERS ====================
     function getFilteredData() {
         if (typeof PLAYER_STATS === 'undefined') return [];
-        const scope = state.scope;
+        const dataScope = getDataScope();
+        const iplScope = isIplScope();
         const cat = state.category;
         const search = state.searchQuery.toLowerCase().trim();
         const team = state.teamFilter;
@@ -839,6 +901,8 @@
         const vsTeamF = state.vsTeamFilter;
 
         return PLAYER_STATS.filter(function(p) {
+            // IPL scopes: filter to squad players only
+            if (iplScope && !isSquadPlayer(p.name)) return false;
             // Team filter
             if (team && p.team !== team) return false;
             // Role filter
@@ -848,10 +912,10 @@
 
             // Category + qualifying filter (base requirement)
             if (cat === 'batting') {
-                var d = p.bat && p.bat[scope];
+                var d = p.bat && p.bat[dataScope];
                 if (!d || !d.inn || d.inn < 1) return false;
             } else {
-                var d = p.bowl && p.bowl[scope];
+                var d = p.bowl && p.bowl[dataScope];
                 if (!d || !d.wkts || d.wkts < 1) return false;
             }
 
@@ -893,7 +957,7 @@
     function getSortedData(data) {
         var col = state.sortCol;
         var dir = state.sortDir;
-        var scope = state.scope;
+        var scope = getDataScope();
         var cat = state.category;
         var advanced = hasAdvancedFilter();
 
@@ -1005,7 +1069,7 @@
 
     function renderDesktopTable(data, startIdx) {
         var cols = getActiveCols();
-        var scope = state.scope;
+        var scope = getDataScope();
         var cat = state.category;
         var advanced = hasAdvancedFilter();
 
@@ -1100,8 +1164,9 @@
         state.sortDir = 'desc';
         state.page = 1;
         document.querySelectorAll('.scope-btn').forEach(function(btn) {
-            btn.classList.toggle('active', btn.getAttribute('data-scope') === scope);
-            btn.setAttribute('aria-selected', btn.getAttribute('data-scope') === scope);
+            var active = btn.getAttribute('data-scope') === scope;
+            btn.classList.toggle('active', active);
+            btn.setAttribute('aria-selected', active ? 'true' : 'false');
         });
         render();
     }
@@ -1169,16 +1234,19 @@
         if (profile.bowling_type) html += '<span class="pd-meta-item">' + escHtml(profile.bowling_type) + '</span>';
         html += '</div></div>';
 
-        // Section 1: Phase Performance
+        // Section 1: IPL vs All T20 Comparison
+        html += renderScopeComparison(profile, playerName);
+
+        // Section 2: Phase Performance
         html += renderPhaseSection(profile);
 
-        // Section 2: vs Bowling Type (batters)
+        // Section 3: vs Bowling Type (batters) with matchup highlights
         html += renderVsBowlingType(profile);
 
-        // Section 3: vs Teams
+        // Section 4: vs Teams with matchup highlights
         html += renderVsTeams(profile);
 
-        // Section 4: Tags & Archetype
+        // Section 5: Tags & Archetype
         html += renderTags(profile);
 
         document.getElementById('playerDetailContent').innerHTML = html;
@@ -1210,6 +1278,79 @@
         return '<div class="pd-bar-track"><div class="pd-bar-fill ' + cssClass + '" style="width:' + pct.toFixed(1) + '%"></div></div>';
     }
 
+    function renderScopeComparison(profile, playerName) {
+        // Find the player in PLAYER_STATS for career numbers
+        var playerStats = null;
+        if (typeof PLAYER_STATS !== 'undefined') {
+            for (var i = 0; i < PLAYER_STATS.length; i++) {
+                if (PLAYER_STATS[i].name === playerName) {
+                    playerStats = PLAYER_STATS[i];
+                    break;
+                }
+            }
+        }
+        if (!playerStats) return '';
+
+        var html = '<div class="pd-section"><div class="pd-section-title">IPL vs All T20 Comparison</div>';
+        html += '<div class="pd-comparison">';
+
+        // Batting comparison
+        var batIpl = playerStats.bat && playerStats.bat.since2023;
+        var batAll = playerStats.bat && playerStats.bat.alltime;
+        if (batIpl && batIpl.inn && batAll && batAll.inn) {
+            html += '<div class="pd-comp-col">';
+            html += '<div class="pd-comp-col-title">IPL 2023-25</div>';
+            html += compRow('Runs', batIpl.runs, batAll.runs, true);
+            html += compRow('Inn', batIpl.inn, batAll.inn, false);
+            html += compRow('SR', fmtNum(batIpl.sr, 2), fmtNum(batAll.sr, 2), true, batIpl.sr, batAll.sr);
+            html += compRow('Avg', fmtNum(batIpl.avg, 2), fmtNum(batAll.avg, 2), true, batIpl.avg, batAll.avg);
+            html += '</div>';
+            html += '<div class="pd-comp-col">';
+            html += '<div class="pd-comp-col-title">All T20</div>';
+            html += compRow('Runs', batAll.runs, batIpl.runs, true);
+            html += compRow('Inn', batAll.inn, batIpl.inn, false);
+            html += compRow('SR', fmtNum(batAll.sr, 2), fmtNum(batIpl.sr, 2), true, batAll.sr, batIpl.sr);
+            html += compRow('Avg', fmtNum(batAll.avg, 2), fmtNum(batIpl.avg, 2), true, batAll.avg, batIpl.avg);
+            html += '</div>';
+        }
+
+        // Bowling comparison
+        var bowlIpl = playerStats.bowl && playerStats.bowl.since2023;
+        var bowlAll = playerStats.bowl && playerStats.bowl.alltime;
+        if (bowlIpl && bowlIpl.wkts && bowlAll && bowlAll.wkts) {
+            html += '<div class="pd-comp-col">';
+            html += '<div class="pd-comp-col-title">IPL 2023-25 (Bowl)</div>';
+            html += compRow('Wkts', bowlIpl.wkts, bowlAll.wkts, true);
+            html += compRow('Overs', fmtNum(bowlIpl.overs, 1), fmtNum(bowlAll.overs, 1), false);
+            html += compRow('Econ', fmtNum(bowlIpl.econ, 2), fmtNum(bowlAll.econ, 2), false, bowlIpl.econ, bowlAll.econ, true);
+            html += compRow('Avg', fmtNum(bowlIpl.avg, 2), fmtNum(bowlAll.avg, 2), false, bowlIpl.avg, bowlAll.avg, true);
+            html += '</div>';
+            html += '<div class="pd-comp-col">';
+            html += '<div class="pd-comp-col-title">All T20 (Bowl)</div>';
+            html += compRow('Wkts', bowlAll.wkts, bowlIpl.wkts, true);
+            html += compRow('Overs', fmtNum(bowlAll.overs, 1), fmtNum(bowlIpl.overs, 1), false);
+            html += compRow('Econ', fmtNum(bowlAll.econ, 2), fmtNum(bowlIpl.econ, 2), false, bowlAll.econ, bowlIpl.econ, true);
+            html += compRow('Avg', fmtNum(bowlAll.avg, 2), fmtNum(bowlIpl.avg, 2), false, bowlAll.avg, bowlIpl.avg, true);
+            html += '</div>';
+        }
+
+        html += '</div></div>';
+        return html;
+    }
+
+    function compRow(label, value, otherValue, higherIsBetter, numVal, otherNum, lowerIsBetter) {
+        // Determine if this value is better than the other
+        var cls = 'pd-comp-value';
+        if (numVal !== undefined && otherNum !== undefined && numVal !== null && otherNum !== null) {
+            if (lowerIsBetter) {
+                cls += numVal < otherNum ? ' better' : (numVal > otherNum ? ' worse' : '');
+            } else if (higherIsBetter) {
+                cls += numVal > otherNum ? ' better' : (numVal < otherNum ? ' worse' : '');
+            }
+        }
+        return '<div class="pd-comp-row"><span class="pd-comp-label">' + label + '</span><span class="' + cls + '">' + value + '</span></div>';
+    }
+
     function renderPhaseSection(profile) {
         var bat = profile.batting && profile.batting.phase;
         var bowl = profile.bowling && profile.bowling.phase;
@@ -1238,6 +1379,12 @@
                 html += '<div class="pd-bar-group"><div class="pd-bar-label"><span>Economy</span><span>' + fmtNum(w.economy, 2) + '</span></div>' + pdBar(w.economy || 0, 12, 'bowl') + '</div>';
                 html += '<div class="pd-bar-group"><div class="pd-bar-label"><span>SR</span><span>' + fmtNum(w.sr, 1) + '</span></div>' + pdBar(w.sr || 0, 200, 'bowl') + '</div>';
                 html += '<div class="pd-bar-group"><div class="pd-bar-label"><span>Avg</span><span>' + fmtNum(w.avg, 1) + '</span></div>' + pdBar(w.avg || 0, 60, 'bowl') + '</div>';
+                if (w.wickets !== undefined) {
+                    html += '<div style="display:flex;gap:12px;margin-top:4px;font-size:12px;color:var(--text-secondary);">';
+                    html += '<span>Wkts: <strong style="color:var(--text-primary);">' + fmtNum(w.wickets) + '</strong></span>';
+                    if (w.overs !== undefined) html += '<span>Overs: <strong style="color:var(--text-primary);">' + fmtNum(w.overs, 1) + '</strong></span>';
+                    html += '</div>';
+                }
             }
 
             html += '</div>';
@@ -1253,7 +1400,7 @@
         var types = Object.keys(vsBowl);
         if (types.length === 0) return '';
 
-        // Find best and worst by SR
+        // Find best and worst by SR (min 10 balls)
         var bestSR = -1, worstSR = 999999, bestType = '', worstType = '';
         for (var i = 0; i < types.length; i++) {
             var d = vsBowl[types[i]];
@@ -1266,15 +1413,38 @@
         }
 
         var html = '<div class="pd-section"><div class="pd-section-title">vs Bowling Type</div>';
+
+        // Matchup highlights
+        if (bestType || worstType) {
+            html += '<div style="display:flex;gap:12px;margin-bottom:12px;flex-wrap:wrap;">';
+            if (bestType) {
+                html += '<div class="matchup-best" style="flex:1;min-width:140px;padding:8px 12px;border-radius:var(--radius-sm);">';
+                html += '<span class="matchup-label best">Best Matchup</span>';
+                html += '<div style="font-weight:700;color:var(--accent-green);font-size:14px;">' + escHtml(bestType) + '</div>';
+                html += '<div style="font-size:12px;color:var(--text-secondary);">SR ' + fmtNum(bestSR, 1) + '</div>';
+                html += '</div>';
+            }
+            if (worstType) {
+                html += '<div class="matchup-worst" style="flex:1;min-width:140px;padding:8px 12px;border-radius:var(--radius-sm);">';
+                html += '<span class="matchup-label worst">Worst Matchup</span>';
+                html += '<div style="font-weight:700;color:var(--accent-red);font-size:14px;">' + escHtml(worstType) + '</div>';
+                html += '<div style="font-size:12px;color:var(--text-secondary);">SR ' + fmtNum(worstSR, 1) + '</div>';
+                html += '</div>';
+            }
+            html += '</div>';
+        }
+
         html += '<table class="pd-table"><thead><tr><th>Type</th><th>Runs</th><th>Balls</th><th>SR</th><th>Avg</th></tr></thead><tbody>';
         for (var i = 0; i < types.length; i++) {
             var d = vsBowl[types[i]];
             var cls = '';
             if (types[i] === bestType) cls = ' class="pd-best"';
             else if (types[i] === worstType) cls = ' class="pd-worst"';
+            // Derive runs from SR and balls: runs = SR * balls / 100
+            var derivedRuns = (d.sr && d.balls) ? Math.round(d.sr * d.balls / 100) : d.runs;
             html += '<tr' + cls + '>';
             html += '<td>' + escHtml(types[i]) + '</td>';
-            html += '<td>' + fmtNum(d.runs) + '</td>';
+            html += '<td>' + fmtNum(derivedRuns) + '</td>';
             html += '<td>' + fmtNum(d.balls) + '</td>';
             html += '<td>' + fmtNum(d.sr, 2) + '</td>';
             html += '<td>' + fmtNum(d.avg, 2) + '</td>';
@@ -1293,18 +1463,46 @@
 
         if (batVs) {
             var allTeams = (batVs.best || []).concat(batVs.worst || []);
-            // Deduplicate by team name
             var seen = {};
             var unique = [];
             for (var i = 0; i < allTeams.length; i++) {
                 if (!seen[allTeams[i].team]) { seen[allTeams[i].team] = true; unique.push(allTeams[i]); }
             }
             if (unique.length > 0) {
-                html += '<div style="font-size:12px;font-weight:600;color:var(--text-secondary);margin-bottom:6px;">Batting</div>';
-                html += '<table class="pd-table"><thead><tr><th>Team</th><th>Runs</th><th>Balls</th><th>SR</th><th>Avg</th></tr></thead><tbody>';
-                // Mark best (first in best array) and worst (last in worst array)
                 var bestTeam = batVs.best && batVs.best.length > 0 ? batVs.best[0].team : '';
                 var worstTeam = batVs.worst && batVs.worst.length > 0 ? batVs.worst[batVs.worst.length - 1].team : '';
+
+                // Matchup highlights for batting
+                html += '<div style="font-size:12px;font-weight:600;color:var(--text-secondary);margin-bottom:6px;">Batting</div>';
+                if (bestTeam || worstTeam) {
+                    html += '<div style="display:flex;gap:12px;margin-bottom:12px;flex-wrap:wrap;">';
+                    if (bestTeam) {
+                        var bestData = batVs.best[0];
+                        html += '<div class="matchup-best" style="flex:1;min-width:140px;padding:8px 12px;border-radius:var(--radius-sm);">';
+                        html += '<span class="matchup-label best">Best</span>';
+                        html += '<div style="font-weight:700;color:var(--accent-green);font-size:14px;">' + getTeamBadge(bestTeam) + '</div>';
+                        html += '<div style="font-size:12px;color:var(--text-secondary);">SR ' + fmtNum(bestData.sr, 1) + ' | Avg ' + fmtNum(bestData.avg, 1) + '</div>';
+                        html += '</div>';
+                    }
+                    if (worstTeam) {
+                        var worstData = batVs.worst[batVs.worst.length - 1];
+                        html += '<div class="matchup-worst" style="flex:1;min-width:140px;padding:8px 12px;border-radius:var(--radius-sm);">';
+                        html += '<span class="matchup-label worst">Worst</span>';
+                        html += '<div style="font-weight:700;color:var(--accent-red);font-size:14px;">' + getTeamBadge(worstTeam) + '</div>';
+                        html += '<div style="font-size:12px;color:var(--text-secondary);">SR ' + fmtNum(worstData.sr, 1) + ' | Avg ' + fmtNum(worstData.avg, 1) + '</div>';
+                        html += '</div>';
+                    }
+                    html += '</div>';
+                }
+
+                // Check if data has runs/balls fields (some entries may have them)
+                var hasRuns = unique.some(function(d) { return d.runs != null; });
+                var hasBalls = unique.some(function(d) { return d.balls != null; });
+
+                html += '<table class="pd-table"><thead><tr><th>Team</th><th>Inn</th>';
+                if (hasRuns) html += '<th>Runs</th>';
+                if (hasBalls) html += '<th>Balls</th>';
+                html += '<th>SR</th><th>Avg</th></tr></thead><tbody>';
                 for (var i = 0; i < unique.length; i++) {
                     var d = unique[i];
                     var cls = '';
@@ -1312,8 +1510,9 @@
                     else if (d.team === worstTeam) cls = ' class="pd-worst"';
                     html += '<tr' + cls + '>';
                     html += '<td>' + getTeamBadge(d.team) + '</td>';
-                    html += '<td>' + fmtNum(d.runs) + '</td>';
-                    html += '<td>' + fmtNum(d.balls) + '</td>';
+                    html += '<td>' + fmtNum(d.innings) + '</td>';
+                    if (hasRuns) html += '<td>' + fmtNum(d.runs) + '</td>';
+                    if (hasBalls) html += '<td>' + fmtNum(d.balls) + '</td>';
                     html += '<td>' + fmtNum(d.sr, 2) + '</td>';
                     html += '<td>' + fmtNum(d.avg, 2) + '</td>';
                     html += '</tr>';
@@ -1330,10 +1529,33 @@
                 if (!seen[allTeams[i].team]) { seen[allTeams[i].team] = true; unique.push(allTeams[i]); }
             }
             if (unique.length > 0) {
-                html += '<div style="font-size:12px;font-weight:600;color:var(--text-secondary);margin:12px 0 6px;">Bowling</div>';
-                html += '<table class="pd-table"><thead><tr><th>Team</th><th>Econ</th><th>SR</th><th>Wkts</th><th>Overs</th></tr></thead><tbody>';
                 var bestTeam = bowlVs.best && bowlVs.best.length > 0 ? bowlVs.best[0].team : '';
                 var worstTeam = bowlVs.worst && bowlVs.worst.length > 0 ? bowlVs.worst[bowlVs.worst.length - 1].team : '';
+
+                html += '<div style="font-size:12px;font-weight:600;color:var(--text-secondary);margin:12px 0 6px;">Bowling</div>';
+                // Matchup highlights for bowling
+                if (bestTeam || worstTeam) {
+                    html += '<div style="display:flex;gap:12px;margin-bottom:12px;flex-wrap:wrap;">';
+                    if (bestTeam) {
+                        var bestData = bowlVs.best[0];
+                        html += '<div class="matchup-best" style="flex:1;min-width:140px;padding:8px 12px;border-radius:var(--radius-sm);">';
+                        html += '<span class="matchup-label best">Best</span>';
+                        html += '<div style="font-weight:700;color:var(--accent-green);font-size:14px;">' + getTeamBadge(bestTeam) + '</div>';
+                        html += '<div style="font-size:12px;color:var(--text-secondary);">Econ ' + fmtNum(bestData.economy, 2) + ' | Wkts ' + fmtNum(bestData.wickets) + '</div>';
+                        html += '</div>';
+                    }
+                    if (worstTeam) {
+                        var worstData = bowlVs.worst[bowlVs.worst.length - 1];
+                        html += '<div class="matchup-worst" style="flex:1;min-width:140px;padding:8px 12px;border-radius:var(--radius-sm);">';
+                        html += '<span class="matchup-label worst">Worst</span>';
+                        html += '<div style="font-weight:700;color:var(--accent-red);font-size:14px;">' + getTeamBadge(worstTeam) + '</div>';
+                        html += '<div style="font-size:12px;color:var(--text-secondary);">Econ ' + fmtNum(worstData.economy, 2) + ' | Wkts ' + fmtNum(worstData.wickets) + '</div>';
+                        html += '</div>';
+                    }
+                    html += '</div>';
+                }
+
+                html += '<table class="pd-table"><thead><tr><th>Team</th><th>Econ</th><th>SR</th><th>Wkts</th><th>Overs</th></tr></thead><tbody>';
                 for (var i = 0; i < unique.length; i++) {
                     var d = unique[i];
                     var cls = '';
@@ -1379,6 +1601,12 @@
         // Show bowling type filter if batting is the default category
         var bowlTypeEl = document.getElementById('bowlTypeFilter');
         bowlTypeEl.style.display = state.category === 'batting' ? '' : 'none';
+        // Set initial scope button active state
+        document.querySelectorAll('.scope-btn').forEach(function(btn) {
+            var active = btn.getAttribute('data-scope') === state.scope;
+            btn.classList.toggle('active', active);
+            btn.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
         render();
     });
     </script>

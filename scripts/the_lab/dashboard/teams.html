@@ -854,6 +854,140 @@
             text-transform: uppercase;
         }
 
+        /* ==================== BOWLER USAGE HEATMAP ==================== */
+        .bowler-match-tabs {
+            display: flex;
+            gap: 6px;
+            overflow-x: auto;
+            padding: 0 0 12px;
+            scrollbar-width: none;
+        }
+        .bowler-match-tabs::-webkit-scrollbar { display: none; }
+        .bowler-match-tab {
+            padding: 8px 14px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            font-size: 13px;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 150ms;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+        }
+        .bowler-match-tab:hover { background: var(--bg-tertiary); color: var(--text-primary); }
+        .bowler-match-tab.active {
+            background: var(--accent);
+            color: #fff;
+            border-color: var(--accent);
+        }
+        .bowler-match-date { font-size: 10px; font-weight: 400; opacity: 0.7; }
+        .bowler-match-info {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+        .bowler-heatmap-scroll {
+            overflow-x: auto;
+            scrollbar-width: thin;
+            margin-bottom: 10px;
+        }
+        .bowler-heatmap {
+            border-collapse: collapse;
+            font-size: 12px;
+            min-width: 700px;
+            width: 100%;
+        }
+        .bowler-heatmap thead th {
+            padding: 6px 4px;
+            font-weight: 600;
+            color: var(--text-tertiary);
+            font-size: 11px;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+        .bowler-heatmap th.phase-pp { border-top: 2px solid var(--accent-teal); }
+        .bowler-heatmap th.phase-mid { border-top: 2px solid var(--accent-yellow); }
+        .bowler-heatmap th.phase-death { border-top: 2px solid var(--accent-red); }
+        .bowler-name-col {
+            text-align: left !important;
+            padding: 6px 10px 6px 0 !important;
+            white-space: nowrap;
+            color: var(--text-primary);
+            font-weight: 600;
+            position: sticky;
+            left: 0;
+            background: var(--bg-primary);
+            z-index: 1;
+            min-width: 120px;
+        }
+        .bowler-total-col {
+            text-align: center;
+            padding: 6px 6px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            font-size: 11px;
+            border-left: 1px solid var(--border);
+        }
+        .bowler-cell {
+            text-align: center;
+            padding: 6px 2px;
+            min-width: 32px;
+            font-weight: 600;
+            position: relative;
+            font-size: 12px;
+            border-radius: 4px;
+        }
+        .bowler-cell.empty { background: transparent; }
+        .bowler-cell.heat-cold { background: rgba(34, 197, 94, 0.2); color: var(--accent-green); }
+        .bowler-cell.heat-cool { background: rgba(45, 212, 191, 0.2); color: var(--accent-teal); }
+        .bowler-cell.heat-warm { background: rgba(250, 204, 21, 0.2); color: var(--accent-yellow); }
+        .bowler-cell.heat-hot { background: rgba(249, 115, 22, 0.2); color: var(--accent-orange); }
+        .bowler-cell.heat-fire { background: rgba(239, 68, 68, 0.25); color: var(--accent-red); }
+        .wicket-badge {
+            display: inline-block;
+            font-size: 9px;
+            font-weight: 700;
+            color: var(--accent-green);
+            margin-left: 1px;
+        }
+        .bowler-legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: 11px;
+            color: var(--text-tertiary);
+            align-items: center;
+        }
+        .legend-item { display: flex; align-items: center; gap: 4px; }
+        .legend-swatch {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            border-radius: 3px;
+        }
+        .legend-swatch.heat-cold { background: rgba(34, 197, 94, 0.3); }
+        .legend-swatch.heat-cool { background: rgba(45, 212, 191, 0.3); }
+        .legend-swatch.heat-warm { background: rgba(250, 204, 21, 0.3); }
+        .legend-swatch.heat-hot { background: rgba(249, 115, 22, 0.3); }
+        .legend-swatch.heat-fire { background: rgba(239, 68, 68, 0.35); }
+        .legend-phase {
+            display: inline-block;
+            width: 14px;
+            height: 3px;
+            margin: 0 2px;
+            vertical-align: middle;
+        }
+        .legend-phase.phase-pp { background: var(--accent-teal); }
+        .legend-phase.phase-mid { background: var(--accent-yellow); }
+        .legend-phase.phase-death { background: var(--accent-red); }
+
         /* ==================== STRATEGY OUTLOOK - Complete Redesign ==================== */
         .strategy-outlook {
             padding: 0;
@@ -5078,6 +5212,7 @@
     <script src="data/season_previews.js"></script>
     <script src="data/schedule.js"></script>
     <script src="data/injuries.js"></script>
+    <script src="data/bowler_usage.js"></script>
 
     <!-- Data Freshness Indicator (TKT-249) -->
     <script>
@@ -5248,6 +5383,15 @@
                 btn.onclick = () => selectTeam(abbrev);
                 selector.appendChild(btn);
             });
+        }
+
+        function switchBowlerMatch(idx) {
+            document.querySelectorAll('.bowler-match-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.bowler-match-panel').forEach(p => p.style.display = 'none');
+            const tab = document.querySelector(`.bowler-match-tab[data-match-idx="${idx}"]`);
+            const panel = document.getElementById('bowlerMatchPanel' + idx);
+            if (tab) tab.classList.add('active');
+            if (panel) panel.style.display = '';
         }
 
         function selectTeam(abbrev) {
@@ -5954,8 +6098,124 @@
                 </div>`;
             }
 
+            // ===== Section 6: Bowler Usage Patterns (IPL 2025) =====
+            let section6HTML = '';
+            if (typeof BOWLER_USAGE !== 'undefined' && BOWLER_USAGE[currentTeam]) {
+                const usage = BOWLER_USAGE[currentTeam];
+                const matches = usage.matches || [];
+                if (matches.length > 0) {
+                    // Collect all unique bowlers across all matches
+                    const bowlerSet = new Set();
+                    matches.forEach(m => {
+                        Object.values(m.overs).forEach(o => bowlerSet.add(o.bowler));
+                    });
+                    const bowlers = Array.from(bowlerSet);
+
+                    // Build match selector tabs
+                    const matchTabs = matches.map((m, i) => {
+                        const abbrMap = {'PK':'PBKS','SH':'SRH','CSK':'CSK','DC':'DC','GT':'GT','KKR':'KKR','LSG':'LSG','MI':'MI','RCB':'RCB','RR':'RR'};
+                        const oppAbbr = abbrMap[m.opponent] || m.opponent;
+                        const dateShort = m.date ? new Date(m.date).toLocaleDateString('en-IN', {day:'numeric', month:'short'}) : '';
+                        return `<button class="bowler-match-tab${i === 0 ? ' active' : ''}" data-match-idx="${i}" onclick="switchBowlerMatch(${i})" title="${m.opponent} — ${m.date}${m.venue ? ' at ' + m.venue : ''}">${oppAbbr}<span class="bowler-match-date">${dateShort}</span></button>`;
+                    }).join('');
+
+                    // Build heatmap for each match (show first by default)
+                    const buildHeatmap = (matchIdx) => {
+                        const m = matches[matchIdx];
+                        const oversUsed = Object.keys(m.overs).map(Number).sort((a,b) => a - b);
+                        const maxOver = Math.max(...oversUsed, 20);
+                        const matchBowlers = new Set();
+                        Object.values(m.overs).forEach(o => matchBowlers.add(o.bowler));
+                        const bList = Array.from(matchBowlers);
+
+                        // Calculate totals per bowler
+                        const bowlerTotals = {};
+                        bList.forEach(b => { bowlerTotals[b] = { overs: 0, runs: 0, wickets: 0 }; });
+                        Object.values(m.overs).forEach(o => {
+                            bowlerTotals[o.bowler].overs++;
+                            bowlerTotals[o.bowler].runs += o.runs;
+                            bowlerTotals[o.bowler].wickets += o.wickets;
+                        });
+
+                        // Sort bowlers by first over bowled
+                        bList.sort((a, b) => {
+                            const aFirst = Math.min(...Object.entries(m.overs).filter(([_,o]) => o.bowler === a).map(([k]) => Number(k)));
+                            const bFirst = Math.min(...Object.entries(m.overs).filter(([_,o]) => o.bowler === b).map(([k]) => Number(k)));
+                            return aFirst - bFirst;
+                        });
+
+                        // Header row
+                        let headerCells = '<th class="bowler-name-col">Bowler</th>';
+                        for (let ov = 1; ov <= 20; ov++) {
+                            const phaseClass = ov <= 6 ? 'phase-pp' : ov <= 15 ? 'phase-mid' : 'phase-death';
+                            headerCells += `<th class="bowler-over-col ${phaseClass}">${ov}</th>`;
+                        }
+                        headerCells += '<th class="bowler-total-col">O</th><th class="bowler-total-col">R</th><th class="bowler-total-col">W</th><th class="bowler-total-col">Econ</th>';
+
+                        // Body rows
+                        let bodyRows = '';
+                        bList.forEach(bowler => {
+                            const shortName = bowler.split(' ').length > 1 ? bowler.split(' ')[0][0] + '. ' + bowler.split(' ').slice(1).join(' ') : bowler;
+                            let cells = `<td class="bowler-name-col" title="${bowler}">${shortName}</td>`;
+                            for (let ov = 1; ov <= 20; ov++) {
+                                const overData = m.overs[String(ov)];
+                                if (overData && overData.bowler === bowler) {
+                                    const r = overData.runs;
+                                    const w = overData.wickets;
+                                    const heat = r <= 4 ? 'heat-cold' : r <= 7 ? 'heat-cool' : r <= 10 ? 'heat-warm' : r <= 14 ? 'heat-hot' : 'heat-fire';
+                                    const wBadge = w > 0 ? `<span class="wicket-badge">${w}W</span>` : '';
+                                    cells += `<td class="bowler-cell ${heat}" title="Over ${ov}: ${r} runs, ${w} wickets, ${overData.dots} dots">${r}${wBadge}</td>`;
+                                } else {
+                                    cells += `<td class="bowler-cell empty"></td>`;
+                                }
+                            }
+                            const t = bowlerTotals[bowler];
+                            const econ = t.overs > 0 ? (t.runs / t.overs).toFixed(1) : '-';
+                            cells += `<td class="bowler-total-col">${t.overs}</td><td class="bowler-total-col">${t.runs}</td><td class="bowler-total-col">${t.wickets}</td><td class="bowler-total-col">${econ}</td>`;
+                            bodyRows += `<tr>${cells}</tr>`;
+                        });
+
+                        return `<div class="bowler-match-info">vs ${m.opponent} — ${m.date}${m.venue ? ' — ' + m.city : ''} (Innings ${m.innings})</div>
+                        <div class="bowler-heatmap-scroll">
+                        <table class="bowler-heatmap">
+                            <thead><tr>${headerCells}</tr></thead>
+                            <tbody>${bodyRows}</tbody>
+                        </table>
+                        </div>
+                        <div class="bowler-legend">
+                            <span class="legend-item"><span class="legend-swatch heat-cold"></span>0-4</span>
+                            <span class="legend-item"><span class="legend-swatch heat-cool"></span>5-7</span>
+                            <span class="legend-item"><span class="legend-swatch heat-warm"></span>8-10</span>
+                            <span class="legend-item"><span class="legend-swatch heat-hot"></span>11-14</span>
+                            <span class="legend-item"><span class="legend-swatch heat-fire"></span>15+</span>
+                            <span class="legend-item" style="margin-left: 12px;">
+                                <span class="legend-phase phase-pp"></span>PP
+                                <span class="legend-phase phase-mid"></span>Mid
+                                <span class="legend-phase phase-death"></span>Death
+                            </span>
+                        </div>`;
+                    };
+
+                    // Pre-build all match heatmaps
+                    let allHeatmaps = '';
+                    matches.forEach((m, i) => {
+                        allHeatmaps += `<div class="bowler-match-panel" id="bowlerMatchPanel${i}" style="${i > 0 ? 'display:none;' : ''}">${buildHeatmap(i)}</div>`;
+                    });
+
+                    section6HTML = `
+                    <div class="strategy-section">
+                        <div class="strategy-section-header">
+                            <div class="strategy-section-title">Bowler Usage Patterns</div>
+                            <span class="strategy-section-badge" style="background: rgba(45, 212, 191, 0.15); color: var(--accent-teal);">IPL 2025</span>
+                        </div>
+                        <div class="bowler-match-tabs">${matchTabs}</div>
+                        ${allHeatmaps}
+                    </div>`;
+                }
+            }
+
             // ===== Assemble Full Strategy Outlook =====
-            balanceContent.innerHTML = section1HTML + section2HTML + section3HTML + section4HTML + section5HTML;
+            balanceContent.innerHTML = section1HTML + section2HTML + section3HTML + section4HTML + section5HTML + section6HTML;
 
             // Depth Chart : Tabular Redesign
             const depthContent = document.getElementById('depth-content');

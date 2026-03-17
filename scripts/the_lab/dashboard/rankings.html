@@ -760,6 +760,17 @@
             box-shadow: 0 2px 12px rgba(232, 115, 74, 0.15);
         }
 
+        .scope-group-label {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-tertiary);
+            padding: 0 6px;
+            display: flex;
+            align-items: center;
+        }
+
         /* ==================== CATEGORY NAV ==================== */
         .category-nav {
             display: flex;
@@ -1524,7 +1535,8 @@
             .scope-toggle-wrap { padding: 0 12px; }
             .scope-toggle { width: 100%; flex-wrap: wrap; gap: 4px; padding: 6px; }
             .scope-toggle [role="separator"] { display: none; }
-            .scope-btn { flex: 1 1 auto; min-height: 44px; font-size: 13px; text-align: center; min-width: calc(33% - 4px); }
+            .scope-group-label { width: 100%; text-align: center; padding: 4px 0 0; font-size: 10px; }
+            .scope-btn { flex: 1 1 auto; min-height: 44px; font-size: 13px; text-align: center; min-width: calc(50% - 4px); }
 
             /* Search input: full-width, 44px height */
             .filters-bar { padding: 0 12px; flex-direction: column; align-items: stretch; gap: 8px; }
@@ -2128,18 +2140,19 @@
         <!-- Hero -->
         <section class="hero">
             <h1 class="hero-title">Player Rankings</h1>
-            <p class="hero-subtitle">Performance rankings across every phase, bowling type, and matchup in IPL history. <span id="dataWindowLabel">(IPL 2023–2025)</span></p>
+            <p class="hero-subtitle">Performance rankings across every phase, bowling type, and matchup. <span id="dataWindowLabel">(IPL 2023–2025)</span></p>
         </section>
 
         <!-- Scope Toggle -->
         <div class="scope-toggle-wrap">
             <div class="scope-toggle" id="scopeToggle" role="tablist" aria-label="Data scope">
-                <button class="scope-btn" data-scope="since2023" onclick="setScope('since2023')" role="tab" aria-selected="false">Since 2023</button>
+                <span class="scope-group-label">IPL</span>
+                <button class="scope-btn" data-scope="since2023" onclick="setScope('since2023')" role="tab" aria-selected="false">2023–25</button>
                 <button class="scope-btn" data-scope="alltime" onclick="setScope('alltime')" role="tab" aria-selected="false">All-Time</button>
                 <span style="width:1px;background:var(--border);margin:4px 2px;" role="separator"></span>
-                <button class="scope-btn" data-scope="2023" onclick="setScope('2023')" role="tab" aria-selected="false">2023</button>
-                <button class="scope-btn" data-scope="2024" onclick="setScope('2024')" role="tab" aria-selected="false">2024</button>
-                <button class="scope-btn" data-scope="2025" onclick="setScope('2025')" role="tab" aria-selected="false">2025</button>
+                <span class="scope-group-label">All T20</span>
+                <button class="scope-btn" data-scope="all_t20_since2023" onclick="setScope('all_t20_since2023')" role="tab" aria-selected="false">2023–25</button>
+                <button class="scope-btn" data-scope="all_t20_alltime" onclick="setScope('all_t20_alltime')" role="tab" aria-selected="false">All-Time</button>
             </div>
         </div>
 
@@ -2416,7 +2429,9 @@
                 'alltime': '(IPL 2008–2025)',
                 '2023': '(IPL 2023)',
                 '2024': '(IPL 2024)',
-                '2025': '(IPL 2025)'
+                '2025': '(IPL 2025)',
+                'all_t20_since2023': '(All T20 2023–2025)',
+                'all_t20_alltime': '(All T20 All-Time)'
             };
             label.textContent = labels[state.currentScope] || '(IPL 2023–2025)';
         }
@@ -2513,7 +2528,7 @@
         const scopeData = getScopeData();
         const cat = scopeData.categories[state.currentCategory];
         const sub = cat.subcategories[state.currentSubcategory];
-        const scopeLabel = {'alltime':'All-Time','since2023':'Since 2023','2023':'2023','2024':'2024','2025':'2025'}[state.currentScope] || state.currentScope;
+        const scopeLabel = {'alltime':'IPL All-Time','since2023':'IPL 2023-25','2023':'IPL 2023','2024':'IPL 2024','2025':'IPL 2025','all_t20_since2023':'All T20 2023-25','all_t20_alltime':'All T20 All-Time'}[state.currentScope] || state.currentScope;
         let html = '<span style="color:var(--accent);">' + scopeLabel + '</span>';
         html += '<span style="color:var(--text-tertiary);">&rsaquo;</span>';
         html += '<span>' + cat.title + '</span>';
@@ -2565,9 +2580,10 @@
             rows = sub.rows.slice();
         }
 
-        // Filter to IPL 2026 squad players only
+        // Filter to IPL 2026 squad players only (for IPL scopes, not All T20)
+        const isT20Scope = state.currentScope.startsWith('all_t20');
         const playerColIdx = state.headers.indexOf('Player') !== -1 ? state.headers.indexOf('Player') : state.headers.indexOf('Batter');
-        if (playerColIdx >= 0 && Object.keys(PLAYER_TEAM_MAP).length > 0) {
+        if (!isT20Scope && playerColIdx >= 0 && Object.keys(PLAYER_TEAM_MAP).length > 0) {
             rows = rows.filter(row => {
                 const name = String(row[playerColIdx]).toLowerCase().trim();
                 return PLAYER_TEAM_MAP[name] != null;

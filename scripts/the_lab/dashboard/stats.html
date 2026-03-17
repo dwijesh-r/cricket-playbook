@@ -286,8 +286,8 @@
             transition: color var(--transition-normal); position: relative;
         }
         .leaderboard-table thead th:hover { color: var(--accent); }
-        .leaderboard-table thead th.sorted-asc::after { content: ' \u25B2'; font-size: 9px; color: var(--accent); }
-        .leaderboard-table thead th.sorted-desc::after { content: ' \u25BC'; font-size: 9px; color: var(--accent); }
+        .leaderboard-table thead th.sorted-asc::after { content: ''; display: inline-block; width: 0; height: 0; margin-left: 5px; vertical-align: middle; border-left: 4px solid transparent; border-right: 4px solid transparent; border-bottom: 5px solid var(--accent); }
+        .leaderboard-table thead th.sorted-desc::after { content: ''; display: inline-block; width: 0; height: 0; margin-left: 5px; vertical-align: middle; border-left: 4px solid transparent; border-right: 4px solid transparent; border-top: 5px solid var(--accent); }
         .leaderboard-table thead th:first-child { text-align: center; width: 50px; cursor: default; }
         .leaderboard-table thead th:first-child:hover { color: var(--text-tertiary); }
 
@@ -471,6 +471,34 @@
                 <option value="All-rounder">All-rounder</option>
                 <option value="Wicket-keeper">Wicket-keeper</option>
             </select>
+            <select class="filter-select" id="phaseFilter" onchange="applyFilters()">
+                <option value="">All Phases</option>
+                <option value="powerplay">Powerplay</option>
+                <option value="middle">Middle</option>
+                <option value="death">Death</option>
+            </select>
+            <select class="filter-select" id="bowlTypeFilter" onchange="applyFilters()" style="display:none;">
+                <option value="">All Bowl Types</option>
+                <option value="Fast">Fast</option>
+                <option value="Fast-Medium">Fast-Medium</option>
+                <option value="Off-spin">Off-spin</option>
+                <option value="Leg-spin">Leg-spin</option>
+                <option value="Left-arm Orthodox">Left-arm Orthodox</option>
+                <option value="Wrist-spin">Wrist-spin</option>
+            </select>
+            <select class="filter-select" id="vsTeamFilter" onchange="applyFilters()">
+                <option value="">All Opponents</option>
+                <option value="CSK">vs CSK</option>
+                <option value="DC">vs DC</option>
+                <option value="GT">vs GT</option>
+                <option value="KKR">vs KKR</option>
+                <option value="LSG">vs LSG</option>
+                <option value="MI">vs MI</option>
+                <option value="PBKS">vs PBKS</option>
+                <option value="RCB">vs RCB</option>
+                <option value="RR">vs RR</option>
+                <option value="SRH">vs SRH</option>
+            </select>
             <div class="results-count" id="resultsCount">-- players</div>
         </div>
 
@@ -500,6 +528,7 @@
 
     <!-- Data -->
     <script src="data/player_stats.js"></script>
+    <script src="data/player_profiles.js"></script>
     <script src="assets/shared.js"></script>
 
     <script>
@@ -530,8 +559,55 @@
         sortDir: 'desc',
         teamFilter: '',
         roleFilter: '',
-        searchQuery: ''
+        searchQuery: '',
+        phaseFilter: '',
+        bowlTypeFilter: '',
+        vsTeamFilter: ''
     };
+
+    // ==================== PROFILE LOOKUP ====================
+    // Build a name-keyed lookup from PLAYER_PROFILES for quick access
+    var profileLookup = {};
+    function buildProfileLookup() {
+        if (typeof PLAYER_PROFILES === 'undefined') return;
+        for (var team in PLAYER_PROFILES) {
+            var players = PLAYER_PROFILES[team];
+            for (var pid in players) {
+                var p = players[pid];
+                if (p.player_name) {
+                    profileLookup[p.player_name] = p;
+                }
+            }
+        }
+    }
+    buildProfileLookup();
+
+    function getProfileStats(playerName, category, filterType, filterValue) {
+        var profile = profileLookup[playerName];
+        if (!profile) return null;
+        var section = category === 'batting' ? profile.batting : profile.bowling;
+        if (!section) return null;
+
+        if (filterType === 'phase') {
+            return section.phase ? section.phase[filterValue] || null : null;
+        }
+        if (filterType === 'vs_bowling_type') {
+            return section.vs_bowling_type ? section.vs_bowling_type[filterValue] || null : null;
+        }
+        if (filterType === 'vs_teams') {
+            if (!section.vs_teams) return null;
+            var all = (section.vs_teams.best || []).concat(section.vs_teams.worst || []);
+            for (var i = 0; i < all.length; i++) {
+                if (all[i].team === filterValue) return all[i];
+            }
+            return null;
+        }
+        return null;
+    }
+
+    function hasAdvancedFilter() {
+        return state.phaseFilter || state.bowlTypeFilter || state.vsTeamFilter;
+    }
 
     // ==================== BATTING / BOWLING COLUMN DEFS ====================
     const BATTING_COLS = [
@@ -557,6 +633,75 @@
         { key: 'avg', label: 'Avg', sortable: true }
     ];
 
+    // Phase-specific columns when a phase filter is active
+    const BATTING_PHASE_COLS = [
+        { key: '#', label: '#', sortable: false },
+        { key: 'name', label: 'Player', sortable: true },
+        { key: 'team', label: 'Team', sortable: true },
+        { key: 'sr', label: 'SR', sortable: true },
+        { key: 'avg', label: 'Avg', sortable: true },
+        { key: 'boundary_pct', label: 'Boundary%', sortable: true },
+        { key: 'dot_pct', label: 'Dot%', sortable: true }
+    ];
+
+    const BOWLING_PHASE_COLS = [
+        { key: '#', label: '#', sortable: false },
+        { key: 'name', label: 'Player', sortable: true },
+        { key: 'team', label: 'Team', sortable: true },
+        { key: 'economy', label: 'Econ', sortable: true },
+        { key: 'sr', label: 'SR', sortable: true },
+        { key: 'avg', label: 'Avg', sortable: true },
+        { key: 'wickets', label: 'Wkts', sortable: true },
+        { key: 'overs', label: 'Overs', sortable: true }
+    ];
+
+    // vs Bowling Type columns (batting only)
+    const BATTING_VS_BOWL_COLS = [
+        { key: '#', label: '#', sortable: false },
+        { key: 'name', label: 'Player', sortable: true },
+        { key: 'team', label: 'Team', sortable: true },
+        { key: 'runs', label: 'Runs', sortable: true },
+        { key: 'balls', label: 'Balls', sortable: true },
+        { key: 'sr', label: 'SR', sortable: true },
+        { key: 'avg', label: 'Avg', sortable: true },
+        { key: 'dismissals', label: 'Outs', sortable: true }
+    ];
+
+    // vs Team columns
+    const BATTING_VS_TEAM_COLS = [
+        { key: '#', label: '#', sortable: false },
+        { key: 'name', label: 'Player', sortable: true },
+        { key: 'team', label: 'Team', sortable: true },
+        { key: 'runs', label: 'Runs', sortable: true },
+        { key: 'balls', label: 'Balls', sortable: true },
+        { key: 'sr', label: 'SR', sortable: true },
+        { key: 'avg', label: 'Avg', sortable: true }
+    ];
+
+    const BOWLING_VS_TEAM_COLS = [
+        { key: '#', label: '#', sortable: false },
+        { key: 'name', label: 'Player', sortable: true },
+        { key: 'team', label: 'Team', sortable: true },
+        { key: 'economy', label: 'Econ', sortable: true },
+        { key: 'sr', label: 'SR', sortable: true },
+        { key: 'wickets', label: 'Wkts', sortable: true },
+        { key: 'overs', label: 'Overs', sortable: true }
+    ];
+
+    function getActiveCols() {
+        var cat = state.category;
+        if (state.phaseFilter) {
+            return cat === 'batting' ? BATTING_PHASE_COLS : BOWLING_PHASE_COLS;
+        }
+        if (state.bowlTypeFilter && cat === 'batting') {
+            return BATTING_VS_BOWL_COLS;
+        }
+        if (state.vsTeamFilter) {
+            return cat === 'batting' ? BATTING_VS_TEAM_COLS : BOWLING_VS_TEAM_COLS;
+        }
+        return cat === 'batting' ? BATTING_COLS : BOWLING_COLS;
+    }
+
     // ==================== HELPERS ====================
     function getFilteredData() {
         if (typeof PLAYER_STATS === 'undefined') return [];
@@ -565,6 +710,9 @@
         const search = state.searchQuery.toLowerCase().trim();
         const team = state.teamFilter;
         const role = state.roleFilter;
+        const phaseF = state.phaseFilter;
+        const bowlTypeF = state.bowlTypeFilter;
+        const vsTeamF = state.vsTeamFilter;
 
         return PLAYER_STATS.filter(function(p) {
             // Team filter
@@ -574,7 +722,7 @@
             // Search filter
             if (search && p.name.toLowerCase().indexOf(search) === -1) return false;
 
-            // Category + qualifying filter
+            // Category + qualifying filter (base requirement)
             if (cat === 'batting') {
                 var d = p.bat && p.bat[scope];
                 if (!d || !d.inn || d.inn < 1) return false;
@@ -582,20 +730,66 @@
                 var d = p.bowl && p.bowl[scope];
                 if (!d || !d.wkts || d.wkts < 1) return false;
             }
+
+            // Advanced filters: require profile data exists for the selected breakdown
+            if (phaseF) {
+                var ps = getProfileStats(p.name, cat, 'phase', phaseF);
+                if (!ps) return false;
+            }
+            if (bowlTypeF && cat === 'batting') {
+                var bs = getProfileStats(p.name, cat, 'vs_bowling_type', bowlTypeF);
+                if (!bs) return false;
+            }
+            if (vsTeamF) {
+                var ts = getProfileStats(p.name, cat, 'vs_teams', vsTeamF);
+                if (!ts) return false;
+            }
+
             return true;
         });
+    }
+
+    function getAdvancedStatValue(playerName, col) {
+        var cat = state.category;
+        if (state.phaseFilter) {
+            var ps = getProfileStats(playerName, cat, 'phase', state.phaseFilter);
+            return ps ? (ps[col] || 0) : 0;
+        }
+        if (state.bowlTypeFilter && cat === 'batting') {
+            var bs = getProfileStats(playerName, cat, 'vs_bowling_type', state.bowlTypeFilter);
+            return bs ? (bs[col] || 0) : 0;
+        }
+        if (state.vsTeamFilter) {
+            var ts = getProfileStats(playerName, cat, 'vs_teams', state.vsTeamFilter);
+            return ts ? (ts[col] || 0) : 0;
+        }
+        return 0;
     }
 
     function getSortedData(data) {
         var col = state.sortCol;
         var dir = state.sortDir;
-        if (!col) {
-            col = state.category === 'batting' ? 'runs' : 'wkts';
-            dir = 'desc';
-        }
-
         var scope = state.scope;
         var cat = state.category;
+        var advanced = hasAdvancedFilter();
+
+        if (!col) {
+            if (advanced) {
+                // Pick a sensible default sort for advanced views
+                if (state.phaseFilter) {
+                    col = cat === 'batting' ? 'sr' : 'economy';
+                } else if (state.bowlTypeFilter) {
+                    col = 'sr';
+                } else if (state.vsTeamFilter) {
+                    col = cat === 'batting' ? 'runs' : 'economy';
+                }
+            } else {
+                col = cat === 'batting' ? 'runs' : 'wkts';
+            }
+            dir = 'desc';
+            // Economy sorts ascending by default (lower is better)
+            if (col === 'economy') dir = 'asc';
+        }
 
         data.sort(function(a, b) {
             var va, vb;
@@ -609,13 +803,18 @@
                 vb = b.team;
                 return dir === 'asc' ? (va < vb ? -1 : va > vb ? 1 : 0) : (va > vb ? -1 : va < vb ? 1 : 0);
             }
-            // Numeric from stat data
-            if (cat === 'batting') {
-                va = (a.bat && a.bat[scope] && a.bat[scope][col]) || 0;
-                vb = (b.bat && b.bat[scope] && b.bat[scope][col]) || 0;
+
+            if (advanced) {
+                va = getAdvancedStatValue(a.name, col);
+                vb = getAdvancedStatValue(b.name, col);
             } else {
-                va = (a.bowl && a.bowl[scope] && a.bowl[scope][col]) || 0;
-                vb = (b.bowl && b.bowl[scope] && b.bowl[scope][col]) || 0;
+                if (cat === 'batting') {
+                    va = (a.bat && a.bat[scope] && a.bat[scope][col]) || 0;
+                    vb = (b.bat && b.bat[scope] && b.bat[scope][col]) || 0;
+                } else {
+                    va = (a.bowl && a.bowl[scope] && a.bowl[scope][col]) || 0;
+                    vb = (b.bowl && b.bowl[scope] && b.bowl[scope][col]) || 0;
+                }
             }
             return dir === 'asc' ? va - vb : vb - va;
         });
@@ -641,9 +840,20 @@
     }
 
     function renderDesktopTable(data) {
-        var cols = state.category === 'batting' ? BATTING_COLS : BOWLING_COLS;
+        var cols = getActiveCols();
         var scope = state.scope;
         var cat = state.category;
+        var advanced = hasAdvancedFilter();
+
+        // Determine default sort column for highlight
+        var defaultSortCol;
+        if (advanced) {
+            if (state.phaseFilter) defaultSortCol = cat === 'batting' ? 'sr' : 'economy';
+            else if (state.bowlTypeFilter) defaultSortCol = 'sr';
+            else if (state.vsTeamFilter) defaultSortCol = cat === 'batting' ? 'runs' : 'economy';
+        } else {
+            defaultSortCol = cat === 'batting' ? 'runs' : 'wkts';
+        }
 
         // Render header
         var thead = document.getElementById('tableHead');
@@ -653,7 +863,7 @@
             var cls = '';
             if (col.sortable && state.sortCol === col.key) {
                 cls = state.sortDir === 'asc' ? 'sorted-asc' : 'sorted-desc';
-            } else if (!state.sortCol && col.key === (cat === 'batting' ? 'runs' : 'wkts')) {
+            } else if (!state.sortCol && col.key === defaultSortCol) {
                 cls = 'sorted-desc';
             }
             var onclick = col.sortable ? ' onclick="sortBy(\'' + col.key + '\')"' : '';
@@ -672,26 +882,46 @@
         var html = '';
         for (var i = 0; i < data.length; i++) {
             var p = data[i];
-            var d = cat === 'batting' ? (p.bat && p.bat[scope]) : (p.bowl && p.bowl[scope]);
-            if (!d) d = {};
             html += '<tr>';
             html += '<td>' + (i + 1) + '</td>';
             html += '<td><span class="player-name">' + p.name + '</span></td>';
             html += '<td>' + getTeamBadge(p.team) + '</td>';
 
-            if (cat === 'batting') {
-                html += '<td>' + fmtNum(d.inn) + '</td>';
-                html += '<td>' + fmtNum(d.runs) + '</td>';
-                html += '<td>' + fmtNum(d.balls) + '</td>';
-                html += '<td>' + fmtNum(d.avg, 2) + '</td>';
-                html += '<td>' + fmtNum(d.sr, 2) + '</td>';
+            if (advanced) {
+                // Get profile-based stats
+                var ps = null;
+                if (state.phaseFilter) ps = getProfileStats(p.name, cat, 'phase', state.phaseFilter);
+                else if (state.bowlTypeFilter && cat === 'batting') ps = getProfileStats(p.name, cat, 'vs_bowling_type', state.bowlTypeFilter);
+                else if (state.vsTeamFilter) ps = getProfileStats(p.name, cat, 'vs_teams', state.vsTeamFilter);
+                if (!ps) ps = {};
+
+                // Render columns 3+ (skip #, name, team)
+                for (var c = 3; c < cols.length; c++) {
+                    var key = cols[c].key;
+                    var decimals = null;
+                    if (key === 'sr' || key === 'avg' || key === 'economy' || key === 'boundary_pct' || key === 'dot_pct') decimals = 2;
+                    else if (key === 'overs') decimals = 1;
+                    html += '<td>' + fmtNum(ps[key], decimals) + '</td>';
+                }
             } else {
-                html += '<td>' + fmtNum(d.mat) + '</td>';
-                html += '<td>' + fmtNum(d.overs, 1) + '</td>';
-                html += '<td>' + fmtNum(d.wkts) + '</td>';
-                html += '<td>' + fmtNum(d.runs) + '</td>';
-                html += '<td>' + fmtNum(d.econ, 2) + '</td>';
-                html += '<td>' + fmtNum(d.avg, 2) + '</td>';
+                // Standard career stats rendering
+                var d = cat === 'batting' ? (p.bat && p.bat[scope]) : (p.bowl && p.bowl[scope]);
+                if (!d) d = {};
+
+                if (cat === 'batting') {
+                    html += '<td>' + fmtNum(d.inn) + '</td>';
+                    html += '<td>' + fmtNum(d.runs) + '</td>';
+                    html += '<td>' + fmtNum(d.balls) + '</td>';
+                    html += '<td>' + fmtNum(d.avg, 2) + '</td>';
+                    html += '<td>' + fmtNum(d.sr, 2) + '</td>';
+                } else {
+                    html += '<td>' + fmtNum(d.mat) + '</td>';
+                    html += '<td>' + fmtNum(d.overs, 1) + '</td>';
+                    html += '<td>' + fmtNum(d.wkts) + '</td>';
+                    html += '<td>' + fmtNum(d.runs) + '</td>';
+                    html += '<td>' + fmtNum(d.econ, 2) + '</td>';
+                    html += '<td>' + fmtNum(d.avg, 2) + '</td>';
+                }
             }
             html += '</tr>';
         }
@@ -715,6 +945,13 @@
         state.category = cat;
         state.sortCol = null;
         state.sortDir = 'desc';
+        // Show/hide bowling type filter (batting only)
+        var bowlTypeEl = document.getElementById('bowlTypeFilter');
+        bowlTypeEl.style.display = cat === 'batting' ? '' : 'none';
+        if (cat !== 'batting') {
+            bowlTypeEl.value = '';
+            state.bowlTypeFilter = '';
+        }
         document.querySelectorAll('.category-pill').forEach(function(btn) {
             btn.classList.toggle('active', btn.getAttribute('data-cat') === cat);
             btn.setAttribute('aria-selected', btn.getAttribute('data-cat') === cat);
@@ -737,11 +974,20 @@
         state.searchQuery = document.getElementById('searchInput').value;
         state.teamFilter = document.getElementById('teamFilter').value;
         state.roleFilter = document.getElementById('roleFilter').value;
+        state.phaseFilter = document.getElementById('phaseFilter').value;
+        state.bowlTypeFilter = document.getElementById('bowlTypeFilter').value;
+        state.vsTeamFilter = document.getElementById('vsTeamFilter').value;
+        // Reset sort when advanced filter changes
+        state.sortCol = null;
+        state.sortDir = 'desc';
         render();
     }
 
     // ==================== INIT ====================
     document.addEventListener('DOMContentLoaded', function() {
+        // Show bowling type filter if batting is the default category
+        var bowlTypeEl = document.getElementById('bowlTypeFilter');
+        bowlTypeEl.style.display = state.category === 'batting' ? '' : 'none';
         render();
     });
     </script>

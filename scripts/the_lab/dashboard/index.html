@@ -409,24 +409,6 @@
             background-size: 60px 60px;
         }
 
-        .bg-watermark {
-            position: fixed;
-            bottom: 8%;
-            right: -2%;
-            font-family: var(--font-display);
-            font-size: clamp(100px, 15vw, 180px);
-            font-weight: 900;
-            letter-spacing: -0.03em;
-            color: transparent;
-            background: linear-gradient(135deg, rgba(232, 115, 74, 0.05) 0%, rgba(168, 85, 247, 0.03) 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            z-index: -1;
-            pointer-events: none;
-            transform: rotate(-5deg);
-            white-space: nowrap;
-            user-select: none;
-        }
 
         /* ==================== NAVIGATION ==================== */
         /* ==================== SIDEBAR NAVIGATION ==================== */
@@ -1912,7 +1894,6 @@
     <!-- Background -->
     <div class="bg-gradient"></div>
     <div class="bg-grid"></div>
-    <div class="bg-watermark" aria-hidden="true">STATSLEDGE</div>
 
     <!-- Intro Animation Sequence - Dynamic Trophy Lift -->
     <!-- Randomly displays 3 agents from pool of 14 -->
@@ -1938,6 +1919,7 @@
             <a href="squad-builder.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Fantasy</a>
             <a href="about.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> About</a>
         </nav>
+        <button class="sidebar-collapse-btn" onclick="toggleSidebar()" title="Collapse sidebar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="11 17 6 12 11 7"/><polyline points="18 17 13 12 18 7"/></svg></button>
         <div class="sidebar-footer">
             <div class="sidebar-time" id="navTime">--:--:--</div>
         </div>
@@ -1984,6 +1966,7 @@
                 <div>
                     <h4>Richmond</h4>
                     <p>Ask anything about IPL stats</p>
+                    <p style="font-size:10px;color:var(--text-tertiary);margin:2px 0 0;font-style:italic;">AI is still in its nascent stage and is learning. It can make mistakes.</p>
                 </div>
             </div>
             <button class="chat-close" onclick="toggleChat()">&#10005;</button>

@@ -150,8 +150,8 @@
         .selection-bar { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: var(--space-4); margin-bottom: var(--space-4); }
         .selection-row { display: flex; align-items: center; gap: var(--space-3); flex-wrap: wrap; }
         .player-slot { flex: 1; min-width: 200px; position: relative; }
-        .player-slot-label { font-size: var(--text-xs); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-tertiary); margin-bottom: var(--space-1); }
-        .search-input { width: 100%; padding: var(--space-2) var(--space-3); background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: var(--radius-md); font-family: var(--font-body); font-size: var(--text-base); color: var(--text-primary); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M3 5l3 3 3-3' fill='none' stroke='%2394A3B8' stroke-width='1.5'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 32px; cursor: pointer; }
+        .player-slot-label { font-size: var(--text-xs); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-tertiary); margin-bottom: var(--space-1); text-align: center; }
+        .search-input { width: 100%; padding: var(--space-2) var(--space-3); text-align: center; background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: var(--radius-md); font-family: var(--font-body); font-size: var(--text-base); color: var(--text-primary); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M3 5l3 3 3-3' fill='none' stroke='%2394A3B8' stroke-width='1.5'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 32px; cursor: pointer; }
         .search-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--glow-accent); }
         .team-filter-select { width: 100%; padding: var(--space-1) var(--space-2); background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: var(--radius-sm); font-family: var(--font-body); font-size: var(--text-xs); color: var(--text-primary); margin-bottom: var(--space-1); }
         .dropdown { position: absolute; top: 100%; left: 0; right: 0; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius-md); max-height: 250px; overflow-y: auto; z-index: 50; display: none; box-shadow: var(--elevation-2); }
@@ -550,6 +550,7 @@
             <a href="schedule.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Schedule</a>
             <a href="about.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> About</a>
         </nav>
+        <button class="sidebar-collapse-btn" onclick="toggleSidebar()" title="Collapse sidebar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="11 17 6 12 11 7"/><polyline points="18 17 13 12 18 7"/></svg></button>
         <div class="sidebar-footer">
             <div class="sidebar-time" id="navTime">--:--:--</div>
         </div>
@@ -1288,6 +1289,7 @@
             <div>
                 <h4>Richmond</h4>
                 <p>Ask anything about IPL stats</p>
+                <p style="font-size:10px;color:var(--text-tertiary);margin:2px 0 0;font-style:italic;">AI is still in its nascent stage and is learning. It can make mistakes.</p>
             </div>
         </div>
         <button class="chat-close" onclick="toggleChat()">&#10005;</button>

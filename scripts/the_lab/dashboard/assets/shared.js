@@ -1,7 +1,14 @@
 // Statsledge Shared JavaScript
-// Theme toggle, mobile nav, clock
+// Theme toggle, mobile nav, clock, sidebar collapse
 
 function throttle(fn, ms) { let last = 0; return function() { const now = Date.now(); if (now - last >= ms) { last = now; fn.apply(this, arguments); } }; }
+
+function toggleSidebar() {
+    var sidebar = document.querySelector('.sidebar');
+    if (!sidebar) return;
+    sidebar.classList.toggle('collapsed');
+    localStorage.setItem('sidebarCollapsed', sidebar.classList.contains('collapsed'));
+}
 
 function toggleTheme() {
     const html = document.documentElement;
@@ -43,6 +50,11 @@ document.addEventListener('DOMContentLoaded', function() {
         document.documentElement.setAttribute('data-theme', savedTheme);
         const btn = document.querySelector('.theme-toggle');
         if (btn) btn.textContent = savedTheme === 'dark' ? '\u{1F319}' : '\u{2600}\u{FE0F}';
+    }
+    // Restore sidebar state
+    if (localStorage.getItem('sidebarCollapsed') === 'true') {
+        var sidebar = document.querySelector('.sidebar');
+        if (sidebar) sidebar.classList.add('collapsed');
     }
     // Clock
     const clockEl = document.getElementById('navTime');

@@ -1825,6 +1825,12 @@
             margin-top: 2px;
         }
 
+        /* Roster table wrapper: always allow horizontal scroll */
+        .roster-table-wrapper {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
         /* Phil Steele Roster Table */
         .roster-table {
             width: 100%;
@@ -5103,6 +5109,7 @@
             <a href="squad-builder.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Fantasy</a>
             <a href="about.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> About</a>
         </nav>
+        <button class="sidebar-collapse-btn" onclick="toggleSidebar()" title="Collapse sidebar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="11 17 6 12 11 7"/><polyline points="18 17 13 12 18 7"/></svg></button>
         <div class="sidebar-footer">
             <div class="sidebar-time" id="navTime">--:--:--</div>
         </div>
@@ -5396,6 +5403,8 @@
 
         function selectTeam(abbrev) {
             currentTeam = abbrev;
+            // Persist selected team for page transition recovery
+            localStorage.setItem('selectedTeam', abbrev);
             // Reset filters when switching teams
             squadFilters = { search: '', role: '', nationality: '', ageGroup: '' };
             // Update compare team if it's the same as current
@@ -5704,7 +5713,7 @@
             let section1HTML = `
             <div class="strategy-section">
                 <div class="strategy-section-header">
-                    <div class="strategy-section-title">Team Composition Scorecard</div>
+                    <div class="strategy-section-title">Squad Composition Scorecard</div>
                     <span class="strategy-section-badge" style="background: rgba(10, 132, 255, 0.15); color: var(--accent);">XI Analysis</span>
                 </div>
 
@@ -6865,6 +6874,10 @@
                     </div>
                 </div>
 
+                <div style="background: var(--bg-tertiary); border-radius: var(--radius-md); padding: 12px 16px; margin-bottom: 16px; font-size: 12px; color: var(--text-secondary); line-height: 1.6; border-left: 3px solid var(--accent);">
+                    <strong style="color: var(--text-primary);">Pressure:</strong> Measured by match situation &mdash; required run rate (RRR), wickets lost, and overs remaining. Players are rated on strike rate delta between normal and high-pressure situations (RRR &ge; 10).<br>
+                    <strong style="color: var(--text-primary);">Momentum:</strong> Captures how a player's performance shifts across innings phases &mdash; setup overs (15&ndash;17) vs. death overs (18&ndash;20) &mdash; reflecting acceleration or decline under escalating match intensity.
+                </div>
 
                 <table class="pressure-summary-table">
                     <thead>
@@ -6873,6 +6886,7 @@
                             <th scope="col">Players</th>
                             <th scope="col">% of Squad</th>
                             <th scope="col">Indicator</th>
+                            <th scope="col">Names</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -6881,24 +6895,28 @@
                             <td><span class="table-count" style="color: var(--accent-green);">${s.clutch}</span></td>
                             <td><span class="table-pct">${s.total > 0 ? ((s.clutch / s.total) * 100).toFixed(0) : 0}%</span></td>
                             <td><span class="pressure-badge clutch">SR +10% under pressure</span></td>
+                            <td style="font-size: 11px; color: var(--text-secondary);">${[...(pressure.allBatters || pressure.topBatters || []), ...(pressure.allBowlers || pressure.topBowlers || [])].filter(p => p.rating === 'CLUTCH').map(p => p.name.split(' ').pop()).join(', ') || '-'}</td>
                         </tr>
                         <tr>
                             <td style="color: var(--accent);">Pressure-Proof</td>
                             <td><span class="table-count" style="color: var(--accent);">${s.pressureProof}</span></td>
                             <td><span class="table-pct">${s.total > 0 ? ((s.pressureProof / s.total) * 100).toFixed(0) : 0}%</span></td>
                             <td><span class="pressure-badge pressure-proof">Within &plusmn;5%</span></td>
+                            <td style="font-size: 11px; color: var(--text-secondary);">${[...(pressure.allBatters || pressure.topBatters || []), ...(pressure.allBowlers || pressure.topBowlers || [])].filter(p => p.rating === 'PRESSURE_PROOF').map(p => p.name.split(' ').pop()).join(', ') || '-'}</td>
                         </tr>
                         <tr>
                             <td style="color: var(--accent-yellow);">Moderate</td>
                             <td><span class="table-count" style="color: var(--accent-yellow);">${s.moderate}</span></td>
                             <td><span class="table-pct">${s.total > 0 ? ((s.moderate / s.total) * 100).toFixed(0) : 0}%</span></td>
                             <td><span class="pressure-badge moderate">5-10% change</span></td>
+                            <td style="font-size: 11px; color: var(--text-secondary);">${[...(pressure.allBatters || pressure.topBatters || []), ...(pressure.allBowlers || pressure.topBowlers || [])].filter(p => p.rating === 'MODERATE').map(p => p.name.split(' ').pop()).join(', ') || '-'}</td>
                         </tr>
                         <tr>
                             <td style="color: var(--accent-red);">Pressure-Sensitive</td>
                             <td><span class="table-count" style="color: var(--accent-red);">${s.pressureSensitive}</span></td>
                             <td><span class="table-pct">${s.total > 0 ? ((s.pressureSensitive / s.total) * 100).toFixed(0) : 0}%</span></td>
                             <td><span class="pressure-badge pressure-sensitive">SR -10% under pressure</span></td>
+                            <td style="font-size: 11px; color: var(--text-secondary);">${[...(pressure.allBatters || pressure.topBatters || []), ...(pressure.allBowlers || pressure.topBowlers || [])].filter(p => p.rating === 'PRESSURE_SENSITIVE').map(p => p.name.split(' ').pop()).join(', ') || '-'}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -7246,6 +7264,9 @@
                     </tbody>
                 </table>
                 </div>
+                <div style="margin-top: 6px; font-size: 11px; color: var(--text-tertiary); padding-left: 4px;">
+                    <strong>U</strong> = Uncapped (no IPL appearances)
+                </div>
                 ${filteredSquad.length > 11 ? `
                 <div class="show-more-container">
                     <button class="show-more-btn" onclick="toggleExtendedSquad()">
@@ -7341,16 +7362,11 @@
                                 const experienced = squad.filter(p => getMatches(p) > 0).sort((a,b) => getMatches(b) - getMatches(a));
                                 const uncapped = squad.filter(p => p.isUncapped).length;
                                 const totalMatches = squad.reduce((sum, p) => sum + getMatches(p), 0);
-                                const avgMatches = experienced.length > 0 ? Math.round(totalMatches / squad.length) : 0;
                                 const mostExp = experienced.length > 0 ? experienced[0] : null;
                                 return `
                                 <div class="breakdown-row">
                                     <span class="breakdown-label">Uncapped Players</span>
                                     <span class="breakdown-value">${uncapped}</span>
-                                </div>
-                                <div class="breakdown-row">
-                                    <span class="breakdown-label">Avg IPL Matches</span>
-                                    <span class="breakdown-value">${avgMatches}</span>
                                 </div>
                                 <div class="breakdown-row">
                                     <span class="breakdown-label">Most Experienced</span>
@@ -8925,6 +8941,12 @@
             const teamParam = params.get('team');
             if (teamParam && TEAMS[teamParam]) {
                 currentTeam = teamParam;
+            } else {
+                // Restore last selected team from localStorage for page transition persistence
+                const savedTeam = localStorage.getItem('selectedTeam');
+                if (savedTeam && TEAMS[savedTeam]) {
+                    currentTeam = savedTeam;
+                }
             }
             populateTeamSelector();
             renderTeam();
@@ -9442,6 +9464,7 @@
             <div>
                 <h4>Richmond</h4>
                 <p>Ask anything about IPL stats</p>
+                <p style="font-size:10px;color:var(--text-tertiary);margin:2px 0 0;font-style:italic;">AI is still in its nascent stage and is learning. It can make mistakes.</p>
             </div>
         </div>
         <button class="chat-close" onclick="toggleChat()">&#10005;</button>

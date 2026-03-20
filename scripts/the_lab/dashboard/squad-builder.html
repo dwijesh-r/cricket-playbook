@@ -247,14 +247,6 @@
                 linear-gradient(rgba(0, 50, 80, 0.04) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(0, 50, 80, 0.04) 1px, transparent 1px);
         }
-        .bg-watermark {
-            position: fixed; bottom: 5%; right: -5%;
-            font-size: 120px; font-weight: 800; letter-spacing: -0.05em;
-            color: rgba(255, 255, 255, 0.008); z-index: -1;
-            pointer-events: none; transform: rotate(-5deg);
-            white-space: nowrap; user-select: none;
-        }
-        [data-theme="light"] .bg-watermark { color: rgba(0, 0, 0, 0.02); }
 
         /* ==================== NAVIGATION ==================== */
         .sidebar { position: fixed; top: 0; left: 0; bottom: 0; width: 240px; background: var(--bg-sidebar); border-right: 1px solid rgba(148, 163, 184, 0.08); display: flex; flex-direction: column; z-index: 100; overflow-y: auto; scrollbar-width: thin; scrollbar-color: rgba(148, 163, 184, 0.15) transparent; }
@@ -443,9 +435,11 @@
         /* ==================== DATA TABLE ==================== */
         .data-table-wrapper {
             overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
             border: 1px solid var(--border);
             border-radius: var(--radius-lg);
             background: var(--bg-secondary);
+            max-width: 100%;
         }
         .data-table {
             width: 100%;
@@ -930,7 +924,6 @@
     <a href="#main-content" class="skip-nav">Skip to main content</a>
     <div class="bg-gradient"></div>
     <div class="bg-grid"></div>
-    <div class="bg-watermark">SQUAD BUILDER</div>
 
     <!-- Sidebar Navigation -->
     <aside class="sidebar" aria-label="Site navigation">
@@ -950,6 +943,7 @@
             <a href="squad-builder.html" class="sidebar-link active"><span class="sidebar-link-icon">&#9679;</span> Fantasy</a>
             <a href="about.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> About</a>
         </nav>
+        <button class="sidebar-collapse-btn" onclick="toggleSidebar()" title="Collapse sidebar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="11 17 6 12 11 7"/><polyline points="18 17 13 12 18 7"/></svg></button>
         <div class="sidebar-footer">
             <div class="sidebar-time" id="navTime">--:--:--</div>
         </div>

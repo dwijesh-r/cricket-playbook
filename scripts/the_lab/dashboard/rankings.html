@@ -571,22 +571,6 @@
                 linear-gradient(90deg, rgba(0, 50, 80, 0.04) 1px, transparent 1px);
         }
 
-        .bg-watermark {
-            position: fixed;
-            bottom: 5%;
-            right: -5%;
-            font-size: 140px;
-            font-weight: 800;
-            letter-spacing: -0.05em;
-            color: rgba(255, 255, 255, 0.015);
-            z-index: -1;
-            pointer-events: none;
-            transform: rotate(-5deg);
-            white-space: nowrap;
-            user-select: none;
-        }
-
-        [data-theme="light"] .bg-watermark { color: rgba(0, 0, 0, 0.02); }
 
         /* ==================== SIDEBAR NAVIGATION ==================== */
         .sidebar { position: fixed; top: 0; left: 0; bottom: 0; width: 240px; background: var(--bg-sidebar); border-right: 1px solid rgba(148, 163, 184, 0.08); display: flex; flex-direction: column; z-index: 100; overflow-y: auto; scrollbar-width: thin; scrollbar-color: rgba(148, 163, 184, 0.15) transparent; }
@@ -890,6 +874,7 @@
         .search-box input {
             width: 100%;
             padding: var(--space-3) 16px 10px 40px;
+            text-align: center;
             border-radius: var(--radius-lg);
             border: 1px solid var(--border);
             background: var(--bg-secondary);
@@ -2092,7 +2077,6 @@
     <!-- Background -->
     <div class="bg-gradient"></div>
     <div class="bg-grid"></div>
-    <div class="bg-watermark">RANKINGS</div>
 
     <!-- Sidebar Navigation -->
     <aside class="sidebar" aria-label="Site navigation">
@@ -2112,6 +2096,7 @@
             <a href="squad-builder.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Fantasy</a>
             <a href="about.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> About</a>
         </nav>
+        <button class="sidebar-collapse-btn" onclick="toggleSidebar()" title="Collapse sidebar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="11 17 6 12 11 7"/><polyline points="18 17 13 12 18 7"/></svg></button>
         <div class="sidebar-footer">
             <div class="sidebar-time" id="navTime">--:--:--</div>
         </div>
@@ -2504,18 +2489,66 @@
     }
 
     // ==================== SUBCATEGORY NAV ====================
+
+    // Pace bowling types to merge into a single "vs Pace" pill
+    const PACE_TYPES = ['vs Fast', 'vs Fast-Medium', 'vs Medium', 'vs Medium-Fast'];
+
+    // Phase display label overrides (shorter labels)
+    const PHASE_LABELS = {
+        'Powerplay (Overs 1-6)': 'Powerplay (1-6)',
+        'Middle Overs (7-15)': 'Middle (7-15)',
+        'Death Overs (16-20)': 'Death (16-20)'
+    };
+
+    /**
+     * Build virtual subcategory mapping.
+     * - Filters out "Unknown" subcategories
+     * - Merges pace bowling types into a single "vs Pace" entry
+     * - Applies shorter phase labels
+     * Returns array of { label, indices[] } where indices maps to original cat.subcategories indices.
+     */
+    function buildVirtualSubcategories(cat) {
+        const virtualSubs = [];
+        let paceIndices = [];
+
+        cat.subcategories.forEach((sub, i) => {
+            // Skip Unknown subcategories
+            if (sub.title.toLowerCase().includes('unknown')) return;
+
+            // Check if this is a pace type to merge
+            if (PACE_TYPES.some(p => sub.title === p)) {
+                paceIndices.push(i);
+                return;
+            }
+
+            // Apply phase label overrides
+            const label = PHASE_LABELS[sub.title] || sub.title;
+            virtualSubs.push({ label: label, indices: [i] });
+        });
+
+        // Insert merged Pace pill at position 0 (before spin types) if any pace subcats found
+        if (paceIndices.length > 0) {
+            virtualSubs.unshift({ label: 'vs Pace', indices: paceIndices });
+        }
+
+        return virtualSubs;
+    }
+
     function buildSubcategoryNav() {
         const nav = document.getElementById('subcategoryNav');
         const scopeData = getScopeData();
         const cat = scopeData.categories[state.currentCategory];
         nav.innerHTML = '';
 
-        if (cat.subcategories.length <= 1) return;
+        const virtualSubs = buildVirtualSubcategories(cat);
+        state._virtualSubs = virtualSubs; // store for use in rendering
 
-        cat.subcategories.forEach((sub, i) => {
+        if (virtualSubs.length <= 1) return;
+
+        virtualSubs.forEach((vsub, i) => {
             const pill = document.createElement('button');
             pill.className = 'subcategory-pill' + (i === 0 ? ' active' : '');
-            pill.textContent = sub.title;
+            pill.textContent = vsub.label;
             pill.onclick = () => selectSubcategory(i);
             nav.appendChild(pill);
         });
@@ -2543,14 +2576,15 @@
         if (!bc) return;
         const scopeData = getScopeData();
         const cat = scopeData.categories[state.currentCategory];
-        const sub = cat.subcategories[state.currentSubcategory];
+        const virtualSubs = state._virtualSubs || buildVirtualSubcategories(cat);
+        const vsub = virtualSubs[state.currentSubcategory] || virtualSubs[0];
         const scopeLabel = {'alltime':'IPL All-Time','since2023':'IPL 2023-25','2023':'IPL 2023','2024':'IPL 2024','2025':'IPL 2025','all_t20_since2023':'All T20 2023-25','all_t20_alltime':'All T20 All-Time'}[state.currentScope] || state.currentScope;
         let html = '<span style="color:var(--accent);">' + scopeLabel + '</span>';
         html += '<span style="color:var(--text-tertiary);">&rsaquo;</span>';
         html += '<span>' + cat.title + '</span>';
-        if (cat.subcategories.length > 1) {
+        if (virtualSubs.length > 1 && vsub) {
             html += '<span style="color:var(--text-tertiary);">&rsaquo;</span>';
-            html += '<span style="color:var(--text-secondary);">' + sub.title + '</span>';
+            html += '<span style="color:var(--text-secondary);">' + vsub.label + '</span>';
         }
         bc.innerHTML = html;
     }
@@ -2558,9 +2592,8 @@
     function updateSampleSizeBar() {
         const bar = document.getElementById('sampleSizeBar');
         if (!bar) return;
-        const scopeData = getScopeData();
-        const cat = scopeData.categories[state.currentCategory];
-        const sub = cat.subcategories[state.currentSubcategory];
+        const resolved = resolveCurrentSubcategory();
+        const sub = resolved;
         const qCount = sub && sub.qualifiedCount ? sub.qualifiedCount : (sub ? sub.rows.length : 0);
         const totalRows = sub ? sub.rows.length : 0;
         if (qCount > 0) {
@@ -2580,12 +2613,74 @@
         }
     }
 
+    /**
+     * Resolve the current virtual subcategory into { headers, rows, qualifiedCount, title }.
+     * If the virtual subcategory maps to multiple real subcategories (e.g., merged Pace),
+     * merge their rows together and use the headers from the first one.
+     */
+    function resolveCurrentSubcategory() {
+        const scopeData = getScopeData();
+        const cat = scopeData.categories[state.currentCategory];
+        const virtualSubs = state._virtualSubs || buildVirtualSubcategories(cat);
+
+        // Fallback: if no virtual subs or index out of range, use first real subcategory
+        if (!virtualSubs.length || state.currentSubcategory >= virtualSubs.length) {
+            const sub = cat.subcategories[0];
+            return { headers: sub.headers, rows: sub.rows.slice(), qualifiedCount: sub.qualifiedCount, title: sub.title };
+        }
+
+        const vsub = virtualSubs[state.currentSubcategory];
+        const indices = vsub.indices;
+
+        if (indices.length === 1) {
+            const sub = cat.subcategories[indices[0]];
+            return { headers: sub.headers, rows: sub.rows.slice(), qualifiedCount: sub.qualifiedCount, title: vsub.label };
+        }
+
+        // Merge multiple subcategories (e.g., Pace types)
+        const firstSub = cat.subcategories[indices[0]];
+        const headers = firstSub.headers;
+        let mergedRows = [];
+        let totalQualified = 0;
+        indices.forEach(idx => {
+            const sub = cat.subcategories[idx];
+            mergedRows = mergedRows.concat(sub.rows.slice());
+            if (sub.qualifiedCount != null) totalQualified += sub.qualifiedCount;
+        });
+
+        // Re-rank merged rows by the score/composite column or first numeric column
+        // Sort by the last numeric column descending as a heuristic (usually SR or composite)
+        let sortIdx = -1;
+        for (let i = headers.length - 1; i >= 0; i--) {
+            if (mergedRows.length > 0 && typeof mergedRows[0][i] === 'number' && headers[i] !== 'Rank') {
+                // Prefer SR, Avg, or Composite-like columns
+                if (['SR', 'Strike Rate', 'Composite', 'Score', 'Avg', 'Average'].includes(headers[i])) {
+                    sortIdx = i;
+                    break;
+                }
+                if (sortIdx === -1) sortIdx = i;
+            }
+        }
+        if (sortIdx >= 0) {
+            mergedRows.sort((a, b) => (b[sortIdx] || 0) - (a[sortIdx] || 0));
+        }
+
+        // Re-assign ranks
+        const rIdx = headers.indexOf('Rank');
+        if (rIdx >= 0) {
+            mergedRows.forEach((row, i) => { row[rIdx] = i + 1; });
+        }
+
+        return { headers: headers, rows: mergedRows, qualifiedCount: totalQualified || null, title: vsub.label };
+    }
+
     function renderCurrentView() {
         updateBreadcrumb();
         updateSampleSizeBar();
         const scopeData = getScopeData();
         const cat = scopeData.categories[state.currentCategory];
-        const sub = cat.subcategories[state.currentSubcategory];
+        const resolved = resolveCurrentSubcategory();
+        const sub = resolved;
         state.headers = sub.headers;
 
         // Get all rows — include T20 fallback rows for squad players in IPL scopes
@@ -2776,7 +2871,7 @@
         const rows = state.filteredRows;
         const scopeData = getScopeData();
         const cat = scopeData.categories[state.currentCategory];
-        const sub = cat.subcategories[state.currentSubcategory];
+        const resolved = resolveCurrentSubcategory();
         const isMatchup = cat.id === 'player_matchups';
 
         const start = (state.currentPage - 1) * state.pageSize;
@@ -2816,7 +2911,7 @@
         let html = '';
 
         // Sample size header
-        const qCount = sub && sub.qualifiedCount ? sub.qualifiedCount : rows.length;
+        const qCount = resolved && resolved.qualifiedCount ? resolved.qualifiedCount : rows.length;
         html += '<div class="mobile-sample-size">' + qCount + ' qualified player' + (qCount !== 1 ? 's' : '') + '</div>';
 
         // Column headers row
@@ -3042,10 +3137,8 @@
         } else {
             state.sortCol = colIdx;
             // Default sort direction: numeric = desc, text = asc
-            const scopeData = getScopeData();
-            const cat = scopeData.categories[state.currentCategory];
-            const sub = cat.subcategories[state.currentSubcategory];
-            const sampleVal = sub.rows.length > 0 ? sub.rows[0][colIdx] : '';
+            const resolved = resolveCurrentSubcategory();
+            const sampleVal = resolved.rows.length > 0 ? resolved.rows[0][colIdx] : '';
             state.sortDir = typeof sampleVal === 'number' ? 'desc' : 'asc';
         }
         state.currentPage = 1;
@@ -3248,6 +3341,7 @@
             <div>
                 <h4>Richmond</h4>
                 <p>Ask anything about IPL stats</p>
+                <p style="font-size:10px;color:var(--text-tertiary);margin:2px 0 0;font-style:italic;">AI is still in its nascent stage and is learning. It can make mistakes.</p>
             </div>
         </div>
         <button class="chat-close" onclick="toggleChat()">&#10005;</button>

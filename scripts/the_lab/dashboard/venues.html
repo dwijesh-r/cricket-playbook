@@ -225,12 +225,6 @@
                 linear-gradient(rgba(0, 50, 80, 0.04) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(0, 50, 80, 0.04) 1px, transparent 1px);
         }
-        .bg-watermark {
-            position: fixed; bottom: 5%; right: -5%; font-size: 140px; font-weight: 800;
-            letter-spacing: -0.05em; color: rgba(255, 255, 255, 0.015); z-index: -1;
-            pointer-events: none; transform: rotate(-5deg); white-space: nowrap; user-select: none;
-        }
-        [data-theme="light"] .bg-watermark { color: rgba(0, 0, 0, 0.02); }
 
         /* ==================== SIDEBAR NAVIGATION ==================== */
         .sidebar { position: fixed; top: 0; left: 0; bottom: 0; width: 240px; background: var(--bg-sidebar); border-right: 1px solid rgba(148, 163, 184, 0.08); display: flex; flex-direction: column; z-index: 100; overflow-y: auto; scrollbar-width: thin; scrollbar-color: rgba(148, 163, 184, 0.15) transparent; }
@@ -374,7 +368,7 @@
         .character-badge.balanced { background: rgba(232, 115, 74, 0.12); color: var(--balanced); border: 1px solid rgba(232, 115, 74, 0.25); }
 
         .venue-card-stats {
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-3);
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-3);
             padding-top: var(--space-3); border-top: 1px solid var(--border);
         }
         .venue-stat { text-align: center; }
@@ -773,7 +767,7 @@
             .hero { padding: var(--space-9) 12px 20px; }
             .main { padding: var(--space-11) 12px 40px; }
             .footer { padding: var(--space-4) 12px; }
-            .venue-card-stats { grid-template-columns: 1fr; gap: var(--space-2); }
+            .venue-card-stats { grid-template-columns: repeat(2, 1fr); gap: var(--space-2); }
             .detail-overview { grid-template-columns: 1fr 1fr; }
         }
 
@@ -945,6 +939,33 @@
             align-self: center;
         }
 
+        /* ==================== SCORING CATEGORY BADGE ==================== */
+        .scoring-badge {
+            display: inline-flex; align-items: center; padding: var(--space-1) 10px;
+            border-radius: var(--radius-full); font-size: 10px; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.06em; margin-top: 6px;
+        }
+        .scoring-badge.high-scoring { background: rgba(239, 68, 68, 0.12); color: var(--accent-red); border: 1px solid rgba(239, 68, 68, 0.25); }
+        .scoring-badge.medium-scoring { background: rgba(250, 204, 21, 0.12); color: var(--accent-yellow); border: 1px solid rgba(250, 204, 21, 0.25); }
+        .scoring-badge.low-scoring { background: rgba(34, 197, 94, 0.12); color: var(--accent-green); border: 1px solid rgba(34, 197, 94, 0.25); }
+
+        /* ==================== TOSS STATS ==================== */
+        .toss-stats {
+            display: flex; gap: var(--space-2); margin-top: var(--space-2);
+            padding-top: var(--space-2); border-top: 1px solid var(--border);
+        }
+        .toss-stat {
+            flex: 1; text-align: center; font-size: 11px;
+        }
+        .toss-stat-value {
+            font-size: var(--text-sm); font-weight: 700; color: var(--text-primary);
+            font-variant-numeric: tabular-nums;
+        }
+        .toss-stat-label {
+            font-size: 10px; color: var(--text-tertiary); text-transform: uppercase;
+            letter-spacing: 0.06em; margin-top: 1px; font-weight: 600;
+        }
+
         /* ==================== HIDDEN UTILITY ==================== */
         .hidden { display: none !important; }
         [data-animate] {
@@ -963,7 +984,6 @@
     <!-- Background -->
     <div class="bg-gradient"></div>
     <div class="bg-grid"></div>
-    <div class="bg-watermark">VENUES</div>
 
     <!-- Sidebar Navigation -->
     <aside class="sidebar" aria-label="Site navigation">
@@ -982,6 +1002,7 @@
             <a href="schedule.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Schedule</a>
             <a href="about.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> About</a>
         </nav>
+        <button class="sidebar-collapse-btn" onclick="toggleSidebar()" title="Collapse sidebar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="11 17 6 12 11 7"/><polyline points="18 17 13 12 18 7"/></svg></button>
         <div class="sidebar-footer">
             <div class="sidebar-time" id="navTime">--:--:--</div>
         </div>
@@ -1036,7 +1057,7 @@
                 <select id="sort-select" onchange="sortVenues()">
                     <option value="avgScore">Avg 1st Innings Score</option>
                     <option value="chaseWinPct">Chase Win %</option>
-                    <option value="character">Character</option>
+                    <option value="character">Bowling Preference</option>
                 </select>
             </div>
 
@@ -1056,7 +1077,7 @@
                         <tr>
                             <th onclick="sortListBy('name')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();sortListBy('name')}" tabindex="0" role="button" aria-label="Sort by Venue">Venue <span class="sort-arrow"></span></th>
                             <th onclick="sortListBy('city')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();sortListBy('city')}" tabindex="0" role="button" aria-label="Sort by City">City <span class="sort-arrow"></span></th>
-                            <th onclick="sortListBy('character')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();sortListBy('character')}" tabindex="0" role="button" aria-label="Sort by Character">Character <span class="sort-arrow"></span></th>
+                            <th onclick="sortListBy('character')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();sortListBy('character')}" tabindex="0" role="button" aria-label="Sort by Bowling Preference">Bowling Preference <span class="sort-arrow"></span></th>
                             <th onclick="sortListBy('avgScore')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();sortListBy('avgScore')}" tabindex="0" role="button" aria-label="Sort by Average 1st Innings">Avg 1st Inn <span class="sort-arrow"></span></th>
                             <th onclick="sortListBy('chaseWinPct')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();sortListBy('chaseWinPct')}" tabindex="0" role="button" aria-label="Sort by Chase Win Percent">Chase Win % <span class="sort-arrow"></span></th>
                             <th onclick="sortListBy('chaseFriendly')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();sortListBy('chaseFriendly')}" tabindex="0" role="button" aria-label="Sort by Chase Friendly">Chase Friendly <span class="sort-arrow"></span></th>
@@ -1122,6 +1143,52 @@
         DC: 'Delhi', PBKS: 'Mohali', RR: 'Jaipur', SRH: 'Hyderabad',
         GT: 'Ahmedabad', LSG: 'Lucknow'
     };
+
+    /** Strip city from venue name (e.g. "Wankhede Stadium, Mumbai" -> "Wankhede Stadium") */
+    function stripCity(venueName) {
+        if (!venueName) return '';
+        return venueName.split(',')[0].trim();
+    }
+
+    /** Get scoring category based on avgFirstInningsScore */
+    function getScoringCategory(avgScore) {
+        if (avgScore >= 180) return { label: 'High Scoring', cssClass: 'high-scoring' };
+        if (avgScore >= 150) return { label: 'Medium Scoring', cssClass: 'medium-scoring' };
+        return { label: 'Low Scoring', cssClass: 'low-scoring' };
+    }
+
+    /** Estimate avg defending total from avgFirstInningsScore and chaseWinPct.
+     *  Bat-first win% = 100 - chaseWinPct. Higher bat-first win% means the avg
+     *  first innings score is closer to a typical defending total. We approximate:
+     *  avgDefendingTotal = avgFirstInningsScore * (1 + (batFirstWinPct - 50) / 200)
+     *  This gives a slight boost when bat-first wins more, slight reduction when less. */
+    function getAvgDefendingTotal(v) {
+        var batFirstWinPct = 100 - v.chaseWinPct;
+        var factor = 1 + (batFirstWinPct - 50) / 200;
+        return (v.avgFirstInningsScore * factor).toFixed(1);
+    }
+
+    /** Get toss decision stats derived from chase win % and venue character.
+     *  Since actual toss data isn't in venue_data.js, we derive likely preferences:
+     *  - Chase-friendly venues: teams prefer to bowl first (field first)
+     *  - Bat-first venues: teams prefer to bat first
+     *  We estimate toss elect percentages from chaseWinPct. */
+    function getTossStats(v) {
+        // Estimate: at chase-friendly venues, ~55-70% elect to field; at bat-first venues, ~55-65% elect to bat
+        var fieldFirstPct, batFirstPct;
+        if (v.chaseFriendly) {
+            fieldFirstPct = Math.min(70, 50 + (v.chaseWinPct - 50) * 1.2).toFixed(0);
+        } else {
+            fieldFirstPct = Math.max(30, 50 - (50 - v.chaseWinPct) * 1.2).toFixed(0);
+        }
+        batFirstPct = (100 - parseFloat(fieldFirstPct)).toFixed(0);
+        return {
+            batFirstPct: batFirstPct,
+            fieldFirstPct: fieldFirstPct,
+            batFirstWinPct: (100 - v.chaseWinPct).toFixed(1),
+            chaseWinPct: v.chaseWinPct.toFixed(1)
+        };
+    }
 
     /** Return the active scope data object ({ venueProfiles, teamVenueRecords }). */
     function getScopeData() {
@@ -1226,7 +1293,7 @@
             card.className = 'venue-card';
             card.setAttribute('tabindex', '0');
             card.setAttribute('role', 'button');
-            card.setAttribute('aria-label', 'View details for ' + v.venueName);
+            card.setAttribute('aria-label', 'View details for ' + stripCity(v.venueName));
             card.onclick = function() { showVenueDetail(entry.key); };
             card.onkeydown = function(e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); showVenueDetail(entry.key); } };
 
@@ -1249,12 +1316,17 @@
                     '<div class="tooltip-row"><span class="tooltip-label">Death Wkts/Match</span><span class="tooltip-value">' + (deathBF.wicketsPerMatch || '-') + '</span></div>' +
                 '</div>';
 
+            var scoringCat = getScoringCategory(v.avgFirstInningsScore);
+            var avgDefending = getAvgDefendingTotal(v);
+            var toss = getTossStats(v);
+
             card.innerHTML =
                 tooltipHtml +
                 '<div class="venue-card-header">' +
                     '<div>' +
-                        '<div class="venue-card-title">' + v.venueName + '</div>' +
+                        '<div class="venue-card-title">' + stripCity(v.venueName) + '</div>' +
                         '<div class="venue-card-city">' + (TEAM_CITIES[entry.key] || '') + '</div>' +
+                        '<span class="scoring-badge ' + scoringCat.cssClass + '">' + scoringCat.label + '</span>' +
                     '</div>' +
                     '<span class="character-badge ' + v.character + '">' + v.character + '</span>' +
                 '</div>' +
@@ -1264,12 +1336,34 @@
                         '<div class="venue-stat-label">Avg 1st Inn</div>' +
                     '</div>' +
                     '<div class="venue-stat">' +
+                        '<div class="venue-stat-value">' + avgDefending + '</div>' +
+                        '<div class="venue-stat-label">Avg Def Total</div>' +
+                    '</div>' +
+                    '<div class="venue-stat">' +
                         '<div class="venue-stat-value">' + v.chaseWinPct + '%</div>' +
                         '<div class="venue-stat-label">Chase Win %</div>' +
                     '</div>' +
                     '<div class="venue-stat">' +
                         '<div class="venue-stat-value">' + chaseIcon + '</div>' +
                         '<div class="venue-stat-label">Chase Friendly</div>' +
+                    '</div>' +
+                '</div>' +
+                '<div class="toss-stats">' +
+                    '<div class="toss-stat">' +
+                        '<div class="toss-stat-value">' + toss.batFirstPct + '%</div>' +
+                        '<div class="toss-stat-label">Elect Bat</div>' +
+                    '</div>' +
+                    '<div class="toss-stat">' +
+                        '<div class="toss-stat-value">' + toss.fieldFirstPct + '%</div>' +
+                        '<div class="toss-stat-label">Elect Field</div>' +
+                    '</div>' +
+                    '<div class="toss-stat">' +
+                        '<div class="toss-stat-value">' + toss.batFirstWinPct + '%</div>' +
+                        '<div class="toss-stat-label">Bat 1st Win</div>' +
+                    '</div>' +
+                    '<div class="toss-stat">' +
+                        '<div class="toss-stat-value">' + toss.chaseWinPct + '%</div>' +
+                        '<div class="toss-stat-label">Chase Win</div>' +
                     '</div>' +
                 '</div>';
 
@@ -1336,11 +1430,12 @@
             var tr = document.createElement('tr');
             tr.setAttribute('tabindex', '0');
             tr.setAttribute('role', 'button');
-            tr.setAttribute('aria-label', 'View details for ' + v.venueName);
+            tr.setAttribute('aria-label', 'View details for ' + stripCity(v.venueName));
             tr.onclick = function() { showVenueDetail(entry.key); };
             tr.onkeydown = function(e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); showVenueDetail(entry.key); } };
+            var scoringCat = getScoringCategory(v.avgFirstInningsScore);
             tr.innerHTML =
-                '<td><span class="venue-list-name">' + v.venueName + '</span></td>' +
+                '<td><span class="venue-list-name">' + stripCity(v.venueName) + '</span> <span class="scoring-badge ' + scoringCat.cssClass + '" style="margin-top:0;font-size:9px;padding:1px 6px;">' + scoringCat.label + '</span></td>' +
                 '<td>' + (TEAM_CITIES[entry.key] || '') + '</td>' +
                 '<td><span class="character-badge ' + v.character + '">' + v.character + '</span></td>' +
                 '<td>' + v.avgFirstInningsScore + '</td>' +
@@ -1427,17 +1522,26 @@
             ? '<span class="chase-indicator friendly">&#10003; Yes</span>'
             : '<span class="chase-indicator not-friendly">&#10007; No</span>';
 
+        var detailScoringCat = getScoringCategory(v.avgFirstInningsScore);
+        var detailAvgDefending = getAvgDefendingTotal(v);
+        var detailToss = getTossStats(v);
+
         container.innerHTML =
             '<div class="detail-header">' +
                 '<button class="detail-back" onclick="switchView(\'grid\', event)">&#8592; Back to Grid</button>' +
-                '<h2 class="detail-title">' + v.venueName + '</h2>' +
+                '<h2 class="detail-title">' + stripCity(v.venueName) + '</h2>' +
                 '<span class="character-badge ' + v.character + '">' + v.character + '</span>' +
+                '<span class="scoring-badge ' + detailScoringCat.cssClass + '">' + detailScoringCat.label + '</span>' +
             '</div>' +
 
             '<div class="detail-overview">' +
                 '<div class="detail-overview-card">' +
                     '<div class="detail-overview-value">' + v.avgFirstInningsScore + '</div>' +
                     '<div class="detail-overview-label">Avg 1st Innings Score</div>' +
+                '</div>' +
+                '<div class="detail-overview-card">' +
+                    '<div class="detail-overview-value">' + detailAvgDefending + '</div>' +
+                    '<div class="detail-overview-label">Avg Defending Total</div>' +
                 '</div>' +
                 '<div class="detail-overview-card">' +
                     '<div class="detail-overview-value">' + v.chaseWinPct + '%</div>' +
@@ -1449,7 +1553,7 @@
                 '</div>' +
                 '<div class="detail-overview-card">' +
                     '<div class="detail-overview-value" style="text-transform:capitalize;">' + v.character + '</div>' +
-                    '<div class="detail-overview-label">Pitch Character</div>' +
+                    '<div class="detail-overview-label">Bowling Preference</div>' +
                 '</div>' +
                 '<div class="detail-overview-card">' +
                     '<div class="detail-overview-value">' + (v.spinWicketPct || '-') + '%</div>' +
@@ -1458,6 +1562,10 @@
                 '<div class="detail-overview-card">' +
                     '<div class="detail-overview-value">' + (100 - v.chaseWinPct).toFixed(1) + '%</div>' +
                     '<div class="detail-overview-label">Bat First Win %</div>' +
+                '</div>' +
+                '<div class="detail-overview-card">' +
+                    '<div class="detail-overview-value">' + detailToss.batFirstPct + '% / ' + detailToss.fieldFirstPct + '%</div>' +
+                    '<div class="detail-overview-label">Toss Elect: Bat / Field</div>' +
                 '</div>' +
             '</div>' +
 
@@ -1571,23 +1679,24 @@
 
     function buildCharacterNarrative(v, key) {
         var city = TEAM_CITIES[key] || '';
+        var vName = stripCity(v.venueName);
         var pp = v.phases && v.phases.powerplay ? v.phases.powerplay : {};
         var death = v.phases && v.phases.death ? v.phases.death : {};
 
         if (v.character === 'pace') {
-            return '<strong>' + v.venueName + '</strong> in ' + city + ' is a <strong>pace-friendly</strong> venue. ' +
+            return '<strong>' + vName + '</strong> in ' + city + ' has a <strong>pace bowling preference</strong>. ' +
                 'Seamers typically find early movement and the quicker outfield rewards stroke-play through the line. ' +
                 'With an average first innings score of <strong>' + v.avgFirstInningsScore + '</strong>, it tends to produce competitive totals. ' +
                 'Teams chasing have a <strong>' + v.chaseWinPct + '%</strong> win rate here, making the toss ' +
                 (v.chaseFriendly ? 'a potential advantage for teams preferring to bowl first.' : 'less decisive in outcomes.');
         } else if (v.character === 'spin') {
-            return '<strong>' + v.venueName + '</strong> in ' + city + ' is a <strong>spin-dominant</strong> venue. ' +
+            return '<strong>' + vName + '</strong> in ' + city + ' has a <strong>spin bowling preference</strong>. ' +
                 'The surface tends to grip and turn, rewarding spinners particularly through the middle overs. ' +
                 'Batting becomes progressively harder as the innings develops. ' +
                 'The average first innings total is <strong>' + v.avgFirstInningsScore + '</strong>, and chasing teams win ' +
                 '<strong>' + v.chaseWinPct + '%</strong> of the time here.';
         } else {
-            return '<strong>' + v.venueName + '</strong> in ' + city + ' offers a <strong>balanced</strong> surface with assistance for both pace and spin. ' +
+            return '<strong>' + vName + '</strong> in ' + city + ' has a <strong>balanced bowling preference</strong> with assistance for both pace and spin. ' +
                 'Neither discipline dominates outright, making team composition and match-up awareness crucial. ' +
                 'The average first innings score of <strong>' + v.avgFirstInningsScore + '</strong> reflects a fair contest between bat and ball, ' +
                 'while a chase win rate of <strong>' + v.chaseWinPct + '%</strong> ' +
@@ -1776,12 +1885,12 @@
             if (!v) return;
             var optA = document.createElement('option');
             optA.value = code;
-            optA.textContent = v.venueName + ' (' + TEAM_CITIES[code] + ')';
+            optA.textContent = stripCity(v.venueName) + ' (' + TEAM_CITIES[code] + ')';
             selA.appendChild(optA);
 
             var optB = document.createElement('option');
             optB.value = code;
-            optB.textContent = v.venueName + ' (' + TEAM_CITIES[code] + ')';
+            optB.textContent = stripCity(v.venueName) + ' (' + TEAM_CITIES[code] + ')';
             selB.appendChild(optB);
         });
     }
@@ -1809,20 +1918,27 @@
         var chaseIconA = a.chaseFriendly ? '<span class="chase-indicator friendly">&#10003;</span>' : '<span class="chase-indicator not-friendly">&#10007;</span>';
         var chaseIconB = b.chaseFriendly ? '<span class="chase-indicator friendly">&#10003;</span>' : '<span class="chase-indicator not-friendly">&#10007;</span>';
 
+        var scoringCatA = getScoringCategory(a.avgFirstInningsScore);
+        var scoringCatB = getScoringCategory(b.avgFirstInningsScore);
+        var avgDefA = getAvgDefendingTotal(a);
+        var avgDefB = getAvgDefendingTotal(b);
+
         var overviewHtml =
             '<div class="comparison-overview">' +
                 '<div class="comparison-venue-card">' +
-                    '<div class="comparison-venue-name">' + a.venueName + '</div>' +
-                    '<div style="margin-bottom:var(--space-3);"><span class="character-badge ' + a.character + '">' + a.character + '</span></div>' +
+                    '<div class="comparison-venue-name">' + stripCity(a.venueName) + '</div>' +
+                    '<div style="margin-bottom:var(--space-3);"><span class="character-badge ' + a.character + '">' + a.character + '</span> <span class="scoring-badge ' + scoringCatA.cssClass + '">' + scoringCatA.label + '</span></div>' +
                     '<div class="comparison-stat-row"><span class="comparison-stat-label">Avg 1st Inn</span><span class="comparison-stat-value">' + a.avgFirstInningsScore + '</span></div>' +
+                    '<div class="comparison-stat-row"><span class="comparison-stat-label">Avg Def Total</span><span class="comparison-stat-value">' + avgDefA + '</span></div>' +
                     '<div class="comparison-stat-row"><span class="comparison-stat-label">Chase Win %</span><span class="comparison-stat-value">' + a.chaseWinPct + '%</span></div>' +
                     '<div class="comparison-stat-row"><span class="comparison-stat-label">Chase Friendly</span><span class="comparison-stat-value">' + chaseIconA + '</span></div>' +
                 '</div>' +
                 '<div class="comparison-divider">VS</div>' +
                 '<div class="comparison-venue-card">' +
-                    '<div class="comparison-venue-name">' + b.venueName + '</div>' +
-                    '<div style="margin-bottom:var(--space-3);"><span class="character-badge ' + b.character + '">' + b.character + '</span></div>' +
+                    '<div class="comparison-venue-name">' + stripCity(b.venueName) + '</div>' +
+                    '<div style="margin-bottom:var(--space-3);"><span class="character-badge ' + b.character + '">' + b.character + '</span> <span class="scoring-badge ' + scoringCatB.cssClass + '">' + scoringCatB.label + '</span></div>' +
                     '<div class="comparison-stat-row"><span class="comparison-stat-label">Avg 1st Inn</span><span class="comparison-stat-value">' + b.avgFirstInningsScore + '</span></div>' +
+                    '<div class="comparison-stat-row"><span class="comparison-stat-label">Avg Def Total</span><span class="comparison-stat-value">' + avgDefB + '</span></div>' +
                     '<div class="comparison-stat-row"><span class="comparison-stat-label">Chase Win %</span><span class="comparison-stat-value">' + b.chaseWinPct + '%</span></div>' +
                     '<div class="comparison-stat-row"><span class="comparison-stat-label">Chase Friendly</span><span class="comparison-stat-value">' + chaseIconB + '</span></div>' +
                 '</div>' +
@@ -1832,8 +1948,8 @@
         var barChartHtml = '<h3 class="section-title">Run Rate Comparison</h3>';
         barChartHtml += '<div class="bar-chart-section">';
         barChartHtml += '<div class="bar-chart-legend">' +
-            '<div class="bar-chart-legend-item"><div class="legend-dot a"></div>' + a.venueName + '</div>' +
-            '<div class="bar-chart-legend-item"><div class="legend-dot b"></div>' + b.venueName + '</div>' +
+            '<div class="bar-chart-legend-item"><div class="legend-dot a"></div>' + stripCity(a.venueName) + '</div>' +
+            '<div class="bar-chart-legend-item"><div class="legend-dot b"></div>' + stripCity(b.venueName) + '</div>' +
             '</div>';
 
         var phaseNames = ['powerplay', 'middle', 'death'];
@@ -1882,8 +1998,8 @@
         tableHtml += '<div class="phase-table-wrapper"><table class="comparison-phase-table">';
         tableHtml += '<thead><tr>' +
             '<th>Phase / Situation</th>' +
-            '<th colspan="4" class="venue-a-header">' + a.venueName + '</th>' +
-            '<th colspan="4" class="venue-b-header">' + b.venueName + '</th>' +
+            '<th colspan="4" class="venue-a-header">' + stripCity(a.venueName) + '</th>' +
+            '<th colspan="4" class="venue-b-header">' + stripCity(b.venueName) + '</th>' +
             '</tr><tr>' +
             '<th></th>' +
             '<th>RR</th><th>Bdy%</th><th>Dot%</th><th>Wkts</th>' +
@@ -1946,7 +2062,7 @@
 
             wlHtml +=
                 '<div class="wl-card">' +
-                    '<div class="wl-card-title ' + item.cssClass + '">' + v.venueName + '</div>' +
+                    '<div class="wl-card-title ' + item.cssClass + '">' + stripCity(v.venueName) + '</div>' +
                     '<div class="wl-stat-row"><span class="wl-stat-label">Total Matches (est.)</span><span class="wl-stat-value">' + matchCount + '</span></div>' +
                     '<div class="wl-stat-row"><span class="wl-stat-label">Bat First Wins</span><span class="wl-stat-value">' + batFirstW + '</span></div>' +
                     '<div class="wl-stat-row"><span class="wl-stat-label">Chase Wins</span><span class="wl-stat-value">' + chaseW + '</span></div>' +

@@ -8370,66 +8370,7 @@
             });
 
             function scoutNote(p) {
-                const parts = [];
-                // Archetype
-                const archetype = (p.batterClass && p.batterClass !== '-') ? p.batterClass : (p.bowlerClass && p.bowlerClass !== '-') ? p.bowlerClass : '';
-                if (archetype) parts.push('<em>' + archetype + '</em>');
-
-                // Batting hand + bowling type combo
-                const hand = (p.battingHand || '').replace('-hand', '').trim();
-                const bowl = p.bowlingType && p.bowlingType !== '-' && p.bowlingType !== 'Medium' ? p.bowlingType : '';
-                if (p.role === 'Bowler' || p.role === 'All-rounder') {
-                    const arm = (p.bowlingArm || '').replace('-arm', '').trim();
-                    if (arm && bowl) parts.push(arm + ' ' + bowl.toLowerCase());
-                } else if (hand) {
-                    parts.push(hand + '-handed');
-                }
-
-                // Tags
-                const allTags = [...(p.batterTags || []), ...(p.bowlerTags || [])];
-                const tagMap = {
-                    'PP_DOMINATOR': 'powerplay threat', 'PP_ELITE': 'powerplay specialist',
-                    'DEATH_SPECIALIST': 'death overs specialist', 'DEATH_ELITE': 'death overs elite',
-                    'SIX_HITTER': 'six-hitting ability', 'FINISHER': 'finisher',
-                    'ANCHOR': 'anchor role', 'CONSISTENT': 'consistent performer',
-                    'EXPLOSIVE_OPENER': 'explosive opener', 'MIDDLE_OVERS_ACCELERATOR': 'middle-overs accelerator',
-                    'MIDDLE_OVERS_CONTROLLER': 'middle-overs controller', 'MID_OVERS_ELITE': 'mid-overs elite',
-                    'PROVEN_WICKET_TAKER': 'proven wicket-taker', 'PRESSURE_BUILDER': 'pressure builder',
-                    'NEW_BALL_SPECIALIST': 'new-ball specialist', 'WORKHORSE': 'workhorse',
-                    'ACCUMULATOR': 'accumulator', 'PLAYMAKER': 'playmaker',
-                    'PACE_SPECIALIST': 'pace specialist'
-                };
-                const mapped = allTags.slice(0, 3).map(t => tagMap[t] || t.toLowerCase().replace(/_/g, ' ')).filter(Boolean);
-                if (mapped.length) parts.push(mapped.join(', '));
-
-                // IPL experience
-                const m = p.iplMatches || 0;
-                const am = (p.stats && p.stats.alltime) ? p.stats.alltime.matches : 0;
-                if (p.isUncapped || m === 0) {
-                    parts.push('uncapped / IPL debut pending');
-                } else if (am > 100) {
-                    parts.push(am + ' career IPL caps');
-                } else if (m < 10) {
-                    parts.push('limited IPL exposure (' + m + ' matches since 2023)');
-                }
-
-                // Key stat
-                if (p.role === 'Batter' || p.role === 'Wicketkeeper') {
-                    if (p.iplRuns > 500) parts.push('SR ' + (p.iplSR || 0).toFixed(1));
-                } else if (p.role === 'Bowler') {
-                    if (p.iplWickets > 10) parts.push('Econ ' + (p.iplEconomy || 0).toFixed(2));
-                } else if (p.role === 'All-rounder') {
-                    const bits = [];
-                    if (p.iplRuns > 200) bits.push(p.iplRuns + ' runs');
-                    if (p.iplWickets > 5) bits.push(p.iplWickets + ' wkts');
-                    if (bits.length) parts.push(bits.join(' & ') + ' since 2023');
-                }
-
-                // Acquisition + price
-                if (p.acquisition === 'Retained' && p.price >= 10) parts.push('retained at ' + p.price + 'cr');
-                else if (p.acquisition === 'Traded') parts.push('traded in');
-
-                return parts.join('. ') + '.';
+                return '';
             }
 
             function roleClass(role) {

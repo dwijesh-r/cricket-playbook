@@ -1102,6 +1102,20 @@
             cursor: help;
         }
 
+        .bowl-arm-tag {
+            display: inline-block;
+            font-size: 9px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            padding: 1px 4px;
+            border-radius: 3px;
+            background: rgba(148, 163, 184, 0.15);
+            color: var(--text-secondary);
+            margin-left: 5px;
+            vertical-align: middle;
+            cursor: help;
+        }
+
         .player-secondary {
             font-weight: 500;
             color: var(--text-secondary);
@@ -2313,12 +2327,14 @@
     // Rankings use abbreviated names (e.g. "V Kohli"), squads use full names (e.g. "Virat Kohli")
     // We build maps for both full and abbreviated names
     const PLAYER_TEAM_MAP = {};
+    const PLAYER_BOWL_ARM_MAP = {};
     function buildPlayerTeamMap() {
         if (typeof FULL_SQUADS === 'undefined') return;
-        // Map full squad names to team abbreviations
+        // Map full squad names to team abbreviations and bowling arm
         Object.keys(FULL_SQUADS).forEach(teamAbbrev => {
             FULL_SQUADS[teamAbbrev].forEach(player => {
                 PLAYER_TEAM_MAP[player.name.toLowerCase()] = teamAbbrev;
+                if (player.bowlingArm) PLAYER_BOWL_ARM_MAP[player.name.toLowerCase()] = player.bowlingArm;
             });
         });
         // Map cricsheet abbreviated names using PLAYER_ALIASES (generated from DuckDB)
@@ -2328,6 +2344,7 @@
                 const team = PLAYER_TEAM_MAP[fullName.toLowerCase()];
                 if (team) {
                     PLAYER_TEAM_MAP[cricsheetName.toLowerCase()] = team;
+                    if (PLAYER_BOWL_ARM_MAP[fullName.toLowerCase()]) PLAYER_BOWL_ARM_MAP[cricsheetName.toLowerCase()] = PLAYER_BOWL_ARM_MAP[fullName.toLowerCase()];
                 }
             });
         }
@@ -2345,6 +2362,15 @@
             return 'teams.html?team=' + encodeURIComponent(team);
         }
         return null;
+    }
+
+    function getPlayerBowlArm(playerName) {
+        if (!playerName) return '';
+        var key = String(playerName).toLowerCase().trim();
+        var arm = PLAYER_BOWL_ARM_MAP[key];
+        if (!arm) return '';
+        var short = arm.replace('-arm', '').trim();
+        return ' <span class="bowl-arm-tag" title="' + arm + '">' + short[0] + 'A</span>';
     }
 
     /** Return the active scope data (categories, stats) from RANKINGS_DATA. */
@@ -2688,18 +2714,15 @@
         const isT20Scope = state.currentScope.startsWith('all_t20');
         const isIPLScope = !isT20Scope;
 
-        // Filter to IPL 2026 squad players (applies to ALL scopes)
+        // Filter to IPL 2026 squad players (only for IPL scopes, not All T20)
         const playerColIdx = state.headers.indexOf('Player') !== -1 ? state.headers.indexOf('Player') : state.headers.indexOf('Batter');
-        if (playerColIdx >= 0 && Object.keys(PLAYER_TEAM_MAP).length > 0) {
+        const squadFilterActive = isIPLScope && playerColIdx >= 0 && Object.keys(PLAYER_TEAM_MAP).length > 0;
+        if (squadFilterActive) {
             rows = rows.filter(row => {
                 const name = String(row[playerColIdx]).toLowerCase().trim();
                 return PLAYER_TEAM_MAP[name] != null;
             });
         }
-
-        // Apply qualification filter only when no squad filter is active
-        // Squad filter already limits to ~25 players, no need to further restrict
-        const squadFilterActive = playerColIdx >= 0 && Object.keys(PLAYER_TEAM_MAP).length > 0;
         if (!state.showAll && !squadFilterActive && sub.qualifiedCount != null && sub.qualifiedCount < rows.length) {
             rows = rows.slice(0, sub.qualifiedCount);
         }
@@ -2807,6 +2830,7 @@
 
         let bodyHtml = '';
         const isMatchup = cat.id === 'player_matchups';
+        const isBowlerCategory = cat.id === 'bowler_phase' || cat.id === 'bowler_composite' || cat.id === 'bowler_vs_handedness';
 
         pageRows.forEach((row, rowIdx) => {
             // Detect T20 fallback rows (extra true flag beyond headers)
@@ -2839,10 +2863,11 @@
                 } else if (header === 'Player' || header === 'Batter') {
                     const link = getPlayerLink(cell);
                     const fallbackTag = isFallback ? ' <span class="t20-tag" title="Stats from all T20 since 2023">T20</span>' : '';
+                    const armTag = isBowlerCategory ? getPlayerBowlArm(cell) : '';
                     if (link) {
-                        bodyHtml += '<td><a href="' + link + '" class="player-name-link" title="View ' + escapeHtml(String(cell)) + ' on Teams page">' + escapeHtml(String(cell)) + '</a>' + fallbackTag + '</td>';
+                        bodyHtml += '<td><a href="' + link + '" class="player-name-link" title="View ' + escapeHtml(String(cell)) + ' on Teams page">' + escapeHtml(String(cell)) + '</a>' + armTag + fallbackTag + '</td>';
                     } else {
-                        bodyHtml += '<td><span class="player-name">' + escapeHtml(String(cell)) + '</span>' + fallbackTag + '</td>';
+                        bodyHtml += '<td><span class="player-name">' + escapeHtml(String(cell)) + '</span>' + armTag + fallbackTag + '</td>';
                     }
                 } else if (header === 'Bowler' && isMatchup) {
                     const link = getPlayerLink(cell);
@@ -2873,6 +2898,7 @@
         const cat = scopeData.categories[state.currentCategory];
         const resolved = resolveCurrentSubcategory();
         const isMatchup = cat.id === 'player_matchups';
+        const isBowlerCat = cat.id === 'bowler_phase' || cat.id === 'bowler_composite' || cat.id === 'bowler_vs_handedness';
 
         const start = (state.currentPage - 1) * state.pageSize;
         const end = Math.min(start + state.pageSize, rows.length);
@@ -2939,6 +2965,9 @@
                 html += '<a href="' + playerLink + '" class="mobile-player-name player-name-link" style="display:block;">' + escapeHtml(String(name)) + '</a>';
             } else {
                 html += '<span class="mobile-player-name">' + escapeHtml(String(name)) + '</span>';
+            }
+            if (isBowlerCat) {
+                html += getPlayerBowlArm(name);
             }
             if (isMatchup && bowlerIdx >= 0) {
                 html += '<span class="mobile-player-meta">vs ' + escapeHtml(String(row[bowlerIdx])) + '</span>';

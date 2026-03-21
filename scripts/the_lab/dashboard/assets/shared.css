@@ -80,8 +80,7 @@ body { font-family: var(--font-body); background: var(--bg-primary); color: var(
 .sidebar.collapsed .sidebar-link-icon { width: auto; margin: 0; }
 .sidebar-collapse-btn { background: none; border: 1px solid rgba(148, 163, 184, 0.12); border-radius: 6px; padding: 6px; cursor: pointer; color: var(--text-secondary); display: flex; align-items: center; justify-content: center; margin: 8px auto; transition: all 150ms ease-in-out; }
 .sidebar-collapse-btn:hover { color: var(--text-primary); background: rgba(148, 163, 184, 0.06); }
-.sidebar-collapse-btn svg { width: 16px; height: 16px; transition: transform 200ms ease-in-out; }
-.sidebar.collapsed .sidebar-collapse-btn svg { transform: rotate(180deg); }
+.sidebar-collapse-btn svg { width: 16px; height: 16px; }
 .sidebar::-webkit-scrollbar { width: 4px; }
 .sidebar::-webkit-scrollbar-thumb { background: rgba(148, 163, 184, 0.15); border-radius: 4px; }
 .sidebar-brand { display: flex; align-items: center; gap: 12px; padding: 20px 20px 16px; border-bottom: 1px solid rgba(148, 163, 184, 0.06); margin-bottom: 8px; }

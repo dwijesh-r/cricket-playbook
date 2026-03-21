@@ -521,9 +521,11 @@ def load_predicted_xii_ids() -> Dict[str, set]:
         for team_abbrev, team_data in data.get("teams", {}).items():
             ids: set = set()
             for player in team_data.get("xi", []):
-                ids.add(player["player_id"])
+                pid = player.get("player_id")
+                if pid:
+                    ids.add(pid)
             impact = team_data.get("impact_player")
-            if impact:
+            if impact and impact.get("player_id"):
                 ids.add(impact["player_id"])
             predicted[team_abbrev] = ids
 

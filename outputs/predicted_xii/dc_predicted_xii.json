@@ -13,7 +13,7 @@
       "role": "Wicketkeeper",
       "batting_hand": "Left-hand",
       "is_overseas": true,
-      "price_cr": 0.75,
+      "price_cr": 2.0,
       "rationale": "Founder's Selection \u2014 Uncapped IPL"
     },
     {
@@ -33,7 +33,7 @@
       "role": "All-rounder",
       "batting_hand": "Left-hand",
       "is_overseas": false,
-      "price_cr": 0.5,
+      "price_cr": 4.2,
       "rationale": "Founder's Selection"
     },
     {
@@ -54,16 +54,6 @@
       "batting_hand": "Left-hand",
       "is_overseas": true,
       "price_cr": 2.0,
-      "rationale": "Founder's Selection"
-    },
-    {
-      "batting_position": 6,
-      "player_id": "84d9c311",
-      "player_name": "Ashutosh Sharma",
-      "role": "Batter",
-      "batting_hand": "Right-hand",
-      "is_overseas": false,
-      "price_cr": 3.8,
       "rationale": "Founder's Selection"
     },
     {
@@ -118,24 +108,24 @@
     }
   ],
   "impact_player": {
-    "player_id": "ce794613",
-    "player_name": "T Natarajan",
-    "role": "Pace Bowler",
+    "player_id": "ad3b6e95",
+    "player_name": "Abishek Porel",
+    "role": "Wicketkeeper",
     "batting_hand": "Left-hand",
     "is_overseas": false,
-    "price_cr": 10.75,
-    "rationale": "Founder's Selection"
+    "price_cr": 4.0,
+    "rationale": "Founder's Selection \u2014 Could play instead of Duckett, which could force Mukesh to sit for Ngidi"
   },
   "balance": {
     "overseas_count": 4,
-    "bowling_options": 9,
-    "spinners": 6,
+    "bowling_options": 8,
+    "spinners": 5,
     "pacers": 5,
-    "left_handers_top6": 3
+    "left_handers_top6": 4
   },
   "constraints_satisfied": true,
   "constraint_violations": [],
   "generation_notes": [
-    "Founder Override \u2014 11 XI + impact"
+    "Founder Override \u2014 10 XI + impact"
   ]
 }

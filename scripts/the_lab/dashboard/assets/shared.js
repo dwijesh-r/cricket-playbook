@@ -7,7 +7,13 @@ function toggleSidebar() {
     var sidebar = document.querySelector('.sidebar');
     if (!sidebar) return;
     sidebar.classList.toggle('collapsed');
-    localStorage.setItem('sidebarCollapsed', sidebar.classList.contains('collapsed'));
+    var isCollapsed = sidebar.classList.contains('collapsed');
+    localStorage.setItem('sidebarCollapsed', isCollapsed);
+    var toggle = sidebar.querySelector('.sidebar-collapse-toggle');
+    if (toggle) {
+        toggle.setAttribute('aria-label', isCollapsed ? 'Expand sidebar' : 'Collapse sidebar');
+        toggle.setAttribute('aria-expanded', !isCollapsed);
+    }
 }
 
 function toggleTheme() {
@@ -52,9 +58,15 @@ document.addEventListener('DOMContentLoaded', function() {
         if (btn) btn.textContent = savedTheme === 'dark' ? '\u{1F319}' : '\u{2600}\u{FE0F}';
     }
     // Restore sidebar state
-    if (localStorage.getItem('sidebarCollapsed') === 'true') {
+    var sidebarRestored = localStorage.getItem('sidebarCollapsed') === 'true';
+    if (sidebarRestored) {
         var sidebar = document.querySelector('.sidebar');
         if (sidebar) sidebar.classList.add('collapsed');
+    }
+    var sidebarToggle = document.querySelector('.sidebar-collapse-toggle');
+    if (sidebarToggle) {
+        sidebarToggle.setAttribute('aria-label', sidebarRestored ? 'Expand sidebar' : 'Collapse sidebar');
+        sidebarToggle.setAttribute('aria-expanded', !sidebarRestored);
     }
     // Clock
     const clockEl = document.getElementById('navTime');

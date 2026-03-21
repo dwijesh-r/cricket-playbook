@@ -482,7 +482,7 @@
     },
     "allrounder_batting": {
       "name": "Allrounder (Batting)",
-      "rating": 9.0,
+      "rating": 9.1,
       "what_works": "Elite #1 in hardik pandya. quality backup in naman dhir",
       "what_doesnt": "Minimal concerns",
       "overseas_count": 1,
@@ -515,7 +515,7 @@
           "rank": 3,
           "name": "Sherfane Rutherford",
           "player_id": "d014d5ac",
-          "score": 53.1,
+          "score": 53.5,
           "rationale": "Founder XII. Batting all-rounder",
           "is_overseas": true,
           "price_cr": 2.6,

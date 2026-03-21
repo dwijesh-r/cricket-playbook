@@ -272,7 +272,7 @@
     },
     "left_arm_pace": {
       "name": "Left-arm Pace",
-      "rating": 6.7,
+      "rating": 6.5,
       "what_works": "Elite #1 in arshdeep singh. quality backup in marco jansen",
       "what_doesnt": "Overseas mix (2 of 3)",
       "overseas_count": 2,
@@ -293,7 +293,7 @@
           "rank": 2,
           "name": "Marco Jansen",
           "player_id": "81c36ee9",
-          "score": 66.1,
+          "score": 59.4,
           "rationale": "Founder XII. Lead pacer",
           "is_overseas": true,
           "price_cr": 7.0,
@@ -505,8 +505,8 @@
     },
     "allrounder_bowling": {
       "name": "Allrounder (Bowling)",
-      "rating": 8.2,
-      "what_works": "Strong #1 with harpreet brar. quality backup in marco jansen",
+      "rating": 8.1,
+      "what_works": "Strong #1 with harpreet brar. quality backup in marcus stoinis",
       "what_doesnt": "Overseas mix (2 of 3)",
       "overseas_count": 2,
       "players": [
@@ -524,18 +524,6 @@
         },
         {
           "rank": 2,
-          "name": "Marco Jansen",
-          "player_id": "81c36ee9",
-          "score": 69.9,
-          "rationale": "Founder XII. Bowling specialist tag",
-          "is_overseas": true,
-          "price_cr": 7.0,
-          "bowling_type": "Fast-Medium",
-          "bowling_arm": "Left-arm",
-          "secondary_positions": []
-        },
-        {
-          "rank": 3,
           "name": "Marcus Stoinis",
           "player_id": "d9273ee7",
           "score": 69.7,
@@ -544,6 +532,18 @@
           "price_cr": 11.0,
           "bowling_type": "Fast",
           "bowling_arm": "Right-arm",
+          "secondary_positions": []
+        },
+        {
+          "rank": 3,
+          "name": "Marco Jansen",
+          "player_id": "81c36ee9",
+          "score": 63.2,
+          "rationale": "Founder XII. Bowling specialist tag",
+          "is_overseas": true,
+          "price_cr": 7.0,
+          "bowling_type": "Fast-Medium",
+          "bowling_arm": "Left-arm",
           "secondary_positions": []
         }
       ]

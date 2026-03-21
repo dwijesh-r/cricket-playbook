@@ -5,8 +5,7 @@
   "strongest_position": "#3 Batter",
   "weakest_position": "Off Spin",
   "vulnerabilities": [
-    "Left-arm Pace: thin depth (rating 4.7)",
-    "Off Spin: thin depth (rating 1.4)",
+    "Off Spin: thin depth (rating 1.3)",
     "Leg Spin: thin depth (rating 4.0)"
   ],
   "positions": {
@@ -282,7 +281,7 @@
     },
     "left_arm_pace": {
       "name": "Left-arm Pace",
-      "rating": 4.7,
+      "rating": 5.0,
       "what_works": "Mangesh yadav leads. yash dayal as backup",
       "what_doesnt": "Room for improvement at the top",
       "overseas_count": 0,
@@ -291,7 +290,7 @@
           "rank": 1,
           "name": "Mangesh Yadav",
           "player_id": "b1ad996b",
-          "score": 51.0,
+          "score": 56.2,
           "rationale": "Founder XII. Elite death eco (7.6)",
           "is_overseas": false,
           "price_cr": 5.2,
@@ -315,7 +314,7 @@
     },
     "off_spin": {
       "name": "Off Spin",
-      "rating": 1.4,
+      "rating": 1.3,
       "what_works": "Tim david leads. kanishk chouhan as backup",
       "what_doesnt": "Weak backup option. no standout performer",
       "overseas_count": 1,
@@ -336,7 +335,7 @@
           "rank": 2,
           "name": "Kanishk Chouhan",
           "player_id": "kchouhan1",
-          "score": 9.2,
+          "score": 7.2,
           "rationale": "Part-timer (0 ov)",
           "is_overseas": false,
           "price_cr": 0.3,
@@ -426,7 +425,7 @@
     },
     "middle_overs_specialist": {
       "name": "Middle Overs Specialist",
-      "rating": 9.4,
+      "rating": 9.5,
       "what_works": "Elite #1 in krunal pandya. quality backup in josh hazlewood",
       "what_doesnt": "Minimal concerns",
       "overseas_count": 1,
@@ -459,7 +458,7 @@
           "rank": 3,
           "name": "Mangesh Yadav",
           "player_id": "b1ad996b",
-          "score": 64.0,
+          "score": 73.0,
           "rationale": "Founder XII. Middle overs specialist",
           "is_overseas": false,
           "price_cr": 5.2,

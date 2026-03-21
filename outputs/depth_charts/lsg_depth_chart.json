@@ -8,7 +8,7 @@
     "Opener: overseas dependent",
     "Left-arm Pace: thin depth (rating 3.8)",
     "Off Spin: thin depth (rating 4.4)",
-    "Leg Spin: thin depth (rating 4.9)",
+    "Leg Spin: thin depth (rating 4.7)",
     "Left-arm Orthodox: thin depth (rating 4.3)"
   ],
   "positions": {
@@ -362,7 +362,7 @@
     },
     "leg_spin": {
       "name": "Leg Spin",
-      "rating": 4.9,
+      "rating": 4.7,
       "what_works": "Strong #1 with digvesh rathi. wanindu hasaranga as backup",
       "what_doesnt": "Weak backup option. big gap between #1 and #2",
       "overseas_count": 1,
@@ -383,7 +383,7 @@
           "rank": 2,
           "name": "Wanindu Hasaranga",
           "player_id": "a97c8ec2",
-          "score": 32.6,
+          "score": 28.0,
           "rationale": "Lead spinner",
           "is_overseas": true,
           "price_cr": 2.0,

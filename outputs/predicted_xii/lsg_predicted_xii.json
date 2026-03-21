@@ -47,16 +47,6 @@
       "rationale": "Founder's Selection"
     },
     {
-      "batting_position": 5,
-      "player_id": "989889ff",
-      "player_name": "Mukul Choudhary",
-      "role": "Wicketkeeper",
-      "batting_hand": "Right-hand",
-      "is_overseas": false,
-      "price_cr": 2.6,
-      "rationale": "Founder's Selection"
-    },
-    {
       "batting_position": 6,
       "player_id": "872b03f7",
       "player_name": "Ayush Badoni",
@@ -118,24 +108,24 @@
     }
   ],
   "impact_player": {
-    "player_id": "b1ad996b",
-    "player_name": "Mayank Yadav",
-    "role": "Pace Bowler",
+    "player_id": "founder_Mukul Choudhary",
+    "player_name": "Mukul Choudhary",
+    "role": "Wicketkeeper",
     "batting_hand": "Right-hand",
     "is_overseas": false,
-    "price_cr": 11.0,
-    "rationale": "Founder's Selection"
+    "price_cr": 0.0,
+    "rationale": "Founder's Selection \u2014 Uncapped IPL, Middle-Order Batter"
   },
   "balance": {
     "overseas_count": 3,
     "bowling_options": 8,
     "spinners": 5,
-    "pacers": 6,
+    "pacers": 5,
     "left_handers_top6": 2
   },
   "constraints_satisfied": true,
   "constraint_violations": [],
   "generation_notes": [
-    "Founder Override \u2014 11 XI + impact"
+    "Founder Override \u2014 10 XI + impact"
   ]
 }

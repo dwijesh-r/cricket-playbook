@@ -1,1603 +1,1394 @@
 {
-      "generated_at": "2026-03-09",
-      "version": "3.1",
-      "algorithm_name": "SUPER SELECTOR",
-      "algorithm_full_name": "Statistical Unified Player Evaluation and Ranking SELECTOR",
-      "override_source": "founder",
-      "methodology": "Founder Override + Analytics",
-      "scoring_components": {
-            "base": "Classification bonuses (0-30 pts)",
-            "tags": "Phase-specific performance tags",
-            "metrics": "boundary%, consistency_index, death_dot_pct",
-            "price": "Auction price tier bonuses (5-15%)",
-            "variety": "LHB, spinner/pacer balance optimization"
+  "generated_at": "2026-03-21",
+  "version": "3.1",
+  "algorithm_name": "SUPER SELECTOR",
+  "algorithm_full_name": "Statistical Unified Player Evaluation and Ranking SELECTOR",
+  "override_source": "founder",
+  "methodology": "Founder Override + Analytics",
+  "scoring_components": {
+    "base": "Classification bonuses (0-30 pts)",
+    "tags": "Phase-specific performance tags",
+    "metrics": "boundary%, consistency_index, death_dot_pct",
+    "price": "Auction price tier bonuses (5-15%)",
+    "variety": "LHB, spinner/pacer balance optimization"
+  },
+  "constraints": {
+    "C1": "Captain cannot be Impact Player",
+    "C2": "Maximum 4 overseas players",
+    "C3": "Minimum 20 overs bowling coverage",
+    "C4": "At least 1 wicketkeeper",
+    "C5": "At least 1 spinner"
+  },
+  "teams": {
+    "CSK": {
+      "team_name": "Chennai Super Kings",
+      "team_abbrev": "CSK",
+      "home_venue": "MA Chidambaram Stadium",
+      "venue_bias": "spin",
+      "captain": "Ruturaj Gaikwad",
+      "wicketkeeper": "Sanju Samson",
+      "xi": [
+        {
+          "batting_position": 1,
+          "player_id": "a4cc73aa",
+          "player_name": "Sanju Samson",
+          "role": "Wicketkeeper",
+          "batting_hand": "Right-hand",
+          "is_overseas": false,
+          "price_cr": 18.0,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 2,
+          "player_id": "b2b4f545",
+          "player_name": "Ayush Mhatre",
+          "role": "Batter",
+          "batting_hand": "Right-hand",
+          "is_overseas": false,
+          "price_cr": 0.3,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 3,
+          "player_id": "45a43fe2",
+          "player_name": "Ruturaj Gaikwad",
+          "role": "Batter",
+          "batting_hand": "Right-hand",
+          "is_overseas": false,
+          "price_cr": 18.0,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 4,
+          "player_id": "844e79d1",
+          "player_name": "Dewald Brevis",
+          "role": "Batter",
+          "batting_hand": "Right-hand",
+          "is_overseas": true,
+          "price_cr": 2.2,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 5,
+          "player_id": "a4e37e47",
+          "player_name": "Shivam Dube",
+          "role": "All-rounder",
+          "batting_hand": "Left-hand",
+          "is_overseas": false,
+          "price_cr": 12.0,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 6,
+          "player_id": "e148e6bd",
+          "player_name": "Prashant Veer",
+          "role": "All-rounder",
+          "batting_hand": "Left-hand",
+          "is_overseas": false,
+          "price_cr": 14.2,
+          "rationale": "Founder's Selection \u2014 Uncapped IPL"
+        },
+        {
+          "batting_position": 7,
+          "player_id": "4a8a2e3b",
+          "player_name": "MS Dhoni",
+          "role": "Wicketkeeper",
+          "batting_hand": "Right-hand",
+          "is_overseas": false,
+          "price_cr": 4.0,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 8,
+          "player_id": "59559bc2",
+          "player_name": "Jamie Overton",
+          "role": "All-rounder",
+          "batting_hand": "Right-hand",
+          "is_overseas": true,
+          "price_cr": 1.5,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 9,
+          "player_id": "9eb1455b",
+          "player_name": "Nathan Ellis",
+          "role": "Pace Bowler",
+          "batting_hand": "Right-hand",
+          "is_overseas": true,
+          "price_cr": 2.0,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 10,
+          "player_id": "efc04be7",
+          "player_name": "Noor Ahmad",
+          "role": "Spinner",
+          "batting_hand": "Right-hand",
+          "is_overseas": true,
+          "price_cr": 10.0,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 11,
+          "player_id": "a2f46292",
+          "player_name": "Khaleel Ahmed",
+          "role": "Pace Bowler",
+          "batting_hand": "Right-hand",
+          "is_overseas": false,
+          "price_cr": 4.8,
+          "rationale": "Founder's Selection"
+        }
+      ],
+      "impact_player": {
+        "player_id": "fcc21ace",
+        "player_name": "Anshul Kamboj",
+        "role": "Pace Bowler",
+        "batting_hand": "Right-hand",
+        "is_overseas": false,
+        "price_cr": 3.4,
+        "rationale": "Founder's Selection"
       },
-      "constraints": {
-            "C1": "Captain cannot be Impact Player",
-            "C2": "Maximum 4 overseas players",
-            "C3": "Minimum 20 overs bowling coverage",
-            "C4": "At least 1 wicketkeeper",
-            "C5": "At least 1 spinner"
+      "balance": {
+        "overseas_count": 4,
+        "bowling_options": 8,
+        "spinners": 4,
+        "pacers": 7,
+        "left_handers_top6": 2
       },
-      "teams": {
-            "CSK": {
-                  "team_name": "Chennai Super Kings",
-                  "team_abbrev": "CSK",
-                  "home_venue": "MA Chidambaram Stadium",
-                  "venue_bias": "spin",
-                  "captain": "Ruturaj Gaikwad",
-                  "wicketkeeper": "Sanju Samson",
-                  "xi": [
-                        {
-                              "batting_position": 1,
-                              "player_id": "a4cc73aa",
-                              "player_name": "Sanju Samson",
-                              "role": "Wicketkeeper",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": false,
-                              "price_cr": 18.0,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 2,
-                              "player_id": "b2b4f545",
-                              "player_name": "Ayush Mhatre",
-                              "role": "Batter",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": false,
-                              "price_cr": 0.3,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 3,
-                              "player_id": "45a43fe2",
-                              "player_name": "Ruturaj Gaikwad",
-                              "role": "Batter",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": false,
-                              "price_cr": 18.0,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 4,
-                              "player_id": "844e79d1",
-                              "player_name": "Dewald Brevis",
-                              "role": "Batter",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": true,
-                              "price_cr": 2.2,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 5,
-                              "player_id": "a4e37e47",
-                              "player_name": "Shivam Dube",
-                              "role": "All-rounder",
-                              "batting_hand": "Left-hand",
-                              "is_overseas": false,
-                              "price_cr": 12.0,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 6,
-                              "player_id": "e148e6bd",
-                              "player_name": "Prashant Veer",
-                              "role": "All-rounder",
-                              "batting_hand": "Left-hand",
-                              "is_overseas": false,
-                              "price_cr": 14.2,
-                              "rationale": "Founder's Selection \u2014 Uncapped IPL"
-                        },
-                        {
-                              "batting_position": 7,
-                              "player_id": "4a8a2e3b",
-                              "player_name": "MS Dhoni",
-                              "role": "Wicketkeeper",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": false,
-                              "price_cr": 4.0,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 8,
-                              "player_id": "59559bc2",
-                              "player_name": "Jamie Overton",
-                              "role": "All-rounder",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": true,
-                              "price_cr": 1.5,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 9,
-                              "player_id": "9eb1455b",
-                              "player_name": "Matt Henry",
-                              "role": "Pace Bowler",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": true,
-                              "price_cr": 2.0,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 10,
-                              "player_id": "efc04be7",
-                              "player_name": "Noor Ahmad",
-                              "role": "Spinner",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": true,
-                              "price_cr": 10.0,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 11,
-                              "player_id": "a2f46292",
-                              "player_name": "Khaleel Ahmed",
-                              "role": "Pace Bowler",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": false,
-                              "price_cr": 4.8,
-                              "rationale": "Founder's Selection"
-                        }
-                  ],
-                  "impact_player": {
-                        "player_id": "fcc21ace",
-                        "player_name": "Anshul Kamboj",
-                        "role": "Pace Bowler",
-                        "batting_hand": "Right-hand",
-                        "is_overseas": false,
-                        "price_cr": 3.4,
-                        "rationale": "Founder's Selection"
-                  },
-                  "impact_subs": [
-                        {
-                              "player_name": "Anshul Kamboj",
-                              "role": "Pace Bowler",
-                              "price_cr": 3.4
-                        },
-                        {
-                              "player_name": "Rahul Chahar",
-                              "role": "Spinner",
-                              "price_cr": 5.2
-                        },
-                        {
-                              "player_name": "Kartik Sharma",
-                              "role": "Wicketkeeper",
-                              "price_cr": 14.2
-                        }
-                  ],
-                  "balance": {
-                        "overseas_count": 4,
-                        "bowling_options": 8,
-                        "spinners": 4,
-                        "pacers": 7,
-                        "left_handers_top6": 2
-                  },
-                  "constraints_satisfied": true,
-                  "constraint_violations": [],
-                  "generation_notes": [
-                        "Founder Override \u2014 11 XI + impact"
-                  ]
-            },
-            "MI": {
-                  "team_name": "Mumbai Indians",
-                  "team_abbrev": "MI",
-                  "home_venue": "Wankhede Stadium",
-                  "venue_bias": "pace",
-                  "captain": "Hardik Pandya",
-                  "wicketkeeper": "Quinton de Kock",
-                  "xi": [
-                        {
-                              "batting_position": 1,
-                              "player_id": "372455c4",
-                              "player_name": "Quinton de Kock",
-                              "role": "Wicketkeeper",
-                              "batting_hand": "Left-hand",
-                              "is_overseas": true,
-                              "price_cr": 1.0,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 2,
-                              "player_id": "740742ef",
-                              "player_name": "Rohit Sharma",
-                              "role": "Batter",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": false,
-                              "price_cr": 16.3,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 3,
-                              "player_id": "b0482a1d",
-                              "player_name": "Tilak Varma",
-                              "role": "Batter",
-                              "batting_hand": "Left-hand",
-                              "is_overseas": false,
-                              "price_cr": 8.0,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 4,
-                              "player_id": "271f83cd",
-                              "player_name": "Suryakumar Yadav",
-                              "role": "Batter",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": false,
-                              "price_cr": 16.35,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 5,
-                              "player_id": "dbe50b21",
-                              "player_name": "Hardik Pandya",
-                              "role": "All-rounder",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": false,
-                              "price_cr": 16.35,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 6,
-                              "player_id": "d014d5ac",
-                              "player_name": "Sherfane Rutherford",
-                              "role": "All-rounder",
-                              "batting_hand": "Left-hand",
-                              "is_overseas": true,
-                              "price_cr": 2.6,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 7,
-                              "player_id": "fffa744b",
-                              "player_name": "Naman Dhir",
-                              "role": "All-rounder",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": false,
-                              "price_cr": 5.25,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 8,
-                              "player_id": "e4a0deae",
-                              "player_name": "Mitchell Santner",
-                              "role": "All-rounder",
-                              "batting_hand": "Left-hand",
-                              "is_overseas": true,
-                              "price_cr": 2.0,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 9,
-                              "player_id": "23eeb873",
-                              "player_name": "Deepak Chahar",
-                              "role": "Pace Bowler",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": false,
-                              "price_cr": 9.25,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 10,
-                              "player_id": "a818c1be",
-                              "player_name": "Trent Boult",
-                              "role": "Pace Bowler",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": true,
-                              "price_cr": 12.5,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 11,
-                              "player_id": "462411b3",
-                              "player_name": "Jasprit Bumrah",
-                              "role": "Pace Bowler",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": false,
-                              "price_cr": 18.0,
-                              "rationale": "Founder's Selection"
-                        }
-                  ],
-                  "impact_player": {
-                        "player_id": "a9fd84fb",
-                        "player_name": "Mayank Markande",
-                        "role": "Spinner",
-                        "batting_hand": "Right-hand",
-                        "is_overseas": false,
-                        "price_cr": 0.3,
-                        "rationale": "Founder's Selection"
-                  },
-                  "impact_subs": [
-                        {
-                              "player_name": "Shardul Thakur",
-                              "role": "Pace Bowler",
-                              "price_cr": 2.0
-                        },
-                        {
-                              "player_name": "Mayank Markande",
-                              "role": "Spinner",
-                              "price_cr": 0.3
-                        },
-                        {
-                              "player_name": "Robin Minz",
-                              "role": "Wicketkeeper",
-                              "price_cr": 0.65
-                        }
-                  ],
-                  "balance": {
-                        "overseas_count": 4,
-                        "bowling_options": 9,
-                        "spinners": 5,
-                        "pacers": 6,
-                        "left_handers_top6": 3
-                  },
-                  "constraints_satisfied": true,
-                  "constraint_violations": [],
-                  "generation_notes": [
-                        "Founder Override \u2014 11 XI + impact"
-                  ]
-            },
-            "RCB": {
-                  "team_name": "Royal Challengers Bengaluru",
-                  "team_abbrev": "RCB",
-                  "home_venue": "M Chinnaswamy Stadium",
-                  "venue_bias": "pace",
-                  "captain": "Rajat Patidar",
-                  "wicketkeeper": "Phil Salt",
-                  "xi": [
-                        {
-                              "batting_position": 1,
-                              "player_id": "3d284ca3",
-                              "player_name": "Phil Salt",
-                              "role": "Wicketkeeper",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": true,
-                              "price_cr": 11.5,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 2,
-                              "player_id": "ba607b88",
-                              "player_name": "Virat Kohli",
-                              "role": "Batter",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": false,
-                              "price_cr": 21.0,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 3,
-                              "player_id": "a24be938",
-                              "player_name": "Venkatesh Iyer",
-                              "role": "All-rounder",
-                              "batting_hand": "Left-hand",
-                              "is_overseas": false,
-                              "price_cr": 7.0,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 4,
-                              "player_id": "c740ea83",
-                              "player_name": "Rajat Patidar",
-                              "role": "Batter",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": false,
-                              "price_cr": 11.0,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 5,
-                              "player_id": "f1f99156",
-                              "player_name": "Tim David",
-                              "role": "All-rounder",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": true,
-                              "price_cr": 3.0,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 6,
-                              "player_id": "800d2d97",
-                              "player_name": "Jitesh Sharma",
-                              "role": "Wicketkeeper",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": false,
-                              "price_cr": 11.0,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 7,
-                              "player_id": "c5aef772",
-                              "player_name": "Romario Shepherd",
-                              "role": "All-rounder",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": true,
-                              "price_cr": 1.5,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 8,
-                              "player_id": "5b8c830e",
-                              "player_name": "Krunal Pandya",
-                              "role": "All-rounder",
-                              "batting_hand": "Left-hand",
-                              "is_overseas": false,
-                              "price_cr": 5.75,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 9,
-                              "player_id": "2e81a32d",
-                              "player_name": "Bhuvneshwar Kumar",
-                              "role": "Pace Bowler",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": false,
-                              "price_cr": 10.75,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 10,
-                              "player_id": "03806cf8",
-                              "player_name": "Josh Hazlewood",
-                              "role": "Pace Bowler",
-                              "batting_hand": "Left-hand",
-                              "is_overseas": true,
-                              "price_cr": 12.5,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 11,
-                              "player_id": "9440ef41",
-                              "player_name": "Suyash Sharma",
-                              "role": "Spinner",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": false,
-                              "price_cr": 2.6,
-                              "rationale": "Founder's Selection"
-                        }
-                  ],
-                  "impact_player": {
-                        "player_id": "7210d461",
-                        "player_name": "Rasikh Salam",
-                        "role": "Pace Bowler",
-                        "batting_hand": "Right-hand",
-                        "is_overseas": false,
-                        "price_cr": 6.0,
-                        "rationale": "Founder's Selection"
-                  },
-                  "impact_subs": [
-                        {
-                              "player_name": "Rasikh Salam",
-                              "role": "Pace Bowler",
-                              "price_cr": 6.0
-                        },
-                        {
-                              "player_name": "Mangesh Yadav",
-                              "role": "Pace Bowler",
-                              "price_cr": 5.2
-                        },
-                        {
-                              "player_name": "Devdutt Padikkal",
-                              "role": "Batter",
-                              "price_cr": 2.0
-                        }
-                  ],
-                  "balance": {
-                        "overseas_count": 4,
-                        "bowling_options": 8,
-                        "spinners": 4,
-                        "pacers": 7,
-                        "left_handers_top6": 1
-                  },
-                  "constraints_satisfied": true,
-                  "constraint_violations": [],
-                  "generation_notes": [
-                        "Founder Override \u2014 11 XI + impact"
-                  ]
-            },
-            "KKR": {
-                  "team_name": "Kolkata Knight Riders",
-                  "team_abbrev": "KKR",
-                  "home_venue": "Eden Gardens",
-                  "venue_bias": "spin",
-                  "captain": "Ajinkya Rahane",
-                  "wicketkeeper": "Finn Allen",
-                  "xi": [
-                        {
-                              "batting_position": 1,
-                              "player_id": "bf74b130",
-                              "player_name": "Finn Allen",
-                              "role": "Wicketkeeper",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": true,
-                              "price_cr": 2.0,
-                              "rationale": "Founder's Selection \u2014 Uncapped IPL, Opener"
-                        },
-                        {
-                              "batting_position": 2,
-                              "player_id": "29e95537",
-                              "player_name": "Ajinkya Rahane",
-                              "role": "Batter",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": false,
-                              "price_cr": 1.5,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 3,
-                              "player_id": "eaa76d3c",
-                              "player_name": "Cameron Green",
-                              "role": "All-rounder",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": true,
-                              "price_cr": 25.2,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 4,
-                              "player_id": "d7017798",
-                              "player_name": "Angkrish Raghuvanshi",
-                              "role": "Batter",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": false,
-                              "price_cr": 3.0,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 5,
-                              "player_id": "0a509d6b",
-                              "player_name": "Rinku Singh",
-                              "role": "Batter",
-                              "batting_hand": "Left-hand",
-                              "is_overseas": false,
-                              "price_cr": 13.0,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 6,
-                              "player_id": "be24ead0",
-                              "player_name": "Ramandeep Singh",
-                              "role": "All-rounder",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": false,
-                              "price_cr": 4.0,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 7,
-                              "player_id": "e4cdf230",
-                              "player_name": "Anukul Roy",
-                              "role": "All-rounder",
-                              "batting_hand": "Left-hand",
-                              "is_overseas": false,
-                              "price_cr": 0.4,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 8,
-                              "player_id": "9d430b40",
-                              "player_name": "Sunil Narine",
-                              "role": "All-rounder",
-                              "batting_hand": "Left-hand",
-                              "is_overseas": true,
-                              "price_cr": 12.0,
-                              "rationale": "Founder's Selection \u2014 Can be used as an opener to pinch-hit"
-                        },
-                        {
-                              "batting_position": 9,
-                              "player_id": "77b1aa15",
-                              "player_name": "Vaibhav Arora",
-                              "role": "Pace Bowler",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": false,
-                              "price_cr": 1.8,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 10,
-                              "player_id": "64839cb3",
-                              "player_name": "Matheesha Pathirana",
-                              "role": "Pace Bowler",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": true,
-                              "price_cr": 18.0,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 11,
-                              "player_id": "5b7ab5a9",
-                              "player_name": "Varun Chakravarthy",
-                              "role": "Spinner",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": false,
-                              "price_cr": 12.0,
-                              "rationale": "Founder's Selection"
-                        }
-                  ],
-                  "impact_player": {
-                        "player_id": "7c3b3b78",
-                        "player_name": "Vaibhav Arora",
-                        "role": "Pace Bowler",
-                        "batting_hand": "Right-hand",
-                        "is_overseas": false,
-                        "price_cr": 1.8,
-                        "rationale": "Founder's Selection"
-                  },
-                  "impact_subs": [
-                        {
-                              "player_name": "Umran Malik",
-                              "role": "Pace Bowler",
-                              "price_cr": 0.75
-                        },
-                        {
-                              "player_name": "Rahul Tripathi",
-                              "role": "Batter",
-                              "price_cr": 0.75
-                        },
-                        {
-                              "player_name": "Kartik Tyagi",
-                              "role": "Pace Bowler",
-                              "price_cr": 0.3
-                        }
-                  ],
-                  "balance": {
-                        "overseas_count": 4,
-                        "bowling_options": 7,
-                        "spinners": 4,
-                        "pacers": 7,
-                        "left_handers_top6": 1
-                  },
-                  "constraints_satisfied": true,
-                  "constraint_violations": [],
-                  "generation_notes": [
-                        "Founder Override \u2014 11 XI + impact"
-                  ]
-            },
-            "DC": {
-                  "team_name": "Delhi Capitals",
-                  "team_abbrev": "DC",
-                  "home_venue": "Arun Jaitley Stadium",
-                  "venue_bias": "neutral",
-                  "captain": "Axar Patel",
-                  "wicketkeeper": "Ben Duckett",
-                  "xi": [
-                        {
-                              "batting_position": 1,
-                              "player_id": "5f26f677",
-                              "player_name": "Ben Duckett",
-                              "role": "Wicketkeeper",
-                              "batting_hand": "Left-hand",
-                              "is_overseas": true,
-                              "price_cr": 2.0,
-                              "rationale": "Founder's Selection \u2014 Uncapped IPL"
-                        },
-                        {
-                              "batting_position": 2,
-                              "player_id": "b17e2f24",
-                              "player_name": "KL Rahul",
-                              "role": "Wicketkeeper",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": false,
-                              "price_cr": 14.0,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 3,
-                              "player_id": "ad3b6e95",
-                              "player_name": "Abishek Porel",
-                              "role": "Wicketkeeper",
-                              "batting_hand": "Left-hand",
-                              "is_overseas": false,
-                              "price_cr": 4.0,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 4,
-                              "player_id": "fb2d1dda",
-                              "player_name": "Nitish Rana",
-                              "role": "All-rounder",
-                              "batting_hand": "Left-hand",
-                              "is_overseas": false,
-                              "price_cr": 4.2,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 5,
-                              "player_id": "85b3fab2",
-                              "player_name": "Tristan Stubbs",
-                              "role": "All-rounder",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": true,
-                              "price_cr": 10.0,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 6,
-                              "player_id": "d67d5f00",
-                              "player_name": "David Miller",
-                              "role": "Batter",
-                              "batting_hand": "Left-hand",
-                              "is_overseas": true,
-                              "price_cr": 2.0,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 7,
-                              "player_id": "2e171977",
-                              "player_name": "Axar Patel",
-                              "role": "All-rounder",
-                              "batting_hand": "Left-hand",
-                              "is_overseas": false,
-                              "price_cr": 16.5,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 8,
-                              "player_id": "7c3c0337",
-                              "player_name": "Auqib Nabi",
-                              "role": "All-rounder",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": false,
-                              "price_cr": 0.0,
-                              "rationale": "Founder's Selection \u2014 Uncapped IPL"
-                        },
-                        {
-                              "batting_position": 9,
-                              "player_id": "3fb19989",
-                              "player_name": "Mitchell Starc",
-                              "role": "Pace Bowler",
-                              "batting_hand": "Left-hand",
-                              "is_overseas": true,
-                              "price_cr": 11.75,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 10,
-                              "player_id": "8d2c70ad",
-                              "player_name": "Kuldeep Yadav",
-                              "role": "Spinner",
-                              "batting_hand": "Left-hand",
-                              "is_overseas": false,
-                              "price_cr": 13.25,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 11,
-                              "player_id": "2cffab74",
-                              "player_name": "Mukesh Kumar",
-                              "role": "Pace Bowler",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": false,
-                              "price_cr": 8.0,
-                              "rationale": "Founder's Selection"
-                        }
-                  ],
-                  "impact_player": {
-                        "player_id": "ce794613",
-                        "player_name": "T Natarajan",
-                        "role": "Pace Bowler",
-                        "batting_hand": "Left-hand",
-                        "is_overseas": false,
-                        "price_cr": 10.75,
-                        "rationale": "Founder's Selection"
-                  },
-                  "impact_subs": [
-                        {
-                              "player_name": "T Natarajan",
-                              "role": "Pace Bowler",
-                              "price_cr": 10.75
-                        },
-                        {
-                              "player_name": "Vipraj Nigam",
-                              "role": "Spinner",
-                              "price_cr": 0.5
-                        },
-                        {
-                              "player_name": "Ashutosh Sharma",
-                              "role": "Batter",
-                              "price_cr": 3.8
-                        }
-                  ],
-                  "balance": {
-                        "overseas_count": 4,
-                        "bowling_options": 9,
-                        "spinners": 6,
-                        "pacers": 5,
-                        "left_handers_top6": 3
-                  },
-                  "constraints_satisfied": true,
-                  "constraint_violations": [],
-                  "generation_notes": [
-                        "Founder Override \u2014 11 XI + impact"
-                  ]
-            },
-            "PBKS": {
-                  "team_name": "Punjab Kings",
-                  "team_abbrev": "PBKS",
-                  "home_venue": "Punjab Cricket Association Stadium",
-                  "venue_bias": "neutral",
-                  "captain": "Shreyas Iyer",
-                  "wicketkeeper": "Prabhsimran Singh",
-                  "xi": [
-                        {
-                              "batting_position": 1,
-                              "player_id": "b5797845",
-                              "player_name": "Priyansh Arya",
-                              "role": "Batter",
-                              "batting_hand": "Left-hand",
-                              "is_overseas": false,
-                              "price_cr": 3.8,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 2,
-                              "player_id": "9418198b",
-                              "player_name": "Prabhsimran Singh",
-                              "role": "Wicketkeeper",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": false,
-                              "price_cr": 4.0,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 3,
-                              "player_id": "85ec8e33",
-                              "player_name": "Shreyas Iyer",
-                              "role": "Batter",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": false,
-                              "price_cr": 26.75,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 4,
-                              "player_id": "d1a60072",
-                              "player_name": "Nehal Wadhera",
-                              "role": "Batter",
-                              "batting_hand": "Left-hand",
-                              "is_overseas": false,
-                              "price_cr": 4.2,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 5,
-                              "player_id": "d9273ee7",
-                              "player_name": "Marcus Stoinis",
-                              "role": "All-rounder",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": true,
-                              "price_cr": 11.0,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 6,
-                              "player_id": "26989d80",
-                              "player_name": "Shashank Singh",
-                              "role": "All-rounder",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": false,
-                              "price_cr": 5.5,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 7,
-                              "player_id": "8f6dd463",
-                              "player_name": "Azmatullah Omarzai",
-                              "role": "All-rounder",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": true,
-                              "price_cr": 2.4,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 8,
-                              "player_id": "81c36ee9",
-                              "player_name": "Marco Jansen",
-                              "role": "All-rounder",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": true,
-                              "price_cr": 7.0,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 9,
-                              "player_id": "2f9d0389",
-                              "player_name": "Lockie Ferguson",
-                              "role": "Pace Bowler",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": true,
-                              "price_cr": 2.0,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 10,
-                              "player_id": "244048f6",
-                              "player_name": "Arshdeep Singh",
-                              "role": "Pace Bowler",
-                              "batting_hand": "Left-hand",
-                              "is_overseas": false,
-                              "price_cr": 18.0,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 11,
-                              "player_id": "57ee1fde",
-                              "player_name": "Yuzvendra Chahal",
-                              "role": "Spinner",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": false,
-                              "price_cr": 18.0,
-                              "rationale": "Founder's Selection"
-                        }
-                  ],
-                  "impact_player": {
-                        "player_id": "c05edf8e",
-                        "player_name": "Harpreet Brar",
-                        "role": "All-rounder",
-                        "batting_hand": "Left-hand",
-                        "is_overseas": false,
-                        "price_cr": 1.5,
-                        "rationale": "Founder's Selection"
-                  },
-                  "impact_subs": [
-                        {
-                              "player_name": "Harpreet Brar",
-                              "role": "All-rounder",
-                              "price_cr": 1.5
-                        },
-                        {
-                              "player_name": "Musheer Khan",
-                              "role": "Batter",
-                              "price_cr": 0.3
-                        },
-                        {
-                              "player_name": "Vyshak Vijaykumar",
-                              "role": "Pace Bowler",
-                              "price_cr": 0.3
-                        }
-                  ],
-                  "balance": {
-                        "overseas_count": 4,
-                        "bowling_options": 7,
-                        "spinners": 2,
-                        "pacers": 9,
-                        "left_handers_top6": 2
-                  },
-                  "constraints_satisfied": true,
-                  "constraint_violations": [],
-                  "generation_notes": [
-                        "Founder Override \u2014 11 XI + impact"
-                  ]
-            },
-            "RR": {
-                  "team_name": "Rajasthan Royals",
-                  "team_abbrev": "RR",
-                  "home_venue": "Sawai Mansingh Stadium",
-                  "venue_bias": "neutral",
-                  "captain": "Riyan Parag",
-                  "wicketkeeper": "Dhruv Jurel",
-                  "xi": [
-                        {
-                              "batting_position": 1,
-                              "player_id": "6c19c6e5",
-                              "player_name": "Yashasvi Jaiswal",
-                              "role": "Batter",
-                              "batting_hand": "Left-hand",
-                              "is_overseas": false,
-                              "price_cr": 18.0,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 2,
-                              "player_id": "470f446b",
-                              "player_name": "Vaibhav Sooryavanshi",
-                              "role": "Batter",
-                              "batting_hand": "Left-hand",
-                              "is_overseas": false,
-                              "price_cr": 1.1,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 3,
-                              "player_id": "bcf325d2",
-                              "player_name": "Dhruv Jurel",
-                              "role": "Wicketkeeper",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": false,
-                              "price_cr": 14.0,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 4,
-                              "player_id": "04a418e8",
-                              "player_name": "Riyan Parag",
-                              "role": "All-rounder",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": false,
-                              "price_cr": 14.0,
-                              "rationale": "Founder's Selection \u2014 Could also swap positions with Jurel."
-                        },
-                        {
-                              "batting_position": 5,
-                              "player_id": "fe93fd9d",
-                              "player_name": "Ravindra Jadeja",
-                              "role": "All-rounder",
-                              "batting_hand": "Left-hand",
-                              "is_overseas": false,
-                              "price_cr": 14.0,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 6,
-                              "player_id": "48a1d7b7",
-                              "player_name": "Shimron Hetmyer",
-                              "role": "Batter",
-                              "batting_hand": "Left-hand",
-                              "is_overseas": true,
-                              "price_cr": 11.0,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 7,
-                              "player_name": "Shubham Dubey",
-                              "role": "Batter",
-                              "batting_hand": "Left-hand",
-                              "is_overseas": false,
-                              "price_cr": 0.8,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 8,
-                              "player_id": "5574750c",
-                              "player_name": "Jofra Archer",
-                              "role": "Pace Bowler",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": true,
-                              "price_cr": 12.5,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 9,
-                              "player_id": "df064e1a",
-                              "player_name": "Ravi Bishnoi",
-                              "role": "Spinner",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": false,
-                              "price_cr": 7.2,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 10,
-                              "player_id": "465aa633",
-                              "player_name": "Nandre Burger",
-                              "role": "Pace Bowler",
-                              "batting_hand": "Left-hand",
-                              "is_overseas": true,
-                              "price_cr": 3.5,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 11,
-                              "player_id": "ce820073",
-                              "player_name": "Sandeep Sharma",
-                              "role": "Pace Bowler",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": false,
-                              "price_cr": 4.0,
-                              "rationale": "Founder's Selection"
-                        }
-                  ],
-                  "impact_player": {
-                        "player_id": "46a9bea1",
-                        "player_name": "Tushar Deshpande",
-                        "role": "Pace Bowler",
-                        "batting_hand": "Left-hand",
-                        "is_overseas": false,
-                        "price_cr": 6.5,
-                        "rationale": "Founder's Selection"
-                  },
-                  "impact_subs": [
-                        {
-                              "player_name": "Tushar Deshpande",
-                              "role": "Pace Bowler",
-                              "price_cr": 6.5
-                        },
-                        {
-                              "player_name": "Ravi Singh",
-                              "role": "Wicketkeeper",
-                              "price_cr": 0.95
-                        },
-                        {
-                              "player_name": "Vignesh Puthur",
-                              "role": "Pace Bowler",
-                              "price_cr": 0.3
-                        }
-                  ],
-                  "balance": {
-                        "overseas_count": 3,
-                        "bowling_options": 9,
-                        "spinners": 5,
-                        "pacers": 6,
-                        "left_handers_top6": 4
-                  },
-                  "constraints_satisfied": true,
-                  "constraint_violations": [],
-                  "generation_notes": [
-                        "Founder Override \u2014 11 XI + impact"
-                  ]
-            },
-            "SRH": {
-                  "team_name": "Sunrisers Hyderabad",
-                  "team_abbrev": "SRH",
-                  "home_venue": "Rajiv Gandhi Intl Stadium",
-                  "venue_bias": "pace",
-                  "captain": "Pat Cummins",
-                  "wicketkeeper": "Ishan Kishan",
-                  "xi": [
-                        {
-                              "batting_position": 1,
-                              "player_id": "12b610c2",
-                              "player_name": "Travis Head",
-                              "role": "Batter",
-                              "batting_hand": "Left-hand",
-                              "is_overseas": true,
-                              "price_cr": 14.0,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 2,
-                              "player_id": "f29185a1",
-                              "player_name": "Abhishek Sharma",
-                              "role": "All-rounder",
-                              "batting_hand": "Left-hand",
-                              "is_overseas": false,
-                              "price_cr": 14.0,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 3,
-                              "player_id": "752f7486",
-                              "player_name": "Ishan Kishan",
-                              "role": "Wicketkeeper",
-                              "batting_hand": "Left-hand",
-                              "is_overseas": false,
-                              "price_cr": 11.25,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 4,
-                              "player_id": "235c2bb6",
-                              "player_name": "Heinrich Klaasen",
-                              "role": "Wicketkeeper",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": true,
-                              "price_cr": 23.0,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 5,
-                              "player_id": "50c6bc2b",
-                              "player_name": "Liam Livingstone",
-                              "role": "All-rounder",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": true,
-                              "price_cr": 13.0,
-                              "rationale": "Founder's Selection \u2014 Bowls off-spin to left-handers, leg-spin to right-handers"
-                        },
-                        {
-                              "batting_position": 6,
-                              "player_id": "aad0c365",
-                              "player_name": "Nitish Kumar Reddy",
-                              "role": "All-rounder",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": false,
-                              "price_cr": 6.0,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 7,
-                              "player_id": "a3b0600d",
-                              "player_name": "Aniket Verma",
-                              "role": "Middle Order",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": false,
-                              "price_cr": 0.3,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 8,
-                              "player_id": "ded9240e",
-                              "player_name": "Pat Cummins",
-                              "role": "All-rounder",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": true,
-                              "price_cr": 18.0,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 9,
-                              "player_id": "f986ca1a",
-                              "player_name": "Harshal Patel",
-                              "role": "Pace Bowler",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": false,
-                              "price_cr": 8.0,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 10,
-                              "player_id": "1e66c162",
-                              "player_name": "Jaydev Unadkat",
-                              "role": "Pace Bowler",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": false,
-                              "price_cr": 1.0,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 11,
-                              "player_id": "36619795",
-                              "player_name": "Zeeshan Ansari",
-                              "role": "Spinner",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": false,
-                              "price_cr": 0.4,
-                              "rationale": "Founder's Selection"
-                        }
-                  ],
-                  "impact_player": {
-                        "player_id": "25228673",
-                        "player_name": "Harsh Dubey",
-                        "role": "All-rounder",
-                        "batting_hand": "Left-hand",
-                        "is_overseas": false,
-                        "price_cr": 0.3,
-                        "rationale": "Founder's Selection"
-                  },
-                  "impact_subs": [
-                        {
-                              "player_name": "Harsh Dubey",
-                              "role": "All-rounder",
-                              "price_cr": 0.3
-                        },
-                        {
-                              "player_name": "Krains Fuletra",
-                              "role": "Batter",
-                              "price_cr": 0.3
-                        },
-                        {
-                              "player_name": "Smaran Ravichandran",
-                              "role": "Batter",
-                              "price_cr": 0.3
-                        }
-                  ],
-                  "balance": {
-                        "overseas_count": 4,
-                        "bowling_options": 9,
-                        "spinners": 4,
-                        "pacers": 7,
-                        "left_handers_top6": 3
-                  },
-                  "constraints_satisfied": true,
-                  "constraint_violations": [],
-                  "generation_notes": [
-                        "Founder Override \u2014 11 XI + impact"
-                  ]
-            },
-            "GT": {
-                  "team_name": "Gujarat Titans",
-                  "team_abbrev": "GT",
-                  "home_venue": "Narendra Modi Stadium",
-                  "venue_bias": "neutral",
-                  "captain": "Shubman Gill",
-                  "wicketkeeper": "Jos Buttler",
-                  "xi": [
-                        {
-                              "batting_position": 1,
-                              "player_id": "b4b99816",
-                              "player_name": "Shubman Gill",
-                              "role": "Batter",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": false,
-                              "price_cr": 16.5,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 2,
-                              "player_id": "d5130a30",
-                              "player_name": "Sai Sudharsan",
-                              "role": "Batter",
-                              "batting_hand": "Left-hand",
-                              "is_overseas": false,
-                              "price_cr": 8.5,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 3,
-                              "player_id": "99b75528",
-                              "player_name": "Jos Buttler",
-                              "role": "Wicketkeeper",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": true,
-                              "price_cr": 15.75,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 4,
-                              "player_id": "9a46c4e5",
-                              "player_name": "Glenn Phillips",
-                              "role": "All-rounder",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": true,
-                              "price_cr": 2.0,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 5,
-                              "player_id": "f19ccfad",
-                              "player_name": "Washington Sundar",
-                              "role": "All-rounder",
-                              "batting_hand": "Left-hand",
-                              "is_overseas": false,
-                              "price_cr": 3.2,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 6,
-                              "player_id": "7dcb9bc9",
-                              "player_name": "Shahrukh Khan",
-                              "role": "All-rounder",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": false,
-                              "price_cr": 4.0,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 7,
-                              "player_id": "39a2dfa8",
-                              "player_name": "Rahul Tewatia",
-                              "role": "All-rounder",
-                              "batting_hand": "Left-hand",
-                              "is_overseas": false,
-                              "price_cr": 4.0,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 8,
-                              "player_id": "5f547c8b",
-                              "player_name": "Rashid Khan",
-                              "role": "All-rounder",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": true,
-                              "price_cr": 18.0,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 9,
-                              "player_id": "c7a995d3",
-                              "player_name": "R Sai Kishore",
-                              "role": "Spinner",
-                              "batting_hand": "Left-hand",
-                              "is_overseas": false,
-                              "price_cr": 2.0,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 10,
-                              "player_id": "e62dd25d",
-                              "player_name": "Kagiso Rabada",
-                              "role": "Pace Bowler",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": true,
-                              "price_cr": 10.75,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 11,
-                              "player_id": "2f49c897",
-                              "player_name": "Mohammed Siraj",
-                              "role": "Pace Bowler",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": false,
-                              "price_cr": 12.25,
-                              "rationale": "Founder's Selection"
-                        }
-                  ],
-                  "impact_player": {
-                        "player_id": "85e0cf10",
-                        "player_name": "Prasidh Krishna",
-                        "role": "Pace Bowler",
-                        "batting_hand": "Right-hand",
-                        "is_overseas": false,
-                        "price_cr": 9.5,
-                        "rationale": "Founder's Selection"
-                  },
-                  "impact_subs": [
-                        {
-                              "player_name": "Prasidh Krishna",
-                              "role": "Pace Bowler",
-                              "price_cr": 9.5
-                        },
-                        {
-                              "player_name": "Kumar Kushagra",
-                              "role": "Wicketkeeper",
-                              "price_cr": 0.65
-                        },
-                        {
-                              "player_name": "Ashok Sharma",
-                              "role": "Pace Bowler",
-                              "price_cr": 0.9
-                        }
-                  ],
-                  "balance": {
-                        "overseas_count": 4,
-                        "bowling_options": 9,
-                        "spinners": 7,
-                        "pacers": 4,
-                        "left_handers_top6": 2
-                  },
-                  "constraints_satisfied": true,
-                  "constraint_violations": [],
-                  "generation_notes": [
-                        "Founder Override \u2014 11 XI + impact"
-                  ]
-            },
-            "LSG": {
-                  "team_name": "Lucknow Super Giants",
-                  "team_abbrev": "LSG",
-                  "home_venue": "Ekana Cricket Stadium",
-                  "venue_bias": "neutral",
-                  "captain": "Rishabh Pant",
-                  "wicketkeeper": "Nicholas Pooran",
-                  "xi": [
-                        {
-                              "batting_position": 1,
-                              "player_id": "3d8feaf8",
-                              "player_name": "Mitchell Marsh",
-                              "role": "All-rounder",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": true,
-                              "price_cr": 3.4,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 2,
-                              "player_id": "6a26221c",
-                              "player_name": "Aiden Markram",
-                              "role": "All-rounder",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": true,
-                              "price_cr": 2.0,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 3,
-                              "player_id": "3241e3fd",
-                              "player_name": "Nicholas Pooran",
-                              "role": "Wicketkeeper",
-                              "batting_hand": "Left-hand",
-                              "is_overseas": true,
-                              "price_cr": 21.0,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 4,
-                              "player_id": "919a3be2",
-                              "player_name": "Rishabh Pant",
-                              "role": "Wicketkeeper",
-                              "batting_hand": "Left-hand",
-                              "is_overseas": false,
-                              "price_cr": 27.0,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 5,
-                              "player_id": "989889ff",
-                              "player_name": "Mukul Choudhary",
-                              "role": "Wicketkeeper",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": false,
-                              "price_cr": 2.6,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 6,
-                              "player_id": "872b03f7",
-                              "player_name": "Ayush Badoni",
-                              "role": "All-rounder",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": false,
-                              "price_cr": 4.0,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 7,
-                              "player_id": "8e514b4c",
-                              "player_name": "Abdul Samad",
-                              "role": "All-rounder",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": false,
-                              "price_cr": 4.2,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 8,
-                              "player_id": "f9e6e7ef",
-                              "player_name": "Shahbaz Ahmed",
-                              "role": "All-rounder",
-                              "batting_hand": "Left-hand",
-                              "is_overseas": false,
-                              "price_cr": 2.4,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 9,
-                              "player_id": "eef2536f",
-                              "player_name": "Avesh Khan",
-                              "role": "Pace Bowler",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": false,
-                              "price_cr": 9.75,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 10,
-                              "player_id": "8cf9814c",
-                              "player_name": "Mohammed Shami",
-                              "role": "Pace Bowler",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": false,
-                              "price_cr": 10.0,
-                              "rationale": "Founder's Selection"
-                        },
-                        {
-                              "batting_position": 11,
-                              "player_id": "13fc5c6d",
-                              "player_name": "Digvesh Rathi",
-                              "role": "Spinner",
-                              "batting_hand": "Right-hand",
-                              "is_overseas": false,
-                              "price_cr": 0.3,
-                              "rationale": "Founder's Selection"
-                        }
-                  ],
-                  "impact_player": {
-                        "player_id": "b1ad996b",
-                        "player_name": "Mayank Yadav",
-                        "role": "Pace Bowler",
-                        "batting_hand": "Right-hand",
-                        "is_overseas": false,
-                        "price_cr": 11.0,
-                        "rationale": "Founder's Selection"
-                  },
-                  "impact_subs": [
-                        {
-                              "player_name": "Mayank Yadav",
-                              "role": "Pace Bowler",
-                              "price_cr": 11.0
-                        },
-                        {
-                              "player_name": "Manimaran Siddharth",
-                              "role": "Spinner",
-                              "price_cr": 0.75
-                        },
-                        {
-                              "player_name": "Himmat Singh",
-                              "role": "Batter",
-                              "price_cr": 0.3
-                        }
-                  ],
-                  "balance": {
-                        "overseas_count": 3,
-                        "bowling_options": 8,
-                        "spinners": 5,
-                        "pacers": 6,
-                        "left_handers_top6": 2
-                  },
-                  "constraints_satisfied": true,
-                  "constraint_violations": [],
-                  "generation_notes": [
-                        "Founder Override \u2014 11 XI + impact"
-                  ]
-            }
-      }
+      "constraints_satisfied": true,
+      "constraint_violations": [],
+      "generation_notes": [
+        "Founder Override \u2014 11 XI + impact"
+      ]
+    },
+    "MI": {
+      "team_name": "Mumbai Indians",
+      "team_abbrev": "MI",
+      "home_venue": "Wankhede Stadium",
+      "venue_bias": "pace",
+      "captain": "Hardik Pandya",
+      "wicketkeeper": "Quinton de Kock",
+      "xi": [
+        {
+          "batting_position": 1,
+          "player_id": "372455c4",
+          "player_name": "Quinton de Kock",
+          "role": "Wicketkeeper",
+          "batting_hand": "Left-hand",
+          "is_overseas": true,
+          "price_cr": 1.0,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 2,
+          "player_id": "740742ef",
+          "player_name": "Rohit Sharma",
+          "role": "Batter",
+          "batting_hand": "Right-hand",
+          "is_overseas": false,
+          "price_cr": 16.3,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 3,
+          "player_id": "b0482a1d",
+          "player_name": "Tilak Varma",
+          "role": "Batter",
+          "batting_hand": "Left-hand",
+          "is_overseas": false,
+          "price_cr": 8.0,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 4,
+          "player_id": "271f83cd",
+          "player_name": "Suryakumar Yadav",
+          "role": "Batter",
+          "batting_hand": "Right-hand",
+          "is_overseas": false,
+          "price_cr": 16.35,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 5,
+          "player_id": "dbe50b21",
+          "player_name": "Hardik Pandya",
+          "role": "All-rounder",
+          "batting_hand": "Right-hand",
+          "is_overseas": false,
+          "price_cr": 16.35,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 6,
+          "player_id": "d014d5ac",
+          "player_name": "Sherfane Rutherford",
+          "role": "All-rounder",
+          "batting_hand": "Left-hand",
+          "is_overseas": true,
+          "price_cr": 2.6,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 7,
+          "player_id": "fffa744b",
+          "player_name": "Naman Dhir",
+          "role": "All-rounder",
+          "batting_hand": "Right-hand",
+          "is_overseas": false,
+          "price_cr": 5.25,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 8,
+          "player_id": "e4a0deae",
+          "player_name": "Mitchell Santner",
+          "role": "All-rounder",
+          "batting_hand": "Left-hand",
+          "is_overseas": true,
+          "price_cr": 2.0,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 9,
+          "player_id": "23eeb873",
+          "player_name": "Deepak Chahar",
+          "role": "Pace Bowler",
+          "batting_hand": "Right-hand",
+          "is_overseas": false,
+          "price_cr": 9.25,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 10,
+          "player_id": "a818c1be",
+          "player_name": "Trent Boult",
+          "role": "Pace Bowler",
+          "batting_hand": "Right-hand",
+          "is_overseas": true,
+          "price_cr": 12.5,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 11,
+          "player_id": "462411b3",
+          "player_name": "Jasprit Bumrah",
+          "role": "Pace Bowler",
+          "batting_hand": "Right-hand",
+          "is_overseas": false,
+          "price_cr": 18.0,
+          "rationale": "Founder's Selection"
+        }
+      ],
+      "impact_player": {
+        "player_id": "a9fd84fb",
+        "player_name": "Mayank Markande",
+        "role": "Spinner",
+        "batting_hand": "Right-hand",
+        "is_overseas": false,
+        "price_cr": 0.3,
+        "rationale": "Founder's Selection"
+      },
+      "balance": {
+        "overseas_count": 4,
+        "bowling_options": 9,
+        "spinners": 5,
+        "pacers": 6,
+        "left_handers_top6": 3
+      },
+      "constraints_satisfied": true,
+      "constraint_violations": [],
+      "generation_notes": [
+        "Founder Override \u2014 11 XI + impact"
+      ]
+    },
+    "RCB": {
+      "team_name": "Royal Challengers Bengaluru",
+      "team_abbrev": "RCB",
+      "home_venue": "M Chinnaswamy Stadium",
+      "venue_bias": "pace",
+      "captain": "Rajat Patidar",
+      "wicketkeeper": "Phil Salt",
+      "xi": [
+        {
+          "batting_position": 1,
+          "player_id": "3d284ca3",
+          "player_name": "Phil Salt",
+          "role": "Wicketkeeper",
+          "batting_hand": "Right-hand",
+          "is_overseas": true,
+          "price_cr": 11.5,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 2,
+          "player_id": "ba607b88",
+          "player_name": "Virat Kohli",
+          "role": "Batter",
+          "batting_hand": "Right-hand",
+          "is_overseas": false,
+          "price_cr": 21.0,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 3,
+          "player_id": "a24be938",
+          "player_name": "Venkatesh Iyer",
+          "role": "All-rounder",
+          "batting_hand": "Left-hand",
+          "is_overseas": false,
+          "price_cr": 7.0,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 4,
+          "player_id": "c740ea83",
+          "player_name": "Rajat Patidar",
+          "role": "Batter",
+          "batting_hand": "Right-hand",
+          "is_overseas": false,
+          "price_cr": 11.0,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 5,
+          "player_id": "f1f99156",
+          "player_name": "Tim David",
+          "role": "All-rounder",
+          "batting_hand": "Right-hand",
+          "is_overseas": true,
+          "price_cr": 3.0,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 6,
+          "player_id": "800d2d97",
+          "player_name": "Jitesh Sharma",
+          "role": "Wicketkeeper",
+          "batting_hand": "Right-hand",
+          "is_overseas": false,
+          "price_cr": 11.0,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 7,
+          "player_id": "c5aef772",
+          "player_name": "Romario Shepherd",
+          "role": "All-rounder",
+          "batting_hand": "Right-hand",
+          "is_overseas": true,
+          "price_cr": 1.5,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 8,
+          "player_id": "5b8c830e",
+          "player_name": "Krunal Pandya",
+          "role": "All-rounder",
+          "batting_hand": "Left-hand",
+          "is_overseas": false,
+          "price_cr": 5.75,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 9,
+          "player_id": "2e81a32d",
+          "player_name": "Bhuvneshwar Kumar",
+          "role": "Pace Bowler",
+          "batting_hand": "Right-hand",
+          "is_overseas": false,
+          "price_cr": 10.75,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 10,
+          "player_id": "03806cf8",
+          "player_name": "Josh Hazlewood",
+          "role": "Pace Bowler",
+          "batting_hand": "Left-hand",
+          "is_overseas": true,
+          "price_cr": 12.5,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 11,
+          "player_id": "9440ef41",
+          "player_name": "Suyash Sharma",
+          "role": "Spinner",
+          "batting_hand": "Right-hand",
+          "is_overseas": false,
+          "price_cr": 2.6,
+          "rationale": "Founder's Selection"
+        }
+      ],
+      "impact_player": {
+        "player_id": "7210d461",
+        "player_name": "Yash Dayal",
+        "role": "Pace Bowler",
+        "batting_hand": "Right-hand",
+        "is_overseas": false,
+        "price_cr": 5.0,
+        "rationale": "Founder's Selection \u2014 Status unknown right now (off-the-field issues)"
+      },
+      "balance": {
+        "overseas_count": 4,
+        "bowling_options": 8,
+        "spinners": 4,
+        "pacers": 7,
+        "left_handers_top6": 1
+      },
+      "constraints_satisfied": true,
+      "constraint_violations": [],
+      "generation_notes": [
+        "Founder Override \u2014 11 XI + impact"
+      ]
+    },
+    "KKR": {
+      "team_name": "Kolkata Knight Riders",
+      "team_abbrev": "KKR",
+      "home_venue": "Eden Gardens",
+      "venue_bias": "spin",
+      "captain": "Ajinkya Rahane",
+      "wicketkeeper": "Finn Allen",
+      "xi": [
+        {
+          "batting_position": 1,
+          "player_id": "bf74b130",
+          "player_name": "Finn Allen",
+          "role": "Wicketkeeper",
+          "batting_hand": "Right-hand",
+          "is_overseas": true,
+          "price_cr": 2.0,
+          "rationale": "Founder's Selection \u2014 Uncapped IPL, Opener"
+        },
+        {
+          "batting_position": 2,
+          "player_id": "29e95537",
+          "player_name": "Ajinkya Rahane",
+          "role": "Batter",
+          "batting_hand": "Right-hand",
+          "is_overseas": false,
+          "price_cr": 1.5,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 3,
+          "player_id": "eaa76d3c",
+          "player_name": "Cameron Green",
+          "role": "All-rounder",
+          "batting_hand": "Right-hand",
+          "is_overseas": true,
+          "price_cr": 25.2,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 4,
+          "player_id": "d7017798",
+          "player_name": "Angkrish Raghuvanshi",
+          "role": "Batter",
+          "batting_hand": "Right-hand",
+          "is_overseas": false,
+          "price_cr": 3.0,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 5,
+          "player_id": "0a509d6b",
+          "player_name": "Rinku Singh",
+          "role": "Batter",
+          "batting_hand": "Left-hand",
+          "is_overseas": false,
+          "price_cr": 13.0,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 6,
+          "player_id": "be24ead0",
+          "player_name": "Ramandeep Singh",
+          "role": "All-rounder",
+          "batting_hand": "Right-hand",
+          "is_overseas": false,
+          "price_cr": 4.0,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 7,
+          "player_id": "e4cdf230",
+          "player_name": "Anukul Roy",
+          "role": "All-rounder",
+          "batting_hand": "Left-hand",
+          "is_overseas": false,
+          "price_cr": 0.4,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 8,
+          "player_id": "9d430b40",
+          "player_name": "Sunil Narine",
+          "role": "All-rounder",
+          "batting_hand": "Left-hand",
+          "is_overseas": true,
+          "price_cr": 12.0,
+          "rationale": "Founder's Selection \u2014 Can be used as an opener to pinch-hit"
+        },
+        {
+          "batting_position": 10,
+          "player_id": "64839cb3",
+          "player_name": "Matheesha Pathirana",
+          "role": "Pace Bowler",
+          "batting_hand": "Right-hand",
+          "is_overseas": true,
+          "price_cr": 18.0,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 11,
+          "player_id": "5b7ab5a9",
+          "player_name": "Varun Chakravarthy",
+          "role": "Spinner",
+          "batting_hand": "Right-hand",
+          "is_overseas": false,
+          "price_cr": 12.0,
+          "rationale": "Founder's Selection"
+        }
+      ],
+      "impact_player": {
+        "player_id": "0a67aec0",
+        "player_name": "Akash Deep",
+        "role": "Pace Bowler",
+        "batting_hand": "Right-hand",
+        "is_overseas": false,
+        "price_cr": 1.0,
+        "rationale": "Founder's Selection"
+      },
+      "balance": {
+        "overseas_count": 4,
+        "bowling_options": 6,
+        "spinners": 4,
+        "pacers": 6,
+        "left_handers_top6": 1
+      },
+      "constraints_satisfied": true,
+      "constraint_violations": [],
+      "generation_notes": [
+        "Founder Override \u2014 10 XI + impact"
+      ]
+    },
+    "DC": {
+      "team_name": "Delhi Capitals",
+      "team_abbrev": "DC",
+      "home_venue": "Arun Jaitley Stadium",
+      "venue_bias": "neutral",
+      "captain": "Axar Patel",
+      "wicketkeeper": "Ben Duckett",
+      "xi": [
+        {
+          "batting_position": 1,
+          "player_id": "5f26f677",
+          "player_name": "Ben Duckett",
+          "role": "Wicketkeeper",
+          "batting_hand": "Left-hand",
+          "is_overseas": true,
+          "price_cr": 2.0,
+          "rationale": "Founder's Selection \u2014 Uncapped IPL"
+        },
+        {
+          "batting_position": 2,
+          "player_id": "b17e2f24",
+          "player_name": "KL Rahul",
+          "role": "Wicketkeeper",
+          "batting_hand": "Right-hand",
+          "is_overseas": false,
+          "price_cr": 14.0,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 3,
+          "player_id": "fb2d1dda",
+          "player_name": "Nitish Rana",
+          "role": "All-rounder",
+          "batting_hand": "Left-hand",
+          "is_overseas": false,
+          "price_cr": 4.2,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 4,
+          "player_id": "85b3fab2",
+          "player_name": "Tristan Stubbs",
+          "role": "All-rounder",
+          "batting_hand": "Right-hand",
+          "is_overseas": true,
+          "price_cr": 10.0,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 5,
+          "player_id": "d67d5f00",
+          "player_name": "David Miller",
+          "role": "Batter",
+          "batting_hand": "Left-hand",
+          "is_overseas": true,
+          "price_cr": 2.0,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 7,
+          "player_id": "2e171977",
+          "player_name": "Axar Patel",
+          "role": "All-rounder",
+          "batting_hand": "Left-hand",
+          "is_overseas": false,
+          "price_cr": 16.5,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 8,
+          "player_id": "7c3c0337",
+          "player_name": "Auqib Nabi",
+          "role": "All-rounder",
+          "batting_hand": "Right-hand",
+          "is_overseas": false,
+          "price_cr": 0.0,
+          "rationale": "Founder's Selection \u2014 Uncapped IPL"
+        },
+        {
+          "batting_position": 9,
+          "player_id": "3fb19989",
+          "player_name": "Mitchell Starc",
+          "role": "Pace Bowler",
+          "batting_hand": "Left-hand",
+          "is_overseas": true,
+          "price_cr": 11.75,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 10,
+          "player_id": "8d2c70ad",
+          "player_name": "Kuldeep Yadav",
+          "role": "Spinner",
+          "batting_hand": "Left-hand",
+          "is_overseas": false,
+          "price_cr": 13.25,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 11,
+          "player_id": "2cffab74",
+          "player_name": "Mukesh Kumar",
+          "role": "Pace Bowler",
+          "batting_hand": "Right-hand",
+          "is_overseas": false,
+          "price_cr": 8.0,
+          "rationale": "Founder's Selection"
+        }
+      ],
+      "impact_player": {
+        "player_id": "ad3b6e95",
+        "player_name": "Abishek Porel",
+        "role": "Wicketkeeper",
+        "batting_hand": "Left-hand",
+        "is_overseas": false,
+        "price_cr": 4.0,
+        "rationale": "Founder's Selection \u2014 Could play instead of Duckett, which could force Mukesh to sit for Ngidi"
+      },
+      "balance": {
+        "overseas_count": 4,
+        "bowling_options": 8,
+        "spinners": 5,
+        "pacers": 5,
+        "left_handers_top6": 4
+      },
+      "constraints_satisfied": true,
+      "constraint_violations": [],
+      "generation_notes": [
+        "Founder Override \u2014 10 XI + impact"
+      ]
+    },
+    "PBKS": {
+      "team_name": "Punjab Kings",
+      "team_abbrev": "PBKS",
+      "home_venue": "Punjab Cricket Association Stadium",
+      "venue_bias": "neutral",
+      "captain": "Shreyas Iyer",
+      "wicketkeeper": "Prabhsimran Singh",
+      "xi": [
+        {
+          "batting_position": 1,
+          "player_id": "b5797845",
+          "player_name": "Priyansh Arya",
+          "role": "Batter",
+          "batting_hand": "Left-hand",
+          "is_overseas": false,
+          "price_cr": 3.8,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 2,
+          "player_id": "9418198b",
+          "player_name": "Prabhsimran Singh",
+          "role": "Wicketkeeper",
+          "batting_hand": "Right-hand",
+          "is_overseas": false,
+          "price_cr": 4.0,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 3,
+          "player_id": "85ec8e33",
+          "player_name": "Shreyas Iyer",
+          "role": "Batter",
+          "batting_hand": "Right-hand",
+          "is_overseas": false,
+          "price_cr": 26.75,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 4,
+          "player_id": "d1a60072",
+          "player_name": "Nehal Wadhera",
+          "role": "Batter",
+          "batting_hand": "Left-hand",
+          "is_overseas": false,
+          "price_cr": 4.2,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 5,
+          "player_id": "d9273ee7",
+          "player_name": "Marcus Stoinis",
+          "role": "All-rounder",
+          "batting_hand": "Right-hand",
+          "is_overseas": true,
+          "price_cr": 11.0,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 6,
+          "player_id": "26989d80",
+          "player_name": "Shashank Singh",
+          "role": "All-rounder",
+          "batting_hand": "Right-hand",
+          "is_overseas": false,
+          "price_cr": 5.5,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 7,
+          "player_id": "8f6dd463",
+          "player_name": "Azmatullah Omarzai",
+          "role": "All-rounder",
+          "batting_hand": "Right-hand",
+          "is_overseas": true,
+          "price_cr": 2.4,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 8,
+          "player_id": "81c36ee9",
+          "player_name": "Marco Jansen",
+          "role": "All-rounder",
+          "batting_hand": "Right-hand",
+          "is_overseas": true,
+          "price_cr": 7.0,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 9,
+          "player_id": "2f9d0389",
+          "player_name": "Lockie Ferguson",
+          "role": "Pace Bowler",
+          "batting_hand": "Right-hand",
+          "is_overseas": true,
+          "price_cr": 2.0,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 10,
+          "player_id": "244048f6",
+          "player_name": "Arshdeep Singh",
+          "role": "Pace Bowler",
+          "batting_hand": "Left-hand",
+          "is_overseas": false,
+          "price_cr": 18.0,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 11,
+          "player_id": "57ee1fde",
+          "player_name": "Yuzvendra Chahal",
+          "role": "Spinner",
+          "batting_hand": "Right-hand",
+          "is_overseas": false,
+          "price_cr": 18.0,
+          "rationale": "Founder's Selection"
+        }
+      ],
+      "impact_player": {
+        "player_id": "c05edf8e",
+        "player_name": "Harpreet Brar",
+        "role": "All-rounder",
+        "batting_hand": "Left-hand",
+        "is_overseas": false,
+        "price_cr": 1.5,
+        "rationale": "Founder's Selection"
+      },
+      "balance": {
+        "overseas_count": 4,
+        "bowling_options": 7,
+        "spinners": 2,
+        "pacers": 9,
+        "left_handers_top6": 2
+      },
+      "constraints_satisfied": true,
+      "constraint_violations": [],
+      "generation_notes": [
+        "Founder Override \u2014 11 XI + impact"
+      ]
+    },
+    "RR": {
+      "team_name": "Rajasthan Royals",
+      "team_abbrev": "RR",
+      "home_venue": "Sawai Mansingh Stadium",
+      "venue_bias": "neutral",
+      "captain": "Riyan Parag",
+      "wicketkeeper": "Dhruv Jurel",
+      "xi": [
+        {
+          "batting_position": 1,
+          "player_id": "6c19c6e5",
+          "player_name": "Yashasvi Jaiswal",
+          "role": "Batter",
+          "batting_hand": "Left-hand",
+          "is_overseas": false,
+          "price_cr": 18.0,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 2,
+          "player_id": "470f446b",
+          "player_name": "Vaibhav Sooryavanshi",
+          "role": "Batter",
+          "batting_hand": "Left-hand",
+          "is_overseas": false,
+          "price_cr": 1.1,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 3,
+          "player_id": "bcf325d2",
+          "player_name": "Dhruv Jurel",
+          "role": "Wicketkeeper",
+          "batting_hand": "Right-hand",
+          "is_overseas": false,
+          "price_cr": 14.0,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 4,
+          "player_id": "04a418e8",
+          "player_name": "Riyan Parag",
+          "role": "All-rounder",
+          "batting_hand": "Right-hand",
+          "is_overseas": false,
+          "price_cr": 14.0,
+          "rationale": "Founder's Selection \u2014 Could also swap positions with Jurel."
+        },
+        {
+          "batting_position": 5,
+          "player_id": "e94915e6",
+          "player_name": "Sam Curran",
+          "role": "All-rounder",
+          "batting_hand": "Left-hand",
+          "is_overseas": true,
+          "price_cr": 2.4,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 6,
+          "player_id": "48a1d7b7",
+          "player_name": "Shimron Hetmyer",
+          "role": "Batter",
+          "batting_hand": "Left-hand",
+          "is_overseas": true,
+          "price_cr": 11.0,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 7,
+          "player_id": "fe93fd9d",
+          "player_name": "Ravindra Jadeja",
+          "role": "All-rounder",
+          "batting_hand": "Left-hand",
+          "is_overseas": false,
+          "price_cr": 14.0,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 8,
+          "player_id": "5574750c",
+          "player_name": "Jofra Archer",
+          "role": "Pace Bowler",
+          "batting_hand": "Right-hand",
+          "is_overseas": true,
+          "price_cr": 12.5,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 9,
+          "player_id": "df064e1a",
+          "player_name": "Ravi Bishnoi",
+          "role": "Spinner",
+          "batting_hand": "Right-hand",
+          "is_overseas": false,
+          "price_cr": 7.2,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 11,
+          "player_id": "ce820073",
+          "player_name": "Sandeep Sharma",
+          "role": "Pace Bowler",
+          "batting_hand": "Right-hand",
+          "is_overseas": false,
+          "price_cr": 4.0,
+          "rationale": "Founder's Selection"
+        }
+      ],
+      "impact_player": {
+        "player_id": "f0af99a7",
+        "player_name": "Donovan Ferreira",
+        "role": "Wicketkeeper",
+        "batting_hand": "Right-hand",
+        "is_overseas": true,
+        "price_cr": 1.0,
+        "rationale": "Founder's Selection \u2014 Currently injured, might play in the IPL"
+      },
+      "balance": {
+        "overseas_count": 3,
+        "bowling_options": 8,
+        "spinners": 5,
+        "pacers": 5,
+        "left_handers_top6": 4
+      },
+      "constraints_satisfied": true,
+      "constraint_violations": [],
+      "generation_notes": [
+        "Founder Override \u2014 10 XI + impact"
+      ]
+    },
+    "SRH": {
+      "team_name": "Sunrisers Hyderabad",
+      "team_abbrev": "SRH",
+      "home_venue": "Rajiv Gandhi Intl Stadium",
+      "venue_bias": "pace",
+      "captain": "Pat Cummins",
+      "wicketkeeper": "Ishan Kishan",
+      "xi": [
+        {
+          "batting_position": 1,
+          "player_id": "12b610c2",
+          "player_name": "Travis Head",
+          "role": "Batter",
+          "batting_hand": "Left-hand",
+          "is_overseas": true,
+          "price_cr": 14.0,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 2,
+          "player_id": "f29185a1",
+          "player_name": "Abhishek Sharma",
+          "role": "All-rounder",
+          "batting_hand": "Left-hand",
+          "is_overseas": false,
+          "price_cr": 14.0,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 3,
+          "player_id": "752f7486",
+          "player_name": "Ishan Kishan",
+          "role": "Wicketkeeper",
+          "batting_hand": "Left-hand",
+          "is_overseas": false,
+          "price_cr": 11.25,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 4,
+          "player_id": "235c2bb6",
+          "player_name": "Heinrich Klaasen",
+          "role": "Wicketkeeper",
+          "batting_hand": "Right-hand",
+          "is_overseas": true,
+          "price_cr": 23.0,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 5,
+          "player_id": "50c6bc2b",
+          "player_name": "Liam Livingstone",
+          "role": "All-rounder",
+          "batting_hand": "Right-hand",
+          "is_overseas": true,
+          "price_cr": 13.0,
+          "rationale": "Founder's Selection \u2014 Bowls off-spin to left-handers, leg-spin to right-handers"
+        },
+        {
+          "batting_position": 6,
+          "player_id": "aad0c365",
+          "player_name": "Nitish Kumar Reddy",
+          "role": "All-rounder",
+          "batting_hand": "Right-hand",
+          "is_overseas": false,
+          "price_cr": 6.0,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 7,
+          "player_id": "a3b0600d",
+          "player_name": "Aniket Verma",
+          "role": "Middle Order",
+          "batting_hand": "Right-hand",
+          "is_overseas": false,
+          "price_cr": 0.3,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 8,
+          "player_id": "ded9240e",
+          "player_name": "Pat Cummins",
+          "role": "All-rounder",
+          "batting_hand": "Right-hand",
+          "is_overseas": true,
+          "price_cr": 18.0,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 9,
+          "player_id": "f986ca1a",
+          "player_name": "Harshal Patel",
+          "role": "Pace Bowler",
+          "batting_hand": "Right-hand",
+          "is_overseas": false,
+          "price_cr": 8.0,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 10,
+          "player_id": "1e66c162",
+          "player_name": "Jaydev Unadkat",
+          "role": "Pace Bowler",
+          "batting_hand": "Right-hand",
+          "is_overseas": false,
+          "price_cr": 1.0,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 11,
+          "player_id": "36619795",
+          "player_name": "Zeeshan Ansari",
+          "role": "Spinner",
+          "batting_hand": "Right-hand",
+          "is_overseas": false,
+          "price_cr": 0.4,
+          "rationale": "Founder's Selection"
+        }
+      ],
+      "impact_player": {
+        "player_id": "25228673",
+        "player_name": "Harsh Dubey",
+        "role": "All-rounder",
+        "batting_hand": "Left-hand",
+        "is_overseas": false,
+        "price_cr": 0.3,
+        "rationale": "Founder's Selection"
+      },
+      "balance": {
+        "overseas_count": 4,
+        "bowling_options": 9,
+        "spinners": 4,
+        "pacers": 7,
+        "left_handers_top6": 3
+      },
+      "constraints_satisfied": true,
+      "constraint_violations": [],
+      "generation_notes": [
+        "Founder Override \u2014 11 XI + impact"
+      ]
+    },
+    "GT": {
+      "team_name": "Gujarat Titans",
+      "team_abbrev": "GT",
+      "home_venue": "Narendra Modi Stadium",
+      "venue_bias": "neutral",
+      "captain": "Shubman Gill",
+      "wicketkeeper": "Jos Buttler",
+      "xi": [
+        {
+          "batting_position": 1,
+          "player_id": "b4b99816",
+          "player_name": "Shubman Gill",
+          "role": "Batter",
+          "batting_hand": "Right-hand",
+          "is_overseas": false,
+          "price_cr": 16.5,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 2,
+          "player_id": "d5130a30",
+          "player_name": "Sai Sudharsan",
+          "role": "Batter",
+          "batting_hand": "Left-hand",
+          "is_overseas": false,
+          "price_cr": 8.5,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 3,
+          "player_id": "99b75528",
+          "player_name": "Jos Buttler",
+          "role": "Wicketkeeper",
+          "batting_hand": "Right-hand",
+          "is_overseas": true,
+          "price_cr": 15.75,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 4,
+          "player_id": "9a46c4e5",
+          "player_name": "Glenn Phillips",
+          "role": "All-rounder",
+          "batting_hand": "Right-hand",
+          "is_overseas": true,
+          "price_cr": 2.0,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 5,
+          "player_id": "f19ccfad",
+          "player_name": "Washington Sundar",
+          "role": "All-rounder",
+          "batting_hand": "Left-hand",
+          "is_overseas": false,
+          "price_cr": 3.2,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 6,
+          "player_id": "7dcb9bc9",
+          "player_name": "Shahrukh Khan",
+          "role": "All-rounder",
+          "batting_hand": "Right-hand",
+          "is_overseas": false,
+          "price_cr": 4.0,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 7,
+          "player_id": "39a2dfa8",
+          "player_name": "Rahul Tewatia",
+          "role": "All-rounder",
+          "batting_hand": "Left-hand",
+          "is_overseas": false,
+          "price_cr": 4.0,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 8,
+          "player_id": "5f547c8b",
+          "player_name": "Rashid Khan",
+          "role": "All-rounder",
+          "batting_hand": "Right-hand",
+          "is_overseas": true,
+          "price_cr": 18.0,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 9,
+          "player_id": "c7a995d3",
+          "player_name": "R Sai Kishore",
+          "role": "Spinner",
+          "batting_hand": "Left-hand",
+          "is_overseas": false,
+          "price_cr": 2.0,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 10,
+          "player_id": "e62dd25d",
+          "player_name": "Kagiso Rabada",
+          "role": "Pace Bowler",
+          "batting_hand": "Right-hand",
+          "is_overseas": true,
+          "price_cr": 10.75,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 11,
+          "player_id": "2f49c897",
+          "player_name": "Mohammed Siraj",
+          "role": "Pace Bowler",
+          "batting_hand": "Right-hand",
+          "is_overseas": false,
+          "price_cr": 12.25,
+          "rationale": "Founder's Selection"
+        }
+      ],
+      "impact_player": {
+        "player_id": "85e0cf10",
+        "player_name": "Prasidh Krishna",
+        "role": "Pace Bowler",
+        "batting_hand": "Right-hand",
+        "is_overseas": false,
+        "price_cr": 9.5,
+        "rationale": "Founder's Selection"
+      },
+      "balance": {
+        "overseas_count": 4,
+        "bowling_options": 9,
+        "spinners": 7,
+        "pacers": 4,
+        "left_handers_top6": 2
+      },
+      "constraints_satisfied": true,
+      "constraint_violations": [],
+      "generation_notes": [
+        "Founder Override \u2014 11 XI + impact"
+      ]
+    },
+    "LSG": {
+      "team_name": "Lucknow Super Giants",
+      "team_abbrev": "LSG",
+      "home_venue": "Ekana Cricket Stadium",
+      "venue_bias": "neutral",
+      "captain": "Rishabh Pant",
+      "wicketkeeper": "Nicholas Pooran",
+      "xi": [
+        {
+          "batting_position": 1,
+          "player_id": "3d8feaf8",
+          "player_name": "Mitchell Marsh",
+          "role": "All-rounder",
+          "batting_hand": "Right-hand",
+          "is_overseas": true,
+          "price_cr": 3.4,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 2,
+          "player_id": "6a26221c",
+          "player_name": "Aiden Markram",
+          "role": "All-rounder",
+          "batting_hand": "Right-hand",
+          "is_overseas": true,
+          "price_cr": 2.0,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 3,
+          "player_id": "3241e3fd",
+          "player_name": "Nicholas Pooran",
+          "role": "Wicketkeeper",
+          "batting_hand": "Left-hand",
+          "is_overseas": true,
+          "price_cr": 21.0,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 4,
+          "player_id": "919a3be2",
+          "player_name": "Rishabh Pant",
+          "role": "Wicketkeeper",
+          "batting_hand": "Left-hand",
+          "is_overseas": false,
+          "price_cr": 27.0,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 6,
+          "player_id": "872b03f7",
+          "player_name": "Ayush Badoni",
+          "role": "All-rounder",
+          "batting_hand": "Right-hand",
+          "is_overseas": false,
+          "price_cr": 4.0,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 7,
+          "player_id": "8e514b4c",
+          "player_name": "Abdul Samad",
+          "role": "All-rounder",
+          "batting_hand": "Right-hand",
+          "is_overseas": false,
+          "price_cr": 4.2,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 8,
+          "player_id": "f9e6e7ef",
+          "player_name": "Shahbaz Ahmed",
+          "role": "All-rounder",
+          "batting_hand": "Left-hand",
+          "is_overseas": false,
+          "price_cr": 2.4,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 9,
+          "player_id": "eef2536f",
+          "player_name": "Avesh Khan",
+          "role": "Pace Bowler",
+          "batting_hand": "Right-hand",
+          "is_overseas": false,
+          "price_cr": 9.75,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 10,
+          "player_id": "8cf9814c",
+          "player_name": "Mohammed Shami",
+          "role": "Pace Bowler",
+          "batting_hand": "Right-hand",
+          "is_overseas": false,
+          "price_cr": 10.0,
+          "rationale": "Founder's Selection"
+        },
+        {
+          "batting_position": 11,
+          "player_id": "13fc5c6d",
+          "player_name": "Digvesh Rathi",
+          "role": "Spinner",
+          "batting_hand": "Right-hand",
+          "is_overseas": false,
+          "price_cr": 0.3,
+          "rationale": "Founder's Selection"
+        }
+      ],
+      "impact_player": {
+        "player_id": "founder_Mukul Choudhary",
+        "player_name": "Mukul Choudhary",
+        "role": "Wicketkeeper",
+        "batting_hand": "Right-hand",
+        "is_overseas": false,
+        "price_cr": 0.0,
+        "rationale": "Founder's Selection \u2014 Uncapped IPL, Middle-Order Batter"
+      },
+      "balance": {
+        "overseas_count": 3,
+        "bowling_options": 8,
+        "spinners": 5,
+        "pacers": 5,
+        "left_handers_top6": 2
+      },
+      "constraints_satisfied": true,
+      "constraint_violations": [],
+      "generation_notes": [
+        "Founder Override \u2014 10 XI + impact"
+      ]
+    }
+  }
 }

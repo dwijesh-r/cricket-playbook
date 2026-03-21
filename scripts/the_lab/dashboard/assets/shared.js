@@ -56,19 +56,12 @@ document.addEventListener('DOMContentLoaded', function() {
         var sidebar = document.querySelector('.sidebar');
         if (sidebar) sidebar.classList.add('collapsed');
     }
-    // Double-click sidebar logo to collapse/expand
-    var brand = document.querySelector('.sidebar-brand');
-    if (brand) {
-        brand.addEventListener('dblclick', function(e) {
-            e.preventDefault();
-            toggleSidebar();
-        });
-    }
     // Clock
     const clockEl = document.getElementById('navTime');
     if (clockEl) {
         function updateTime() {
-            clockEl.textContent = new Date().toLocaleTimeString('en-US', { hour12: false });
+            var now = new Date();
+            clockEl.textContent = now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', hour12: true, timeZone: 'Asia/Kolkata' });
         }
         updateTime();
         setInterval(updateTime, 1000);

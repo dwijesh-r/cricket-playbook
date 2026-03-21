@@ -5110,7 +5110,7 @@
             <a href="about.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> About</a>
         </nav>
         <div class="sidebar-footer">
-            <div class="sidebar-time" id="navTime">--:--:--</div>
+            <div class="sidebar-time" id="navTime">--:--</div><button class="sidebar-toggle" onclick="toggleSidebar()"><span class="sidebar-toggle-label">collapse </span>«</button>
         </div>
     </aside>
     <div class="mobile-topbar">
@@ -5535,13 +5535,13 @@
                 card.innerHTML = `
                     <div class="player-position">${player.position}</div>
                     <div class="player-info">
-                        <div><span class="player-name player-clickable" onclick="openPlayerProfile('${player.name.replace(/'/g, "\\\\'")}')">${player.name}</span>${getInjuryBadge(player.name)}</div>
+                        <div><span class="player-name player-clickable" onclick="openPlayerProfile('${player.name.replace(/'/g, "\\\\'")}')">${player.name}</span></div>
                         <div class="player-detail-line">
                             <span class="player-role">${xiRoleIcon} ${player.role}</span>
                             <span>·</span>
                             <span class="player-price">₹${Number(player.price).toFixed(2)}Cr</span>
                             <span>·</span>
-                            <span>${player.overseas ? getFlag(nat) : '🇮🇳'}</span>
+                            <span>${player.overseas ? getFlag(nat) : '🇮🇳'}${getInjuryBadge(player.name)}</span>
                         </div>
                     </div>
                 `;

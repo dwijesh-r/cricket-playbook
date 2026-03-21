@@ -1,7 +1,7 @@
 /**
  * Statsledge - Predicted XII Data
  * IPL 2026 Pre-Season Analytics
- * Auto-generated: 2026-03-21T17:52:08.197778
+ * Auto-generated: 2026-03-21T18:01:22.508749
  * Algorithm: SUPER SELECTOR
  */
 
@@ -212,7 +212,7 @@ const PREDICTED_XII = {
             { name: "Ravi Singh", role: "Wicketkeeper", price: 0.95 },
             { name: "Vignesh Puthur", role: "Pace Bowler", price: 0.3 }
         ],
-        balance: { overseas: 3, bowlingOptions: 8, spinners: 4, pacers: 6, leftHandersTop6: 3 },
+        balance: { overseas: 3, bowlingOptions: 9, spinners: 5, pacers: 6, leftHandersTop6: 4 },
         constraintsSatisfied: true
     },
     SRH: {
@@ -306,7 +306,7 @@ const PREDICTED_XII = {
 
 /**
  * Statsledge - Depth Chart Ratings
- * Auto-generated: 2026-03-21T17:52:08.197972
+ * Auto-generated: 2026-03-21T18:01:22.508944
  */
 
 const DEPTH_CHART_RATINGS = {

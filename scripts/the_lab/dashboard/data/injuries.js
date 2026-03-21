@@ -1,6 +1,6 @@
 /**
  * Statsledge - Player Availability Tracker
- * Last updated: 2026-03-20
+ * Last updated: 2026-03-21
  *
  * Status types: 'injured', 'unavailable', 'doubtful', 'partially_available'
  */
@@ -15,7 +15,11 @@ const PLAYER_AVAILABILITY = {
     'Jack Edwards':         { status: 'injured',              team: 'SRH',  note: 'Ruled out of IPL 2026 — replacement yet to be named', returnDate: null },
     'Nathan Ellis':         { status: 'injured',              team: 'CSK',  note: 'Ruled out of IPL 2026 — replacement yet to be named', returnDate: null },
     'Sam Curran':           { status: 'injured',              team: 'RR',   note: 'Ruled out of IPL 2026', returnDate: null },
-    'Lockie Ferguson':      { status: 'partially_available',  team: 'PBKS', note: 'Injury — will miss initial phase of IPL', returnDate: null },
+    'Lockie Ferguson':      { status: 'partially_available',  team: 'PBKS', note: 'Personal reasons — will miss initial phase of IPL', returnDate: null },
+    'Nuwan Thushara':       { status: 'doubtful',             team: 'RCB',  note: 'Fitness concern — availability doubtful', returnDate: null },
+    'Yash Dayal':           { status: 'doubtful',             team: 'RCB',  note: 'Fitness concern — availability doubtful', returnDate: null },
+    'Akash Deep':           { status: 'injured',              team: 'KKR',  note: 'Ruled out of IPL 2026', returnDate: null },
+    'Mitchell Starc':       { status: 'partially_available',  team: 'DC',   note: 'Will miss initial phase of IPL', returnDate: null },
     'Josh Inglis':          { status: 'partially_available',  team: 'LSG',  note: 'PA — marriage, expected to miss early matches', returnDate: null },
     'Donovan Ferreira':     { status: 'doubtful',             team: 'RR',   note: 'Shoulder fracture (SA20, Jan 2026) — recovery timeline uncertain, IPL availability doubtful', returnDate: null },
     'Adam Milne':           { status: 'injured',              team: 'RR',   note: 'Torn left hamstring (SA20, Jan 2026) — ruled out of T20 World Cup, doubtful for early IPL matches', returnDate: null }

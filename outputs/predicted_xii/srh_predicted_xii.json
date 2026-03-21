@@ -126,6 +126,23 @@
     "price_cr": 0.3,
     "rationale": "Founder's Selection"
   },
+  "impact_subs": [
+    {
+      "player_name": "Harsh Dubey",
+      "role": "All-rounder",
+      "price_cr": 0.3
+    },
+    {
+      "player_name": "Shivam Mavi",
+      "role": "All-rounder",
+      "price_cr": 0.75
+    },
+    {
+      "player_name": "Salil Arora",
+      "role": "Wicketkeeper",
+      "price_cr": 0.3
+    }
+  ],
   "balance": {
     "overseas_count": 4,
     "bowling_options": 9,

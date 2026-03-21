@@ -47,16 +47,6 @@
       "rationale": "Founder's Selection \u2014 Could also swap positions with Jurel."
     },
     {
-      "batting_position": 5,
-      "player_id": "e94915e6",
-      "player_name": "Sam Curran",
-      "role": "All-rounder",
-      "batting_hand": "Left-hand",
-      "is_overseas": true,
-      "price_cr": 2.4,
-      "rationale": "Founder's Selection"
-    },
-    {
       "batting_position": 6,
       "player_id": "48a1d7b7",
       "player_name": "Shimron Hetmyer",
@@ -108,24 +98,41 @@
     }
   ],
   "impact_player": {
-    "player_id": "f0af99a7",
-    "player_name": "Donovan Ferreira",
-    "role": "Wicketkeeper",
-    "batting_hand": "Right-hand",
-    "is_overseas": true,
-    "price_cr": 1.0,
-    "rationale": "Founder's Selection \u2014 Currently injured, might play in the IPL"
+    "player_id": "46a9bea1",
+    "player_name": "Tushar Deshpande",
+    "role": "Pace Bowler",
+    "batting_hand": "Left-hand",
+    "is_overseas": false,
+    "price_cr": 6.5,
+    "rationale": "Founder's Selection"
   },
+  "impact_subs": [
+    {
+      "player_name": "Tushar Deshpande",
+      "role": "Pace Bowler",
+      "price_cr": 6.5
+    },
+    {
+      "player_name": "Ravi Singh",
+      "role": "Wicketkeeper",
+      "price_cr": 0.95
+    },
+    {
+      "player_name": "Shubham Dubey",
+      "role": "Batter",
+      "price_cr": 0.8
+    }
+  ],
   "balance": {
-    "overseas_count": 3,
-    "bowling_options": 8,
+    "overseas_count": 2,
+    "bowling_options": 7,
     "spinners": 5,
-    "pacers": 5,
+    "pacers": 4,
     "left_handers_top6": 4
   },
   "constraints_satisfied": true,
   "constraint_violations": [],
   "generation_notes": [
-    "Founder Override \u2014 10 XI + impact"
+    "Founder Override \u2014 9 XI + impact"
   ]
 }

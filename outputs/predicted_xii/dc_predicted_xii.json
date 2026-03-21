@@ -108,14 +108,31 @@
     }
   ],
   "impact_player": {
-    "player_id": "ad3b6e95",
-    "player_name": "Abishek Porel",
-    "role": "Wicketkeeper",
+    "player_id": "ce794613",
+    "player_name": "T Natarajan",
+    "role": "Pace Bowler",
     "batting_hand": "Left-hand",
     "is_overseas": false,
-    "price_cr": 4.0,
-    "rationale": "Founder's Selection \u2014 Could play instead of Duckett, which could force Mukesh to sit for Ngidi"
+    "price_cr": 10.75,
+    "rationale": "Founder's Selection"
   },
+  "impact_subs": [
+    {
+      "player_name": "T Natarajan",
+      "role": "Pace Bowler",
+      "price_cr": 10.75
+    },
+    {
+      "player_name": "Ashutosh Sharma",
+      "role": "Batter",
+      "price_cr": 3.8
+    },
+    {
+      "player_name": "Abishek Porel",
+      "role": "Wicketkeeper",
+      "price_cr": 4.0
+    }
+  ],
   "balance": {
     "overseas_count": 4,
     "bowling_options": 8,

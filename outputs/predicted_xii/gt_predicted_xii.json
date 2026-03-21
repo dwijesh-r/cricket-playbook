@@ -126,6 +126,23 @@
     "price_cr": 9.5,
     "rationale": "Founder's Selection"
   },
+  "impact_subs": [
+    {
+      "player_name": "Prasidh Krishna",
+      "role": "Pace Bowler",
+      "price_cr": 9.5
+    },
+    {
+      "player_name": "Ishant Sharma",
+      "role": "Bowler",
+      "price_cr": 0.75
+    },
+    {
+      "player_name": "Jayant Yadav",
+      "role": "Bowler",
+      "price_cr": 0.75
+    }
+  ],
   "balance": {
     "overseas_count": 4,
     "bowling_options": 9,

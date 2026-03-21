@@ -118,14 +118,31 @@
     }
   ],
   "impact_player": {
-    "player_id": "7210d461",
-    "player_name": "Yash Dayal",
+    "player_id": "b8527c3d",
+    "player_name": "Rasikh Salam",
     "role": "Pace Bowler",
     "batting_hand": "Right-hand",
     "is_overseas": false,
-    "price_cr": 5.0,
-    "rationale": "Founder's Selection \u2014 Status unknown right now (off-the-field issues)"
+    "price_cr": 0.0,
+    "rationale": "Founder's Selection \u2014 Replaces Yash Dayal (doubtful)"
   },
+  "impact_subs": [
+    {
+      "player_name": "Rasikh Salam",
+      "role": "Pace Bowler",
+      "price_cr": 0.0
+    },
+    {
+      "player_name": "Devdutt Padikkal",
+      "role": "Batter",
+      "price_cr": 2.0
+    },
+    {
+      "player_name": "Vihaan Malhotra",
+      "role": "Batter",
+      "price_cr": 0.3
+    }
+  ],
   "balance": {
     "overseas_count": 4,
     "bowling_options": 8,

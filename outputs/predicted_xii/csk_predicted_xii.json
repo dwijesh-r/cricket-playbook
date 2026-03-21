@@ -88,8 +88,8 @@
     },
     {
       "batting_position": 9,
-      "player_id": "9eb1455b",
-      "player_name": "Nathan Ellis",
+      "player_id": "e84ac20c",
+      "player_name": "Matt Henry",
       "role": "Pace Bowler",
       "batting_hand": "Right-hand",
       "is_overseas": true,
@@ -126,6 +126,23 @@
     "price_cr": 3.4,
     "rationale": "Founder's Selection"
   },
+  "impact_subs": [
+    {
+      "player_name": "Anshul Kamboj",
+      "role": "Pace Bowler",
+      "price_cr": 3.4
+    },
+    {
+      "player_name": "Rahul Chahar",
+      "role": "Bowler",
+      "price_cr": 5.2
+    },
+    {
+      "player_name": "Sarfaraz Khan",
+      "role": "Batter",
+      "price_cr": 0.75
+    }
+  ],
   "balance": {
     "overseas_count": 4,
     "bowling_options": 8,

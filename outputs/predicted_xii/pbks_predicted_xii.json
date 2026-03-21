@@ -126,6 +126,23 @@
     "price_cr": 1.5,
     "rationale": "Founder's Selection"
   },
+  "impact_subs": [
+    {
+      "player_name": "Harpreet Brar",
+      "role": "All-rounder",
+      "price_cr": 1.5
+    },
+    {
+      "player_name": "Harnoor Singh",
+      "role": "Batter",
+      "price_cr": 0.3
+    },
+    {
+      "player_name": "Vishnu Vinod",
+      "role": "Wicketkeeper",
+      "price_cr": 0.95
+    }
+  ],
   "balance": {
     "overseas_count": 4,
     "bowling_options": 7,

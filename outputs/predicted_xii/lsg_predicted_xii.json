@@ -108,14 +108,31 @@
     }
   ],
   "impact_player": {
-    "player_id": "founder_Mukul Choudhary",
-    "player_name": "Mukul Choudhary",
-    "role": "Wicketkeeper",
+    "player_id": "b1ad996b",
+    "player_name": "Mayank Yadav",
+    "role": "Pace Bowler",
     "batting_hand": "Right-hand",
     "is_overseas": false,
-    "price_cr": 0.0,
-    "rationale": "Founder's Selection \u2014 Uncapped IPL, Middle-Order Batter"
+    "price_cr": 11.0,
+    "rationale": "Founder's Selection"
   },
+  "impact_subs": [
+    {
+      "player_name": "Mayank Yadav",
+      "role": "Pace Bowler",
+      "price_cr": 11.0
+    },
+    {
+      "player_name": "Mohsin Khan",
+      "role": "Bowler",
+      "price_cr": 4.0
+    },
+    {
+      "player_name": "Anrich Nortje",
+      "role": "Bowler",
+      "price_cr": 2.0
+    }
+  ],
   "balance": {
     "overseas_count": 3,
     "bowling_options": 8,

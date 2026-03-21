@@ -196,6 +196,7 @@ class PredictedXII:
     spinners_count: int
     pacers_count: int
     left_handers_top6: int
+    impact_subs: list  # List of up to 3 SelectedPlayer alternatives
     constraints_satisfied: bool
     constraint_violations: list
     generation_notes: list
@@ -1599,14 +1600,34 @@ def fix_constraint_violations(
     return selected, violations
 
 
+def load_injured_players() -> set:
+    """Load ruled-out / injured players from injuries.js to exclude from selection."""
+    injuries_file = Path(__file__).parent.parent / "the_lab" / "dashboard" / "data" / "injuries.js"
+    excluded = set()
+    if not injuries_file.exists():
+        return excluded
+    import re
+
+    content = injuries_file.read_text()
+    # Parse JS object entries: 'Player Name': { status: 'injured', ... }
+    for match in re.finditer(r"'([^']+)':\s*\{\s*status:\s*'(injured|unavailable)'", content):
+        excluded.add(match.group(1))
+    return excluded
+
+
+# Global set loaded once
+INJURED_PLAYERS: set = set()
+
+
 def select_impact_player(
     xi: List[SelectedPlayer], remaining: List[Player], captain_name: Optional[str] = None
-) -> Optional[SelectedPlayer]:
+) -> tuple:
     """
-    Select the Impact Player (12th man).
+    Select the Impact Player (12th man) and up to 3 impact subs.
 
     Per IPL rules and algorithm spec v2 constraint C1:
     The designated team captain is EXCLUDED from impact player selection.
+    Returns (impact_player, impact_subs) tuple.
     """
     # Score remaining players
     for p in remaining:
@@ -1629,8 +1650,11 @@ def select_impact_player(
     if overseas_in_xi >= 4:
         candidates = [p for p in candidates if not p.is_overseas]
 
+    # Filter out injured/ruled-out players
+    candidates = [p for p in candidates if p.player_name not in INJURED_PLAYERS]
+
     if not candidates:
-        return None
+        return None, []
 
     # Sort by overall score
     candidates.sort(key=lambda x: x.overall_score, reverse=True)
@@ -1656,13 +1680,30 @@ def select_impact_player(
     if not impact:
         impact = candidates[0]
 
-    return SelectedPlayer(
-        player=impact,
-        batting_position=12,
-        role_in_xi="Impact Player",
-        rationale=f"Provides {'batting depth' if impact.batting_score > impact.bowling_score else 'bowling option'} as Impact substitute",
-        is_impact_player=True,
-    )
+    def make_impact_sp(player):
+        return SelectedPlayer(
+            player=player,
+            batting_position=12,
+            role_in_xi="Impact Player",
+            rationale=f"Provides {'batting depth' if player.batting_score > player.bowling_score else 'bowling option'} as Impact substitute",
+            is_impact_player=True,
+        )
+
+    impact_sp = make_impact_sp(impact)
+
+    # Build impact subs: top 3 candidates (including the selected impact player)
+    subs = []
+    seen = set()
+    # Impact player is always first sub
+    subs.append(make_impact_sp(impact))
+    seen.add(impact.player_name)
+    # Fill remaining 2 from top candidates
+    for p in candidates:
+        if p.player_name not in seen and len(subs) < 3:
+            subs.append(make_impact_sp(p))
+            seen.add(p.player_name)
+
+    return impact_sp, subs
 
 
 def identify_captain(
@@ -1745,7 +1786,7 @@ def generate_predicted_xii(
     keeper = identify_keeper(xi)
 
     # Select Impact Player (captain excluded per IPL rules - Constraint C1)
-    impact = select_impact_player(xi, remaining, captain_name=captain)
+    impact, impact_subs = select_impact_player(xi, remaining, captain_name=captain)
 
     return PredictedXII(
         team_name=team,
@@ -1754,6 +1795,7 @@ def generate_predicted_xii(
         venue_bias=venue_info["bias"],
         xi=xi,
         impact_player=impact,
+        impact_subs=impact_subs,
         captain=captain,
         wicketkeeper=keeper,
         overseas_count=balance["overseas_count"],
@@ -1800,6 +1842,14 @@ def predicted_xii_to_dict(pxii: PredictedXII) -> Dict[str, Any]:
         }
         if pxii.impact_player
         else None,
+        "impact_subs": [
+            {
+                "player_name": s.player.player_name,
+                "role": s.role_in_xi if s.role_in_xi != "Impact Player" else s.player.role,
+                "price_cr": s.player.price_cr,
+            }
+            for s in (pxii.impact_subs or [])
+        ],
         "balance": {
             "overseas_count": pxii.overseas_count,
             "bowling_options": pxii.bowling_options,
@@ -1909,7 +1959,7 @@ def generate_founder_predicted_xii(
 
         if fp["squad_number"] <= 11:
             xi_selections.append(sp)
-        else:
+        elif fp["squad_number"] == 12:
             impact_selection = sp
 
     # Check constraints but only as warnings
@@ -1924,13 +1974,41 @@ def generate_founder_predicted_xii(
     keeper = identify_keeper(xi_selections)
     balance = get_balance_metrics(xi_selections)
 
+    # Select impact player + subs from remaining squad (excluding injured)
+    xi_names = {sp.player.player_name for sp in xi_selections}
+    if impact_selection:
+        xi_names.add(impact_selection.player.player_name)
+    remaining_players = [
+        p
+        for p in team_players
+        if p.player_name not in xi_names and p.player_name not in INJURED_PLAYERS
+    ]
+    impact_algo, impact_subs = select_impact_player(
+        xi_selections, remaining_players, captain_name=captain
+    )
+    # Use founder's impact pick if available and not injured, otherwise algorithmic
+    if impact_selection and impact_selection.player.player_name in INJURED_PLAYERS:
+        logger.info(
+            "  Founder impact %s is injured, falling back to algorithm",
+            impact_selection.player.player_name,
+        )
+        impact_selection = None
+    final_impact = impact_selection if impact_selection else impact_algo
+    # If founder's impact is in subs, put it first
+    if final_impact and impact_subs:
+        sub_names = [s.player.player_name for s in impact_subs]
+        if final_impact.player.player_name not in sub_names:
+            impact_subs.insert(0, final_impact)
+            impact_subs = impact_subs[:3]
+
     return PredictedXII(
         team_name=team,
         team_abbrev=team_abbrev,
         home_venue=venue_info["venue"],
         venue_bias=venue_info["bias"],
         xi=xi_selections,
-        impact_player=impact_selection,
+        impact_player=final_impact,
+        impact_subs=impact_subs,
         captain=captain,
         wicketkeeper=keeper,
         overseas_count=balance["overseas_count"],
@@ -1952,6 +2030,16 @@ def main() -> int:
     logger.info("CRICKET PLAYBOOK - SUPER SELECTOR v3.0")
     logger.info("Statistical Unified Player Evaluation and Ranking SELECTOR")
     logger.info("=" * 70)
+
+    # Load injured players to exclude from impact selection
+    global INJURED_PLAYERS
+    INJURED_PLAYERS = load_injured_players()
+    if INJURED_PLAYERS:
+        logger.info(
+            "Excluding %d injured/ruled-out players: %s",
+            len(INJURED_PLAYERS),
+            ", ".join(sorted(INJURED_PLAYERS)),
+        )
 
     # Check for Founder override
     founder_data = load_founder_override()

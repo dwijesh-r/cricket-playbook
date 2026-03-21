@@ -48,12 +48,12 @@
     },
     {
       "batting_position": 5,
-      "player_id": "e94915e6",
-      "player_name": "Sam Curran",
+      "player_id": "fe93fd9d",
+      "player_name": "Ravindra Jadeja",
       "role": "All-rounder",
       "batting_hand": "Left-hand",
-      "is_overseas": true,
-      "price_cr": 10.0,
+      "is_overseas": false,
+      "price_cr": 17.5,
       "rationale": "Founder's Selection"
     },
     {
@@ -68,12 +68,11 @@
     },
     {
       "batting_position": 7,
-      "player_id": "fe93fd9d",
-      "player_name": "Ravindra Jadeja",
-      "role": "All-rounder",
+      "player_name": "Shubham Dubey",
+      "role": "Batter",
       "batting_hand": "Left-hand",
       "is_overseas": false,
-      "price_cr": 17.5,
+      "price_cr": 0.8,
       "rationale": "Founder's Selection"
     },
     {
@@ -127,7 +126,7 @@
     "rationale": "Founder's Selection"
   },
   "balance": {
-    "overseas_count": 4,
+    "overseas_count": 3,
     "bowling_options": 9,
     "spinners": 5,
     "pacers": 6,

@@ -119,12 +119,12 @@
   ],
   "impact_player": {
     "player_id": "7210d461",
-    "player_name": "Yash Dayal",
+    "player_name": "Rasikh Salam",
     "role": "Pace Bowler",
     "batting_hand": "Right-hand",
     "is_overseas": false,
-    "price_cr": 5.0,
-    "rationale": "Founder's Selection \u2014 Status unknown right now (off-the-field issues)"
+    "price_cr": 6.0,
+    "rationale": "Founder's Selection"
   },
   "balance": {
     "overseas_count": 4,

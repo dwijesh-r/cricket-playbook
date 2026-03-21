@@ -111,7 +111,7 @@
                         {
                               "batting_position": 9,
                               "player_id": "9eb1455b",
-                              "player_name": "Nathan Ellis",
+                              "player_name": "Matt Henry",
                               "role": "Pace Bowler",
                               "batting_hand": "Right-hand",
                               "is_overseas": true,
@@ -160,9 +160,9 @@
                               "price_cr": 5.2
                         },
                         {
-                              "player_name": "Sarfaraz Khan",
-                              "role": "Batter",
-                              "price_cr": 0.75
+                              "player_name": "Kartik Sharma",
+                              "role": "Wicketkeeper",
+                              "price_cr": 14.2
                         }
                   ],
                   "balance": {
@@ -457,18 +457,18 @@
                   ],
                   "impact_player": {
                         "player_id": "7210d461",
-                        "player_name": "Yash Dayal",
+                        "player_name": "Rasikh Salam",
                         "role": "Pace Bowler",
                         "batting_hand": "Right-hand",
                         "is_overseas": false,
-                        "price_cr": 5.0,
-                        "rationale": "Founder's Selection \u2014 Status unknown right now (off-the-field issues)"
+                        "price_cr": 6.0,
+                        "rationale": "Founder's Selection"
                   },
                   "impact_subs": [
                         {
-                              "player_name": "Yash Dayal",
+                              "player_name": "Rasikh Salam",
                               "role": "Pace Bowler",
-                              "price_cr": 5.0
+                              "price_cr": 6.0
                         },
                         {
                               "player_name": "Mangesh Yadav",
@@ -624,9 +624,9 @@
                   },
                   "impact_subs": [
                         {
-                              "player_name": "Akash Deep",
+                              "player_name": "Umran Malik",
                               "role": "Pace Bowler",
-                              "price_cr": 1.0
+                              "price_cr": 0.75
                         },
                         {
                               "player_name": "Rahul Tripathi",
@@ -1018,12 +1018,12 @@
                         },
                         {
                               "batting_position": 5,
-                              "player_id": "e94915e6",
-                              "player_name": "Sam Curran",
+                              "player_id": "fe93fd9d",
+                              "player_name": "Ravindra Jadeja",
                               "role": "All-rounder",
                               "batting_hand": "Left-hand",
-                              "is_overseas": true,
-                              "price_cr": 2.4,
+                              "is_overseas": false,
+                              "price_cr": 14.0,
                               "rationale": "Founder's Selection"
                         },
                         {
@@ -1038,12 +1038,11 @@
                         },
                         {
                               "batting_position": 7,
-                              "player_id": "fe93fd9d",
-                              "player_name": "Ravindra Jadeja",
-                              "role": "All-rounder",
+                              "player_name": "Shubham Dubey",
+                              "role": "Batter",
                               "batting_hand": "Left-hand",
                               "is_overseas": false,
-                              "price_cr": 14.0,
+                              "price_cr": 0.8,
                               "rationale": "Founder's Selection"
                         },
                         {
@@ -1103,9 +1102,9 @@
                               "price_cr": 6.5
                         },
                         {
-                              "player_name": "Shubham Dubey",
-                              "role": "Batter",
-                              "price_cr": 0.8
+                              "player_name": "Ravi Singh",
+                              "role": "Wicketkeeper",
+                              "price_cr": 0.95
                         },
                         {
                               "player_name": "Vignesh Puthur",
@@ -1114,7 +1113,7 @@
                         }
                   ],
                   "balance": {
-                        "overseas_count": 4,
+                        "overseas_count": 3,
                         "bowling_options": 9,
                         "spinners": 5,
                         "pacers": 6,
@@ -1493,11 +1492,11 @@
                         {
                               "batting_position": 5,
                               "player_id": "989889ff",
-                              "player_name": "Josh Inglis",
+                              "player_name": "Mukul Choudhary",
                               "role": "Wicketkeeper",
                               "batting_hand": "Right-hand",
-                              "is_overseas": true,
-                              "price_cr": 8.6,
+                              "is_overseas": false,
+                              "price_cr": 2.6,
                               "rationale": "Founder's Selection"
                         },
                         {
@@ -1588,7 +1587,7 @@
                         }
                   ],
                   "balance": {
-                        "overseas_count": 4,
+                        "overseas_count": 3,
                         "bowling_options": 8,
                         "spinners": 5,
                         "pacers": 6,

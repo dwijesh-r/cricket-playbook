@@ -49,11 +49,11 @@
     {
       "batting_position": 5,
       "player_id": "989889ff",
-      "player_name": "Josh Inglis",
+      "player_name": "Mukul Choudhary",
       "role": "Wicketkeeper",
       "batting_hand": "Right-hand",
-      "is_overseas": true,
-      "price_cr": 8.6,
+      "is_overseas": false,
+      "price_cr": 2.6,
       "rationale": "Founder's Selection"
     },
     {
@@ -127,7 +127,7 @@
     "rationale": "Founder's Selection"
   },
   "balance": {
-    "overseas_count": 4,
+    "overseas_count": 3,
     "bowling_options": 8,
     "spinners": 5,
     "pacers": 6,

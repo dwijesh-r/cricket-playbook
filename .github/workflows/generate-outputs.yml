@@ -213,14 +213,22 @@ jobs:
       - name: Generate predicted XIs
         run: |
           echo "Generating predicted XIs..."
-          python scripts/generators/generate_predicted_xii.py
-          echo "Predicted XIs generated"
+          if [ -f "data/cricket_playbook.duckdb" ]; then
+            python scripts/generators/generate_predicted_xii.py
+            echo "Predicted XIs generated"
+          else
+            echo "DuckDB not available — using committed predicted XII outputs (founder-curated)"
+          fi
 
       - name: Generate depth charts
         run: |
           echo "Generating depth charts..."
-          python scripts/generators/generate_depth_charts.py
-          echo "Depth charts generated"
+          if [ -f "data/cricket_playbook.duckdb" ]; then
+            python scripts/generators/generate_depth_charts.py
+            echo "Depth charts generated"
+          else
+            echo "DuckDB not available — using committed depth chart outputs"
+          fi
 
       - name: Run matchup analysis
         run: |
@@ -234,7 +242,9 @@ jobs:
         run: |
           echo "Generating Lab dashboard data files..."
           python scripts/the_lab/update_the_lab.py
-          echo "Lab dashboard data generated"
+          # Restore founder-curated predicted XII (not auto-generated)
+          git checkout -- scripts/the_lab/dashboard/data/predicted_xii.js 2>/dev/null || true
+          echo "Lab dashboard data generated (predicted_xii.js preserved)"
 
       - name: Generate Lab pressure metrics
         run: |

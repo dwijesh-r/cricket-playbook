@@ -71,6 +71,9 @@ jobs:
           echo "Updating Statsledge dashboard data..."
           python scripts/the_lab/update_the_lab.py
           echo "Dashboard data updated"
+          # Restore founder-curated predicted XII (not auto-generated)
+          git checkout -- scripts/the_lab/dashboard/data/predicted_xii.js 2>/dev/null || true
+          echo "Preserved founder-curated predicted_xii.js"
 
       - name: Check for changes
         id: changes

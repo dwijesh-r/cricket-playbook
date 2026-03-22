@@ -639,11 +639,11 @@
             </select>
             <select class="filter-select" id="bowlTypeFilter" onchange="applyFilters()" style="display:none;">
                 <option value="">All Bowl Types</option>
-                <option value="Pace">Pace (Fast + Fast-Medium)</option>
+                <option value="Right-arm Pace">Right-arm Pace</option>
+                <option value="Left-arm Pace">Left-arm Pace</option>
                 <option value="Off-spin">Off-spin</option>
-                <option value="Leg-spin">Leg-spin</option>
                 <option value="Left-arm Orthodox">Left-arm Orthodox</option>
-                <option value="Wrist-spin">Wrist-spin</option>
+                <option value="Wrist Spin">Wrist Spin</option>
             </select>
             <select class="filter-select" id="vsTeamFilter" onchange="applyFilters()">
                 <option value="">All Opponents</option>
@@ -794,25 +794,6 @@
         }
         if (filterType === 'vs_bowling_type') {
             if (!section.vs_bowling_type) return null;
-            if (filterValue === 'Pace') {
-                // Aggregate Fast + Fast-Medium + Medium
-                var keys = ['Fast', 'Fast-Medium', 'Medium'];
-                var agg = null;
-                keys.forEach(function(k) {
-                    var d = section.vs_bowling_type[k];
-                    if (!d) return;
-                    if (!agg) { agg = {}; for (var p in d) agg[p] = 0; }
-                    agg.balls = (agg.balls || 0) + (d.balls || 0);
-                    agg.runs = (agg.runs || 0) + (d.runs || 0);
-                    agg.dismissals = (agg.dismissals || 0) + (d.dismissals || 0);
-                    agg.innings = (agg.innings || 0) + (d.innings || 0);
-                });
-                if (agg && agg.balls > 0) {
-                    agg.sr = (agg.runs / agg.balls) * 100;
-                    agg.avg = agg.dismissals > 0 ? agg.runs / agg.dismissals : 0;
-                }
-                return agg;
-            }
             return section.vs_bowling_type[filterValue] || null;
         }
         if (filterType === 'vs_teams') {
@@ -1519,11 +1500,16 @@
 
     // Consolidate duplicate bowling types: merge stats by weighted average
     var BOWL_TYPE_MAP = {
-        'Fast': 'Pace',
-        'Fast-Medium': 'Pace',
-        'Medium': 'Pace',
+        'Right-arm pace': 'Right-arm Pace',
+        'Left-arm pace': 'Left-arm Pace',
+        'Fast': 'Right-arm Pace',
+        'Fast-Medium': 'Right-arm Pace',
+        'Medium': 'Right-arm Pace',
+        'Medium-Fast': 'Right-arm Pace',
         'Wrist-spin': 'Wrist Spin',
         'Leg-spin': 'Wrist Spin',
+        'Right-arm leg-spin': 'Wrist Spin',
+        'Right-arm off-spin': 'Off-spin',
         'LA Orthodox': 'Left-arm Orthodox',
         'Left-arm orthodox': 'Left-arm Orthodox',
         'Off-Spin/Leg-Spin': 'Off-spin',

@@ -1029,7 +1029,13 @@ def create_t20_comparison_views(conn: duckdb.DuckDBPyConnection) -> None:
         SELECT
             dp_bat.player_id as batter_id,
             dp_bat.current_name as batter_name,
-            COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') as bowler_type,
+            CASE
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('Fast', 'Fast-Medium', 'Medium', 'Medium-Fast')
+                THEN COALESCE(sq.bowling_arm, CASE WHEN bc.bowling_style LIKE 'Left%' THEN 'Left-arm' ELSE 'Right-arm' END) || ' Pace'
+                WHEN bc.bowling_style IN ('Left-arm pace', 'Right-arm pace')
+                THEN CASE WHEN bc.bowling_style LIKE 'Left%' THEN 'Left-arm' ELSE 'Right-arm' END || ' Pace'
+                ELSE COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown')
+            END as bowler_type,
             COUNT(*) as balls,
             SUM(fb.batter_runs) as runs,
             SUM(CASE WHEN fb.is_wicket AND fb.player_out_id = fb.batter_id THEN 1 ELSE 0 END) as dismissals,
@@ -1050,7 +1056,14 @@ def create_t20_comparison_views(conn: duckdb.DuckDBPyConnection) -> None:
         LEFT JOIN ipl_2026_squads sq ON dp_bowl.player_id = sq.player_id
         LEFT JOIN dim_bowler_classification bc ON dp_bowl.player_id = bc.player_id
         WHERE fb.is_legal_ball = TRUE
-        GROUP BY dp_bat.player_id, dp_bat.current_name, COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown')
+        GROUP BY dp_bat.player_id, dp_bat.current_name,
+            CASE
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('Fast', 'Fast-Medium', 'Medium', 'Medium-Fast')
+                THEN COALESCE(sq.bowling_arm, CASE WHEN bc.bowling_style LIKE 'Left%' THEN 'Left-arm' ELSE 'Right-arm' END) || ' Pace'
+                WHEN bc.bowling_style IN ('Left-arm pace', 'Right-arm pace')
+                THEN CASE WHEN bc.bowling_style LIKE 'Left%' THEN 'Left-arm' ELSE 'Right-arm' END || ' Pace'
+                ELSE COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown')
+            END
     """)
     print("  - analytics_t20_batter_vs_bowler_type")
 
@@ -1285,7 +1298,13 @@ def create_all_t20_since2023_views(conn: duckdb.DuckDBPyConnection) -> None:
         SELECT
             dp_bat.player_id as batter_id,
             dp_bat.current_name as batter_name,
-            COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') as bowler_type,
+            CASE
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('Fast', 'Fast-Medium', 'Medium', 'Medium-Fast')
+                THEN COALESCE(sq.bowling_arm, CASE WHEN bc.bowling_style LIKE 'Left%%' THEN 'Left-arm' ELSE 'Right-arm' END) || ' Pace'
+                WHEN bc.bowling_style IN ('Left-arm pace', 'Right-arm pace')
+                THEN CASE WHEN bc.bowling_style LIKE 'Left%%' THEN 'Left-arm' ELSE 'Right-arm' END || ' Pace'
+                ELSE COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown')
+            END as bowler_type,
             COUNT(*) as balls,
             SUM(fb.batter_runs) as runs,
             SUM(CASE WHEN fb.is_wicket AND fb.player_out_id = fb.batter_id THEN 1 ELSE 0 END) as dismissals,
@@ -1308,7 +1327,14 @@ def create_all_t20_since2023_views(conn: duckdb.DuckDBPyConnection) -> None:
         LEFT JOIN dim_bowler_classification bc ON dp_bowl.player_id = bc.player_id
         WHERE fb.is_legal_ball = TRUE
           AND dm.match_date >= '{IPL_MIN_DATE}'
-        GROUP BY dp_bat.player_id, dp_bat.current_name, COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown')
+        GROUP BY dp_bat.player_id, dp_bat.current_name,
+            CASE
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('Fast', 'Fast-Medium', 'Medium', 'Medium-Fast')
+                THEN COALESCE(sq.bowling_arm, CASE WHEN bc.bowling_style LIKE 'Left%%' THEN 'Left-arm' ELSE 'Right-arm' END) || ' Pace'
+                WHEN bc.bowling_style IN ('Left-arm pace', 'Right-arm pace')
+                THEN CASE WHEN bc.bowling_style LIKE 'Left%%' THEN 'Left-arm' ELSE 'Right-arm' END || ' Pace'
+                ELSE COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown')
+            END
     """)
     print("  - analytics_t20_batter_vs_bowler_type_since2023")
 
@@ -2698,7 +2724,13 @@ def create_benchmark_views(conn: duckdb.DuckDBPyConnection) -> None:
             WHERE dt.tournament_name = 'Indian Premier League'
         )
         SELECT
-            COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') as bowler_type,
+            CASE
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('Fast', 'Fast-Medium', 'Medium', 'Medium-Fast')
+                THEN COALESCE(sq.bowling_arm, CASE WHEN bc.bowling_style LIKE 'Left%' THEN 'Left-arm' ELSE 'Right-arm' END) || ' Pace'
+                WHEN bc.bowling_style IN ('Left-arm pace', 'Right-arm pace')
+                THEN CASE WHEN bc.bowling_style LIKE 'Left%' THEN 'Left-arm' ELSE 'Right-arm' END || ' Pace'
+                ELSE COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown')
+            END as bowler_type,
             COUNT(*) as total_balls,
             SUM(fb.batter_runs) as total_runs,
             SUM(CASE WHEN fb.is_wicket AND fb.player_out_id = fb.batter_id THEN 1 ELSE 0 END) as total_dismissals,
@@ -2712,7 +2744,14 @@ def create_benchmark_views(conn: duckdb.DuckDBPyConnection) -> None:
         LEFT JOIN dim_bowler_classification bc ON dp_bowl.player_id = bc.player_id
         WHERE fb.match_id IN (SELECT match_id FROM ipl_matches)
           AND fb.is_legal_ball = TRUE
-        GROUP BY COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown')
+        GROUP BY
+            CASE
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('Fast', 'Fast-Medium', 'Medium', 'Medium-Fast')
+                THEN COALESCE(sq.bowling_arm, CASE WHEN bc.bowling_style LIKE 'Left%' THEN 'Left-arm' ELSE 'Right-arm' END) || ' Pace'
+                WHEN bc.bowling_style IN ('Left-arm pace', 'Right-arm pace')
+                THEN CASE WHEN bc.bowling_style LIKE 'Left%' THEN 'Left-arm' ELSE 'Right-arm' END || ' Pace'
+                ELSE COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown')
+            END
     """)
     print("  - analytics_ipl_vs_bowler_type_benchmarks")
 
@@ -2903,7 +2942,13 @@ def create_standardized_ipl_views(conn: duckdb.DuckDBPyConnection) -> None:
         SELECT
             dp_bat.player_id as batter_id,
             dp_bat.current_name as batter_name,
-            COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') as bowler_type,
+            CASE
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('Fast', 'Fast-Medium', 'Medium', 'Medium-Fast')
+                THEN COALESCE(sq.bowling_arm, CASE WHEN bc.bowling_style LIKE 'Left%%' THEN 'Left-arm' ELSE 'Right-arm' END) || ' Pace'
+                WHEN bc.bowling_style IN ('Left-arm pace', 'Right-arm pace')
+                THEN CASE WHEN bc.bowling_style LIKE 'Left%%' THEN 'Left-arm' ELSE 'Right-arm' END || ' Pace'
+                ELSE COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown')
+            END as bowler_type,
             COUNT(*) as balls,
             SUM(fb.batter_runs) as runs,
             SUM(CASE WHEN fb.is_wicket AND fb.player_out_id = fb.batter_id THEN 1 ELSE 0 END) as dismissals,
@@ -2925,9 +2970,16 @@ def create_standardized_ipl_views(conn: duckdb.DuckDBPyConnection) -> None:
         LEFT JOIN dim_bowler_classification bc ON dp_bowl.player_id = bc.player_id
         WHERE fb.is_legal_ball = TRUE
           AND fb.match_id IN (SELECT match_id FROM ipl_matches)
-        GROUP BY dp_bat.player_id, dp_bat.current_name, COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown')
+        GROUP BY dp_bat.player_id, dp_bat.current_name,
+            CASE
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('Fast', 'Fast-Medium', 'Medium', 'Medium-Fast')
+                THEN COALESCE(sq.bowling_arm, CASE WHEN bc.bowling_style LIKE 'Left%%' THEN 'Left-arm' ELSE 'Right-arm' END) || ' Pace'
+                WHEN bc.bowling_style IN ('Left-arm pace', 'Right-arm pace')
+                THEN CASE WHEN bc.bowling_style LIKE 'Left%%' THEN 'Left-arm' ELSE 'Right-arm' END || ' Pace'
+                ELSE COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown')
+            END
     """)
-    print("  - analytics_ipl_batter_vs_bowler_type_alltime / _since2023")
+    print("  - analytics_ipl_batter_vs_bowler_type_alltime / _since2023 (arm-specific pace)")
 
     # --- batter_vs_bowler_type_phase ---
     conn.execute(
@@ -2945,7 +2997,13 @@ def create_standardized_ipl_views(conn: duckdb.DuckDBPyConnection) -> None:
         SELECT
             dp_bat.player_id as batter_id,
             dp_bat.current_name as batter_name,
-            COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') as bowler_type,
+            CASE
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('Fast', 'Fast-Medium', 'Medium', 'Medium-Fast')
+                THEN COALESCE(sq.bowling_arm, CASE WHEN bc.bowling_style LIKE 'Left%%' THEN 'Left-arm' ELSE 'Right-arm' END) || ' Pace'
+                WHEN bc.bowling_style IN ('Left-arm pace', 'Right-arm pace')
+                THEN CASE WHEN bc.bowling_style LIKE 'Left%%' THEN 'Left-arm' ELSE 'Right-arm' END || ' Pace'
+                ELSE COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown')
+            END as bowler_type,
             fb.match_phase,
             COUNT(*) as balls,
             SUM(fb.batter_runs) as runs,
@@ -2968,7 +3026,14 @@ def create_standardized_ipl_views(conn: duckdb.DuckDBPyConnection) -> None:
         LEFT JOIN dim_bowler_classification bc ON dp_bowl.player_id = bc.player_id
         WHERE fb.is_legal_ball = TRUE
           AND fb.match_id IN (SELECT match_id FROM ipl_matches)
-        GROUP BY dp_bat.player_id, dp_bat.current_name, COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown'), fb.match_phase
+        GROUP BY dp_bat.player_id, dp_bat.current_name,
+            CASE
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('Fast', 'Fast-Medium', 'Medium', 'Medium-Fast')
+                THEN COALESCE(sq.bowling_arm, CASE WHEN bc.bowling_style LIKE 'Left%%' THEN 'Left-arm' ELSE 'Right-arm' END) || ' Pace'
+                WHEN bc.bowling_style IN ('Left-arm pace', 'Right-arm pace')
+                THEN CASE WHEN bc.bowling_style LIKE 'Left%%' THEN 'Left-arm' ELSE 'Right-arm' END || ' Pace'
+                ELSE COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown')
+            END, fb.match_phase
     """)
     print("  - analytics_ipl_batter_vs_bowler_type_phase_alltime / _since2023")
 
@@ -3928,7 +3993,13 @@ def create_standardized_ipl_views(conn: duckdb.DuckDBPyConnection) -> None:
               AND dm.match_date >= '{IPL_MIN_DATE}'
         )
         SELECT
-            COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') as bowler_type,
+            CASE
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('Fast', 'Fast-Medium', 'Medium', 'Medium-Fast')
+                THEN COALESCE(sq.bowling_arm, CASE WHEN bc.bowling_style LIKE 'Left%%' THEN 'Left-arm' ELSE 'Right-arm' END) || ' Pace'
+                WHEN bc.bowling_style IN ('Left-arm pace', 'Right-arm pace')
+                THEN CASE WHEN bc.bowling_style LIKE 'Left%%' THEN 'Left-arm' ELSE 'Right-arm' END || ' Pace'
+                ELSE COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown')
+            END as bowler_type,
             COUNT(*) as total_balls,
             SUM(fb.batter_runs) as total_runs,
             SUM(CASE WHEN fb.is_wicket AND fb.player_out_id = fb.batter_id THEN 1 ELSE 0 END) as total_dismissals,
@@ -3942,7 +4013,14 @@ def create_standardized_ipl_views(conn: duckdb.DuckDBPyConnection) -> None:
         LEFT JOIN dim_bowler_classification bc ON dp_bowl.player_id = bc.player_id
         WHERE fb.match_id IN (SELECT match_id FROM ipl_matches)
           AND fb.is_legal_ball = TRUE
-        GROUP BY COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown')
+        GROUP BY
+            CASE
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('Fast', 'Fast-Medium', 'Medium', 'Medium-Fast')
+                THEN COALESCE(sq.bowling_arm, CASE WHEN bc.bowling_style LIKE 'Left%%' THEN 'Left-arm' ELSE 'Right-arm' END) || ' Pace'
+                WHEN bc.bowling_style IN ('Left-arm pace', 'Right-arm pace')
+                THEN CASE WHEN bc.bowling_style LIKE 'Left%%' THEN 'Left-arm' ELSE 'Right-arm' END || ' Pace'
+                ELSE COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown')
+            END
     """)
     conn.execute("""
         CREATE OR REPLACE VIEW analytics_ipl_vs_bowler_type_benchmarks_alltime AS
@@ -3953,7 +4031,13 @@ def create_standardized_ipl_views(conn: duckdb.DuckDBPyConnection) -> None:
             WHERE dt.tournament_name = 'Indian Premier League'
         )
         SELECT
-            COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') as bowler_type,
+            CASE
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('Fast', 'Fast-Medium', 'Medium', 'Medium-Fast')
+                THEN COALESCE(sq.bowling_arm, CASE WHEN bc.bowling_style LIKE 'Left%' THEN 'Left-arm' ELSE 'Right-arm' END) || ' Pace'
+                WHEN bc.bowling_style IN ('Left-arm pace', 'Right-arm pace')
+                THEN CASE WHEN bc.bowling_style LIKE 'Left%' THEN 'Left-arm' ELSE 'Right-arm' END || ' Pace'
+                ELSE COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown')
+            END as bowler_type,
             COUNT(*) as total_balls,
             SUM(fb.batter_runs) as total_runs,
             SUM(CASE WHEN fb.is_wicket AND fb.player_out_id = fb.batter_id THEN 1 ELSE 0 END) as total_dismissals,
@@ -3967,7 +4051,14 @@ def create_standardized_ipl_views(conn: duckdb.DuckDBPyConnection) -> None:
         LEFT JOIN dim_bowler_classification bc ON dp_bowl.player_id = bc.player_id
         WHERE fb.match_id IN (SELECT match_id FROM ipl_matches)
           AND fb.is_legal_ball = TRUE
-        GROUP BY COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown')
+        GROUP BY
+            CASE
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('Fast', 'Fast-Medium', 'Medium', 'Medium-Fast')
+                THEN COALESCE(sq.bowling_arm, CASE WHEN bc.bowling_style LIKE 'Left%' THEN 'Left-arm' ELSE 'Right-arm' END) || ' Pace'
+                WHEN bc.bowling_style IN ('Left-arm pace', 'Right-arm pace')
+                THEN CASE WHEN bc.bowling_style LIKE 'Left%' THEN 'Left-arm' ELSE 'Right-arm' END || ' Pace'
+                ELSE COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown')
+            END
     """)
     print("  - analytics_ipl_vs_bowler_type_benchmarks_since2023 / _alltime")
 

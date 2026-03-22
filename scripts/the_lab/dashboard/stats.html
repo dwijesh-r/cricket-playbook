@@ -1303,7 +1303,12 @@
         if (profile.age) html += '<span class="pd-meta-item">Age: ' + profile.age + '</span>';
         if (profile.nationality) html += '<span class="pd-meta-item">' + escHtml(profile.nationality) + '</span>';
         if (profile.batting_hand) html += '<span class="pd-meta-item">' + escHtml(profile.batting_hand) + ' bat</span>';
-        if (profile.bowling_type) html += '<span class="pd-meta-item">' + escHtml(profile.bowling_type) + '</span>';
+        if (profile.bowling_arm || profile.bowling_type) {
+            var bowlDesc = '';
+            if (profile.bowling_arm) bowlDesc += profile.bowling_arm + ' ';
+            if (profile.bowling_type) bowlDesc += profile.bowling_type;
+            html += '<span class="pd-meta-item">' + escHtml(bowlDesc.trim()) + '</span>';
+        }
         html += '</div></div>';
 
         // IPL vs All T20 Comparison (always visible)
@@ -1506,12 +1511,16 @@
 
     // Consolidate duplicate bowling types: merge stats by weighted average
     var BOWL_TYPE_MAP = {
+        'Fast': 'Pace',
+        'Fast-Medium': 'Pace',
+        'Medium': 'Pace',
         'Wrist-spin': 'Wrist Spin',
         'Leg-spin': 'Wrist Spin',
         'LA Orthodox': 'Left-arm Orthodox',
         'Left-arm orthodox': 'Left-arm Orthodox',
         'Off-Spin/Leg-Spin': 'Off-spin',
-        'Off-Spin/Left-Arm Orthodox': 'Off-spin'
+        'Off-Spin/Left-Arm Orthodox': 'Off-spin',
+        'Unknown': '_HIDDEN_'
     };
 
     function consolidateBowlTypes(vsBowl) {
@@ -1554,6 +1563,7 @@
         if (!vsBowlRaw) return '';
 
         var vsBowl = consolidateBowlTypes(vsBowlRaw);
+        delete vsBowl['_HIDDEN_'];
         var types = Object.keys(vsBowl);
         if (types.length === 0) return '';
 

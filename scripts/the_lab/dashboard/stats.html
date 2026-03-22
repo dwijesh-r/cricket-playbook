@@ -633,14 +633,13 @@
             </select>
             <select class="filter-select" id="phaseFilter" onchange="applyFilters()">
                 <option value="">All Phases</option>
-                <option value="powerplay">Powerplay</option>
-                <option value="middle">Middle</option>
-                <option value="death">Death</option>
+                <option value="powerplay">Powerplay (1-6)</option>
+                <option value="middle">Middle (7-15)</option>
+                <option value="death">Death (16-20)</option>
             </select>
             <select class="filter-select" id="bowlTypeFilter" onchange="applyFilters()" style="display:none;">
                 <option value="">All Bowl Types</option>
-                <option value="Fast">Fast</option>
-                <option value="Fast-Medium">Fast-Medium</option>
+                <option value="Pace">Pace (Fast + Fast-Medium)</option>
                 <option value="Off-spin">Off-spin</option>
                 <option value="Leg-spin">Leg-spin</option>
                 <option value="Left-arm Orthodox">Left-arm Orthodox</option>
@@ -794,7 +793,27 @@
             return section.phase ? section.phase[filterValue] || null : null;
         }
         if (filterType === 'vs_bowling_type') {
-            return section.vs_bowling_type ? section.vs_bowling_type[filterValue] || null : null;
+            if (!section.vs_bowling_type) return null;
+            if (filterValue === 'Pace') {
+                // Aggregate Fast + Fast-Medium + Medium
+                var keys = ['Fast', 'Fast-Medium', 'Medium'];
+                var agg = null;
+                keys.forEach(function(k) {
+                    var d = section.vs_bowling_type[k];
+                    if (!d) return;
+                    if (!agg) { agg = {}; for (var p in d) agg[p] = 0; }
+                    agg.balls = (agg.balls || 0) + (d.balls || 0);
+                    agg.runs = (agg.runs || 0) + (d.runs || 0);
+                    agg.dismissals = (agg.dismissals || 0) + (d.dismissals || 0);
+                    agg.innings = (agg.innings || 0) + (d.innings || 0);
+                });
+                if (agg && agg.balls > 0) {
+                    agg.sr = (agg.runs / agg.balls) * 100;
+                    agg.avg = agg.dismissals > 0 ? agg.runs / agg.dismissals : 0;
+                }
+                return agg;
+            }
+            return section.vs_bowling_type[filterValue] || null;
         }
         if (filterType === 'vs_teams') {
             if (!section.vs_teams) return null;
@@ -1129,7 +1148,8 @@
             var p = data[i];
             html += '<tr onclick="showPlayerDetail(\'' + p.name.replace(/'/g, "\\'") + '\')" style="cursor:pointer;">';
             html += '<td>' + (startIdx + i + 1) + '</td>';
-            html += '<td><span class="player-name">' + p.name + '</span></td>';
+            var armTag = (cat === 'bowling' && p.bowlingArm) ? ' <span style="font-size:9px;font-weight:600;padding:1px 4px;border-radius:3px;background:rgba(148,163,184,0.15);color:var(--text-secondary);vertical-align:middle;margin-left:4px;">' + p.bowlingArm.replace('-arm','').trim()[0] + 'A ' + (p.bowlingType || '').replace('Fast-Medium','FM').replace('Fast','F').replace('Left-arm orthodox','LA Orth') + '</span>' : '';
+            html += '<td><span class="player-name">' + p.name + '</span>' + armTag + '</td>';
             html += '<td>' + getTeamBadge(p.team) + '</td>';
 
             if (advanced) {

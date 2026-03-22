@@ -9823,7 +9823,7 @@ function generateXIImage(customXI, customTitle) {
     const W = 1080, H = 1350;
     const tc = team.primaryColor || '#E8734A';
 
-    const FLAGS = { IND:'🇮🇳', AUS:'🇦🇺', ENG:'🏴󠁧󠁢󠁥󠁮󠁧󠁿', NZ:'🇳🇿', RSA:'🇿🇦', WI:'🇼🇮', SL:'🇱🇰', AFG:'🇦🇫', BAN:'🇧🇩', ZIM:'🇿🇼', PAK:'🇵🇰', IRE:'🇮🇪', SCO:'🏴󠁧󠁢󠁳󠁣󠁴󠁿', NED:'🇳🇱', USA:'🇺🇸', NEP:'🇳🇵', NAM:'🇳🇦' };
+    // Use text codes — Canvas emoji rendering is unreliable across platforms
 
     // — Background —
     ctx.fillStyle = '#0A0A0C';
@@ -9901,21 +9901,18 @@ function generateXIImage(customXI, customTitle) {
         // Player name
         ctx.font = '600 20px -apple-system, sans-serif';
         ctx.fillStyle = '#FAFAFA';
-        var nameStr = p.name;
-        if (isCap) nameStr += '  (C)';
-        else if (isWK) nameStr += '  (WK)';
-        ctx.fillText(nameStr, 140, y + 4);
+        ctx.fillText(p.name, 140, y + 4);
 
         // Role — below name, muted
         ctx.font = '400 12px -apple-system, sans-serif';
         ctx.fillStyle = 'rgba(255,255,255,0.35)';
         ctx.fillText(role, 140, y + 24);
 
-        // Right side: flag + age
+        // Right side: country + age
         ctx.textAlign = 'right';
-        ctx.font = '400 13px -apple-system, sans-serif';
-        ctx.fillStyle = 'rgba(255,255,255,0.4)';
-        var rightText = (FLAGS[nat] || nat) + (age ? '  · ' + age + 'y' : '');
+        ctx.font = '500 12px -apple-system, sans-serif';
+        ctx.fillStyle = 'rgba(255,255,255,0.35)';
+        var rightText = nat + (age ? '  ·  ' + age + 'y' : '');
         ctx.fillText(rightText, W - 88, y + 4);
 
         ctx.textAlign = 'left';
@@ -9947,7 +9944,7 @@ function generateXIImage(customXI, customTitle) {
             ctx.textAlign = 'right';
             var subRole = s.role || sq.role || '';
             var subNat = sq.nationality || '';
-            ctx.fillText(subRole + (subNat ? '  ·  ' + (FLAGS[subNat] || subNat) : ''), W - 88, y);
+            ctx.fillText(subRole + (subNat ? '  ·  ' + subNat : ''), W - 88, y);
             ctx.textAlign = 'left';
             y += 30;
         });

@@ -8368,6 +8368,7 @@
                             <button class="bxi-action-btn primary" onclick="bxiAutoFill()">Auto-fill Lab XI</button>
                             <button class="bxi-action-btn" onclick="bxiClearAll()">Clear All</button>
                             <button class="bxi-action-btn" onclick="bxiExport()">Export</button>
+                            <button class="bxi-action-btn" onclick="shareBuildXI()" ${xi11.length < 11 ? 'disabled style="opacity:0.4;cursor:not-allowed;"' : ''}>Share Your XI</button>
                         </div>
                         <div class="constraint-panel">
                             <h4>Constraint Check</h4>
@@ -9800,203 +9801,196 @@ function sendChat() {
 let _shareCanvasDataURL = null;
 let _shareTeamName = '';
 
-function generateXIImage() {
+function generateXIImage(customXI, customTitle) {
     const team = TEAMS[currentTeam];
     const predicted = PREDICTED_XII[currentTeam];
-    if (!team || !predicted) return null;
+    if (!team) return null;
+
+    const isCustom = !!customXI;
+    const xiPlayers = isCustom ? customXI.xi : (predicted ? predicted.xi : []);
+    const subs = isCustom ? (customXI.subs || []) : (predicted ? (predicted.impactSubs || (predicted.impactPlayer ? [predicted.impactPlayer] : [])) : []);
+    const title = customTitle || 'PREDICTED XI';
+    if (!xiPlayers.length) return null;
+
+    const squad = (typeof FULL_SQUADS !== 'undefined' && FULL_SQUADS[currentTeam]) ? FULL_SQUADS[currentTeam] : [];
+    const squadLookup = {};
+    squad.forEach(function(p) { squadLookup[p.name] = p; });
 
     const canvas = document.createElement('canvas');
     canvas.width = 1080;
     canvas.height = 1350;
     const ctx = canvas.getContext('2d');
-    const W = canvas.width;
-    const H = canvas.height;
-    const teamColor = team.primaryColor || '#E8734A';
+    const W = 1080, H = 1350;
+    const tc = team.primaryColor || '#E8734A';
 
-    // Background
-    const bgGrad = ctx.createLinearGradient(0, 0, 0, H);
-    bgGrad.addColorStop(0, '#09090B');
-    bgGrad.addColorStop(0.5, '#111114');
-    bgGrad.addColorStop(1, '#09090B');
-    ctx.fillStyle = bgGrad;
+    const FLAGS = { IND:'🇮🇳', AUS:'🇦🇺', ENG:'🏴󠁧󠁢󠁥󠁮󠁧󠁿', NZ:'🇳🇿', RSA:'🇿🇦', WI:'🇼🇮', SL:'🇱🇰', AFG:'🇦🇫', BAN:'🇧🇩', ZIM:'🇿🇼', PAK:'🇵🇰', IRE:'🇮🇪', SCO:'🏴󠁧󠁢󠁳󠁣󠁴󠁿', NED:'🇳🇱', USA:'🇺🇸', NEP:'🇳🇵', NAM:'🇳🇦' };
+
+    // — Background —
+    ctx.fillStyle = '#0A0A0C';
+    ctx.fillRect(0, 0, W, H);
+    // Subtle vertical gradient wash
+    var grd = ctx.createLinearGradient(0, 0, 0, H);
+    grd.addColorStop(0, 'rgba(255,255,255,0.012)');
+    grd.addColorStop(0.5, 'transparent');
+    grd.addColorStop(1, 'rgba(255,255,255,0.008)');
+    ctx.fillStyle = grd;
     ctx.fillRect(0, 0, W, H);
 
-    // Subtle team color accent line at top
-    const accentGrad = ctx.createLinearGradient(0, 0, W, 0);
-    accentGrad.addColorStop(0, 'transparent');
-    accentGrad.addColorStop(0.3, teamColor);
-    accentGrad.addColorStop(0.7, teamColor);
-    accentGrad.addColorStop(1, 'transparent');
-    ctx.fillStyle = accentGrad;
-    ctx.fillRect(0, 0, W, 4);
+    // Top accent bar
+    ctx.fillStyle = tc;
+    ctx.fillRect(0, 0, W, 5);
 
-    // Subtle background pattern - diagonal lines
-    ctx.strokeStyle = 'rgba(255,255,255,0.015)';
-    ctx.lineWidth = 1;
-    for (let i = -H; i < W + H; i += 40) {
-        ctx.beginPath();
-        ctx.moveTo(i, 0);
-        ctx.lineTo(i + H, H);
-        ctx.stroke();
+    // — Header —
+    var y = 56;
+    ctx.textAlign = 'left';
+    ctx.font = '300 13px -apple-system, sans-serif';
+    ctx.fillStyle = 'rgba(255,255,255,0.35)';
+    ctx.fillText('STATSLEDGE', 72, y);
+    ctx.textAlign = 'right';
+    ctx.fillText('IPL 2026', W - 72, y);
+
+    y += 48;
+    ctx.textAlign = 'left';
+    ctx.font = '800 44px -apple-system, sans-serif';
+    ctx.fillStyle = '#FFF';
+    ctx.fillText(team.fullName.toUpperCase(), 72, y);
+
+    y += 14;
+    ctx.fillStyle = tc;
+    ctx.fillRect(72, y, 64, 3);
+
+    y += 28;
+    ctx.font = '500 14px -apple-system, sans-serif';
+    ctx.fillStyle = tc;
+    ctx.fillText(title, 72, y);
+    if (predicted && predicted.captain) {
+        ctx.textAlign = 'right';
+        ctx.fillStyle = 'rgba(255,255,255,0.3)';
+        ctx.font = '400 13px -apple-system, sans-serif';
+        ctx.fillText('Captain: ' + predicted.captain, W - 72, y);
     }
 
-    let y = 60;
-
-    // STATSLEDGE branding
-    ctx.font = '700 14px Inter, -apple-system, sans-serif';
-    ctx.fillStyle = 'rgba(255,255,255,0.4)';
-    ctx.letterSpacing = '6px';
-    ctx.textAlign = 'center';
-    ctx.fillText('S T A T S L E D G E', W / 2, y);
-    y += 36;
-
-    // IPL 2026 PREDICTED XI
-    ctx.font = '600 13px Inter, -apple-system, sans-serif';
-    ctx.fillStyle = teamColor;
-    ctx.fillText('IPL 2026 PREDICTED XI', W / 2, y);
-    y += 50;
-
-    // Team name
-    ctx.font = '800 48px Inter, -apple-system, sans-serif';
-    ctx.fillStyle = '#FFFFFF';
-    ctx.fillText(team.fullName.toUpperCase(), W / 2, y);
-    y += 20;
-
-    // Team color underline
-    const nameWidth = Math.min(ctx.measureText(team.fullName.toUpperCase()).width, W - 160);
-    ctx.fillStyle = teamColor;
-    ctx.fillRect((W - nameWidth) / 2, y, nameWidth, 3);
-    y += 50;
-
-    // Divider
+    // — Divider —
+    y += 28;
     ctx.fillStyle = 'rgba(255,255,255,0.06)';
-    ctx.fillRect(80, y, W - 160, 1);
-    y += 30;
+    ctx.fillRect(72, y, W - 144, 1);
+    y += 32;
 
-    // Column headers
-    ctx.font = '700 11px Inter, -apple-system, sans-serif';
-    ctx.fillStyle = 'rgba(255,255,255,0.35)';
-    ctx.textAlign = 'left';
-    ctx.fillText('#', 100, y);
-    ctx.fillText('PLAYER', 140, y);
-    ctx.textAlign = 'right';
-    ctx.fillText('ROLE', W - 100, y);
-    y += 16;
+    // — Player rows —
+    var ROW_H = 64;
+    xiPlayers.forEach(function(p, i) {
+        var sq = squadLookup[p.name] || {};
+        var nat = sq.nationality || (p.overseas ? 'OS' : 'IND');
+        var age = sq.age || '';
+        var role = p.role || sq.role || '';
+        var isCap = p.name === (predicted ? predicted.captain : '');
+        var isWK = role.includes('Wicket') || role.includes('Keeper');
 
-    ctx.fillStyle = 'rgba(255,255,255,0.06)';
-    ctx.fillRect(80, y, W - 160, 1);
-    y += 24;
-
-    // Players
-    const xiPlayers = predicted.xi || [];
-    const roleShort = (role) => {
-        if (!role) return '';
-        if (role.includes('Wicket') || role.includes('Keeper')) return 'WK';
-        if (role.includes('All')) return 'AR';
-        if (role.includes('Pace') || role === 'Bowler') return 'BOWL';
-        if (role.includes('Spin') || role === 'Spinner') return 'SPIN';
-        return 'BAT';
-    };
-    const roleColor = (role) => {
-        const r = roleShort(role);
-        if (r === 'BAT') return '#3B82F6';
-        if (r === 'BOWL' || r === 'SPIN') return '#22C55E';
-        if (r === 'AR') return '#A855F7';
-        if (r === 'WK') return '#EAB308';
-        return '#888';
-    };
-
-    xiPlayers.forEach((p, i) => {
-        const isKeeper = (p.role || '').includes('Wicket') || (p.role || '').includes('Keeper');
-        const badges = [];
-        if (p.isCaptain) badges.push('C');
-        if (isKeeper) badges.push('WK');
-        const badgeStr = badges.length > 0 ? ' (' + badges.join(', ') + ')' : '';
-
-        // Row background - alternating subtle
+        // Alternating row bg
         if (i % 2 === 0) {
-            ctx.fillStyle = 'rgba(255,255,255,0.02)';
-            ctx.beginPath();
-            ctx.roundRect(85, y - 18, W - 170, 52, 6);
-            ctx.fill();
+            ctx.fillStyle = 'rgba(255,255,255,0.018)';
+            ctx.fillRect(72, y - 20, W - 144, ROW_H);
         }
 
         // Position number
-        ctx.font = '700 16px Inter, -apple-system, sans-serif';
-        ctx.fillStyle = 'rgba(255,255,255,0.25)';
         ctx.textAlign = 'left';
-        ctx.fillText(String(i + 1), 105, y + 6);
+        ctx.font = '600 14px -apple-system, sans-serif';
+        ctx.fillStyle = 'rgba(255,255,255,0.2)';
+        ctx.fillText(String(i + 1).padStart(2, '0'), 88, y + 4);
 
         // Player name
-        ctx.font = '600 18px Inter, -apple-system, sans-serif';
-        ctx.fillStyle = '#FFFFFF';
-        ctx.fillText(p.name + badgeStr, 145, y + 6);
+        ctx.font = '600 20px -apple-system, sans-serif';
+        ctx.fillStyle = '#FAFAFA';
+        var nameStr = p.name;
+        if (isCap) nameStr += '  (C)';
+        else if (isWK) nameStr += '  (WK)';
+        ctx.fillText(nameStr, 140, y + 4);
 
-        // Role badge
-        const rShort = roleShort(p.role);
-        const rCol = roleColor(p.role);
+        // Role — below name, muted
+        ctx.font = '400 12px -apple-system, sans-serif';
+        ctx.fillStyle = 'rgba(255,255,255,0.35)';
+        ctx.fillText(role, 140, y + 24);
+
+        // Right side: flag + age
         ctx.textAlign = 'right';
-        ctx.font = '700 11px Inter, -apple-system, sans-serif';
-        const rWidth = ctx.measureText(rShort).width + 16;
-        ctx.fillStyle = rCol + '20';
-        ctx.beginPath();
-        ctx.roundRect(W - 100 - rWidth / 2 - 8, y - 8, rWidth + 16, 26, 4);
-        ctx.fill();
-        ctx.fillStyle = rCol;
-        ctx.fillText(rShort, W - 100 + rWidth / 2, y + 6);
-
-        // Role full text below
-        ctx.font = '400 11px Inter, -apple-system, sans-serif';
-        ctx.fillStyle = 'rgba(255,255,255,0.3)';
-        ctx.fillText(p.role || '', W - 100 + rWidth / 2, y + 22);
+        ctx.font = '400 13px -apple-system, sans-serif';
+        ctx.fillStyle = 'rgba(255,255,255,0.4)';
+        var rightText = (FLAGS[nat] || nat) + (age ? '  · ' + age + 'y' : '');
+        ctx.fillText(rightText, W - 88, y + 4);
 
         ctx.textAlign = 'left';
-        y += 56;
+        y += ROW_H;
     });
 
-    y += 10;
-
-    // Divider before impact subs
+    // — Impact Subs —
+    y += 12;
     ctx.fillStyle = 'rgba(255,255,255,0.06)';
-    ctx.fillRect(80, y, W - 160, 1);
+    ctx.fillRect(72, y, W - 144, 1);
     y += 28;
 
-    // Impact Subs
-    const subs = predicted.impactSubs || (predicted.impactPlayer ? [predicted.impactPlayer] : []);
     if (subs.length > 0) {
-        ctx.font = '700 11px Inter, -apple-system, sans-serif';
-        ctx.fillStyle = teamColor;
+        ctx.font = '600 11px -apple-system, sans-serif';
+        ctx.fillStyle = tc;
         ctx.textAlign = 'left';
-        ctx.fillText('IMPACT SUB OPTIONS', 100, y);
-        y += 24;
+        ctx.fillText('IMPACT SUBSTITUTES', 88, y);
+        y += 28;
 
-        subs.forEach((s) => {
-            ctx.font = '500 15px Inter, -apple-system, sans-serif';
-            ctx.fillStyle = 'rgba(255,255,255,0.7)';
+        subs.forEach(function(s) {
+            var sq = squadLookup[s.name] || {};
+            ctx.font = '500 16px -apple-system, sans-serif';
+            ctx.fillStyle = 'rgba(255,255,255,0.65)';
             ctx.textAlign = 'left';
-            ctx.fillText(s.name, 115, y);
+            ctx.fillText(s.name, 104, y);
 
-            ctx.font = '400 12px Inter, -apple-system, sans-serif';
+            ctx.font = '400 12px -apple-system, sans-serif';
             ctx.fillStyle = 'rgba(255,255,255,0.3)';
             ctx.textAlign = 'right';
-            ctx.fillText(s.role || '', W - 100, y);
-            y += 28;
+            var subRole = s.role || sq.role || '';
+            var subNat = sq.nationality || '';
+            ctx.fillText(subRole + (subNat ? '  ·  ' + (FLAGS[subNat] || subNat) : ''), W - 88, y);
+            ctx.textAlign = 'left';
+            y += 30;
         });
     }
 
-    // Bottom watermark
-    ctx.font = '600 12px Inter, -apple-system, sans-serif';
+    // — Footer —
+    ctx.fillStyle = 'rgba(255,255,255,0.06)';
+    ctx.fillRect(72, H - 64, W - 144, 1);
+    ctx.font = '300 11px -apple-system, sans-serif';
     ctx.fillStyle = 'rgba(255,255,255,0.2)';
-    ctx.textAlign = 'center';
-    ctx.fillText('statsledge.com', W / 2, H - 40);
+    ctx.textAlign = 'left';
+    ctx.fillText('statsledge.com', 72, H - 36);
+    ctx.textAlign = 'right';
+    ctx.fillText('Data: IPL 2023–2025', W - 72, H - 36);
 
-    // Bottom accent line
-    ctx.fillStyle = accentGrad;
-    ctx.fillRect(0, H - 4, W, 4);
+    // Bottom accent
+    ctx.fillStyle = tc;
+    ctx.fillRect(0, H - 5, W, 5);
 
     _shareTeamName = team.fullName;
     _shareCanvasDataURL = canvas.toDataURL('image/png');
     return _shareCanvasDataURL;
+}
+
+function shareBuildXI() {
+    var xi11 = buildXIState.slots.slice(0, 11).filter(Boolean);
+    if (xi11.length < 11) return;
+    var impactPlayer = buildXIState.slots[11];
+    var customXI = {
+        xi: xi11.map(function(p, i) {
+            return { position: i + 1, name: p.name, role: p.role, overseas: p.overseas };
+        }),
+        subs: impactPlayer ? [{ name: impactPlayer.name, role: impactPlayer.role }] : []
+    };
+    var dataURL = generateXIImage(customXI, 'MY XI');
+    if (!dataURL) return;
+    var preview = document.getElementById('share-preview-container');
+    preview.innerHTML = '<img src="' + dataURL + '" alt="My XI">';
+    var shareText = encodeURIComponent('My ' + TEAMS[currentTeam].fullName + ' XI for IPL 2026 — built on statsledge.com');
+    var shareURL = encodeURIComponent('https://statsledge.com/teams.html');
+    document.getElementById('share-x-btn').href = 'https://twitter.com/intent/tweet?text=' + shareText + '&url=' + shareURL;
+    document.getElementById('share-wa-btn').href = 'https://api.whatsapp.com/send?text=' + shareText + '%20' + shareURL;
+    document.getElementById('share-modal-overlay').classList.add('active');
 }
 
 function shareXI() {

@@ -639,11 +639,10 @@
             </select>
             <select class="filter-select" id="bowlTypeFilter" onchange="applyFilters()" style="display:none;">
                 <option value="">All Bowl Types</option>
-                <option value="Right-arm Pace">Right-arm Pace</option>
-                <option value="Left-arm Pace">Left-arm Pace</option>
+                <option value="Pace">Pace</option>
                 <option value="Off-spin">Off-spin</option>
-                <option value="Left-arm Orthodox">Left-arm Orthodox</option>
-                <option value="Wrist Spin">Wrist Spin</option>
+                <option value="LA Orthodox">Left-arm Orthodox</option>
+                <option value="Wrist-spin">Wrist Spin</option>
             </select>
             <select class="filter-select" id="vsTeamFilter" onchange="applyFilters()">
                 <option value="">All Opponents</option>
@@ -794,6 +793,23 @@
         }
         if (filterType === 'vs_bowling_type') {
             if (!section.vs_bowling_type) return null;
+            if (filterValue === 'Pace') {
+                var keys = ['Fast', 'Fast-Medium', 'Medium', 'Right-arm Pace', 'Left-arm Pace'];
+                var agg = { balls: 0, runs: 0, dismissals: 0 };
+                var found = false;
+                keys.forEach(function(k) {
+                    var d = section.vs_bowling_type[k];
+                    if (!d) return;
+                    found = true;
+                    agg.balls += (d.balls || 0);
+                    agg.runs += (d.runs || 0);
+                    if (d.avg && d.avg > 0 && (d.runs || 0) > 0) agg.dismissals += Math.round((d.runs || 0) / d.avg);
+                });
+                if (!found) return null;
+                agg.sr = agg.balls > 0 ? (agg.runs / agg.balls) * 100 : 0;
+                agg.avg = agg.dismissals > 0 ? agg.runs / agg.dismissals : null;
+                return agg;
+            }
             return section.vs_bowling_type[filterValue] || null;
         }
         if (filterType === 'vs_teams') {
@@ -840,10 +856,11 @@
         { key: '#', label: '#', sortable: false },
         { key: 'name', label: 'Player', sortable: true },
         { key: 'team', label: 'Team', sortable: true },
+        { key: 'runs', label: 'Runs', sortable: true },
+        { key: 'balls', label: 'Balls', sortable: true },
         { key: 'sr', label: 'SR', sortable: true },
         { key: 'avg', label: 'Avg', sortable: true },
-        { key: 'boundary_pct', label: 'Boundary%', sortable: true },
-        { key: 'dot_pct', label: 'Dot%', sortable: true }
+        { key: 'boundary_pct', label: 'Bndry%', sortable: true }
     ];
 
     const BOWLING_PHASE_COLS = [
@@ -874,8 +891,7 @@
         { key: '#', label: '#', sortable: false },
         { key: 'name', label: 'Player', sortable: true },
         { key: 'team', label: 'Team', sortable: true },
-        { key: 'runs', label: 'Runs', sortable: true },
-        { key: 'balls', label: 'Balls', sortable: true },
+        { key: 'innings', label: 'Inn', sortable: true },
         { key: 'sr', label: 'SR', sortable: true },
         { key: 'avg', label: 'Avg', sortable: true }
     ];
@@ -940,6 +956,9 @@
             if (phaseF) {
                 var ps = getProfileStats(p.name, cat, 'phase', phaseF);
                 if (!ps) return false;
+                // Sample size guardrail: minimum 20 balls for batting, 12 for bowling
+                var minBalls = cat === 'batting' ? 20 : 12;
+                if ((ps.balls || 0) < minBalls) return false;
             }
             if (bowlTypeF && cat === 'batting') {
                 var bs = getProfileStats(p.name, cat, 'vs_bowling_type', bowlTypeF);

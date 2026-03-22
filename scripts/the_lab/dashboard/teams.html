@@ -5352,6 +5352,12 @@
             <div class="panel" id="panel-xi" role="tabpanel" aria-labelledby="tab-xi">
                 <div class="xi-grid" id="xi-grid"></div>
                 <div class="impact-player" id="impact-player"></div>
+                <div id="share-xi-btn-static" style="display:none;">
+                    <button class="share-xi-btn" onclick="shareXI()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+                        Share Predicted XI
+                    </button>
+                </div>
             </div>
             <div class="panel" id="panel-squad" role="tabpanel" aria-labelledby="tab-squad">
                 <div id="squad-content"></div>
@@ -5757,18 +5763,9 @@
                 </div>
             `;
 
-            // Share XI Button — remove existing before adding
-            var existingShareBtn = document.getElementById('share-xi-btn-wrap');
-            if (existingShareBtn) existingShareBtn.remove();
-            const shareBtn = document.createElement('div');
-            shareBtn.id = 'share-xi-btn-wrap';
-            shareBtn.innerHTML = `
-                <button class="share-xi-btn" onclick="shareXI()">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
-                    Share Predicted XI
-                </button>
-            `;
-            impact.parentNode.insertBefore(shareBtn, impact.nextSibling);
+            // Share XI Button — show the static one
+            var shareBtn = document.getElementById('share-xi-btn-static');
+            if (shareBtn) shareBtn.style.display = '';
 
             // ========== STRATEGY OUTLOOK (Kevin De Bruyne Redesign) ==========
             const balance = predicted.balance;

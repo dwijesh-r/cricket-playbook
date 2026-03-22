@@ -242,8 +242,9 @@ jobs:
         run: |
           echo "Generating Lab dashboard data files..."
           python scripts/the_lab/update_the_lab.py
-          # Restore founder-curated predicted XII (not auto-generated)
+          # Restore founder-curated files (not auto-generated)
           git checkout -- scripts/the_lab/dashboard/data/predicted_xii.js 2>/dev/null || true
+          git checkout -- scripts/the_lab/dashboard/data/full_squads.js 2>/dev/null || true
           echo "Lab dashboard data generated (predicted_xii.js preserved)"
 
       - name: Generate Lab pressure metrics

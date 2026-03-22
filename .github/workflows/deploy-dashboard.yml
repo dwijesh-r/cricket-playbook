@@ -71,10 +71,11 @@ jobs:
           echo "Updating Statsledge dashboard data..."
           python scripts/the_lab/update_the_lab.py
           echo "Dashboard data updated"
-          # Restore founder-curated files (not auto-generated)
+          # Restore locally-curated files (not auto-generated on CI)
           git checkout -- scripts/the_lab/dashboard/data/predicted_xii.js 2>/dev/null || true
           git checkout -- scripts/the_lab/dashboard/data/full_squads.js 2>/dev/null || true
-          echo "Preserved founder-curated predicted_xii.js and full_squads.js"
+          git checkout -- scripts/the_lab/dashboard/data/player_profiles_scoped.js 2>/dev/null || true
+          echo "Preserved curated data files"
 
       - name: Check for changes
         id: changes

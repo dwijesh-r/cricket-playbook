@@ -9903,7 +9903,6 @@ function generateXIImage(customXI, customTitle) {
     if (team.captain) metaItems.push('Captain: ' + team.captain);
     if (team.coach) metaItems.push('Coach: ' + team.coach);
     if (titles > 0) metaItems.push('Titles: ' + titles);
-    if (lastFinish) metaItems.push('2025: ' + lastFinish);
     ctx.fillText(metaItems.join('   ·   '), metaX, y + 16);
 
     // === DIVIDER ===
@@ -9978,20 +9977,48 @@ function generateXIImage(customXI, customTitle) {
         ctx.fillText('IMPACT SUBSTITUTES', 88, y);
         y += 24;
 
-        subs.forEach(function(s) {
+        var SUB_H = 52;
+        subs.forEach(function(s, si) {
             var sq = squadLookup[s.name] || {};
-            ctx.font = '500 15px -apple-system, sans-serif';
-            ctx.fillStyle = 'rgba(255,255,255,0.6)';
-            ctx.textAlign = 'left';
-            ctx.fillText(s.name, 100, y);
-
-            ctx.font = '400 11px -apple-system, sans-serif';
-            ctx.fillStyle = 'rgba(255,255,255,0.28)';
-            ctx.textAlign = 'right';
+            var subNat = sq.nationality || '';
+            var subAge = sq.age || '';
             var subRole = s.role || sq.role || '';
-            ctx.fillText(subRole, W - 88, y);
+
+            // Gradient background row - distinct from XI rows
+            var subGrad = ctx.createLinearGradient(72, y - 14, W - 72, y - 14);
+            subGrad.addColorStop(0, tc + '12');
+            subGrad.addColorStop(1, 'transparent');
+            ctx.fillStyle = subGrad;
+            ctx.fillRect(72, y - 14, W - 144, SUB_H);
+
+            // Left team color bar
+            ctx.fillStyle = tc + '40';
+            ctx.fillRect(72, y - 14, 3, SUB_H);
+
+            // Position label
             ctx.textAlign = 'left';
-            y += 26;
+            ctx.font = '600 11px -apple-system, sans-serif';
+            ctx.fillStyle = tc + '70';
+            ctx.fillText('SUB', 88, y + 4);
+
+            // Player name
+            ctx.font = '600 17px -apple-system, sans-serif';
+            ctx.fillStyle = 'rgba(255,255,255,0.7)';
+            ctx.fillText(s.name, 136, y + 4);
+
+            // Role below
+            ctx.font = '400 11px -apple-system, sans-serif';
+            ctx.fillStyle = 'rgba(255,255,255,0.3)';
+            ctx.fillText(subRole, 136, y + 20);
+
+            // Right: country + age
+            ctx.textAlign = 'right';
+            ctx.font = '500 11px -apple-system, sans-serif';
+            ctx.fillStyle = 'rgba(255,255,255,0.3)';
+            ctx.fillText(subNat + (subAge ? '  ·  ' + subAge : ''), W - 88, y + 4);
+
+            ctx.textAlign = 'left';
+            y += SUB_H;
         });
     }
 

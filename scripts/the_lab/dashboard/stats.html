@@ -1148,7 +1148,13 @@
             var p = data[i];
             html += '<tr onclick="showPlayerDetail(\'' + p.name.replace(/'/g, "\\'") + '\')" style="cursor:pointer;">';
             html += '<td>' + (startIdx + i + 1) + '</td>';
-            var armTag = (cat === 'bowling' && p.bowlingArm) ? ' <span style="font-size:9px;font-weight:600;padding:1px 4px;border-radius:3px;background:rgba(148,163,184,0.15);color:var(--text-secondary);vertical-align:middle;margin-left:4px;">' + p.bowlingArm.replace('-arm','').trim()[0] + 'A ' + (p.bowlingType || '').replace('Fast-Medium','FM').replace('Fast','F').replace('Left-arm orthodox','LA Orth') + '</span>' : '';
+            var armTag = '';
+            if (cat === 'bowling' && p.bowlingArm) {
+                var _bt = p.bowlingType || '';
+                var _isPace = (_bt === 'Fast' || _bt === 'Fast-Medium' || _bt === 'Medium');
+                var _typeLabel = _isPace ? 'Pace' : _bt.replace('Left-arm orthodox','LA Orth').replace('Off-spin','Off').replace('Leg-spin','Leg').replace('Wrist-spin','Wrist');
+                armTag = ' <span style="font-size:9px;font-weight:600;padding:1px 4px;border-radius:3px;background:rgba(148,163,184,0.15);color:var(--text-secondary);vertical-align:middle;margin-left:4px;">' + p.bowlingArm.replace('-arm','').trim()[0] + 'A ' + _typeLabel + '</span>';
+            }
             html += '<td><span class="player-name">' + p.name + '</span>' + armTag + '</td>';
             html += '<td>' + getTeamBadge(p.team) + '</td>';
 
@@ -1304,9 +1310,11 @@
         if (profile.nationality) html += '<span class="pd-meta-item">' + escHtml(profile.nationality) + '</span>';
         if (profile.batting_hand) html += '<span class="pd-meta-item">' + escHtml(profile.batting_hand) + ' bat</span>';
         if (profile.bowling_arm || profile.bowling_type) {
+            var bt = profile.bowling_type || '';
+            var isPace = (bt === 'Fast' || bt === 'Fast-Medium' || bt === 'Medium');
             var bowlDesc = '';
             if (profile.bowling_arm) bowlDesc += profile.bowling_arm + ' ';
-            if (profile.bowling_type) bowlDesc += profile.bowling_type;
+            bowlDesc += isPace ? 'Pace' : bt;
             html += '<span class="pd-meta-item">' + escHtml(bowlDesc.trim()) + '</span>';
         }
         html += '</div></div>';

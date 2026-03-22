@@ -15,17 +15,18 @@
 name: Deploy Dashboard
 
 on:
-  # Run after output generation
-  workflow_run:
-    workflows: ["Generate Outputs"]
-    types: [completed]
-    branches: [main]
+  # DISABLED: auto-triggers were overwriting founder-curated data
+  # Re-enable when CI runner has updated DuckDB with arm-specific pace views
+  #
+  # workflow_run:
+  #   workflows: ["Generate Outputs"]
+  #   types: [completed]
+  #   branches: [main]
+  #
+  # push:
+  #   branches: [main]
 
-  # Also run on direct pushes to main
-  push:
-    branches: [main]
-
-  # Manual trigger
+  # Manual trigger only
   workflow_dispatch:
     inputs:
       force_update:

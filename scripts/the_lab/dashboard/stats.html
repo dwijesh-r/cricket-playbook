@@ -587,13 +587,13 @@
         <!-- Hero -->
         <section class="hero">
             <h1 class="hero-title">Player Stats</h1>
-            <p class="hero-subtitle">Stats for IPL 2026 squad players across recent (2023-25) and all-time IPL data.</p>
+            <p class="hero-subtitle">Career stats for IPL 2026 squad players across all T20 formats.</p>
         </section>
 
         <!-- Scope Toggle -->
         <div class="scope-toggle-wrap">
             <div class="scope-toggle" id="scopeToggle" role="tablist" aria-label="Data scope">
-                <span class="scope-group-label">IPL</span>
+                <span class="scope-group-label">All T20</span>
                 <button class="scope-btn active" data-scope="ipl_since2023" onclick="setScope('ipl_since2023')" role="tab" aria-selected="true">2023-25</button>
                 <button class="scope-btn" data-scope="ipl_alltime" onclick="setScope('ipl_alltime')" role="tab" aria-selected="false">All-Time</button>
             </div>
@@ -801,9 +801,11 @@
                     var d = section.vs_bowling_type[k];
                     if (!d) return;
                     found = true;
-                    agg.balls += (d.balls || 0);
-                    agg.runs += (d.runs || 0);
-                    if (d.avg && d.avg > 0 && (d.runs || 0) > 0) agg.dismissals += Math.round((d.runs || 0) / d.avg);
+                    var b = d.balls || 0;
+                    var r = d.runs || (d.sr && b ? Math.round(d.sr * b / 100) : 0);
+                    agg.balls += b;
+                    agg.runs += r;
+                    if (d.avg && d.avg > 0 && r > 0) agg.dismissals += Math.round(r / d.avg);
                 });
                 if (!found) return null;
                 agg.sr = agg.balls > 0 ? (agg.runs / agg.balls) * 100 : 0;
@@ -1148,14 +1150,7 @@
             var p = data[i];
             html += '<tr onclick="showPlayerDetail(\'' + p.name.replace(/'/g, "\\'") + '\')" style="cursor:pointer;">';
             html += '<td>' + (startIdx + i + 1) + '</td>';
-            var armTag = '';
-            if (cat === 'bowling' && p.bowlingArm) {
-                var _bt = p.bowlingType || '';
-                var _isPace = (_bt === 'Fast' || _bt === 'Fast-Medium' || _bt === 'Medium');
-                var _typeLabel = _isPace ? 'Pace' : _bt.replace('Left-arm orthodox','LA Orth').replace('Off-spin','Off').replace('Leg-spin','Leg').replace('Wrist-spin','Wrist');
-                armTag = ' <span style="font-size:9px;font-weight:600;padding:1px 4px;border-radius:3px;background:rgba(148,163,184,0.15);color:var(--text-secondary);vertical-align:middle;margin-left:4px;">' + p.bowlingArm.replace('-arm','').trim()[0] + 'A ' + _typeLabel + '</span>';
-            }
-            html += '<td><span class="player-name">' + p.name + '</span>' + armTag + '</td>';
+            html += '<td><span class="player-name">' + p.name + '</span></td>';
             html += '<td>' + getTeamBadge(p.team) + '</td>';
 
             if (advanced) {

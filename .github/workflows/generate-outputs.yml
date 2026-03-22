@@ -19,17 +19,18 @@
 name: Generate Outputs
 
 on:
-  # Run after successful gate check
-  workflow_run:
-    workflows: ["Quality Gates"]
-    types: [completed]
-    branches: [main]
+  # DISABLED: auto-triggers were overwriting founder-curated data
+  # Re-enable when CI runner has updated DuckDB
+  #
+  # workflow_run:
+  #   workflows: ["Quality Gates"]
+  #   types: [completed]
+  #   branches: [main]
+  #
+  # schedule:
+  #   - cron: "0 2 * * *"
 
-  # Run on schedule (daily at 2 AM UTC)
-  schedule:
-    - cron: "0 2 * * *"
-
-  # Manual trigger with options
+  # Manual trigger only
   workflow_dispatch:
     inputs:
       regenerate_all:

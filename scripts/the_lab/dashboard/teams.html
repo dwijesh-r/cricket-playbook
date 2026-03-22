@@ -9802,167 +9802,215 @@ let _shareCanvasDataURL = null;
 let _shareTeamName = '';
 
 function generateXIImage(customXI, customTitle) {
-    const team = TEAMS[currentTeam];
-    const predicted = PREDICTED_XII[currentTeam];
+    var team = TEAMS[currentTeam];
+    var predicted = PREDICTED_XII[currentTeam];
     if (!team) return null;
 
-    const isCustom = !!customXI;
-    const xiPlayers = isCustom ? customXI.xi : (predicted ? predicted.xi : []);
-    const subs = isCustom ? (customXI.subs || []) : (predicted ? (predicted.impactSubs || (predicted.impactPlayer ? [predicted.impactPlayer] : [])) : []);
-    const title = customTitle || 'PREDICTED XI';
+    var isCustom = !!customXI;
+    var xiPlayers = isCustom ? customXI.xi : (predicted ? predicted.xi : []);
+    var subs = isCustom ? (customXI.subs || []) : (predicted ? (predicted.impactSubs || (predicted.impactPlayer ? [predicted.impactPlayer] : [])) : []);
+    var title = customTitle || 'PREDICTED XI';
     if (!xiPlayers.length) return null;
 
-    const squad = (typeof FULL_SQUADS !== 'undefined' && FULL_SQUADS[currentTeam]) ? FULL_SQUADS[currentTeam] : [];
-    const squadLookup = {};
+    var squad = (typeof FULL_SQUADS !== 'undefined' && FULL_SQUADS[currentTeam]) ? FULL_SQUADS[currentTeam] : [];
+    var squadLookup = {};
     squad.forEach(function(p) { squadLookup[p.name] = p; });
 
-    const canvas = document.createElement('canvas');
+    var canvas = document.createElement('canvas');
     canvas.width = 1080;
     canvas.height = 1350;
-    const ctx = canvas.getContext('2d');
-    const W = 1080, H = 1350;
-    const tc = team.primaryColor || '#E8734A';
+    var ctx = canvas.getContext('2d');
+    var W = 1080, H = 1350;
+    var tc = team.primaryColor || '#E8734A';
+    var sc = team.secondaryColor || '#333';
 
-    // Use text codes — Canvas emoji rendering is unreliable across platforms
+    // IPL 2025 finish (hardcoded - last season results)
+    var LAST_FINISH = { MI:'5th', CSK:'Runners-up', RCB:'4th', KKR:'Champions', DC:'8th', PBKS:'10th', RR:'3rd', SRH:'6th', GT:'9th', LSG:'7th' };
+    var lastFinish = LAST_FINISH[currentTeam] || '';
+    var titles = team.titles || 0;
 
-    // — Background —
-    ctx.fillStyle = '#0A0A0C';
+    // === BACKGROUND — team-colored gradient ===
+    // Dark base with team color bleed from top
+    var bgGrad = ctx.createLinearGradient(0, 0, 0, H);
+    bgGrad.addColorStop(0, tc);
+    bgGrad.addColorStop(0.18, '#0C0C0F');
+    bgGrad.addColorStop(1, '#08080A');
+    ctx.fillStyle = bgGrad;
     ctx.fillRect(0, 0, W, H);
-    // Subtle vertical gradient wash
-    var grd = ctx.createLinearGradient(0, 0, 0, H);
-    grd.addColorStop(0, 'rgba(255,255,255,0.012)');
-    grd.addColorStop(0.5, 'transparent');
-    grd.addColorStop(1, 'rgba(255,255,255,0.008)');
-    ctx.fillStyle = grd;
-    ctx.fillRect(0, 0, W, H);
 
-    // Top accent bar
-    ctx.fillStyle = tc;
-    ctx.fillRect(0, 0, W, 5);
+    // Radial team glow top-right
+    var radGrad = ctx.createRadialGradient(W * 0.8, 0, 0, W * 0.8, 0, 400);
+    radGrad.addColorStop(0, tc + '30');
+    radGrad.addColorStop(1, 'transparent');
+    ctx.fillStyle = radGrad;
+    ctx.fillRect(0, 0, W, 500);
 
-    // — Header —
-    var y = 56;
+    // Secondary color diagonal accent strip
+    ctx.save();
+    ctx.globalAlpha = 0.04;
+    ctx.fillStyle = sc;
+    ctx.beginPath();
+    ctx.moveTo(W - 300, 0);
+    ctx.lineTo(W, 0);
+    ctx.lineTo(W, 400);
+    ctx.closePath();
+    ctx.fill();
+    ctx.restore();
+
+    // === HEADER ===
+    var y = 52;
+
+    // Top bar — STATSLEDGE branding
     ctx.textAlign = 'left';
-    ctx.font = '300 13px -apple-system, sans-serif';
-    ctx.fillStyle = 'rgba(255,255,255,0.35)';
-    ctx.fillText('STATSLEDGE', 72, y);
+    ctx.font = '600 11px -apple-system, sans-serif';
+    ctx.fillStyle = 'rgba(255,255,255,0.5)';
+    ctx.fillText('S T A T S L E D G E', 72, y);
     ctx.textAlign = 'right';
-    ctx.fillText('IPL 2026', W - 72, y);
+    ctx.font = '400 11px -apple-system, sans-serif';
+    ctx.fillStyle = 'rgba(255,255,255,0.35)';
+    ctx.fillText('IPL 2026  ·  PRE-SEASON', W - 72, y);
 
-    y += 48;
+    // Team name — large, white
+    y += 56;
     ctx.textAlign = 'left';
-    ctx.font = '800 44px -apple-system, sans-serif';
-    ctx.fillStyle = '#FFF';
+    ctx.font = '900 50px -apple-system, sans-serif';
+    ctx.fillStyle = '#FFFFFF';
     ctx.fillText(team.fullName.toUpperCase(), 72, y);
 
-    y += 14;
-    ctx.fillStyle = tc;
-    ctx.fillRect(72, y, 64, 3);
-
-    y += 28;
-    ctx.font = '500 14px -apple-system, sans-serif';
-    ctx.fillStyle = tc;
-    ctx.fillText(title, 72, y);
-    if (predicted && predicted.captain) {
-        ctx.textAlign = 'right';
-        ctx.fillStyle = 'rgba(255,255,255,0.3)';
-        ctx.font = '400 13px -apple-system, sans-serif';
-        ctx.fillText('Captain: ' + predicted.captain, W - 72, y);
-    }
-
-    // — Divider —
-    y += 28;
-    ctx.fillStyle = 'rgba(255,255,255,0.06)';
-    ctx.fillRect(72, y, W - 144, 1);
+    // Title label with team color pill
     y += 32;
+    ctx.font = '700 12px -apple-system, sans-serif';
+    var titleWidth = ctx.measureText(title).width + 24;
+    ctx.fillStyle = tc;
+    ctx.beginPath();
+    ctx.roundRect(72, y - 14, titleWidth, 22, 4);
+    ctx.fill();
+    ctx.fillStyle = '#000';
+    ctx.fillText(title, 84, y + 1);
 
-    // — Player rows —
-    var ROW_H = 64;
+    // === TEAM META BAR ===
+    y += 36;
+    ctx.fillStyle = 'rgba(255,255,255,0.08)';
+    ctx.beginPath();
+    ctx.roundRect(72, y - 4, W - 144, 36, 6);
+    ctx.fill();
+
+    ctx.font = '500 11px -apple-system, sans-serif';
+    ctx.fillStyle = 'rgba(255,255,255,0.5)';
+    ctx.textAlign = 'left';
+    var metaX = 88;
+    var metaItems = [];
+    if (team.captain) metaItems.push('Captain: ' + team.captain);
+    if (team.coach) metaItems.push('Coach: ' + team.coach);
+    if (titles > 0) metaItems.push('Titles: ' + titles);
+    if (lastFinish) metaItems.push('2025: ' + lastFinish);
+    ctx.fillText(metaItems.join('   ·   '), metaX, y + 16);
+
+    // === DIVIDER ===
+    y += 52;
+    ctx.fillStyle = 'rgba(255,255,255,0.08)';
+    ctx.fillRect(72, y, W - 144, 1);
+    y += 28;
+
+    // === PLAYER ROWS ===
+    var ROW_H = 60;
     xiPlayers.forEach(function(p, i) {
         var sq = squadLookup[p.name] || {};
         var nat = sq.nationality || (p.overseas ? 'OS' : 'IND');
         var age = sq.age || '';
         var role = p.role || sq.role || '';
-        var isCap = p.name === (predicted ? predicted.captain : '');
-        var isWK = role.includes('Wicket') || role.includes('Keeper');
 
-        // Alternating row bg
+        // Alternating row with team color tint
         if (i % 2 === 0) {
-            ctx.fillStyle = 'rgba(255,255,255,0.018)';
-            ctx.fillRect(72, y - 20, W - 144, ROW_H);
+            ctx.fillStyle = tc + '08';
+            ctx.fillRect(72, y - 16, W - 144, ROW_H);
+        }
+
+        // Left accent line for overseas
+        if (p.overseas) {
+            ctx.fillStyle = tc + '60';
+            ctx.fillRect(72, y - 16, 3, ROW_H);
         }
 
         // Position number
         ctx.textAlign = 'left';
-        ctx.font = '600 14px -apple-system, sans-serif';
-        ctx.fillStyle = 'rgba(255,255,255,0.2)';
+        ctx.font = '700 13px -apple-system, sans-serif';
+        ctx.fillStyle = tc + '80';
         ctx.fillText(String(i + 1).padStart(2, '0'), 88, y + 4);
 
         // Player name
-        ctx.font = '600 20px -apple-system, sans-serif';
-        ctx.fillStyle = '#FAFAFA';
-        ctx.fillText(p.name, 140, y + 4);
+        ctx.font = '600 19px -apple-system, sans-serif';
+        ctx.fillStyle = '#F5F5F5';
+        ctx.fillText(p.name, 136, y + 4);
 
-        // Role — below name, muted
-        ctx.font = '400 12px -apple-system, sans-serif';
+        // Role — below name
+        ctx.font = '400 11px -apple-system, sans-serif';
         ctx.fillStyle = 'rgba(255,255,255,0.35)';
-        ctx.fillText(role, 140, y + 24);
+        ctx.fillText(role, 136, y + 22);
 
-        // Right side: country + age
+        // Right side: country code + age
         ctx.textAlign = 'right';
-        ctx.font = '500 12px -apple-system, sans-serif';
-        ctx.fillStyle = 'rgba(255,255,255,0.35)';
-        var rightText = nat + (age ? '  ·  ' + age + 'y' : '');
-        ctx.fillText(rightText, W - 88, y + 4);
+        ctx.font = '500 11px -apple-system, sans-serif';
+        ctx.fillStyle = 'rgba(255,255,255,0.4)';
+        ctx.fillText(nat + (age ? '  ·  ' + age : ''), W - 88, y + 4);
+
+        // Overseas tag
+        if (p.overseas) {
+            ctx.font = '600 9px -apple-system, sans-serif';
+            ctx.fillStyle = 'rgba(255,255,255,0.25)';
+            ctx.fillText('OS', W - 88, y + 20);
+        }
 
         ctx.textAlign = 'left';
         y += ROW_H;
     });
 
-    // — Impact Subs —
-    y += 12;
-    ctx.fillStyle = 'rgba(255,255,255,0.06)';
+    // === IMPACT SUBS ===
+    y += 8;
+    ctx.fillStyle = 'rgba(255,255,255,0.08)';
     ctx.fillRect(72, y, W - 144, 1);
-    y += 28;
+    y += 24;
 
     if (subs.length > 0) {
-        ctx.font = '600 11px -apple-system, sans-serif';
+        ctx.font = '700 10px -apple-system, sans-serif';
         ctx.fillStyle = tc;
         ctx.textAlign = 'left';
         ctx.fillText('IMPACT SUBSTITUTES', 88, y);
-        y += 28;
+        y += 24;
 
         subs.forEach(function(s) {
             var sq = squadLookup[s.name] || {};
-            ctx.font = '500 16px -apple-system, sans-serif';
-            ctx.fillStyle = 'rgba(255,255,255,0.65)';
+            ctx.font = '500 15px -apple-system, sans-serif';
+            ctx.fillStyle = 'rgba(255,255,255,0.6)';
             ctx.textAlign = 'left';
-            ctx.fillText(s.name, 104, y);
+            ctx.fillText(s.name, 100, y);
 
-            ctx.font = '400 12px -apple-system, sans-serif';
-            ctx.fillStyle = 'rgba(255,255,255,0.3)';
+            ctx.font = '400 11px -apple-system, sans-serif';
+            ctx.fillStyle = 'rgba(255,255,255,0.28)';
             ctx.textAlign = 'right';
             var subRole = s.role || sq.role || '';
-            var subNat = sq.nationality || '';
-            ctx.fillText(subRole + (subNat ? '  ·  ' + subNat : ''), W - 88, y);
+            ctx.fillText(subRole, W - 88, y);
             ctx.textAlign = 'left';
-            y += 30;
+            y += 26;
         });
     }
 
-    // — Footer —
-    ctx.fillStyle = 'rgba(255,255,255,0.06)';
-    ctx.fillRect(72, H - 64, W - 144, 1);
-    ctx.font = '300 11px -apple-system, sans-serif';
-    ctx.fillStyle = 'rgba(255,255,255,0.2)';
-    ctx.textAlign = 'left';
-    ctx.fillText('statsledge.com', 72, H - 36);
-    ctx.textAlign = 'right';
-    ctx.fillText('Data: IPL 2023–2025', W - 72, H - 36);
-
-    // Bottom accent
+    // === FOOTER ===
+    // Bottom team color bar
     ctx.fillStyle = tc;
-    ctx.fillRect(0, H - 5, W, 5);
+    ctx.fillRect(0, H - 6, W, 6);
+
+    // Footer text
+    ctx.fillStyle = 'rgba(255,255,255,0.06)';
+    ctx.fillRect(72, H - 56, W - 144, 1);
+    ctx.font = '400 10px -apple-system, sans-serif';
+    ctx.fillStyle = 'rgba(255,255,255,0.22)';
+    ctx.textAlign = 'left';
+    ctx.fillText('statsledge.com', 72, H - 30);
+    ctx.textAlign = 'center';
+    ctx.fillText('·', W / 2, H - 30);
+    ctx.textAlign = 'right';
+    ctx.fillText('Data: IPL 2023-2025 (219 matches)', W - 72, H - 30);
 
     _shareTeamName = team.fullName;
     _shareCanvasDataURL = canvas.toDataURL('image/png');

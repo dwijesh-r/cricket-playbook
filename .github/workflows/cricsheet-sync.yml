@@ -1,0 +1,135 @@
+# Cricsheet Data Sync Pipeline
+# =============================
+# Downloads fresh T20 data from Cricsheet, ingests into DuckDB,
+# rebuilds analytics views, and updates dashboard data files.
+#
+# Runs daily during IPL season, manual-only otherwise.
+
+name: Cricsheet Sync
+
+on:
+  # Daily at 6 AM IST (00:30 UTC) during IPL season
+  schedule:
+    - cron: "30 0 * * *"
+
+  # Manual trigger
+  workflow_dispatch:
+    inputs:
+      force_rebuild:
+        description: "Force full rebuild even if no new data"
+        required: false
+        default: "false"
+        type: boolean
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cricsheet-sync
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    name: "Sync Cricsheet Data"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install duckdb pandas
+
+      - name: Download fresh Cricsheet data
+        run: |
+          mkdir -p data/raw
+          echo "Downloading Cricsheet ZIPs..."
+
+          # IPL
+          curl -sL "https://cricsheet.org/downloads/ipl_male_json.zip" -o data/raw/ipl_male_json.zip
+          # T20 Internationals
+          curl -sL "https://cricsheet.org/downloads/t20s_male_json.zip" -o data/raw/t20s_male_json.zip
+          # BBL
+          curl -sL "https://cricsheet.org/downloads/bbl_male_json.zip" -o data/raw/bbl_json.zip
+          # PSL
+          curl -sL "https://cricsheet.org/downloads/psl_male_json.zip" -o data/raw/psl_json.zip
+          # CPL
+          curl -sL "https://cricsheet.org/downloads/cpl_male_json.zip" -o data/raw/cpl_json.zip
+          # SA20
+          curl -sL "https://cricsheet.org/downloads/sat_male_json.zip" -o data/raw/sat_json.zip
+          # T20 Blast
+          curl -sL "https://cricsheet.org/downloads/ntb_male_json.zip" -o data/raw/ntb_json.zip
+          # Super Smash
+          curl -sL "https://cricsheet.org/downloads/ssm_male_json.zip" -o data/raw/ssm_json.zip
+
+          ls -lh data/raw/*.zip
+          echo "Download complete"
+
+      - name: Run ingestion
+        run: |
+          echo "Running data ingestion..."
+          python -m scripts.core.ingest
+          echo "Ingestion complete"
+
+      - name: Rebuild analytics views
+        run: |
+          echo "Rebuilding analytics views..."
+          python scripts/core/analytics_ipl.py
+          echo "Views rebuilt"
+
+      - name: Regenerate dashboard data
+        run: |
+          echo "Regenerating dashboard data..."
+          # Regenerate scoped profiles (uses DuckDB views)
+          python scripts/the_lab/dashboard/data/generate_player_profiles_scoped.py
+          # Regenerate other lab data
+          python scripts/the_lab/update_the_lab.py
+          # Restore founder-curated files
+          git checkout -- scripts/the_lab/dashboard/data/predicted_xii.js 2>/dev/null || true
+          git checkout -- scripts/the_lab/dashboard/data/full_squads.js 2>/dev/null || true
+          echo "Dashboard data regenerated"
+
+      - name: Check for changes
+        id: changes
+        run: |
+          git add scripts/the_lab/dashboard/data/ data/manifests/ data/processed/
+          if git diff --cached --quiet; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "No data changes detected"
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "Data changes detected"
+          fi
+
+      - name: Commit and push
+        if: steps.changes.outputs.has_changes == 'true' || github.event.inputs.force_rebuild == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add scripts/the_lab/dashboard/data/ data/manifests/ data/processed/
+          git commit -m "chore(data): Cricsheet sync — fresh T20 data [skip ci]
+
+          Updated by: cricsheet-sync.yml workflow
+          Run ID: ${{ github.run_id }}"
+          git push
+
+      - name: Trigger deploy
+        if: steps.changes.outputs.has_changes == 'true'
+        run: |
+          gh workflow run "Deploy Dashboard" --ref main
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Summary
+        run: |
+          echo "## Cricsheet Sync Complete" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- Data downloaded from cricsheet.org" >> $GITHUB_STEP_SUMMARY
+          echo "- Ingestion pipeline executed" >> $GITHUB_STEP_SUMMARY
+          echo "- Analytics views rebuilt" >> $GITHUB_STEP_SUMMARY
+          echo "- Dashboard data regenerated" >> $GITHUB_STEP_SUMMARY

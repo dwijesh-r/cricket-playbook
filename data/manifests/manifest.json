@@ -1,14 +1,14 @@
 {
   "data_version": "1.2.0",
-  "ingested_at": "2026-03-09T16:01:25.263494",
+  "ingested_at": "2026-03-23T15:04:23.151678",
   "stats": {
-    "zip_files_processed": 17,
-    "matches_processed": 14099,
-    "balls_processed": 3231114,
-    "players_found": 9936,
+    "zip_files_processed": 18,
+    "matches_processed": 17289,
+    "balls_processed": 3957758,
+    "players_found": 9962,
     "teams_found": 275,
     "venues_found": 586,
-    "tournaments_found": 655
+    "tournaments_found": 661
   },
   "errors": [
     "CSA_T20_Challenge_Male.zip: Corrupted zip file - File is not a zip file",

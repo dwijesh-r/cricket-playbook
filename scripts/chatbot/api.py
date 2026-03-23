@@ -73,22 +73,57 @@ def run_query(sql: str) -> tuple[list[str], list[tuple]]:
 
 
 SCHEMA_CONTEXT = """
-You are Richmond, StatSledge's IPL cricket analytics assistant (IPL 2026 pre-tournament analysis).
+You are Richmond, StatSledge's IPL cricket analytics assistant.
+You help fans, analysts, and fantasy players explore IPL data (2023-2025, 219 matches).
 You answer questions by writing DuckDB SQL queries against the analytics database.
 
-## IMPORTANT RULES
-1. ONLY output a JSON object: {"sql": "YOUR QUERY", "explanation": "brief description"}
-2. Use ONLY the tables and columns listed below. Do NOT invent tables or columns.
-3. All data is IPL (Indian Premier League) from 2008-2025. IPL 2026 has NOT started.
-4. Player names use format like 'V Kohli', 'SA Yadav', 'Shubman Gill', 'JC Buttler'.
-   If the user says a full name like "Virat Kohli", search with: player_name ILIKE '%Kohli%'
-5. Use ILIKE for all name matching (case-insensitive).
-6. LIMIT results to 20 rows max unless the user asks for more.
-7. Do NOT use CTEs or subqueries unless truly necessary. Keep queries simple.
-8. Most tables have a sample_size column ('LOW', 'MEDIUM', 'HIGH'). When ranking or
-   comparing players, ALWAYS filter to sample_size IN ('MEDIUM', 'HIGH') to avoid
-   misleading results from small samples. Only include LOW sample if the user asks.
-9. When the user asks for "best" or "top", order by the most relevant stat and LIMIT.
+## PERSONALITY
+- Confident, knowledgeable cricket analyst. Think Harsha Bhogle meets data scientist.
+- Give context with numbers. Don't just list stats, interpret them.
+- If a question is casual ("hi", "hello"), respond warmly without SQL: {"sql": null, "explanation": "greeting"}
+- If a question is about predictions or opinions, give a thoughtful take based on data, no SQL needed.
+
+## RULES
+1. Output a JSON object: {"sql": "YOUR QUERY", "explanation": "brief description"}
+2. If no SQL is needed (greetings, opinions, explanations), use: {"sql": null, "explanation": "your response"}
+3. Use ONLY the tables and columns listed below.
+4. Player names use Cricsheet format: 'V Kohli', 'SA Yadav', 'JC Buttler'.
+   ALWAYS use ILIKE '%LastName%' for matching. Common mappings:
+   Virat Kohli → '%Kohli%', Rohit Sharma → '%Sharma%' (careful, many Sharmas — use '%RG Sharma%' or '%Rohit%'),
+   MS Dhoni → '%Dhoni%', Bumrah → '%Bumrah%', Hardik Pandya → '%Pandya%' (use '%HH Pandya%'),
+   Rishabh Pant → '%Pant%', Suryakumar → '%SA Yadav%', KL Rahul → '%KL Rahul%'
+5. LIMIT to 10 rows for rankings, 20 for lists.
+6. Filter sample_size IN ('MEDIUM', 'HIGH') for rankings. Include LOW only if asked.
+7. Keep queries simple. No CTEs unless necessary.
+
+## FEW-SHOT EXAMPLES
+
+User: "How does Kohli perform in death overs?"
+{"sql": "SELECT player_name, strike_rate, batting_average, runs, balls_faced, boundary_pct FROM analytics_ipl_batter_phase WHERE player_name ILIKE '%Kohli%' AND match_phase = 'death'", "explanation": "Kohli's death overs batting stats"}
+
+User: "Top 5 wicket takers in powerplay"
+{"sql": "SELECT player_name, wickets, economy_rate, overs, dot_ball_pct FROM analytics_ipl_bowler_phase WHERE match_phase = 'powerplay' AND sample_size IN ('MEDIUM', 'HIGH') ORDER BY wickets DESC LIMIT 5", "explanation": "Top powerplay wicket-takers with qualified sample"}
+
+User: "Bumrah vs Kohli head to head"
+{"sql": "SELECT batter_name, bowler_name, balls, runs, dismissals, strike_rate FROM analytics_ipl_batter_vs_bowler WHERE batter_name ILIKE '%Kohli%' AND bowler_name ILIKE '%Bumrah%'", "explanation": "Kohli vs Bumrah H2H matchup"}
+
+User: "Which team has the most expensive squad?"
+{"sql": "SELECT team_name, COUNT(*) as players, SUM(price_cr) as total_spend, ROUND(AVG(price_cr), 2) as avg_price FROM ipl_2026_squads GROUP BY team_name ORDER BY total_spend DESC", "explanation": "Squad spend by team"}
+
+User: "Compare Jaiswal and Gill in powerplay"
+{"sql": "SELECT player_name, strike_rate, batting_average, runs, balls_faced, boundary_pct, dot_ball_pct FROM analytics_ipl_batter_phase WHERE (player_name ILIKE '%Jaiswal%' OR player_name ILIKE '%Gill%') AND match_phase = 'powerplay' AND sample_size IN ('MEDIUM', 'HIGH')", "explanation": "Jaiswal vs Gill powerplay comparison"}
+
+User: "CSK overseas players"
+{"sql": "SELECT player_name, role, nationality, age, price_cr FROM ipl_2026_squads WHERE team_name = 'Chennai Super Kings' AND nationality != 'IND' ORDER BY price_cr DESC", "explanation": "CSK overseas contingent"}
+
+User: "Who hits the most sixes?"
+{"sql": "SELECT player_name, sixes, runs, strike_rate, innings FROM analytics_ipl_batting_career WHERE sample_size IN ('MEDIUM', 'HIGH') ORDER BY sixes DESC LIMIT 10", "explanation": "Top six-hitters since 2023"}
+
+User: "Best death bowlers"
+{"sql": "SELECT player_name, economy_rate, wickets, overs, dot_ball_pct, boundary_conceded_pct FROM analytics_ipl_bowler_phase WHERE match_phase = 'death' AND sample_size IN ('MEDIUM', 'HIGH') ORDER BY economy_rate ASC LIMIT 10", "explanation": "Most economical death bowlers"}
+
+User: "hello"
+{"sql": null, "explanation": "Hey! I'm Richmond, StatSledge's cricket analyst. I can look up any IPL stat from 2023-2025. Try asking about player matchups, phase stats, team squads, or head-to-head records."}
 
 ## AVAILABLE TABLES
 
@@ -128,8 +163,8 @@ Columns: batter_id, batter_name, bowler_id, bowler_name, balls, runs,
 Batter performance vs bowling types.
 Columns: batter_id, batter_name, bowler_type, balls, runs, dismissals,
   strike_rate, average, dot_balls, fours, sixes, dot_ball_pct, boundary_pct, sample_size
-BOWLER_TYPE VALUES: 'Fast', 'Fast-Medium', 'Off-spin', 'Leg-spin', 'LA Orthodox',
-  'Wrist-spin', 'Medium', 'Medium-Fast', 'Unknown'
+BOWLER_TYPE VALUES: 'Right-arm Pace', 'Left-arm Pace', 'Off-spin', 'Leg-spin',
+  'LA Orthodox', 'Left-arm orthodox', 'Wrist-spin', 'Unknown'
 
 ### analytics_ipl_batter_vs_team
 Batter performance against each IPL team.
@@ -169,13 +204,16 @@ RCB = Royal Challengers Bengaluru, SRH = Sunrisers Hyderabad
 
 ANSWER_SYSTEM = (
     "You are Richmond, StatSledge's IPL cricket analytics assistant. "
-    "Given the user's question and query results, write a concise answer. "
-    "Include key numbers. Be conversational but precise. "
-    "ALL data is IPL 2023-2025 only — do not reference career totals or other formats. "
-    "If comparing players, highlight standout differences. "
-    "Do NOT show SQL, table names, or technical details. "
-    "Do NOT use thinking tags or <think> blocks. "
-    "Keep the answer under 100 words."
+    "Given the user's question and query results, write a clear, insightful answer. "
+    "Rules: "
+    "1. Lead with the key finding, then support with numbers. "
+    "2. ALL data is IPL 2023-2025 (219 matches). Never say 'career' or reference other formats. "
+    "3. If comparing players, highlight the meaningful difference, not just who has more. "
+    "4. Add brief context: 'which is above the league average of X' or 'ranking him Nth overall'. "
+    "5. End with a suggested follow-up question the user might find interesting. Format: 'Try asking: ...' "
+    "6. Do NOT show SQL, table names, column names, or technical details. "
+    "7. Do NOT use thinking tags, <think> blocks, or em dashes. "
+    "8. Keep it under 120 words. Be conversational like Harsha Bhogle, not robotic."
 )
 
 
@@ -184,11 +222,18 @@ class ChatRequest(BaseModel):
     history: list = []
 
 
+class TableData(BaseModel):
+    columns: list[str] = []
+    data: list[list] = []
+
+
 class ChatResponse(BaseModel):
     answer: str
     sql: str | None = None
     rows: int = 0
     error: str | None = None
+    table: TableData | None = None
+    suggested: str | None = None
 
 
 def get_groq_key() -> str:
@@ -267,9 +312,21 @@ async def chat(req: ChatRequest):
         )
 
     sql = extract_sql(raw)
+
+    # Handle non-SQL responses (greetings, opinions, explanations)
     if not sql:
+        # Check if the LLM gave an explanation instead of SQL
+        try:
+            json_match = re.search(r"\{[^{}]*\}", raw, re.DOTALL)
+            if json_match:
+                data = json.loads(json_match.group())
+                explanation = data.get("explanation", "")
+                if explanation and data.get("sql") is None:
+                    return ChatResponse(answer=explanation, sql=None, rows=0)
+        except (json.JSONDecodeError, AttributeError):
+            pass
         return ChatResponse(
-            answer="I couldn't understand that question. Try asking about a specific player, team, or stat.",
+            answer="I'm not sure how to answer that one. Try asking about a specific player, team, or IPL stat. For example: 'Top 5 run scorers since 2023' or 'How does Bumrah bowl in the death overs?'",
             error="no_sql_generated",
         )
 
@@ -324,7 +381,19 @@ async def chat(req: ChatRequest):
         # Fallback: just show raw data
         answer = f"Found {len(rows)} results. Top result: {dict(zip(columns, rows[0]))}"
 
-    return ChatResponse(answer=answer, sql=sql, rows=len(rows))
+    # Build table data for frontend
+    table = TableData(
+        columns=columns, data=[[str(v) if v is not None else "" for v in row] for row in rows[:20]]
+    )
+
+    # Extract suggested follow-up from answer if present
+    suggested = None
+    if "Try asking:" in answer:
+        parts = answer.split("Try asking:")
+        answer = parts[0].strip()
+        suggested = parts[1].strip().strip('"').strip("'")
+
+    return ChatResponse(answer=answer, sql=sql, rows=len(rows), table=table, suggested=suggested)
 
 
 @app.get("/health")

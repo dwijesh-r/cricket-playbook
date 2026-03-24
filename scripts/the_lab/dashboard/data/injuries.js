@@ -13,7 +13,7 @@ const PLAYER_AVAILABILITY = {
     'Josh Hazlewood':       { status: 'partially_available',  team: 'RCB',  note: 'Injury — will miss initial phase of IPL', returnDate: null },
     'Pat Cummins':          { status: 'partially_available',  team: 'SRH',  note: 'Injury — will miss initial phase of IPL', returnDate: null },
     'Jack Edwards':         { status: 'injured',              team: 'SRH',  note: 'Ruled out of IPL 2026 — replaced by David Payne', returnDate: null },
-    'Nathan Ellis':         { status: 'injured',              team: 'CSK',  note: 'Ruled out of IPL 2026 — replacement yet to be named', returnDate: null },
+    'Nathan Ellis':         { status: 'injured',              team: 'CSK',  note: 'Ruled out of IPL 2026 — replaced by Spencer Johnson', returnDate: null },
     'Sam Curran':           { status: 'injured',              team: 'RR',   note: 'Ruled out of IPL 2026 — replaced by Dasun Shanaka', returnDate: null },
     'Lockie Ferguson':      { status: 'partially_available',  team: 'PBKS', note: 'Personal reasons — will miss initial phase of IPL', returnDate: null },
     'Nuwan Thushara':       { status: 'doubtful',             team: 'RCB',  note: 'Fitness concern — availability doubtful', returnDate: null },

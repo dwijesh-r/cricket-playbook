@@ -21,6 +21,7 @@ const PLAYER_AVAILABILITY = {
     'Akash Deep':           { status: 'injured',              team: 'KKR',  note: 'Ruled out of IPL 2026 — replaced by Saurabh Dubey', returnDate: null },
     'Mitchell Starc':       { status: 'partially_available',  team: 'DC',   note: 'Will miss initial phase of IPL', returnDate: null },
     'Josh Inglis':          { status: 'partially_available',  team: 'LSG',  note: 'PA — marriage, expected to miss early matches', returnDate: null },
+    'Ben Duckett':          { status: 'unavailable',           team: 'DC',   note: 'Opted out of IPL 2026 to prioritize international career', returnDate: null },
     'Donovan Ferreira':     { status: 'doubtful',             team: 'RR',   note: 'Shoulder fracture (SA20, Jan 2026) — recovery timeline uncertain, IPL availability doubtful', returnDate: null },
     'Adam Milne':           { status: 'injured',              team: 'RR',   note: 'Torn left hamstring (SA20, Jan 2026) — ruled out of T20 World Cup, doubtful for early IPL matches', returnDate: null }
 };

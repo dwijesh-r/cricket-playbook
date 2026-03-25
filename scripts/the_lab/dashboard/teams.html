@@ -5404,6 +5404,7 @@
     <script src="data/schedule.js"></script>
     <script src="data/injuries.js"></script>
     <script src="data/bowler_usage.js"></script>
+    <script src="data/scouting_notes.js"></script>
 
     <!-- Data Freshness Indicator (TKT-249) -->
     <script>
@@ -8575,30 +8576,22 @@
             });
 
             function scoutNote(p) {
-                // Lindy's-style one-liner: lead with what they do, add a number, flag the concern
-                var parts = [];
-                var m = p.iplMatches || 0;
-                var am = (p.stats && p.stats.alltime) ? p.stats.alltime.matches : 0;
-                var s23 = (p.stats && p.stats.since2023) ? p.stats.since2023 : {};
-
-                // Uncapped / debut
-                if (p.isUncapped || m === 0) {
-                    if (p.role === 'Batter' || p.role === 'Wicketkeeper') {
-                        parts.push('IPL debut. ');
-                    } else if (p.role === 'Bowler') {
-                        parts.push('IPL debut. ');
-                    } else {
-                        parts.push('IPL debut. ');
-                    }
+                // Use hand-written scouting notes if available
+                if (typeof SCOUTING_NOTES !== 'undefined' && SCOUTING_NOTES[p.name]) {
+                    return SCOUTING_NOTES[p.name];
                 }
 
-                // Batting note
+                // Fallback: auto-generated Lindy's-style one-liner
+                var parts = [];
+                var m = p.iplMatches || 0;
+
+                if (p.isUncapped || m === 0) {
+                    parts.push('IPL debut. ');
+                }
+
                 if (p.role === 'Batter' || p.role === 'Wicketkeeper') {
                     if (p.iplRuns > 500) {
                         parts.push(p.iplRuns + ' runs at ' + (p.iplSR || 0).toFixed(0) + ' SR since 2023. ');
-                        if (p.iplSR > 160) parts.push('Elite strike rate. ');
-                        else if (p.iplSR > 145) parts.push('Strong tempo. ');
-                        else if (p.iplSR < 130) parts.push('Needs to find another gear. ');
                     } else if (p.iplRuns > 200) {
                         parts.push(p.iplRuns + ' runs at ' + (p.iplSR || 0).toFixed(0) + ' SR. ');
                     } else if (p.iplRuns > 0) {
@@ -8606,12 +8599,9 @@
                     }
                 }
 
-                // Bowling note
                 if (p.role === 'Bowler') {
                     if (p.iplWickets > 20) {
                         parts.push(p.iplWickets + ' wickets at ' + (p.iplEconomy || 0).toFixed(1) + ' economy. ');
-                        if (p.iplEconomy < 8.5) parts.push('Elite control. ');
-                        else if (p.iplEconomy > 10) parts.push('Expensive, needs tightening. ');
                     } else if (p.iplWickets > 5) {
                         parts.push(p.iplWickets + ' wickets at ' + (p.iplEconomy || 0).toFixed(1) + ' econ. ');
                     } else if (p.iplWickets > 0) {
@@ -8619,7 +8609,6 @@
                     }
                 }
 
-                // All-rounder note
                 if (p.role === 'All-rounder') {
                     var batPart = '';
                     var bowlPart = '';
@@ -8629,31 +8618,6 @@
                     else if (batPart) parts.push(batPart + '. Bowling depth. ');
                     else if (bowlPart) parts.push(bowlPart + '. Handy with the bat. ');
                 }
-
-                // Nationality color
-                if (p.overseas && p.nationality && p.nationality !== 'IND') {
-                    var natNames = { AUS:'Australian', ENG:'English', NZ:'New Zealander', RSA:'South African', WI:'West Indian', SL:'Sri Lankan', AFG:'Afghan', BAN:'Bangladeshi', ZIM:'Zimbabwean', IRE:'Irish' };
-                    var natName = natNames[p.nationality] || p.nationality;
-                    parts.push(natName + '. ');
-                }
-
-                // Injury check
-                if (typeof PLAYER_AVAILABILITY !== 'undefined') {
-                    var avail = PLAYER_AVAILABILITY[p.name];
-                    if (avail) {
-                        if (avail.status === 'injured' || avail.status === 'unavailable') {
-                            parts.push('<span style="color:var(--accent-red);font-weight:600;">RULED OUT.</span> ');
-                        } else if (avail.status === 'partially_available') {
-                            parts.push('<span style="color:var(--accent-orange);font-weight:600;">Will miss early matches.</span> ');
-                        } else if (avail.status === 'doubtful') {
-                            parts.push('<span style="color:var(--accent-yellow);font-weight:600;">Availability doubtful.</span> ');
-                        }
-                    }
-                }
-
-                // Acquisition tag
-                if (p.acquisition === 'Replacement') parts.push('Replacement signing. ');
-                else if (p.acquisition === 'Traded') parts.push('Traded in. ');
 
                 return parts.join('').trim() || 'Squad depth option.';
             }

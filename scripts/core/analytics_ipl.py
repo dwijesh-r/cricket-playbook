@@ -6723,6 +6723,193 @@ def create_innings_context_views(conn: duckdb.DuckDBPyConnection) -> None:
             print(f"  ERROR verifying {vw}: {exc}")
 
 
+def create_t20i_views(conn: duckdb.DuckDBPyConnection) -> None:
+    """Create T20 International-specific views (bilateral tours + ICC T20 WC).
+
+    Covers ~3,093 matches. Each view has base, since2023, and alltime variants.
+    """
+    print("Creating T20 International views...")
+
+    T20I_FILTER = """(dt.tournament_name LIKE '%%tour%%'
+        OR dt.tournament_name LIKE '%%ICC%%T20%%'
+        OR dt.tournament_name LIKE '%%World Twenty20%%'
+        OR dt.tournament_name LIKE '%%Tri-Nation T20I%%')"""
+
+    IPL_MIN_DATE = "2023-01-01"
+
+    for suffix, date_filter in [
+        ("", ""),
+        ("_since2023", f"AND dm.match_date >= '{IPL_MIN_DATE}'"),
+        ("_alltime", ""),
+    ]:
+        # Batting career
+        conn.execute(f"""
+            CREATE OR REPLACE VIEW analytics_t20i_batting_career{suffix} AS
+            SELECT dp.player_id, dp.current_name as player_name,
+                COUNT(DISTINCT fb.match_id) as innings, SUM(fb.batter_runs) as runs,
+                COUNT(*) as balls_faced,
+                SUM(CASE WHEN fb.is_wicket AND fb.player_out_id = fb.batter_id THEN 1 ELSE 0 END) as dismissals,
+                ROUND(SUM(fb.batter_runs) * 100.0 / NULLIF(COUNT(*), 0), 2) as strike_rate,
+                ROUND(SUM(fb.batter_runs) * 1.0 / NULLIF(SUM(CASE WHEN fb.is_wicket AND fb.player_out_id = fb.batter_id THEN 1 ELSE 0 END), 0), 2) as batting_average,
+                SUM(CASE WHEN fb.batter_runs = 4 THEN 1 ELSE 0 END) as fours,
+                SUM(CASE WHEN fb.batter_runs = 6 THEN 1 ELSE 0 END) as sixes,
+                SUM(CASE WHEN fb.batter_runs = 0 THEN 1 ELSE 0 END) as dot_balls,
+                ROUND(SUM(CASE WHEN fb.batter_runs = 0 THEN 1 ELSE 0 END) * 100.0 / NULLIF(COUNT(*), 0), 2) as dot_ball_pct,
+                ROUND((SUM(CASE WHEN fb.batter_runs = 4 THEN 1 ELSE 0 END) + SUM(CASE WHEN fb.batter_runs = 6 THEN 1 ELSE 0 END)) * 100.0 / NULLIF(COUNT(*), 0), 2) as boundary_pct,
+                CASE WHEN COUNT(*) < 50 THEN 'LOW' WHEN COUNT(*) < 200 THEN 'MEDIUM' ELSE 'HIGH' END as sample_size
+            FROM fact_ball fb
+            JOIN dim_player dp ON fb.batter_id = dp.player_id
+            JOIN dim_match dm ON fb.match_id = dm.match_id
+            JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
+            WHERE fb.is_legal_ball = TRUE AND {T20I_FILTER} {date_filter}
+            GROUP BY dp.player_id, dp.current_name
+        """)
+
+        # Bowling career
+        conn.execute(f"""
+            CREATE OR REPLACE VIEW analytics_t20i_bowling_career{suffix} AS
+            SELECT dp.player_id, dp.current_name as player_name,
+                COUNT(DISTINCT fb.match_id) as matches_bowled, COUNT(*) as balls_bowled,
+                ROUND(COUNT(*) / 6.0, 1) as overs_bowled,
+                SUM(fb.batter_runs + fb.extra_runs) as runs_conceded,
+                SUM(CASE WHEN fb.is_wicket AND fb.player_out_id != fb.bowler_id THEN 1 ELSE 0 END) as wickets,
+                SUM(CASE WHEN fb.batter_runs = 0 THEN 1 ELSE 0 END) as dot_balls,
+                ROUND(SUM(fb.batter_runs + fb.extra_runs) * 6.0 / NULLIF(COUNT(*), 0), 2) as economy_rate,
+                ROUND(SUM(fb.batter_runs + fb.extra_runs) * 1.0 / NULLIF(SUM(CASE WHEN fb.is_wicket AND fb.player_out_id != fb.bowler_id THEN 1 ELSE 0 END), 0), 2) as bowling_average,
+                ROUND(SUM(CASE WHEN fb.batter_runs = 0 THEN 1 ELSE 0 END) * 100.0 / NULLIF(COUNT(*), 0), 2) as dot_ball_pct,
+                CASE WHEN COUNT(*) < 50 THEN 'LOW' WHEN COUNT(*) < 200 THEN 'MEDIUM' ELSE 'HIGH' END as sample_size
+            FROM fact_ball fb
+            JOIN dim_player dp ON fb.bowler_id = dp.player_id
+            JOIN dim_match dm ON fb.match_id = dm.match_id
+            JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
+            WHERE fb.is_legal_ball = TRUE AND {T20I_FILTER} {date_filter}
+            GROUP BY dp.player_id, dp.current_name
+        """)
+
+        # Batter phase
+        conn.execute(f"""
+            CREATE OR REPLACE VIEW analytics_t20i_batter_phase{suffix} AS
+            SELECT dp.player_id, dp.current_name as player_name, fb.match_phase,
+                COUNT(DISTINCT fb.match_id) as innings, SUM(fb.batter_runs) as runs, COUNT(*) as balls_faced,
+                SUM(CASE WHEN fb.is_wicket AND fb.player_out_id = fb.batter_id THEN 1 ELSE 0 END) as dismissals,
+                ROUND(SUM(fb.batter_runs) * 100.0 / NULLIF(COUNT(*), 0), 2) as strike_rate,
+                ROUND(SUM(fb.batter_runs) * 1.0 / NULLIF(SUM(CASE WHEN fb.is_wicket AND fb.player_out_id = fb.batter_id THEN 1 ELSE 0 END), 0), 2) as batting_average,
+                ROUND(SUM(CASE WHEN fb.batter_runs = 0 THEN 1 ELSE 0 END) * 100.0 / NULLIF(COUNT(*), 0), 2) as dot_ball_pct,
+                ROUND((SUM(CASE WHEN fb.batter_runs = 4 THEN 1 ELSE 0 END) + SUM(CASE WHEN fb.batter_runs = 6 THEN 1 ELSE 0 END)) * 100.0 / NULLIF(COUNT(*), 0), 2) as boundary_pct,
+                CASE WHEN COUNT(*) < 30 THEN 'LOW' WHEN COUNT(*) < 100 THEN 'MEDIUM' ELSE 'HIGH' END as sample_size
+            FROM fact_ball fb
+            JOIN dim_player dp ON fb.batter_id = dp.player_id
+            JOIN dim_match dm ON fb.match_id = dm.match_id
+            JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
+            WHERE fb.is_legal_ball = TRUE AND {T20I_FILTER} {date_filter}
+            GROUP BY dp.player_id, dp.current_name, fb.match_phase
+        """)
+
+        # Bowler phase
+        conn.execute(f"""
+            CREATE OR REPLACE VIEW analytics_t20i_bowler_phase{suffix} AS
+            SELECT dp.player_id, dp.current_name as player_name, fb.match_phase,
+                COUNT(DISTINCT fb.match_id) as matches, COUNT(*) as balls_bowled, ROUND(COUNT(*) / 6.0, 1) as overs,
+                SUM(fb.batter_runs + fb.extra_runs) as runs_conceded,
+                SUM(CASE WHEN fb.is_wicket AND fb.player_out_id != fb.bowler_id THEN 1 ELSE 0 END) as wickets,
+                ROUND(SUM(fb.batter_runs + fb.extra_runs) * 6.0 / NULLIF(COUNT(*), 0), 2) as economy_rate,
+                ROUND(SUM(CASE WHEN fb.batter_runs = 0 THEN 1 ELSE 0 END) * 100.0 / NULLIF(COUNT(*), 0), 2) as dot_ball_pct,
+                CASE WHEN COUNT(*) < 30 THEN 'LOW' WHEN COUNT(*) < 100 THEN 'MEDIUM' ELSE 'HIGH' END as sample_size
+            FROM fact_ball fb
+            JOIN dim_player dp ON fb.bowler_id = dp.player_id
+            JOIN dim_match dm ON fb.match_id = dm.match_id
+            JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
+            WHERE fb.is_legal_ball = TRUE AND {T20I_FILTER} {date_filter}
+            GROUP BY dp.player_id, dp.current_name, fb.match_phase
+        """)
+
+        # Batter vs bowling type
+        conn.execute(f"""
+            CREATE OR REPLACE VIEW analytics_t20i_batter_vs_bowler_type{suffix} AS
+            SELECT dp_bat.player_id as batter_id, dp_bat.current_name as batter_name,
+                CASE
+                    WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('Fast', 'Fast-Medium', 'Medium', 'Medium-Fast')
+                    THEN COALESCE(sq.bowling_arm, CASE WHEN bc.bowling_style LIKE 'Left%%' THEN 'Left-arm' ELSE 'Right-arm' END) || ' Pace'
+                    WHEN bc.bowling_style IN ('Left-arm pace', 'Right-arm pace')
+                    THEN CASE WHEN bc.bowling_style LIKE 'Left%%' THEN 'Left-arm' ELSE 'Right-arm' END || ' Pace'
+                    WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('Leg-spin') OR bc.bowling_style = 'Right-arm leg-spin'
+                    THEN 'Right-arm Leg-spin'
+                    WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') = 'Wrist-spin'
+                    THEN 'Left-arm Wrist-spin'
+                    WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('LA Orthodox', 'Left-arm orthodox')
+                    THEN 'Left-arm Orthodox'
+                    ELSE COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown')
+                END as bowler_type,
+                COUNT(*) as balls, SUM(fb.batter_runs) as runs,
+                SUM(CASE WHEN fb.is_wicket AND fb.player_out_id = fb.batter_id THEN 1 ELSE 0 END) as dismissals,
+                ROUND(SUM(fb.batter_runs) * 100.0 / NULLIF(COUNT(*), 0), 2) as strike_rate,
+                ROUND(SUM(fb.batter_runs) * 1.0 / NULLIF(SUM(CASE WHEN fb.is_wicket AND fb.player_out_id = fb.batter_id THEN 1 ELSE 0 END), 0), 2) as average,
+                CASE WHEN COUNT(*) < 50 THEN 'LOW' WHEN COUNT(*) < 200 THEN 'MEDIUM' ELSE 'HIGH' END as sample_size
+            FROM fact_ball fb
+            JOIN dim_player dp_bat ON fb.batter_id = dp_bat.player_id
+            JOIN dim_player dp_bowl ON fb.bowler_id = dp_bowl.player_id
+            JOIN dim_match dm ON fb.match_id = dm.match_id
+            JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
+            LEFT JOIN ipl_2026_squads sq ON dp_bowl.player_id = sq.player_id
+            LEFT JOIN dim_bowler_classification bc ON dp_bowl.player_id = bc.player_id
+            WHERE fb.is_legal_ball = TRUE AND {T20I_FILTER} {date_filter}
+            GROUP BY dp_bat.player_id, dp_bat.current_name,
+                CASE
+                    WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('Fast', 'Fast-Medium', 'Medium', 'Medium-Fast')
+                    THEN COALESCE(sq.bowling_arm, CASE WHEN bc.bowling_style LIKE 'Left%%' THEN 'Left-arm' ELSE 'Right-arm' END) || ' Pace'
+                    WHEN bc.bowling_style IN ('Left-arm pace', 'Right-arm pace')
+                    THEN CASE WHEN bc.bowling_style LIKE 'Left%%' THEN 'Left-arm' ELSE 'Right-arm' END || ' Pace'
+                    WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('Leg-spin') OR bc.bowling_style = 'Right-arm leg-spin'
+                    THEN 'Right-arm Leg-spin'
+                    WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') = 'Wrist-spin'
+                    THEN 'Left-arm Wrist-spin'
+                    WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('LA Orthodox', 'Left-arm orthodox')
+                    THEN 'Left-arm Orthodox'
+                    ELSE COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown')
+                END
+        """)
+
+        # Batter vs team
+        conn.execute(f"""
+            CREATE OR REPLACE VIEW analytics_t20i_batter_vs_team{suffix} AS
+            SELECT dp.player_id as batter_id, dp.current_name as batter_name,
+                dt2.team_name as opposition,
+                COUNT(DISTINCT fb.match_id) as innings, COUNT(*) as balls, SUM(fb.batter_runs) as runs,
+                SUM(CASE WHEN fb.is_wicket AND fb.player_out_id = fb.batter_id THEN 1 ELSE 0 END) as dismissals,
+                ROUND(SUM(fb.batter_runs) * 100.0 / NULLIF(COUNT(*), 0), 2) as strike_rate,
+                ROUND(SUM(fb.batter_runs) * 1.0 / NULLIF(SUM(CASE WHEN fb.is_wicket AND fb.player_out_id = fb.batter_id THEN 1 ELSE 0 END), 0), 2) as average,
+                CASE WHEN COUNT(*) < 30 THEN 'LOW' WHEN COUNT(*) < 100 THEN 'MEDIUM' ELSE 'HIGH' END as sample_size
+            FROM fact_ball fb
+            JOIN dim_player dp ON fb.batter_id = dp.player_id
+            JOIN dim_match dm ON fb.match_id = dm.match_id
+            JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
+            JOIN dim_team dt2 ON fb.bowling_team_id = dt2.team_id
+            WHERE fb.is_legal_ball = TRUE AND {T20I_FILTER} {date_filter}
+            GROUP BY dp.player_id, dp.current_name, dt2.team_name
+        """)
+
+        # Bowler vs team
+        conn.execute(f"""
+            CREATE OR REPLACE VIEW analytics_t20i_bowler_vs_team{suffix} AS
+            SELECT dp.player_id as bowler_id, dp.current_name as bowler_name,
+                dt2.team_name as opposition,
+                COUNT(DISTINCT fb.match_id) as innings, COUNT(*) as balls_bowled,
+                SUM(fb.batter_runs + fb.extra_runs) as runs_conceded,
+                SUM(CASE WHEN fb.is_wicket AND fb.player_out_id != fb.bowler_id THEN 1 ELSE 0 END) as wickets,
+                ROUND(SUM(fb.batter_runs + fb.extra_runs) * 6.0 / NULLIF(COUNT(*), 0), 2) as economy_rate,
+                CASE WHEN COUNT(*) < 30 THEN 'LOW' WHEN COUNT(*) < 100 THEN 'MEDIUM' ELSE 'HIGH' END as sample_size
+            FROM fact_ball fb
+            JOIN dim_player dp ON fb.bowler_id = dp.player_id
+            JOIN dim_match dm ON fb.match_id = dm.match_id
+            JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
+            JOIN dim_team dt2 ON fb.batting_team_id = dt2.team_id
+            WHERE fb.is_legal_ball = TRUE AND {T20I_FILTER} {date_filter}
+            GROUP BY dp.player_id, dp.current_name, dt2.team_name
+        """)
+
+    print("  - 21 T20I views created (7 types x 3 scopes)")
+
+
 def main() -> int:
     """Main entry point."""
 
@@ -6763,6 +6950,7 @@ def main() -> int:
     create_team_phase_views(conn)
     create_recent_form_views(conn)
     create_t20_recent_form_views(conn)
+    create_t20i_views(conn)
     create_innings_context_views(conn)
 
     # Verify

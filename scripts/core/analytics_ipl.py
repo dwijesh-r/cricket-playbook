@@ -265,6 +265,12 @@ def create_ipl_batting_views(conn: duckdb.DuckDBPyConnection) -> None:
                 THEN COALESCE(sq.bowling_arm, CASE WHEN bc.bowling_style LIKE 'Left%' THEN 'Left-arm' ELSE 'Right-arm' END) || ' Pace'
                 WHEN bc.bowling_style IN ('Left-arm pace', 'Right-arm pace')
                 THEN CASE WHEN bc.bowling_style LIKE 'Left%' THEN 'Left-arm' ELSE 'Right-arm' END || ' Pace'
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('Leg-spin') OR bc.bowling_style = 'Right-arm leg-spin'
+                THEN 'Right-arm Leg-spin'
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') = 'Wrist-spin'
+                THEN 'Left-arm Wrist-spin'
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('LA Orthodox', 'Left-arm orthodox')
+                THEN 'Left-arm Orthodox'
                 ELSE COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown')
             END as bowler_type,
             COUNT(*) as balls,
@@ -294,6 +300,12 @@ def create_ipl_batting_views(conn: duckdb.DuckDBPyConnection) -> None:
                 THEN COALESCE(sq.bowling_arm, CASE WHEN bc.bowling_style LIKE 'Left%' THEN 'Left-arm' ELSE 'Right-arm' END) || ' Pace'
                 WHEN bc.bowling_style IN ('Left-arm pace', 'Right-arm pace')
                 THEN CASE WHEN bc.bowling_style LIKE 'Left%' THEN 'Left-arm' ELSE 'Right-arm' END || ' Pace'
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('Leg-spin') OR bc.bowling_style = 'Right-arm leg-spin'
+                THEN 'Right-arm Leg-spin'
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') = 'Wrist-spin'
+                THEN 'Left-arm Wrist-spin'
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('LA Orthodox', 'Left-arm orthodox')
+                THEN 'Left-arm Orthodox'
                 ELSE COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown')
             END
     """)
@@ -512,6 +524,12 @@ def create_phase_matchup_views(conn: duckdb.DuckDBPyConnection) -> None:
                 THEN COALESCE(sq.bowling_arm, CASE WHEN bc.bowling_style LIKE 'Left%' THEN 'Left-arm' ELSE 'Right-arm' END) || ' Pace'
                 WHEN bc.bowling_style IN ('Left-arm pace', 'Right-arm pace')
                 THEN CASE WHEN bc.bowling_style LIKE 'Left%' THEN 'Left-arm' ELSE 'Right-arm' END || ' Pace'
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('Leg-spin') OR bc.bowling_style = 'Right-arm leg-spin'
+                THEN 'Right-arm Leg-spin'
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') = 'Wrist-spin'
+                THEN 'Left-arm Wrist-spin'
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('LA Orthodox', 'Left-arm orthodox')
+                THEN 'Left-arm Orthodox'
                 ELSE COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown')
             END as bowler_type,
             fb.match_phase,
@@ -542,6 +560,12 @@ def create_phase_matchup_views(conn: duckdb.DuckDBPyConnection) -> None:
                 THEN COALESCE(sq.bowling_arm, CASE WHEN bc.bowling_style LIKE 'Left%' THEN 'Left-arm' ELSE 'Right-arm' END) || ' Pace'
                 WHEN bc.bowling_style IN ('Left-arm pace', 'Right-arm pace')
                 THEN CASE WHEN bc.bowling_style LIKE 'Left%' THEN 'Left-arm' ELSE 'Right-arm' END || ' Pace'
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('Leg-spin') OR bc.bowling_style = 'Right-arm leg-spin'
+                THEN 'Right-arm Leg-spin'
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') = 'Wrist-spin'
+                THEN 'Left-arm Wrist-spin'
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('LA Orthodox', 'Left-arm orthodox')
+                THEN 'Left-arm Orthodox'
                 ELSE COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown')
             END,
             fb.match_phase
@@ -1034,6 +1058,12 @@ def create_t20_comparison_views(conn: duckdb.DuckDBPyConnection) -> None:
                 THEN COALESCE(sq.bowling_arm, CASE WHEN bc.bowling_style LIKE 'Left%' THEN 'Left-arm' ELSE 'Right-arm' END) || ' Pace'
                 WHEN bc.bowling_style IN ('Left-arm pace', 'Right-arm pace')
                 THEN CASE WHEN bc.bowling_style LIKE 'Left%' THEN 'Left-arm' ELSE 'Right-arm' END || ' Pace'
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('Leg-spin') OR bc.bowling_style = 'Right-arm leg-spin'
+                THEN 'Right-arm Leg-spin'
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') = 'Wrist-spin'
+                THEN 'Left-arm Wrist-spin'
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('LA Orthodox', 'Left-arm orthodox')
+                THEN 'Left-arm Orthodox'
                 ELSE COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown')
             END as bowler_type,
             COUNT(*) as balls,
@@ -1062,6 +1092,12 @@ def create_t20_comparison_views(conn: duckdb.DuckDBPyConnection) -> None:
                 THEN COALESCE(sq.bowling_arm, CASE WHEN bc.bowling_style LIKE 'Left%' THEN 'Left-arm' ELSE 'Right-arm' END) || ' Pace'
                 WHEN bc.bowling_style IN ('Left-arm pace', 'Right-arm pace')
                 THEN CASE WHEN bc.bowling_style LIKE 'Left%' THEN 'Left-arm' ELSE 'Right-arm' END || ' Pace'
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('Leg-spin') OR bc.bowling_style = 'Right-arm leg-spin'
+                THEN 'Right-arm Leg-spin'
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') = 'Wrist-spin'
+                THEN 'Left-arm Wrist-spin'
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('LA Orthodox', 'Left-arm orthodox')
+                THEN 'Left-arm Orthodox'
                 ELSE COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown')
             END
     """)
@@ -1303,6 +1339,12 @@ def create_all_t20_since2023_views(conn: duckdb.DuckDBPyConnection) -> None:
                 THEN COALESCE(sq.bowling_arm, CASE WHEN bc.bowling_style LIKE 'Left%%' THEN 'Left-arm' ELSE 'Right-arm' END) || ' Pace'
                 WHEN bc.bowling_style IN ('Left-arm pace', 'Right-arm pace')
                 THEN CASE WHEN bc.bowling_style LIKE 'Left%%' THEN 'Left-arm' ELSE 'Right-arm' END || ' Pace'
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('Leg-spin') OR bc.bowling_style = 'Right-arm leg-spin'
+                THEN 'Right-arm Leg-spin'
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') = 'Wrist-spin'
+                THEN 'Left-arm Wrist-spin'
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('LA Orthodox', 'Left-arm orthodox')
+                THEN 'Left-arm Orthodox'
                 ELSE COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown')
             END as bowler_type,
             COUNT(*) as balls,
@@ -1333,6 +1375,12 @@ def create_all_t20_since2023_views(conn: duckdb.DuckDBPyConnection) -> None:
                 THEN COALESCE(sq.bowling_arm, CASE WHEN bc.bowling_style LIKE 'Left%%' THEN 'Left-arm' ELSE 'Right-arm' END) || ' Pace'
                 WHEN bc.bowling_style IN ('Left-arm pace', 'Right-arm pace')
                 THEN CASE WHEN bc.bowling_style LIKE 'Left%%' THEN 'Left-arm' ELSE 'Right-arm' END || ' Pace'
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('Leg-spin') OR bc.bowling_style = 'Right-arm leg-spin'
+                THEN 'Right-arm Leg-spin'
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') = 'Wrist-spin'
+                THEN 'Left-arm Wrist-spin'
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('LA Orthodox', 'Left-arm orthodox')
+                THEN 'Left-arm Orthodox'
                 ELSE COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown')
             END
     """)
@@ -2729,6 +2777,12 @@ def create_benchmark_views(conn: duckdb.DuckDBPyConnection) -> None:
                 THEN COALESCE(sq.bowling_arm, CASE WHEN bc.bowling_style LIKE 'Left%' THEN 'Left-arm' ELSE 'Right-arm' END) || ' Pace'
                 WHEN bc.bowling_style IN ('Left-arm pace', 'Right-arm pace')
                 THEN CASE WHEN bc.bowling_style LIKE 'Left%' THEN 'Left-arm' ELSE 'Right-arm' END || ' Pace'
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('Leg-spin') OR bc.bowling_style = 'Right-arm leg-spin'
+                THEN 'Right-arm Leg-spin'
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') = 'Wrist-spin'
+                THEN 'Left-arm Wrist-spin'
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('LA Orthodox', 'Left-arm orthodox')
+                THEN 'Left-arm Orthodox'
                 ELSE COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown')
             END as bowler_type,
             COUNT(*) as total_balls,
@@ -2750,6 +2804,12 @@ def create_benchmark_views(conn: duckdb.DuckDBPyConnection) -> None:
                 THEN COALESCE(sq.bowling_arm, CASE WHEN bc.bowling_style LIKE 'Left%' THEN 'Left-arm' ELSE 'Right-arm' END) || ' Pace'
                 WHEN bc.bowling_style IN ('Left-arm pace', 'Right-arm pace')
                 THEN CASE WHEN bc.bowling_style LIKE 'Left%' THEN 'Left-arm' ELSE 'Right-arm' END || ' Pace'
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('Leg-spin') OR bc.bowling_style = 'Right-arm leg-spin'
+                THEN 'Right-arm Leg-spin'
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') = 'Wrist-spin'
+                THEN 'Left-arm Wrist-spin'
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('LA Orthodox', 'Left-arm orthodox')
+                THEN 'Left-arm Orthodox'
                 ELSE COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown')
             END
     """)
@@ -2947,6 +3007,12 @@ def create_standardized_ipl_views(conn: duckdb.DuckDBPyConnection) -> None:
                 THEN COALESCE(sq.bowling_arm, CASE WHEN bc.bowling_style LIKE 'Left%%' THEN 'Left-arm' ELSE 'Right-arm' END) || ' Pace'
                 WHEN bc.bowling_style IN ('Left-arm pace', 'Right-arm pace')
                 THEN CASE WHEN bc.bowling_style LIKE 'Left%%' THEN 'Left-arm' ELSE 'Right-arm' END || ' Pace'
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('Leg-spin') OR bc.bowling_style = 'Right-arm leg-spin'
+                THEN 'Right-arm Leg-spin'
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') = 'Wrist-spin'
+                THEN 'Left-arm Wrist-spin'
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('LA Orthodox', 'Left-arm orthodox')
+                THEN 'Left-arm Orthodox'
                 ELSE COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown')
             END as bowler_type,
             COUNT(*) as balls,
@@ -2976,6 +3042,12 @@ def create_standardized_ipl_views(conn: duckdb.DuckDBPyConnection) -> None:
                 THEN COALESCE(sq.bowling_arm, CASE WHEN bc.bowling_style LIKE 'Left%%' THEN 'Left-arm' ELSE 'Right-arm' END) || ' Pace'
                 WHEN bc.bowling_style IN ('Left-arm pace', 'Right-arm pace')
                 THEN CASE WHEN bc.bowling_style LIKE 'Left%%' THEN 'Left-arm' ELSE 'Right-arm' END || ' Pace'
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('Leg-spin') OR bc.bowling_style = 'Right-arm leg-spin'
+                THEN 'Right-arm Leg-spin'
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') = 'Wrist-spin'
+                THEN 'Left-arm Wrist-spin'
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('LA Orthodox', 'Left-arm orthodox')
+                THEN 'Left-arm Orthodox'
                 ELSE COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown')
             END
     """)
@@ -3002,6 +3074,12 @@ def create_standardized_ipl_views(conn: duckdb.DuckDBPyConnection) -> None:
                 THEN COALESCE(sq.bowling_arm, CASE WHEN bc.bowling_style LIKE 'Left%%' THEN 'Left-arm' ELSE 'Right-arm' END) || ' Pace'
                 WHEN bc.bowling_style IN ('Left-arm pace', 'Right-arm pace')
                 THEN CASE WHEN bc.bowling_style LIKE 'Left%%' THEN 'Left-arm' ELSE 'Right-arm' END || ' Pace'
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('Leg-spin') OR bc.bowling_style = 'Right-arm leg-spin'
+                THEN 'Right-arm Leg-spin'
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') = 'Wrist-spin'
+                THEN 'Left-arm Wrist-spin'
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('LA Orthodox', 'Left-arm orthodox')
+                THEN 'Left-arm Orthodox'
                 ELSE COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown')
             END as bowler_type,
             fb.match_phase,
@@ -3032,6 +3110,12 @@ def create_standardized_ipl_views(conn: duckdb.DuckDBPyConnection) -> None:
                 THEN COALESCE(sq.bowling_arm, CASE WHEN bc.bowling_style LIKE 'Left%%' THEN 'Left-arm' ELSE 'Right-arm' END) || ' Pace'
                 WHEN bc.bowling_style IN ('Left-arm pace', 'Right-arm pace')
                 THEN CASE WHEN bc.bowling_style LIKE 'Left%%' THEN 'Left-arm' ELSE 'Right-arm' END || ' Pace'
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('Leg-spin') OR bc.bowling_style = 'Right-arm leg-spin'
+                THEN 'Right-arm Leg-spin'
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') = 'Wrist-spin'
+                THEN 'Left-arm Wrist-spin'
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('LA Orthodox', 'Left-arm orthodox')
+                THEN 'Left-arm Orthodox'
                 ELSE COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown')
             END, fb.match_phase
     """)
@@ -3998,6 +4082,12 @@ def create_standardized_ipl_views(conn: duckdb.DuckDBPyConnection) -> None:
                 THEN COALESCE(sq.bowling_arm, CASE WHEN bc.bowling_style LIKE 'Left%%' THEN 'Left-arm' ELSE 'Right-arm' END) || ' Pace'
                 WHEN bc.bowling_style IN ('Left-arm pace', 'Right-arm pace')
                 THEN CASE WHEN bc.bowling_style LIKE 'Left%%' THEN 'Left-arm' ELSE 'Right-arm' END || ' Pace'
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('Leg-spin') OR bc.bowling_style = 'Right-arm leg-spin'
+                THEN 'Right-arm Leg-spin'
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') = 'Wrist-spin'
+                THEN 'Left-arm Wrist-spin'
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('LA Orthodox', 'Left-arm orthodox')
+                THEN 'Left-arm Orthodox'
                 ELSE COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown')
             END as bowler_type,
             COUNT(*) as total_balls,
@@ -4019,6 +4109,12 @@ def create_standardized_ipl_views(conn: duckdb.DuckDBPyConnection) -> None:
                 THEN COALESCE(sq.bowling_arm, CASE WHEN bc.bowling_style LIKE 'Left%%' THEN 'Left-arm' ELSE 'Right-arm' END) || ' Pace'
                 WHEN bc.bowling_style IN ('Left-arm pace', 'Right-arm pace')
                 THEN CASE WHEN bc.bowling_style LIKE 'Left%%' THEN 'Left-arm' ELSE 'Right-arm' END || ' Pace'
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('Leg-spin') OR bc.bowling_style = 'Right-arm leg-spin'
+                THEN 'Right-arm Leg-spin'
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') = 'Wrist-spin'
+                THEN 'Left-arm Wrist-spin'
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('LA Orthodox', 'Left-arm orthodox')
+                THEN 'Left-arm Orthodox'
                 ELSE COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown')
             END
     """)
@@ -4036,6 +4132,12 @@ def create_standardized_ipl_views(conn: duckdb.DuckDBPyConnection) -> None:
                 THEN COALESCE(sq.bowling_arm, CASE WHEN bc.bowling_style LIKE 'Left%' THEN 'Left-arm' ELSE 'Right-arm' END) || ' Pace'
                 WHEN bc.bowling_style IN ('Left-arm pace', 'Right-arm pace')
                 THEN CASE WHEN bc.bowling_style LIKE 'Left%' THEN 'Left-arm' ELSE 'Right-arm' END || ' Pace'
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('Leg-spin') OR bc.bowling_style = 'Right-arm leg-spin'
+                THEN 'Right-arm Leg-spin'
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') = 'Wrist-spin'
+                THEN 'Left-arm Wrist-spin'
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('LA Orthodox', 'Left-arm orthodox')
+                THEN 'Left-arm Orthodox'
                 ELSE COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown')
             END as bowler_type,
             COUNT(*) as total_balls,
@@ -4057,6 +4159,12 @@ def create_standardized_ipl_views(conn: duckdb.DuckDBPyConnection) -> None:
                 THEN COALESCE(sq.bowling_arm, CASE WHEN bc.bowling_style LIKE 'Left%' THEN 'Left-arm' ELSE 'Right-arm' END) || ' Pace'
                 WHEN bc.bowling_style IN ('Left-arm pace', 'Right-arm pace')
                 THEN CASE WHEN bc.bowling_style LIKE 'Left%' THEN 'Left-arm' ELSE 'Right-arm' END || ' Pace'
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('Leg-spin') OR bc.bowling_style = 'Right-arm leg-spin'
+                THEN 'Right-arm Leg-spin'
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') = 'Wrist-spin'
+                THEN 'Left-arm Wrist-spin'
+                WHEN COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') IN ('LA Orthodox', 'Left-arm orthodox')
+                THEN 'Left-arm Orthodox'
                 ELSE COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown')
             END
     """)

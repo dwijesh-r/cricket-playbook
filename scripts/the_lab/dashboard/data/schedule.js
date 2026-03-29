@@ -1,10 +1,7 @@
 /**
  * Statsledge - IPL 2026 Schedule Data
- * First phase: Matches 1-20 (March 28 - April 12)
+ * Full schedule: Matches 1-70 (March 28 - May 24)
  * Source: BCCI announcement, March 11 2026
- *
- * Note: Only first 20 matches released due to state assembly elections.
- * Remaining fixtures will be added once BCCI announces the full schedule.
  */
 
 const IPL_SCHEDULE = [
@@ -27,15 +24,65 @@ const IPL_SCHEDULE = [
     { match: 17, date: '2026-04-11', day: 'Sat', home: 'PBKS', away: 'SRH', venue: 'IS Bindra Stadium', city: 'Mullanpur' },
     { match: 18, date: '2026-04-11', day: 'Sat', home: 'CSK', away: 'DC',  venue: 'MA Chidambaram Stadium', city: 'Chennai' },
     { match: 19, date: '2026-04-12', day: 'Sun', home: 'LSG', away: 'GT',  venue: 'Ekana Cricket Stadium', city: 'Lucknow' },
-    { match: 20, date: '2026-04-12', day: 'Sun', home: 'MI',  away: 'RCB', venue: 'Wankhede Stadium', city: 'Mumbai' }
+    { match: 20, date: '2026-04-12', day: 'Sun', home: 'MI',  away: 'RCB', venue: 'Wankhede Stadium', city: 'Mumbai' },
+    { match: 21, date: '2026-04-13', day: 'Mon', home: 'SRH', away: 'RR',  venue: 'Rajiv Gandhi Intl Stadium', city: 'Hyderabad' },
+    { match: 22, date: '2026-04-14', day: 'Tue', home: 'CSK', away: 'KKR', venue: 'MA Chidambaram Stadium', city: 'Chennai' },
+    { match: 23, date: '2026-04-15', day: 'Wed', home: 'RCB', away: 'LSG', venue: 'M Chinnaswamy Stadium', city: 'Bengaluru' },
+    { match: 24, date: '2026-04-16', day: 'Thu', home: 'MI',  away: 'PBKS', venue: 'Wankhede Stadium', city: 'Mumbai' },
+    { match: 25, date: '2026-04-17', day: 'Fri', home: 'GT',  away: 'KKR', venue: 'Narendra Modi Stadium', city: 'Ahmedabad' },
+    { match: 26, date: '2026-04-18', day: 'Sat', home: 'RCB', away: 'DC',  venue: 'M Chinnaswamy Stadium', city: 'Bengaluru' },
+    { match: 27, date: '2026-04-18', day: 'Sat', home: 'SRH', away: 'CSK', venue: 'Rajiv Gandhi Intl Stadium', city: 'Hyderabad' },
+    { match: 28, date: '2026-04-19', day: 'Sun', home: 'KKR', away: 'RR',  venue: 'Eden Gardens', city: 'Kolkata' },
+    { match: 29, date: '2026-04-19', day: 'Sun', home: 'PBKS', away: 'LSG', venue: 'IS Bindra Stadium', city: 'Mullanpur' },
+    { match: 30, date: '2026-04-20', day: 'Mon', home: 'GT',  away: 'MI',  venue: 'Narendra Modi Stadium', city: 'Ahmedabad' },
+    { match: 31, date: '2026-04-21', day: 'Tue', home: 'SRH', away: 'DC',  venue: 'Rajiv Gandhi Intl Stadium', city: 'Hyderabad' },
+    { match: 32, date: '2026-04-22', day: 'Wed', home: 'LSG', away: 'RR',  venue: 'Ekana Cricket Stadium', city: 'Lucknow' },
+    { match: 33, date: '2026-04-23', day: 'Thu', home: 'MI',  away: 'CSK', venue: 'Wankhede Stadium', city: 'Mumbai' },
+    { match: 34, date: '2026-04-24', day: 'Fri', home: 'RCB', away: 'GT',  venue: 'M Chinnaswamy Stadium', city: 'Bengaluru' },
+    { match: 35, date: '2026-04-25', day: 'Sat', home: 'DC',  away: 'PBKS', venue: 'Arun Jaitley Stadium', city: 'Delhi' },
+    { match: 36, date: '2026-04-25', day: 'Sat', home: 'RR',  away: 'SRH', venue: 'Sawai Mansingh Stadium', city: 'Jaipur' },
+    { match: 37, date: '2026-04-26', day: 'Sun', home: 'GT',  away: 'CSK', venue: 'Narendra Modi Stadium', city: 'Ahmedabad' },
+    { match: 38, date: '2026-04-26', day: 'Sun', home: 'LSG', away: 'KKR', venue: 'Ekana Cricket Stadium', city: 'Lucknow' },
+    { match: 39, date: '2026-04-27', day: 'Mon', home: 'DC',  away: 'RCB', venue: 'Arun Jaitley Stadium', city: 'Delhi' },
+    { match: 40, date: '2026-04-28', day: 'Tue', home: 'PBKS', away: 'RR', venue: 'IS Bindra Stadium', city: 'Mullanpur' },
+    { match: 41, date: '2026-04-29', day: 'Wed', home: 'MI',  away: 'SRH', venue: 'Wankhede Stadium', city: 'Mumbai' },
+    { match: 42, date: '2026-04-30', day: 'Thu', home: 'GT',  away: 'RCB', venue: 'Narendra Modi Stadium', city: 'Ahmedabad' },
+    { match: 43, date: '2026-05-01', day: 'Fri', home: 'RR',  away: 'DC',  venue: 'Sawai Mansingh Stadium', city: 'Jaipur' },
+    { match: 44, date: '2026-05-02', day: 'Sat', home: 'CSK', away: 'MI',  venue: 'MA Chidambaram Stadium', city: 'Chennai' },
+    { match: 45, date: '2026-05-03', day: 'Sun', home: 'SRH', away: 'KKR', venue: 'Rajiv Gandhi Intl Stadium', city: 'Hyderabad' },
+    { match: 46, date: '2026-05-03', day: 'Sun', home: 'GT',  away: 'PBKS', venue: 'Narendra Modi Stadium', city: 'Ahmedabad' },
+    { match: 47, date: '2026-05-04', day: 'Mon', home: 'MI',  away: 'LSG', venue: 'Wankhede Stadium', city: 'Mumbai' },
+    { match: 48, date: '2026-05-05', day: 'Tue', home: 'DC',  away: 'CSK', venue: 'Arun Jaitley Stadium', city: 'Delhi' },
+    { match: 49, date: '2026-05-06', day: 'Wed', home: 'SRH', away: 'PBKS', venue: 'Rajiv Gandhi Intl Stadium', city: 'Hyderabad' },
+    { match: 50, date: '2026-05-07', day: 'Thu', home: 'LSG', away: 'RCB', venue: 'Ekana Cricket Stadium', city: 'Lucknow' },
+    { match: 51, date: '2026-05-08', day: 'Fri', home: 'DC',  away: 'KKR', venue: 'Arun Jaitley Stadium', city: 'Delhi' },
+    { match: 52, date: '2026-05-09', day: 'Sat', home: 'RR',  away: 'GT',  venue: 'Sawai Mansingh Stadium', city: 'Jaipur' },
+    { match: 53, date: '2026-05-10', day: 'Sun', home: 'CSK', away: 'LSG', venue: 'MA Chidambaram Stadium', city: 'Chennai' },
+    { match: 54, date: '2026-05-10', day: 'Sun', home: 'RCB', away: 'MI',  venue: 'Shaheed Veer Narayan Singh Intl Stadium', city: 'Raipur' },
+    { match: 55, date: '2026-05-11', day: 'Mon', home: 'PBKS', away: 'DC', venue: 'IS Bindra Stadium', city: 'Mullanpur' },
+    { match: 56, date: '2026-05-12', day: 'Tue', home: 'GT',  away: 'SRH', venue: 'Narendra Modi Stadium', city: 'Ahmedabad' },
+    { match: 57, date: '2026-05-13', day: 'Wed', home: 'RCB', away: 'KKR', venue: 'Shaheed Veer Narayan Singh Intl Stadium', city: 'Raipur' },
+    { match: 58, date: '2026-05-14', day: 'Thu', home: 'PBKS', away: 'MI', venue: 'HPCA Stadium', city: 'Dharamshala' },
+    { match: 59, date: '2026-05-15', day: 'Fri', home: 'LSG', away: 'CSK', venue: 'Ekana Cricket Stadium', city: 'Lucknow' },
+    { match: 60, date: '2026-05-16', day: 'Sat', home: 'KKR', away: 'GT',  venue: 'Eden Gardens', city: 'Kolkata' },
+    { match: 61, date: '2026-05-17', day: 'Sun', home: 'PBKS', away: 'RCB', venue: 'HPCA Stadium', city: 'Dharamshala' },
+    { match: 62, date: '2026-05-17', day: 'Sun', home: 'DC',  away: 'RR',  venue: 'Arun Jaitley Stadium', city: 'Delhi' },
+    { match: 63, date: '2026-05-18', day: 'Mon', home: 'CSK', away: 'SRH', venue: 'MA Chidambaram Stadium', city: 'Chennai' },
+    { match: 64, date: '2026-05-19', day: 'Tue', home: 'RR',  away: 'LSG', venue: 'Sawai Mansingh Stadium', city: 'Jaipur' },
+    { match: 65, date: '2026-05-20', day: 'Wed', home: 'KKR', away: 'MI',  venue: 'Eden Gardens', city: 'Kolkata' },
+    { match: 66, date: '2026-05-21', day: 'Thu', home: 'CSK', away: 'GT',  venue: 'MA Chidambaram Stadium', city: 'Chennai' },
+    { match: 67, date: '2026-05-22', day: 'Fri', home: 'SRH', away: 'RCB', venue: 'Rajiv Gandhi Intl Stadium', city: 'Hyderabad' },
+    { match: 68, date: '2026-05-23', day: 'Sat', home: 'LSG', away: 'PBKS', venue: 'Ekana Cricket Stadium', city: 'Lucknow' },
+    { match: 69, date: '2026-05-24', day: 'Sun', home: 'MI',  away: 'RR',  venue: 'Wankhede Stadium', city: 'Mumbai' },
+    { match: 70, date: '2026-05-24', day: 'Sun', home: 'KKR', away: 'DC',  venue: 'Eden Gardens', city: 'Kolkata' }
 ];
 
 const SCHEDULE_META = {
     totalMatches: 84,
-    announcedMatches: 20,
+    announcedMatches: 70,
     seasonStart: '2026-03-28',
     seasonEnd: '2026-05-31',
-    phaseNote: 'Only first 20 matches announced. Remaining fixtures pending due to state assembly elections.',
+    phaseNote: 'Matches 1-70 announced. Remaining playoff fixtures TBD.',
     source: 'BCCI, March 11, 2026'
 };
 
@@ -50,5 +97,8 @@ const SCHEDULE_VENUES = {
     'MA Chidambaram Stadium': { city: 'Chennai', bias: 'spin' },
     'Arun Jaitley Stadium': { city: 'Delhi', bias: 'neutral' },
     'Narendra Modi Stadium': { city: 'Ahmedabad', bias: 'neutral' },
-    'Rajiv Gandhi Intl Stadium': { city: 'Hyderabad', bias: 'pace' }
+    'Rajiv Gandhi Intl Stadium': { city: 'Hyderabad', bias: 'pace' },
+    'Sawai Mansingh Stadium': { city: 'Jaipur', bias: 'spin' },
+    'Shaheed Veer Narayan Singh Intl Stadium': { city: 'Raipur', bias: 'neutral' },
+    'HPCA Stadium': { city: 'Dharamshala', bias: 'pace' }
 };

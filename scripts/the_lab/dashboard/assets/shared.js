@@ -1,20 +1,7 @@
 // Statsledge Shared JavaScript
-// Theme toggle, mobile nav, clock, sidebar collapse
+// Theme toggle, mobile nav, clock
 
 function throttle(fn, ms) { let last = 0; return function() { const now = Date.now(); if (now - last >= ms) { last = now; fn.apply(this, arguments); } }; }
-
-function toggleSidebar() {
-    var sidebar = document.querySelector('.sidebar');
-    if (!sidebar) return;
-    sidebar.classList.toggle('collapsed');
-    var isCollapsed = sidebar.classList.contains('collapsed');
-    localStorage.setItem('sidebarCollapsed', isCollapsed);
-    var toggle = sidebar.querySelector('.sidebar-collapse-toggle');
-    if (toggle) {
-        toggle.setAttribute('aria-label', isCollapsed ? 'Expand sidebar' : 'Collapse sidebar');
-        toggle.setAttribute('aria-expanded', !isCollapsed);
-    }
-}
 
 function toggleTheme() {
     const html = document.documentElement;
@@ -56,17 +43,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.documentElement.setAttribute('data-theme', savedTheme);
         const btn = document.querySelector('.theme-toggle');
         if (btn) btn.textContent = savedTheme === 'dark' ? '\u{1F319}' : '\u{2600}\u{FE0F}';
-    }
-    // Restore sidebar state
-    var sidebarRestored = localStorage.getItem('sidebarCollapsed') === 'true';
-    if (sidebarRestored) {
-        var sidebar = document.querySelector('.sidebar');
-        if (sidebar) sidebar.classList.add('collapsed');
-    }
-    var sidebarToggle = document.querySelector('.sidebar-collapse-toggle');
-    if (sidebarToggle) {
-        sidebarToggle.setAttribute('aria-label', sidebarRestored ? 'Expand sidebar' : 'Collapse sidebar');
-        sidebarToggle.setAttribute('aria-expanded', !sidebarRestored);
     }
     // Clock
     const clockEl = document.getElementById('navTime');

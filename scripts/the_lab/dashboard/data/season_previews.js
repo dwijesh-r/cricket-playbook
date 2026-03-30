@@ -2362,7 +2362,8 @@ const SEASON_PREVIEWS = {
     boldTake: {
       claim: 'The Miller-Stubbs combination at 5 and 6 is the most dangerous middle-order pairing in the IPL, and DC are not using them aggressively enough',
       argument: 'David Miller and Tristan Stubbs batting together in the middle overs should terrify every bowling attack in the tournament. Miller, one of the most experienced finishers in T20 history, paired with Stubbs, whose ball-striking ability in the 15-to-20 over phase has been elite in international T20s. The problem is DC have them buried behind Rana at 4 and surrounded by left-handers (Duckett, Porel, Axar, Miller himself), which means opposition captains can target them with specific bowling matchups. If DC promoted Stubbs to 4 and let Miller bat at 5 with a clear mandate to attack from ball one, the middle overs become a batting phase rather than a survival phase. Instead, DC are using Miller as a safety net and Stubbs as a Plan B. These two should be Plan A. The IPL is won in overs 10 to 16, and DC have the personnel to dominate that phase. They just need to stop being cautious about deploying them.'
-    },
+    }
+  },
   PBKS: {
     available: true,
     meta: {
@@ -3444,7 +3445,8 @@ const SEASON_PREVIEWS = {
     boldTake: {
       claim: 'SRH have the best top 5 in the IPL and the weakest bowling attack, and until that is fixed, no amount of batting firepower wins a title',
       argument: 'Head, Abhishek, Ishan Kishan, Klaasen, Livingstone. That is a batting lineup that can chase down 220 on any surface. The problem is they need to, because SRH concede more runs in the death overs than almost any team in the dataset. Harshal Patel at the death, Cummins splitting duties between batting at 8 and bowling the hard overs, and a spin attack anchored by Zeeshan Ansari. The gap between what the top 5 score and what the bowlers defend is among the widest in the competition. You can build the most destructive batting order in IPL history, but if your bowlers cannot hold a 15-run advantage in the last four overs, you are relying on winning every toss and batting first. That is not a strategy. That is hope.'
-    },
+    }
+  },
   GT: {
     available: true,
     meta: {
@@ -3533,7 +3535,8 @@ const SEASON_PREVIEWS = {
     boldTake: {
       claim: 'Washington Sundar should bat at number 4 for Gujarat Titans, not number 5',
       argument: 'This sounds like madness until you look at what Sundar actually does with the bat. Left-handed, clean striker through the off side, and crucially, someone who can rotate strike in the middle overs without letting the scoring rate drop below 8. GT have Gill and Sudharsan at the top, Buttler at 3, and then a gap where they need someone who can hold the innings together while Phillips, Shahrukh, and Tewatia load up for the death. That player should be Sundar. His batting in T20Is over the last two years has shown genuine growth, not just slogging but proper innings-building with the ability to accelerate after getting set. At 5, he comes in too late to anchor, too early to just hit. At 4, he gets enough balls to play his natural game, protects the middle order from collapse, and his left-handedness disrupts the right-arm off-spin that opponents will bowl in the middle overs at a spin-friendly Narendra Modi Stadium. GT already trust him to bowl four overs. They should trust him to bat 30 balls.'
-    },
+    }
+  },
   LSG: {
     available: true,
     meta: {
@@ -3627,4 +3630,5 @@ const SEASON_PREVIEWS = {
       claim: 'Rishabh Pant entering his second season at LSG will define whether the 27 Cr investment was genius or folly',
       argument: 'The mega auction gamble has already been placed. Pant at 27 Cr was the headline buy of IPL 2025, and now entering his second season with LSG, the real test begins. Year one is about adjustment, learning a new dressing room, new teammates, a new franchise culture. Year two is when results are expected. Pant has the talent to justify every rupee, but the question is durability across a full season and whether a player who has historically been instinct-first can also be a think-first captain. LSG have built the entire squad architecture around him. Pooran and Markram as overseas support, Badoni as the local understudy, Mayank Yadav as the pace spearhead. If Pant delivers a full, fit, commanding season, LSG are a genuine playoff contender. If not, they have a 27 Cr anchor and no plan B. Second seasons reveal the truth.'
     }
+  }
 };

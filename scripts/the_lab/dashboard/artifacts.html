@@ -287,6 +287,7 @@
         .sidebar-footer { padding: 12px 8px 16px; border-top: 1px solid rgba(148, 163, 184, 0.06); margin-top: auto; display: flex; flex-direction: column; gap: 8px; }
         .sidebar-footer .sidebar-link { font-size: 12px; }
         .sidebar-time { font-family: var(--font-mono); font-size: 11px; color: var(--text-tertiary); font-variant-numeric: tabular-nums; padding: 6px 12px; text-align: center; }
+
         .mobile-topbar { display: none; position: fixed; top: 0; left: 0; right: 0; height: 56px; background: var(--bg-sidebar); border-bottom: 1px solid rgba(148, 163, 184, 0.08); align-items: center; justify-content: space-between; padding: 0 16px; z-index: 100; }
         .mobile-topbar .sidebar-logo { width: 28px; height: 28px; }
         .mobile-topbar .sidebar-title { font-size: 14px; }
@@ -300,7 +301,7 @@
         .mobile-nav-menu .sidebar-link { padding: 14px 16px; font-size: 15px; border-radius: var(--radius-lg); }
         .mobile-nav-menu .sidebar-link.active { background: rgba(232, 115, 74, 0.12); }
         .nav { display: none; } .nav-tabs { display: none; } .nav-tab { display: none; } .nav-brand { display: none; } .nav-actions { display: none; } .nav-time { display: none; } .theme-toggle { display: none; } .nav-btn { display: none; }
-        .main { margin-left: 240px; padding-top: var(--space-8); min-height: 100vh; }
+        .main { margin-left: 240px; padding-top: var(--space-8); min-height: 100vh;  }
 
         /* Page Header */
         .page-header {
@@ -1184,7 +1185,8 @@
 
         // Timer - User's local timezone
         function updateTime() {
-            document.getElementById('navTime').textContent = new Date().toLocaleTimeString('en-US', { hour12: false });
+            const el = document.getElementById('navTime');
+            if (el) el.textContent = new Date().toLocaleTimeString('en-US', { hour12: false });
         }
 
         document.addEventListener('DOMContentLoaded', () => {

@@ -269,6 +269,7 @@
         .sidebar-time { font-family: var(--font-mono); font-size: 11px; color: var(--text-tertiary); font-variant-numeric: tabular-nums; padding: 6px 12px; text-align: center; }
 
         /* ==================== MOBILE NAV ==================== */
+
         .mobile-topbar { display: none; position: fixed; top: 0; left: 0; right: 0; height: 56px; background: var(--bg-sidebar); border-bottom: 1px solid rgba(148, 163, 184, 0.08); align-items: center; justify-content: space-between; padding: 0 16px; z-index: 100; }
         .mobile-topbar .sidebar-logo { width: 28px; height: 28px; }
         .mobile-topbar .sidebar-title { font-size: 14px; }
@@ -287,7 +288,7 @@
             padding-top: var(--space-8);
             min-height: 100vh;
             margin-left: 240px;
-        }
+         }
 
         /* ==================== HERO ==================== */
         .hero {
@@ -2135,7 +2136,8 @@
     }
 
     // ==================== MOBILE MENU ====================
-    function toggleMobileMenu() {
+
+        function toggleMobileMenu() {
         var menu = document.getElementById('mobile-nav-menu');
         var btn = document.querySelector('.mobile-menu-btn');
         var isOpen = menu.classList.toggle('active');

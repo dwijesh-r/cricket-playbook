@@ -348,6 +348,7 @@
         .sidebar-footer { padding: 12px 8px 16px; border-top: 1px solid rgba(148, 163, 184, 0.06); margin-top: auto; display: flex; flex-direction: column; gap: 8px; }
         .sidebar-footer .sidebar-link { font-size: 12px; }
         .sidebar-time { font-family: var(--font-mono); font-size: 11px; color: var(--text-tertiary); font-variant-numeric: tabular-nums; padding: 6px 12px; text-align: center; }
+
         .mobile-topbar { display: none; position: fixed; top: 0; left: 0; right: 0; height: 56px; background: var(--bg-sidebar); border-bottom: 1px solid rgba(148, 163, 184, 0.08); align-items: center; justify-content: space-between; padding: 0 16px; z-index: 100; }
         .mobile-topbar .sidebar-logo { width: 28px; height: 28px; }
         .mobile-topbar .sidebar-title { font-size: 14px; }
@@ -363,7 +364,7 @@
         .nav { display: none; } .nav-tabs { display: none; } .nav-tab { display: none; } .nav-brand { display: none; } .nav-actions { display: none; } .nav-time { display: none; } .theme-toggle { display: none; } .nav-btn { display: none; }
 
         /* ==================== MAIN ==================== */
-        .main { padding-top: var(--space-8); min-height: 100vh; margin-left: 240px; }
+        .main { padding-top: var(--space-8); min-height: 100vh; margin-left: 240px;  }
 
         /* ==================== HERO ==================== */
         .hero { padding: var(--space-9) 24px 28px; text-align: center; position: relative; }
@@ -3296,7 +3297,7 @@
         }
     }
 
-    function toggleMobileMenu() {
+        function toggleMobileMenu() {
         const menu = document.getElementById('mobile-nav-menu');
         const btn = document.querySelector('.mobile-menu-btn');
         const isOpen = menu.classList.toggle('active');
@@ -3306,7 +3307,8 @@
 
     function updateTime() {
         const now = new Date();
-        document.getElementById('navTime').textContent = now.toLocaleTimeString('en-US', { hour12: false });
+        const el = document.getElementById('navTime');
+        if (el) el.textContent = now.toLocaleTimeString('en-US', { hour12: false });
     }
 
     // ==================== INITIALIZATION ====================

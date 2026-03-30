@@ -289,6 +289,7 @@
         .sidebar-footer { padding: 12px 8px 16px; border-top: 1px solid rgba(148, 163, 184, 0.06); margin-top: auto; display: flex; flex-direction: column; gap: 8px; }
         .sidebar-footer .sidebar-link { font-size: 12px; }
         .sidebar-time { font-family: var(--font-mono); font-size: 11px; color: var(--text-tertiary); font-variant-numeric: tabular-nums; padding: 6px 12px; text-align: center; }
+
         .mobile-topbar { display: none; position: fixed; top: 0; left: 0; right: 0; height: 56px; background: var(--bg-sidebar); border-bottom: 1px solid rgba(148, 163, 184, 0.08); align-items: center; justify-content: space-between; padding: 0 16px; z-index: 100; }
         .mobile-topbar .sidebar-logo { width: 28px; height: 28px; }
         .mobile-topbar .sidebar-title { font-size: 14px; }
@@ -303,7 +304,7 @@
         .mobile-nav-menu .sidebar-link.active { background: rgba(232, 115, 74, 0.12); }
 
         /* ==================== MAIN ==================== */
-        .main { padding-top: var(--space-8); min-height: 100vh; margin-left: 240px; }
+        .main { padding-top: var(--space-8); min-height: 100vh; margin-left: 240px;  }
 
         /* ==================== HERO ==================== */
         .hero { padding: var(--space-9) 24px 28px; text-align: center; position: relative; }
@@ -2059,7 +2060,8 @@
     }
 
     // ==================== MOBILE NAV ====================
-    function toggleMobileMenu() {
+
+        function toggleMobileMenu() {
         const menu = document.getElementById('mobile-nav-menu');
         const btn = document.querySelector('.mobile-menu-btn');
         menu.classList.toggle('active');

@@ -474,6 +474,7 @@
             overflow-y: auto;
             scrollbar-width: thin;
             scrollbar-color: rgba(148, 163, 184, 0.15) transparent;
+
         }
         .sidebar::-webkit-scrollbar { width: 4px; }
         .sidebar::-webkit-scrollbar-thumb { background: rgba(148, 163, 184, 0.15); border-radius: 4px; }
@@ -674,8 +675,8 @@
             margin-left: 240px;
             padding-top: var(--space-4);
             min-height: 100vh;
-        }
 
+        }
         /* ==================== HERO SECTION ==================== */
         .hero {
             padding: 120px 24px 80px;
@@ -2882,7 +2883,8 @@
         // Timer - User's local timezone
         function updateTime() {
             const now = new Date();
-            document.getElementById('navTime').textContent = now.toLocaleTimeString('en-US', { hour12: false });
+            const el = document.getElementById('navTime');
+            if (el) el.textContent = now.toLocaleTimeString('en-US', { hour12: false });
         }
 
         // Initialize

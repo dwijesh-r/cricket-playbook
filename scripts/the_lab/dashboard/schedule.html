@@ -283,6 +283,7 @@
         }
 
         /* ==================== MOBILE NAV ==================== */
+
         .mobile-topbar {
             display: none; position: fixed; top: 0; left: 0; right: 0; height: 56px;
             background: var(--bg-sidebar); border-bottom: 1px solid rgba(148, 163, 184, 0.08);
@@ -314,7 +315,7 @@
         .mobile-nav-menu .sidebar-link.active { background: rgba(232, 115, 74, 0.12); }
 
         /* ==================== MAIN CONTENT ==================== */
-        .main { margin-left: 240px; padding-top: var(--space-4); min-height: 100vh; }
+        .main { margin-left: 240px; padding-top: var(--space-4); min-height: 100vh;  }
         .container {
             max-width: var(--container-max); margin: 0 auto;
             padding: 0 var(--space-4); width: 100%;
@@ -2088,7 +2089,8 @@
     }
 
     // ==================== MOBILE NAV ====================
-    function toggleMobileMenu() {
+
+        function toggleMobileMenu() {
         var menu = document.getElementById('mobile-nav-menu');
         var btn = document.querySelector('.mobile-menu-btn');
         var isOpen = menu.classList.toggle('active');

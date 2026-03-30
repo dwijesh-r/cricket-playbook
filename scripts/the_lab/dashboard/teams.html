@@ -566,6 +566,7 @@
         .sidebar-footer { padding: 12px 8px 16px; border-top: 1px solid rgba(148, 163, 184, 0.06); margin-top: auto; display: flex; flex-direction: column; gap: 8px; }
         .sidebar-footer .sidebar-link { font-size: 12px; }
         .sidebar-time { font-family: var(--font-mono); font-size: 11px; color: var(--text-tertiary); font-variant-numeric: tabular-nums; padding: 6px 12px; text-align: center; }
+
         .mobile-topbar { display: none; position: fixed; top: 0; left: 0; right: 0; height: 56px; background: var(--bg-sidebar); border-bottom: 1px solid rgba(148, 163, 184, 0.08); align-items: center; justify-content: space-between; padding: 0 16px; z-index: 100; }
         .mobile-topbar .sidebar-logo { width: 28px; height: 28px; }
         .mobile-topbar .sidebar-title { font-size: 14px; }
@@ -588,7 +589,7 @@
         .nav-btn { display: none; }
 
         /* Main */
-        .main { margin-left: 240px; padding-top: var(--space-8); min-height: 100vh; }
+        .main { margin-left: 240px; padding-top: var(--space-8); min-height: 100vh;  }
 
         /* Team Selector */
         .team-selector {
@@ -9165,7 +9166,8 @@
 
         // Timer - User's local timezone
         function updateTime() {
-            document.getElementById('navTime').textContent = new Date().toLocaleTimeString('en-US', { hour12: false });
+            const el = document.getElementById('navTime');
+            if (el) el.textContent = new Date().toLocaleTimeString('en-US', { hour12: false });
         }
 
         // Init
@@ -9869,264 +9871,477 @@ function generateXIImage(customXI, customTitle) {
     var sc = team.secondaryColor || '#222';
     var titles = team.titles || 0;
 
-    // --- Helper: parse hex to rgba ---
+    // --- Helpers ---
     function hexToRgba(hex, a) {
         var r = parseInt(hex.slice(1,3),16), g = parseInt(hex.slice(3,5),16), b = parseInt(hex.slice(5,7),16);
         return 'rgba('+r+','+g+','+b+','+a+')';
     }
-
-    // ================================================================
-    //  HEADER SLAB — Bold team color block (top ~340px)
-    // ================================================================
-    var HEADER_H = 340;
-
-    // Solid team color base
-    ctx.fillStyle = tc;
-    ctx.fillRect(0, 0, W, HEADER_H);
-
-    // Darker overlay gradient for depth (bottom of header fades to near-black)
-    var headerFade = ctx.createLinearGradient(0, 0, 0, HEADER_H);
-    headerFade.addColorStop(0, 'rgba(0,0,0,0)');
-    headerFade.addColorStop(0.6, 'rgba(0,0,0,0.15)');
-    headerFade.addColorStop(1, 'rgba(0,0,0,0.5)');
-    ctx.fillStyle = headerFade;
-    ctx.fillRect(0, 0, W, HEADER_H);
-
-    // Geometric texture — large diagonal stripes
-    ctx.save();
-    ctx.globalAlpha = 0.06;
-    ctx.fillStyle = '#000';
-    for (var s = -200; s < W + 200; s += 80) {
+    function hexToRgb(hex) {
+        return { r: parseInt(hex.slice(1,3),16), g: parseInt(hex.slice(3,5),16), b: parseInt(hex.slice(5,7),16) };
+    }
+    function luminance(hex) {
+        var c = hexToRgb(hex);
+        return (0.299 * c.r + 0.587 * c.g + 0.114 * c.b) / 255;
+    }
+    function darkenHex(hex, factor) {
+        var c = hexToRgb(hex);
+        var r = Math.round(c.r * factor), g = Math.round(c.g * factor), b = Math.round(c.b * factor);
+        return '#' + ((1<<24)|(r<<16)|(g<<8)|b).toString(16).slice(1);
+    }
+    function drawRoundedRect(x, y, w, h, rad) {
         ctx.beginPath();
-        ctx.moveTo(s, 0);
-        ctx.lineTo(s + 40, 0);
-        ctx.lineTo(s + 40 + HEADER_H * 0.4, HEADER_H);
-        ctx.lineTo(s + HEADER_H * 0.4, HEADER_H);
+        ctx.moveTo(x + rad, y);
+        ctx.lineTo(x + w - rad, y);
+        ctx.arcTo(x + w, y, x + w, y + rad, rad);
+        ctx.lineTo(x + w, y + h - rad);
+        ctx.arcTo(x + w, y + h, x + w - rad, y + h, rad);
+        ctx.lineTo(x + rad, y + h);
+        ctx.arcTo(x, y + h, x, y + h - rad, rad);
+        ctx.lineTo(x, y + rad);
+        ctx.arcTo(x, y, x + rad, y, rad);
         ctx.closePath();
-        ctx.fill();
+    }
+
+    var tcDark = darkenHex(tc, 0.35);
+    var PAD = 60;
+
+    // ================================================================
+    //  FULL BACKGROUND — rich dark with team color undertone
+    // ================================================================
+    // Deep charcoal base
+    ctx.fillStyle = '#0A0A0F';
+    ctx.fillRect(0, 0, W, H);
+
+    // Radial team color glow from top-left (very subtle, gives identity)
+    var bgGlow = ctx.createRadialGradient(0, 0, 0, 0, 0, W * 0.9);
+    bgGlow.addColorStop(0, hexToRgba(tc, 0.10));
+    bgGlow.addColorStop(0.5, hexToRgba(tc, 0.03));
+    bgGlow.addColorStop(1, 'transparent');
+    ctx.fillStyle = bgGlow;
+    ctx.fillRect(0, 0, W, H);
+
+    // ================================================================
+    //  HEADER BLOCK — top ~400px, strong team color
+    // ================================================================
+    var HEADER_H = 405;
+
+    // Team color gradient — rich and bold
+    var headerGrad = ctx.createLinearGradient(0, 0, W * 0.3, HEADER_H);
+    headerGrad.addColorStop(0, tc);
+    headerGrad.addColorStop(1, tcDark);
+    ctx.fillStyle = headerGrad;
+    ctx.fillRect(0, 0, W, HEADER_H);
+
+    // Secondary color diagonal sweep (large, subtle)
+    ctx.save();
+    ctx.globalAlpha = 0.07;
+    var sweepGrad = ctx.createLinearGradient(W * 0.4, 0, W, HEADER_H);
+    sweepGrad.addColorStop(0, 'transparent');
+    sweepGrad.addColorStop(0.5, sc);
+    sweepGrad.addColorStop(1, 'transparent');
+    ctx.fillStyle = sweepGrad;
+    ctx.fillRect(0, 0, W, HEADER_H);
+    ctx.restore();
+
+    // Geometric texture — chevron/herringbone pattern
+    ctx.save();
+    ctx.globalAlpha = 0.04;
+    ctx.strokeStyle = '#FFFFFF';
+    ctx.lineWidth = 1.5;
+    for (var ch = -HEADER_H; ch < W + HEADER_H; ch += 52) {
+        ctx.beginPath();
+        ctx.moveTo(ch, 0);
+        ctx.lineTo(ch + HEADER_H * 0.5, HEADER_H);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(ch + 26, 0);
+        ctx.lineTo(ch + 26 - HEADER_H * 0.5, HEADER_H);
+        ctx.stroke();
     }
     ctx.restore();
 
-    // Secondary color accent — large circle clipped to header
+    // Large decorative circle — team secondary color, clipped
     ctx.save();
-    ctx.globalAlpha = 0.08;
     ctx.beginPath();
-    ctx.arc(W - 160, HEADER_H * 0.4, 280, 0, Math.PI * 2);
+    ctx.rect(0, 0, W, HEADER_H);
+    ctx.clip();
+    ctx.globalAlpha = 0.06;
+    ctx.beginPath();
+    ctx.arc(W - 100, -40, 360, 0, Math.PI * 2);
     ctx.fillStyle = sc;
+    ctx.fill();
+    ctx.globalAlpha = 0.04;
+    ctx.beginPath();
+    ctx.arc(W - 280, HEADER_H + 60, 200, 0, Math.PI * 2);
+    ctx.fillStyle = '#FFFFFF';
     ctx.fill();
     ctx.restore();
 
-    // -- Branding: top-left --
-    ctx.textAlign = 'left';
-    ctx.font = '600 12px -apple-system, sans-serif';
-    ctx.fillStyle = 'rgba(255,255,255,0.7)';
-    ctx.fillText('S T A T S L E D G E', 64, 48);
+    // Noise/grain overlay for texture depth
+    ctx.save();
+    ctx.globalAlpha = 0.03;
+    for (var gx = 0; gx < W; gx += 4) {
+        for (var gy = 0; gy < HEADER_H; gy += 4) {
+            if (Math.random() > 0.5) {
+                ctx.fillStyle = Math.random() > 0.5 ? '#FFF' : '#000';
+                ctx.fillRect(gx, gy, 2, 2);
+            }
+        }
+    }
+    ctx.restore();
 
-    // -- IPL badge: top-right --
+    // Bottom fade of header into dark body
+    var headerBottomFade = ctx.createLinearGradient(0, HEADER_H - 80, 0, HEADER_H);
+    headerBottomFade.addColorStop(0, 'rgba(10,10,15,0)');
+    headerBottomFade.addColorStop(1, 'rgba(10,10,15,0.6)');
+    ctx.fillStyle = headerBottomFade;
+    ctx.fillRect(0, HEADER_H - 80, W, 80);
+
+    // ---- Top bar: branding + season ----
+    var topY = 44;
+    // Subtle top line in secondary color
+    ctx.fillStyle = hexToRgba(sc, 0.3);
+    ctx.fillRect(0, 0, W, 3);
+
+    ctx.textAlign = 'left';
+    ctx.font = '700 13px -apple-system, sans-serif';
+    ctx.letterSpacing = '4px';
+    ctx.fillStyle = 'rgba(255,255,255,0.8)';
+    ctx.fillText('S T A T S L E D G E', PAD + 4, topY);
+    ctx.letterSpacing = '0px';
+
     ctx.textAlign = 'right';
-    ctx.font = '700 12px -apple-system, sans-serif';
-    ctx.fillStyle = 'rgba(255,255,255,0.85)';
-    ctx.fillText('IPL 2026', W - 64, 48);
+    ctx.font = '800 13px -apple-system, sans-serif';
+    ctx.fillStyle = 'rgba(255,255,255,0.9)';
+    ctx.fillText('IPL 2026', W - PAD - 4, topY);
 
-    // -- Team name: massive --
-    ctx.textAlign = 'left';
-    ctx.font = '900 56px -apple-system, sans-serif';
+    // Thin separator under top bar
+    ctx.fillStyle = 'rgba(255,255,255,0.12)';
+    ctx.fillRect(PAD, topY + 14, W - PAD * 2, 1);
+
+    // ---- Title label pill ----
+    var labelY = topY + 42;
+    ctx.font = '800 12px -apple-system, sans-serif';
+    var pillText = title;
+    var pillW = ctx.measureText(pillText).width + 32;
+    // White pill
     ctx.fillStyle = '#FFFFFF';
+    drawRoundedRect(PAD + 4, labelY - 14, pillW, 24, 4);
+    ctx.fill();
+    ctx.fillStyle = tcDark;
+    ctx.fillText(pillText, PAD + 20, labelY + 1);
+
+    // Titles count next to pill (if any)
+    if (titles > 0) {
+        var titlesLabel = titles + 'x CHAMPION' + (titles > 1 ? 'S' : '');
+        ctx.font = '600 11px -apple-system, sans-serif';
+        ctx.fillStyle = 'rgba(255,255,255,0.55)';
+        ctx.textAlign = 'left';
+        ctx.fillText(titlesLabel, PAD + pillW + 20, labelY + 1);
+    }
+
+    // ---- Team name: massive display type ----
+    var nameY = labelY + 62;
+    ctx.textAlign = 'left';
     var teamNameUpper = team.fullName.toUpperCase();
-    // If name is too long, reduce size
-    var nameSize = 56;
-    while (ctx.measureText(teamNameUpper).width > W - 140 && nameSize > 32) {
+    var nameSize = 64;
+    ctx.font = '900 ' + nameSize + 'px -apple-system, sans-serif';
+    while (ctx.measureText(teamNameUpper).width > W - PAD * 2 - 20 && nameSize > 34) {
         nameSize -= 2;
         ctx.font = '900 ' + nameSize + 'px -apple-system, sans-serif';
     }
-    ctx.fillText(teamNameUpper, 64, 130);
-
-    // -- Title pill --
-    ctx.font = '800 13px -apple-system, sans-serif';
-    var pillText = title;
-    var pillW = ctx.measureText(pillText).width + 28;
+    // Text shadow effect
+    ctx.fillStyle = 'rgba(0,0,0,0.25)';
+    ctx.fillText(teamNameUpper, PAD + 6, nameY + 2);
     ctx.fillStyle = '#FFFFFF';
-    ctx.beginPath();
-    ctx.roundRect(64, 148, pillW, 26, 4);
-    ctx.fill();
-    ctx.fillStyle = tc;
-    ctx.fillText(pillText, 78, 166);
+    ctx.fillText(teamNameUpper, PAD + 4, nameY);
 
-    // -- Meta: Captain / Coach / Titles --
-    var metaY = 210;
-    ctx.font = '400 14px -apple-system, sans-serif';
-    ctx.fillStyle = 'rgba(255,255,255,0.75)';
-    ctx.textAlign = 'left';
-    if (team.captain) {
-        ctx.fillText('Captain', 64, metaY);
-        ctx.font = '700 14px -apple-system, sans-serif';
-        ctx.fillStyle = '#FFFFFF';
-        ctx.fillText(team.captain, 64, metaY + 20);
-    }
-    if (team.coach) {
-        ctx.font = '400 14px -apple-system, sans-serif';
-        ctx.fillStyle = 'rgba(255,255,255,0.75)';
-        ctx.fillText('Coach', 340, metaY);
-        ctx.font = '700 14px -apple-system, sans-serif';
-        ctx.fillStyle = '#FFFFFF';
-        ctx.fillText(team.coach, 340, metaY + 20);
-    }
-    if (titles > 0) {
-        ctx.font = '400 14px -apple-system, sans-serif';
-        ctx.fillStyle = 'rgba(255,255,255,0.75)';
-        ctx.fillText('Titles', 620, metaY);
-        ctx.font = '700 32px -apple-system, sans-serif';
-        ctx.fillStyle = '#FFFFFF';
-        ctx.fillText(String(titles), 620, metaY + 28);
-    }
-
-    // -- Thin separator at bottom of header --
+    // ---- Decorative line under team name ----
+    var lineY = nameY + 18;
+    ctx.fillStyle = hexToRgba(sc, 0.4);
+    ctx.fillRect(PAD + 4, lineY, 80, 3);
     ctx.fillStyle = 'rgba(255,255,255,0.15)';
-    ctx.fillRect(0, HEADER_H - 1, W, 1);
+    ctx.fillRect(PAD + 90, lineY, W - PAD * 2 - 90, 1);
 
-    // ================================================================
-    //  BODY — Dark background with player list
-    // ================================================================
-    ctx.fillStyle = '#0B0B0E';
-    ctx.fillRect(0, HEADER_H, W, H - HEADER_H);
+    // ---- Meta cards: Captain / Coach ----
+    var metaY = lineY + 30;
+    var cardW = (W - PAD * 2 - 24) / 2;
+    var cardH = 62;
 
-    // Subtle team color wash at transition
-    var bodyWash = ctx.createLinearGradient(0, HEADER_H, 0, HEADER_H + 120);
-    bodyWash.addColorStop(0, hexToRgba(tc, 0.08));
-    bodyWash.addColorStop(1, 'transparent');
-    ctx.fillStyle = bodyWash;
-    ctx.fillRect(0, HEADER_H, W, 120);
-
-    // -- Column headers --
-    var y = HEADER_H + 36;
-    ctx.font = '600 10px -apple-system, sans-serif';
-    ctx.fillStyle = 'rgba(255,255,255,0.3)';
-    ctx.textAlign = 'left';
-    ctx.fillText('#', 80, y);
-    ctx.fillText('PLAYER', 124, y);
-    ctx.textAlign = 'right';
-    ctx.fillText('NAT', W - 140, y);
-    ctx.fillText('AGE', W - 72, y);
-    y += 8;
+    // Captain card
+    ctx.fillStyle = 'rgba(0,0,0,0.25)';
+    drawRoundedRect(PAD + 4, metaY, cardW, cardH, 6);
+    ctx.fill();
     ctx.fillStyle = 'rgba(255,255,255,0.06)';
-    ctx.fillRect(64, y, W - 128, 1);
-    y += 20;
+    drawRoundedRect(PAD + 4, metaY, cardW, cardH, 6);
+    ctx.fill();
+    // Left accent bar
+    ctx.fillStyle = hexToRgba(sc, 0.5);
+    ctx.fillRect(PAD + 4, metaY + 8, 3, cardH - 16);
 
-    // -- Player rows --
-    var ROW_H = 58;
+    ctx.textAlign = 'left';
+    ctx.font = '600 10px -apple-system, sans-serif';
+    ctx.fillStyle = 'rgba(255,255,255,0.45)';
+    ctx.fillText('CAPTAIN', PAD + 22, metaY + 24);
+    ctx.font = '700 17px -apple-system, sans-serif';
+    ctx.fillStyle = '#FFFFFF';
+    var captName = team.captain || 'TBA';
+    // Truncate if needed
+    var capSize = 17;
+    while (ctx.measureText(captName).width > cardW - 30 && capSize > 12) {
+        capSize--;
+        ctx.font = '700 ' + capSize + 'px -apple-system, sans-serif';
+    }
+    ctx.fillText(captName, PAD + 22, metaY + 47);
+
+    // Coach card
+    var coachX = PAD + 4 + cardW + 16;
+    ctx.fillStyle = 'rgba(0,0,0,0.25)';
+    drawRoundedRect(coachX, metaY, cardW, cardH, 6);
+    ctx.fill();
+    ctx.fillStyle = 'rgba(255,255,255,0.06)';
+    drawRoundedRect(coachX, metaY, cardW, cardH, 6);
+    ctx.fill();
+    ctx.fillStyle = hexToRgba(sc, 0.5);
+    ctx.fillRect(coachX, metaY + 8, 3, cardH - 16);
+
+    ctx.font = '600 10px -apple-system, sans-serif';
+    ctx.fillStyle = 'rgba(255,255,255,0.45)';
+    ctx.fillText('HEAD COACH', coachX + 18, metaY + 24);
+    ctx.font = '700 17px -apple-system, sans-serif';
+    ctx.fillStyle = '#FFFFFF';
+    var coachName = team.coach || 'TBA';
+    var coachSize = 17;
+    while (ctx.measureText(coachName).width > cardW - 30 && coachSize > 12) {
+        coachSize--;
+        ctx.font = '700 ' + coachSize + 'px -apple-system, sans-serif';
+    }
+    ctx.fillText(coachName, coachX + 18, metaY + 47);
+
+    // ================================================================
+    //  TRANSITION — header to body
+    // ================================================================
+    // Team color line at header base
+    ctx.fillStyle = tc;
+    ctx.fillRect(0, HEADER_H, W, 2);
+    ctx.fillStyle = hexToRgba(tc, 0.3);
+    ctx.fillRect(0, HEADER_H + 2, W, 1);
+
+    // ================================================================
+    //  BODY — player list on dark surface
+    // ================================================================
+    // Subtle team color ambient glow at top of body
+    var bodyGlow = ctx.createLinearGradient(0, HEADER_H, 0, HEADER_H + 140);
+    bodyGlow.addColorStop(0, hexToRgba(tc, 0.06));
+    bodyGlow.addColorStop(1, 'transparent');
+    ctx.fillStyle = bodyGlow;
+    ctx.fillRect(0, HEADER_H, W, 140);
+
+    // ---- Column headers ----
+    var y = HEADER_H + 34;
+    ctx.font = '700 9px -apple-system, sans-serif';
+    ctx.fillStyle = 'rgba(255,255,255,0.25)';
+    ctx.textAlign = 'left';
+    ctx.fillText('#', PAD + 18, y);
+    ctx.fillText('PLAYER', PAD + 60, y);
+    ctx.textAlign = 'right';
+    ctx.fillText('NAT', W - PAD - 70, y);
+    ctx.fillText('AGE', W - PAD - 14, y);
+    y += 12;
+    ctx.fillStyle = 'rgba(255,255,255,0.06)';
+    ctx.fillRect(PAD, y, W - PAD * 2, 1);
+    y += 14;
+
+    // ---- Player rows ----
+    var ROW_H = 56;
+    var overseasCount = 0;
     xiPlayers.forEach(function(p, i) {
         var sq = squadLookup[p.name] || {};
         var nat = sq.nationality || (p.overseas ? 'OS' : 'IND');
         var age = sq.age || '';
         var role = p.role || sq.role || '';
+        var isOverseas = p.overseas;
+        if (isOverseas) overseasCount++;
 
-        // Alternating row
+        var rowY = y;
+        var rowX = PAD;
+        var rowW = W - PAD * 2;
+
+        // Alternating row backgrounds
         if (i % 2 === 0) {
-            ctx.fillStyle = 'rgba(255,255,255,0.025)';
-            ctx.fillRect(64, y - 16, W - 128, ROW_H);
+            ctx.fillStyle = 'rgba(255,255,255,0.018)';
+            drawRoundedRect(rowX, rowY, rowW, ROW_H, 4);
+            ctx.fill();
         }
 
-        // Overseas accent — team color left bar
-        if (p.overseas) {
-            ctx.fillStyle = hexToRgba(tc, 0.5);
-            ctx.fillRect(64, y - 16, 3, ROW_H);
+        // Overseas indicator — colored left accent bar
+        if (isOverseas) {
+            ctx.fillStyle = tc;
+            drawRoundedRect(rowX, rowY + 6, 3, ROW_H - 12, 2);
+            ctx.fill();
         }
 
-        // Position — team color
-        ctx.textAlign = 'left';
-        ctx.font = '800 15px -apple-system, sans-serif';
-        ctx.fillStyle = hexToRgba(tc, 0.6);
-        ctx.fillText(String(i + 1), 80, y + 6);
-
-        // Player name
-        ctx.font = '600 20px -apple-system, sans-serif';
-        ctx.fillStyle = '#EEEEEE';
-        ctx.fillText(p.name, 124, y + 5);
-
-        // Role below name
-        ctx.font = '400 11px -apple-system, sans-serif';
-        ctx.fillStyle = 'rgba(255,255,255,0.3)';
-        ctx.fillText(role, 124, y + 23);
-
-        // Country code
+        // Position number — large, muted, team-colored
         ctx.textAlign = 'right';
-        ctx.font = '500 12px -apple-system, sans-serif';
-        ctx.fillStyle = p.overseas ? hexToRgba(tc, 0.7) : 'rgba(255,255,255,0.35)';
-        ctx.fillText(nat, W - 130, y + 6);
+        ctx.font = '800 20px -apple-system, sans-serif';
+        ctx.fillStyle = isOverseas ? hexToRgba(tc, 0.50) : 'rgba(255,255,255,0.10)';
+        var posNum = (i + 1 < 10 ? '0' : '') + String(i + 1);
+        ctx.fillText(posNum, rowX + 46, rowY + 34);
+
+        // Player name — bold and clear
+        ctx.textAlign = 'left';
+        ctx.font = '600 21px -apple-system, sans-serif';
+        ctx.fillStyle = isOverseas ? '#FFFFFF' : 'rgba(255,255,255,0.88)';
+        ctx.fillText(p.name, rowX + 60, rowY + 26);
+
+        // Role — muted, below name
+        ctx.font = '400 11px -apple-system, sans-serif';
+        ctx.fillStyle = isOverseas ? hexToRgba(tc, 0.55) : 'rgba(255,255,255,0.25)';
+        ctx.fillText(role, rowX + 60, rowY + 44);
+
+        // Country code — pill style for overseas
+        ctx.textAlign = 'right';
+        if (isOverseas) {
+            var natText = nat;
+            ctx.font = '700 10px -apple-system, sans-serif';
+            var natW = ctx.measureText(natText).width + 14;
+            ctx.fillStyle = hexToRgba(tc, 0.18);
+            drawRoundedRect(W - PAD - 68 - natW / 2, rowY + 18, natW, 20, 3);
+            ctx.fill();
+            ctx.fillStyle = tc;
+            ctx.fillText(natText, W - PAD - 68 - natW / 2 + natW - 7, rowY + 32);
+        } else {
+            ctx.font = '500 11px -apple-system, sans-serif';
+            ctx.fillStyle = 'rgba(255,255,255,0.22)';
+            ctx.fillText(nat, W - PAD - 60, rowY + 31);
+        }
 
         // Age
         ctx.font = '400 12px -apple-system, sans-serif';
-        ctx.fillStyle = 'rgba(255,255,255,0.25)';
-        ctx.fillText(age ? String(age) : '', W - 72, y + 6);
+        ctx.fillStyle = 'rgba(255,255,255,0.22)';
+        ctx.fillText(age ? String(age) : '--', W - PAD - 14, rowY + 31);
+
+        // Bottom separator (very subtle)
+        if (i < xiPlayers.length - 1) {
+            ctx.fillStyle = 'rgba(255,255,255,0.03)';
+            ctx.fillRect(rowX + 60, rowY + ROW_H - 1, rowW - 80, 1);
+        }
 
         ctx.textAlign = 'left';
         y += ROW_H;
     });
 
     // ================================================================
-    //  IMPACT SUBS — distinct section
+    //  IMPACT SUBS — distinct panel
     // ================================================================
-    y += 6;
-    ctx.fillStyle = hexToRgba(tc, 0.12);
-    ctx.fillRect(64, y, W - 128, 1);
-    y += 18;
+    y += 10;
 
     if (subs.length > 0) {
-        // Section label
+        // Divider with label
+        ctx.fillStyle = hexToRgba(tc, 0.15);
+        ctx.fillRect(PAD, y, W - PAD * 2, 1);
+        y += 20;
+
+        // Section label with icon-like treatment
         ctx.font = '800 10px -apple-system, sans-serif';
         ctx.fillStyle = tc;
         ctx.textAlign = 'left';
-        ctx.fillText('IMPACT SUBSTITUTES', 80, y);
-        y += 22;
+        // Small diamond marker before text
+        ctx.save();
+        ctx.translate(PAD + 14, y - 2);
+        ctx.rotate(Math.PI / 4);
+        ctx.fillRect(-3, -3, 6, 6);
+        ctx.restore();
+        ctx.fillText('IMPACT SUBSTITUTES', PAD + 30, y + 2);
+        y += 24;
 
-        subs.forEach(function(sub) {
+        subs.forEach(function(sub, si) {
             var sq = squadLookup[sub.name] || {};
             var subNat = sq.nationality || '';
             var subAge = sq.age || '';
             var subRole = sub.role || sq.role || '';
+            var subOverseas = sub.overseas || (sq.nationality && sq.nationality !== 'IND');
+
+            var subRowX = PAD;
+            var subRowW = W - PAD * 2;
 
             // Row background with team color tint
-            ctx.fillStyle = hexToRgba(tc, 0.05);
-            ctx.fillRect(64, y - 10, W - 128, 44);
+            ctx.fillStyle = hexToRgba(tc, 0.04);
+            drawRoundedRect(subRowX, y, subRowW, 48, 4);
+            ctx.fill();
 
             // Team color left accent
-            ctx.fillStyle = hexToRgba(tc, 0.3);
-            ctx.fillRect(64, y - 10, 2, 44);
+            ctx.fillStyle = hexToRgba(tc, 0.35);
+            drawRoundedRect(subRowX, y + 6, 3, 36, 2);
+            ctx.fill();
+
+            // "S" + number marker
+            ctx.font = '800 14px -apple-system, sans-serif';
+            ctx.fillStyle = hexToRgba(tc, 0.35);
+            ctx.textAlign = 'right';
+            ctx.fillText('S' + String(si + 1), subRowX + 46, y + 30);
 
             // Name
-            ctx.font = '500 16px -apple-system, sans-serif';
-            ctx.fillStyle = 'rgba(255,255,255,0.6)';
+            ctx.font = '500 18px -apple-system, sans-serif';
+            ctx.fillStyle = 'rgba(255,255,255,0.55)';
             ctx.textAlign = 'left';
-            ctx.fillText(sub.name, 84, y + 8);
+            ctx.fillText(sub.name, subRowX + 60, y + 28);
 
-            // Role + Country
-            ctx.textAlign = 'right';
+            // Role
             ctx.font = '400 11px -apple-system, sans-serif';
-            ctx.fillStyle = 'rgba(255,255,255,0.28)';
-            ctx.fillText(subRole + (subNat ? '  ·  ' + subNat : '') + (subAge ? '  ·  ' + subAge : ''), W - 80, y + 8);
+            ctx.fillStyle = 'rgba(255,255,255,0.22)';
+            ctx.fillText(subRole, subRowX + 60, y + 43);
+
+            // Country + Age on right
+            ctx.textAlign = 'right';
+            ctx.font = '500 11px -apple-system, sans-serif';
+            ctx.fillStyle = 'rgba(255,255,255,0.25)';
+            var subMeta = [];
+            if (subNat) subMeta.push(subNat);
+            if (subAge) subMeta.push(String(subAge));
+            ctx.fillText(subMeta.join('  /  '), W - PAD - 14, y + 30);
 
             ctx.textAlign = 'left';
-            y += 44;
+            y += 54;
         });
     }
 
     // ================================================================
-    //  FOOTER — team color bar + credits
+    //  FOOTER — premium, clean
     // ================================================================
-    // Team color bottom bar — thick and bold
+    var footerH = 72;
+    var footerY = H - footerH;
+
+    // Footer background
+    ctx.fillStyle = 'rgba(255,255,255,0.02)';
+    ctx.fillRect(0, footerY, W, footerH);
+
+    // Top line
+    ctx.fillStyle = 'rgba(255,255,255,0.05)';
+    ctx.fillRect(PAD, footerY, W - PAD * 2, 1);
+
+    // Team color accent bar at very bottom
     ctx.fillStyle = tc;
-    ctx.fillRect(0, H - 8, W, 8);
+    ctx.fillRect(0, H - 4, W, 4);
+    // Secondary color thin line above
+    ctx.fillStyle = hexToRgba(sc, 0.4);
+    ctx.fillRect(0, H - 5, W, 1);
 
-    // Footer area
-    ctx.fillStyle = 'rgba(255,255,255,0.04)';
-    ctx.fillRect(64, H - 52, W - 128, 1);
-
-    ctx.font = '500 11px -apple-system, sans-serif';
-    ctx.fillStyle = 'rgba(255,255,255,0.25)';
+    // Footer text
+    ctx.font = '600 12px -apple-system, sans-serif';
+    ctx.fillStyle = 'rgba(255,255,255,0.30)';
     ctx.textAlign = 'left';
-    ctx.fillText('statsledge.com', 64, H - 26);
+    ctx.fillText('statsledge.com', PAD, footerY + 36);
+
+    ctx.textAlign = 'center';
+    ctx.font = '400 10px -apple-system, sans-serif';
+    ctx.fillStyle = 'rgba(255,255,255,0.15)';
+    ctx.fillText('Based on IPL 2023-2025  |  219 matches analysed', W / 2, footerY + 52);
+
     ctx.textAlign = 'right';
-    ctx.fillText('IPL 2023-2025  ·  219 matches', W - 64, H - 26);
+    ctx.font = '600 12px -apple-system, sans-serif';
+    ctx.fillStyle = 'rgba(255,255,255,0.20)';
+    ctx.fillText('Pre-tournament Preview', W - PAD, footerY + 36);
 
     _shareTeamName = team.fullName;
     _shareCanvasDataURL = canvas.toDataURL('image/png');
